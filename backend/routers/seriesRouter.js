@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Model = require('../models/userModel');
+const Model = require('../models/seriesModel');
 const { model } = require('mongoose');
 
 
@@ -15,17 +15,21 @@ router.post('/add', (req, res) => {
     });
 });
 
+router.get('/add', (req, res) => {
+    res.send('add response from series router'); 
+});
+
 router.get('/getall', (req, res) => {
-    res.send('getall response from user router'); 
+    res.send('getall response from series router'); 
     
 });
 
 router.get('/delete', (req, res) => {
-    res.send('delete response from user router'); 
+    res.send('delete response from series router'); 
 });
 
 router.get('/update', (req, res) => {
-    res.send('update response from user router'); 
+    res.send('update response from series router'); 
 });
 
 module.exports = router;
