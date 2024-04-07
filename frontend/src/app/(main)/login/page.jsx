@@ -1,14 +1,16 @@
 import React from 'react';
+import classes from './login.module.css';
 
 const Login = () => {
   return (
+    <div className={`h-screen ${classes.bg}`}>
     <section className="h-screen flex flex-col md:flex-row justify-center space-y-10 md:space-y-0 md:space-x-16 items-center my-2 mx-5 md:mx-0 md:my-0">
-      <div className="md:w-1/3 max-w-sm">
+      <div className="md:w-1/2 max-w-sm">
         <img
           src="https://cdni.iconscout.com/illustration/premium/thumb/create-account-6333606-5230166.png?f=webp"
           alt="" />
       </div>
-      <div className="md:w-1/3 max-w-sm">
+      <div className="md:w-1/2 max-w-sm">
         <div className="text-center md:text-left"></div>
         <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
@@ -116,6 +118,7 @@ const Login = () => {
         </div>
       </div>
     </section>
+    </div>
   )
 }
 
