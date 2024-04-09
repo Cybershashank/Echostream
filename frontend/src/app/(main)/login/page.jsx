@@ -48,7 +48,7 @@ const loginForm = useFormik({
                   htmlFor="email"
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                 
-                  Email
+                  Your email
                 </label>
                 <input
                   type="email"
@@ -92,7 +92,7 @@ const loginForm = useFormik({
                   </div>
                 </div>
                 <a
-                  href="http://localhost:3000/resetPassword"
+                  href="#"
                   className="text-sm font-medium text-blue-600 hover:text-blue-700 hover:underline hover:underline-offset-4">
                   Forgot password?
                 </a>
