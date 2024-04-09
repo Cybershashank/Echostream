@@ -7,7 +7,7 @@ const mySchema = new Schema({
     type: String,
     discription: String,
     icon: String,
-    create: String,
+    createdAt: {type : Date, default: Date.now},
     likes: String,
 
 });

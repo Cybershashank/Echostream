@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const Model = require('../models/userModel');
-const { model } = require('mongoose');
 
 
 router.post('/add', (req, res) => {

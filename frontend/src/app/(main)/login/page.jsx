@@ -1,7 +1,32 @@
+'use client';
 import React from 'react';
+import Link from 'next/link';
+import * as Yup from "yup";
 import classes from './login.module.css';
+import { useFormik, } from 'formik';
+
 
 const Login = () => {
+
+const loginValidationSchema = Yup.object().shape({
+  email: Yup.string().required('Email is Required').email('Email is invalid'),
+  password: Yup.string().required('Password is Required')
+});
+
+// initialize formik
+const loginForm = useFormik({
+  initialValues: {
+    Email: '',
+    Password: ''
+  },
+  onSubmit: (values, { resetForm }) => {
+    console.log(values);
+    resetForm();
+    // send data to backend
+  },
+  validationSchema: loginValidationSchema
+});
+
   return (
     <div className={`h-screen ${classes.bg}`}>
     <section className="h-screen flex flex-col md:flex-row justify-center space-y-10 md:space-y-0 md:space-x-16 items-center my-2 mx-5 md:mx-0 md:my-0">
@@ -23,7 +48,7 @@ const Login = () => {
                   htmlFor="email"
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                 
-                  Your email
+                  Email
                 </label>
                 <input
                   type="email"
@@ -67,7 +92,7 @@ const Login = () => {
                   </div>
                 </div>
                 <a
-                  href="#"
+                  href="http://localhost:3000/resetPassword"
                   className="text-sm font-medium text-blue-600 hover:text-blue-700 hover:underline hover:underline-offset-4">
                   Forgot password?
                 </a>

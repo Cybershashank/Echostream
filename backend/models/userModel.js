@@ -1,10 +1,11 @@
 const { Schema, model } = require('../connection');
 
 const mySchema = new Schema({
-    username : String,
+    name : String,
     email : String,
     password : String,
-    
+    avatar: {type : String, default: 'placeholder.png'},
+    createdAt: {type : Date, default: Date.now}
 });
 
 module.exports = model('user', mySchema);

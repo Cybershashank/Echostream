@@ -3,11 +3,11 @@ const { Schema, model } = require('../connection');
 const mySchema = new Schema({
     user: String,
     cover: String,
-    avatar: String,
+    avatar: {type : String, default: 'placeholder.png'},
     gender: String,
     bio: String,
     type: String,
-    create: String,
+    createdAt: {type : Date, default: Date.now},
 
 });
 

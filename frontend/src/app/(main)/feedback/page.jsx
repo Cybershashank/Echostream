@@ -1,57 +1,164 @@
 import React from 'react'
 
+
 const feedback = () => {
 
 
 
   return (
     <>
-
       <>
-        <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>feedback</title>
-        <style
-          dangerouslySetInnerHTML={{
-            __html:
-              "\n        *{\n            padding: 0;\n            margin: 0;\n            box-sizing: border-box;\n        \n        }\n        body{\n            font-family: 'Outfit';\n            background: linear-gradient(#ffdad5,#fff7f9);\n        }\n        .contact-container{\n            height: 100vh;\n            display: flex;\n            align-items: center;\n            justify-content: space-evenly;\n        }\n        .contact-left{\n            display: flex;\n            flex-direction: column;\n            align-items: start;\n            gap: 20px;\n        }\n        .contact-left-title h2{\n            font-weight: 600;\n            color: #a363aa;\n            font-size: 40px;\n            margin-bottom: 5px;\n        }\n        .contact-left-title hr{\n            border: none;\n            width: 120px;\n            height: 5px;\n            background-color: #a363aa;\n            border-radius: 10px;\n            margin-bottom: 20px;\n        }\n        .contact-inputs{\n            width: 400px;\n            height: 50px;\n            border: none;\n            outline: none;\n            padding-left: 25px;\n            font-weight: 500;\n            color: #666;\n            border-radius: 50px;\n        }\n        .contact-left textarea{\n            height: 140px;\n            padding-top: 15px;\n            border-radius: 20px;\n        }\n        .contact-inputs:focus{\n            border: 2px solid #ff994f;\n        }\n        .contact-inputs::placeholder{\n            color: #a9a9a9;\n        }\n        .contact-left button{\n            display: flex;\n            align-items: center;\n            padding: 15px 30px;\n            font-size: 16px;\n            color: #fff;\n            gap: 10px;\n            border: none;\n            border-radius: 50px;\n            background: linear-gradient(270deg,#ff994f,#fa6d86);\n            cursor: pointer;\n        }\n        .contact-left button img{\n            height: 15px;\n        }\n        .contact-right img{\n            width: 500px;\n        }\n        @media(max-width:800px) {\n            .contact-inputs{\n                width: 80vw;\n            }.contact-right{\n                display: none;\n            }\n        \n        }\n    "
-          }}
-        />
-        <div className="contact-container">
-          <form action="" className="contact-left">
-            <div className="contact-left-title">
-              <h2>Feedback</h2>
-              <hr />
+        <>
+          {/* component */}
+          <section>
+            <div className="bg-black text-white py-20">
+              <div className="container mx-auto flex flex-col md:flex-row my-6 md:my-24">
+                <div className="flex flex-col w-full lg:w-1/3 p-8">
+                  <p className="ml-6 text-yellow-300 text-lg uppercase tracking-loose">
+                    REVIEW
+                  </p>
+                  <p className="text-3xl md:text-5xl my-4 leading-relaxed md:leading-snug">
+                    Leave us a feedback!
+                  </p>
+                  <p className="text-sm md:text-base leading-snug text-gray-50 text-opacity-100">
+                    Please provide your valuable feedback and something something ...
+                  </p>
+                </div>
+                <div className="flex flex-col w-full lg:w-2/3 justify-center">
+                  <div className="container w-full px-4">
+                    <div className="flex flex-wrap justify-center">
+                      <div className="w-full lg:w-6/12 px-4">
+                        <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-white">
+                          <div className="flex-auto p-5 lg:p-10">
+                            <h4 className="text-2xl mb-4 text-black font-semibold">
+                              Have a suggestion?
+                            </h4>
+                            <form id="feedbackForm" action="" method="">
+                              <div className="relative w-full mb-3">
+                                <label
+                                  className="block uppercase text-gray-700 text-xs font-bold mb-2"
+                                  htmlFor="email"
+                                >
+                                  Email
+                                </label>
+                                <input
+                                  type="email"
+                                  name="email"
+                                  id="email"
+                                  className="border-0 px-3 py-3 rounded text-sm shadow w-full
+                                         bg-gray-300 placeholder-black text-gray-800 outline-none focus:bg-gray-400"
+                                  placeholder=" "
+                                  style={{ transition: "all 0.15s ease 0s" }}
+                                  required=""
+                                />
+                              </div>
+                              
+                              <div className="relative w-full mb-3">
+                                <label
+                                  className="block uppercase text-gray-700 text-xs font-bold mb-2"
+                                  htmlFor="email"
+                                >
+                                  Rate your experience
+                                </label>
+                              </div>
+
+
+
+
+
+
+
+                              
+                              <div className="flex items-center">
+                              <svg
+                                className="w-4 h-4 text-yellow-300 ms-1"
+                                aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="currentColor"
+                                viewBox="0 0 22 20"
+                              >
+                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                              </svg>
+                              <svg
+                                className="w-4 h-4 text-yellow-300 ms-1"
+                                aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="currentColor"
+                                viewBox="0 0 22 20"
+                              >
+                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                              </svg>
+                              <svg
+                                className="w-4 h-4 text-yellow-300 ms-1"
+                                aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="currentColor"
+                                viewBox="0 0 22 20"
+                              >
+                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                              </svg>
+                              <svg
+                                className="w-4 h-4 text-yellow-300 ms-1"
+                                aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="currentColor"
+                                viewBox="0 0 22 20"
+                              >
+                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                              </svg>
+                              <svg
+                                className="w-4 h-4 ms-1 text-gray-300 dark:text-gray-500"
+                                aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="currentColor"
+                                viewBox="0 0 22 20"
+                              >
+                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                              </svg>
+                          </div>
+
+
+                          <div className="relative w-full mb-3">
+                            <label
+                              className="block uppercase text-gray-700 text-xs font-bold mb-2"
+                              htmlFor="message"
+                            >
+                              Message
+                            </label>
+                            <textarea
+                              maxLength={300}
+                              name="feedback"
+                              id="feedback"
+                              rows={4}
+                              cols={80}
+                              className="border-0 px-3 py-3 bg-gray-300 placeholder-black text-gray-800 rounded text-sm shadow focus:outline-none w-full"
+                              placeholder=""
+                              required=""
+                              defaultValue={""}
+                            />
+                          </div>
+                          <div className="text-center mt-6">
+                            <button
+                              id="feedbackBtn"
+                              className="bg-yellow-300 text-black text-center mx-auto active:bg-yellow-400 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
+                              type="submit"
+                              style={{ transition: "all 0.15s ease 0s" }}
+                            >
+                              Submit
+                            </button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <input
-              type="text"
-              name="name"
-              placeholder="Your Name"
-              className="contact-inputs"
-              required=""
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Your Email"
-              className="contact-inputs"
-              required=""
-            />
-            <textarea
-              name="message"
-              placeholder="Your feedback"
-              className="contact-inputs"
-              required=""
-              defaultValue={""}
-            />
-            <button type="submit">
-              Submit <img src="assets/arrow_icon.png" alt="" />
-            </button>
-          </form>
-          <div className="contact-right">
-            <img src/>
           </div>
         </div>
+      </section>
+    </>
+
       </>
     </>
   )

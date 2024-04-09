@@ -1,4 +1,5 @@
 import React from 'react'
+import classes from './browse_podcast.module.css';
 
 const browse_podcast = () => {
   return (
@@ -121,7 +122,7 @@ const browse_podcast = () => {
       </div>
       <div>
         <button className="text-xs text-white bg-gray-500 rounded-full p-px pr-3">
-          <img
+        <img
             src="https://scontent-hkg4-1.xx.fbcdn.net/v/t1.0-1/p320x320/65515608_2532995250044876_5026016977987043328_n.jpg?_nc_cat=107&_nc_sid=0c64ff&_nc_ohc=o9OLXY2wcysAX9HP-OL&_nc_ht=scontent-hkg4-1.xx&_nc_tp=6&oh=3692e7babdda377f38099d7603d11f92&oe=5EAD96FA"
             className="w-7 h-7 inline-block rounded-full mr-2"
           />
