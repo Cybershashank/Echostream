@@ -2,10 +2,11 @@ const { Schema, model } = require('../connection');
 
 const mySchema = new Schema({
     name : String,
-    email : String,
-    password : String,
-    avatar: {type : String, default: 'placeholder.png'},
-    createdAt: {type : Date, default: Date.now}
+    cover : String,
+    artist : String,
+    likes : String,
+    comments : String,
+    
 });
 
 module.exports = model('user', mySchema);

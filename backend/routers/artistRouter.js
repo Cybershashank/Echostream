@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const Model = require('../models/userModel');
+const Model = require('../models/artistModel');
+const { model } = require('mongoose');
 
 
 router.post('/add', (req, res) => {
@@ -14,17 +15,21 @@ router.post('/add', (req, res) => {
     });
 });
 
+router.get('/add', (req, res) => {
+    res.send('add response from artist router'); 
+});
+
 router.get('/getall', (req, res) => {
-    res.send('getall response from user router'); 
+    res.send('getall response from artist router'); 
     
 });
 
 router.get('/delete', (req, res) => {
-    res.send('delete response from user router'); 
+    res.send('delete response from artist router'); 
 });
 
 router.get('/update', (req, res) => {
-    res.send('update response from user router'); 
+    res.send('update response from artist router'); 
 });
 
 module.exports = router;
