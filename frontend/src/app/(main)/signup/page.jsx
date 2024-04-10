@@ -3,7 +3,7 @@ import { IconAt } from '@tabler/icons-react';
 import classes from './signup.module.css';
 
 
-import { useFormik,} from 'formik'
+import { useFormik, } from 'formik'
 import React from 'react'
 import Link from 'next/link';
 import * as Yup from "yup";
@@ -15,12 +15,12 @@ const Signup = () => {
     email: Yup.string().email('Email is invalid').required('Email is required'),
     name: Yup.string().required('Name is required'),
     password: Yup.string().required('Password is required').min(6, 'Too short')
-    .matches(/[a-z]/, 'password must contain lowercase letter')
-    .matches(/[A-Z]/, 'password must contain uppercase letter')
-    .matches(/[0-9]/, 'password must contain number')
-    .matches(/\W/, 'password must contain special symbol'),
+      .matches(/[a-z]/, 'password must contain lowercase letter')
+      .matches(/[A-Z]/, 'password must contain uppercase letter')
+      .matches(/[0-9]/, 'password must contain number')
+      .matches(/\W/, 'password must contain special symbol'),
     cpassword: Yup.string().required('Confirm Password is required')
-    .oneOf([Yup.ref('password'), null], 'Passwords must match')
+      .oneOf([Yup.ref('password'), null], 'Passwords must match')
   })
 
   const signupForm = useFormik({
@@ -31,7 +31,7 @@ const Signup = () => {
       Password: '',
       Confirm_password: ''
     },
-    onSubmit: (values, {resetForm}) => {
+    onSubmit: (values, { resetForm }) => {
 
       setTimeout(() => {
         console.log(values);
@@ -41,13 +41,13 @@ const Signup = () => {
     validationSchema: signupValidationSchema
   })
 
-  
+
 
 
   return (
 
     <>
-      <body class="bg-purple-900"></body>
+
 
       <section className="h-screen flex flex-col md:flex-row justify-center space-y-10 md:space-y-0 md:space-x-16 items-center my-2 mx-5 md:mx-0 md:my-0">
         <div className="md:w-1/3 max-w-sm">
