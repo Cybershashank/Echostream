@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const Model = require('../models/userModel');
-const { model } = require('mongoose');
 const jwt = require('../models/userModel');
 require('dotenv').config();
 
@@ -27,23 +26,21 @@ router.get('/getall', (req, res) => {
 });
 
 router.get('/delete', (req, res) => {
-    res.send('delete response from user router');
+    Model.findByIdAndDelete(req.params.id)
+        .then((result) => {
+            res.json(result);
+        }).catch((err) => {
+            console.log(err);
+            res.json(err)
+        });
 });
 
 router.get('/update', (req, res) => {
     res.send('update response from user router');
 });
 
-model.findByIdAndDelete(req.params.id)
-    .then((result) => {
-        res.json(result);
-    }).catch((err) => {
-        console.log(err);
-        res.json(err)
-    });
 
-Router.post("/authenticate", (req, res) => {
-    console.log(req.body);
+router.post("/authenticate", (req, res) => {
     Model.find(req.body)
         .then((result) => {
             if (result) {
@@ -51,6 +48,7 @@ Router.post("/authenticate", (req, res) => {
                 const payload = { _id, name, email };
 
                 jwt.sign(
+                    payload,
                     process.env.JWT_SECRET,
                     { expiry: '2 days' },
                     (err, token) => {

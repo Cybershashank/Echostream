@@ -1,10 +1,17 @@
-const { Schema, model } = require('../connection');
+const { Schema, model, Types } = require('../connection');
 
 const mySchema = new Schema({
-    series: String,
-    artist: String,
+    series: {type: Types.ObjectId, ref : 'series'},
+    artist: {type: Types.ObjectId, ref : 'artist'},
     title: String,
+    genre: String,
+    category: String,
+    language: String,
     type: String,
+    artistname: String,
+    contact: String,
+    country: String,
+    creator: String,
     discription: String,
     icon: String,
     createdAt: {type : Date, default: Date.now},

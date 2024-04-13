@@ -1,3 +1,4 @@
+'use client';
 import React from 'react'
 import classes from './browse_podcast.module.css';
 
@@ -10,18 +11,6 @@ const browse_podcast = () => {
     <div className="px-6 mb-6">
       <svg viewBox="0 0 1134 340" className="w-auto h-10 text-white">
         <title>Echostream</title>
-        
-
-
-
-
-
-
-
-
-
-
-        
       </svg>
     </div>
     <div className="px-2 mb-6">

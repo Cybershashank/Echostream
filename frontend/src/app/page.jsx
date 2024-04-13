@@ -112,7 +112,7 @@ const Home = () => {
 
         <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
           <img
-            src="https://assets-global.website-files.com/5fac161927bf86485ba43fd0/6470607db5ddc9c102ef4a14_How-to-Start-a-Podcast-(1).jpeg"
+            src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt=""
             className="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center"
           />

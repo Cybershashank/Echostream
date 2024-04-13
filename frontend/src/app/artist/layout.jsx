@@ -1,8 +1,11 @@
 import React from 'react'
+import ArtistNavbar from './navbar'
 
 const Layout = ({children}) => {
   return (
-    <div>{children}</div>
+    <div>
+      <ArtistNavbar/>
+      {children}</div>
   )
 }
 
