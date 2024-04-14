@@ -1,6 +1,30 @@
+'use clirnt';
 import React from 'react'
+import Link from 'next/link';
+import * as Yup from "yup";
+import { useFormik } from 'formik';
 
 const artistLogin = () => {
+
+  const LoginValidationSchema = Yup.object().shape({
+    email: Yup.string().required('Email is Required').email('Email is invalid'),
+    password: Yup.string().required('Password is Required')
+  });
+
+  // initialize formik
+  const artistLoginForm = useFormik({
+    initialValues: {
+      email: '',
+      password: ''
+    },
+    onSubmit: (values, { resetForm }) => {
+      console.log(values);
+      resetForm();
+      // send data to backend
+    },
+    validationSchema: LoginValidationSchema
+  });
+
   return (
     <>
 
@@ -11,21 +35,39 @@ const artistLogin = () => {
             <p className="text-sm mt-4 text-[#002D74]">
               If you already a member, easily log in now.
             </p>
-            <form action="" className="flex flex-col gap-4">
+            <form onSubmit={artistLoginForm.handleSubmit} className="flex flex-col gap-4">
               <input
                 className="p-2 mt-8 rounded-xl border"
-                type="email"
-                name="email"
+                type="text"
+                id="email"
+                onChange={artistLoginForm.handleChange}
+                value={artistLoginForm.values.email}
+                class="form-control"
                 placeholder="Email"
               />
+
+              {
+                artistLoginForm.touched.email &&
+                <small className="text-danger">{artistLoginForm.errors.email}</small>
+              }
+
+
               <div className="relative">
                 <input
                   className="p-2 rounded-xl border w-full"
                   type="password"
-                  name="password"
                   id="password"
+                  onChange={artistLoginForm.handleChange}
+                  value={artistLoginForm.values.password}
+                  class="form-control"
                   placeholder="Password"
                 />
+
+{
+                artistLoginForm.touched.email &&
+                <small className="text-danger">{artistLoginForm.errors.password}</small>
+              }
+
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width={16}
@@ -51,6 +93,8 @@ const artistLogin = () => {
                   <path d="M5.525 7.646a2.5 2.5 0 0 0 2.829 2.829l-2.83-2.829zm4.95.708-2.829-2.83a2.5 2.5 0 0 1 2.829 2.829zm3.171 6-12-12 .708-.708 12 12-.708.708z"></path>
                 </svg>
               </div>
+
+
               <div className="flex items-center justify-between">
                 <div className="flex items-start">
                   <div className="flex items-center h-5">
@@ -61,6 +105,7 @@ const artistLogin = () => {
                       className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
                       required="" />
                   </div>
+
                   <div className="ml-3 text-sm">
                     <label
                       htmlFor="remember"
@@ -69,29 +114,33 @@ const artistLogin = () => {
                     </label>
                   </div>
                 </div>
+
                 <a
-                  href="#"
+                  href="/resetPassword"
                   className="text-sm font-medium text-blue-600 hover:text-blue-700 hover:underline hover:underline-offset-4">
                   Forgot password?
                 </a>
-                </div>
+
+              </div>
+
               <button
                 className="bg-[#002D74] text-white py-2 rounded-xl hover:scale-105 duration-300 hover:bg-[#206ab1] font-medium"
-                type="submit"
-              >
+                type="submit">
                 Login
               </button>
+
             </form>
+
             <div className="my-5 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
               <p className="mx-4 mb-0 text-center font-semibold text-slate-500">Or</p>
             </div>
+
             <button className="bg-white border py-2 w-full rounded-xl mt-5 flex justify-center items-center text-sm hover:scale-105 duration-300 hover:bg-[#60a8bc4f] font-medium">
               <svg
                 className="mr-3"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 48 48"
-                width="25px"
-              >
+                width="25px">
                 <path
                   fill="#FFC107"
                   d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"
@@ -111,6 +160,7 @@ const artistLogin = () => {
               </svg>
               Login with Google
             </button>
+            
             <div className="mt-4 text-sm flex justify-between items-center container-mr">
               <p className="mr-3 md:mr-0 ">If you don't have an account..</p>
               <button className="hover:border register text-white bg-[#002D74] hover:border-gray-400 rounded-xl py-2 px-5 hover:scale-110 hover:bg-[#002c7424] font-semibold duration-300">
