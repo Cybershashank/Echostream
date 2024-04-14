@@ -74,7 +74,7 @@ const CreatePodcast = () => {
                         onChange={podcastForm.handleChange}
                         value={podcastForm.values.title}
                         className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                        defaultValue="Podcast Name"
+                        placeholder="Podcast name"
                       />
                     </div>
                   </div>
@@ -92,7 +92,7 @@ const CreatePodcast = () => {
                         onChange={podcastForm.handleChange}
                         value={podcastForm.values.genre}
                         className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                        defaultValue="Comedy, Crime, Fantasy, History, Sci-Fi..."
+                        defaultValue=""
                       />
                     </div>
                   </div>
@@ -110,7 +110,7 @@ const CreatePodcast = () => {
                         onChange={podcastForm.handleChange}
                         value={podcastForm.values.category}
                         className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                        defaultValue="Series, Novel, Biopic..."
+                        defaultValue=""
                       />
                     </div>
                   </div>
@@ -128,7 +128,7 @@ const CreatePodcast = () => {
                         onChange={podcastForm.handleChange}
                         value={podcastForm.values.language}
                         className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                        defaultValue="Hindi, English, Tamil, Telugu, Marathi..."
+                        defaultValue=""
                       />
                     </div>
                   </div>
@@ -149,7 +149,7 @@ const CreatePodcast = () => {
                         value={podcastForm.values.discription}
                         className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                         rows={4}
-                        defaultValue={
+                        placeholder={
                           "Enter the discription here."
                         }
                       />
