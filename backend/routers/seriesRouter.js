@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Model = require('../models/seriesModel');
-const { model } = require('mongoose');
+ 
 
 
 router.post('/add', (req, res) => {
@@ -25,7 +25,13 @@ router.get('/getall', (req, res) => {
 });
 
 router.get('/delete', (req, res) => {
-    res.send('delete response from series router'); 
+    Model.findByIdAndDelete(req.params.id)
+        .then((result) => {
+            res.json(result);
+        }).catch((err) => {
+            console.log(err);
+            res.json(err)
+        }); 
 });
 
 router.get('/update', (req, res) => {

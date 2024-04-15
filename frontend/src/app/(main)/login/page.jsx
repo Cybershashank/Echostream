@@ -113,7 +113,7 @@ const Login = () => {
                   </div>
 
                   <a
-                    href="#"
+                    href="/resetPassword"
                     className="text-sm font-medium text-blue-600 hover:text-blue-700 hover:underline hover:underline-offset-4">
                     Forgot password?
                   </a>
