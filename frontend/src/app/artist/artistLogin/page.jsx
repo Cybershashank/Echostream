@@ -1,4 +1,4 @@
-'use clirnt';
+'use client';
 import React from 'react'
 import Link from 'next/link';
 import * as Yup from "yup";

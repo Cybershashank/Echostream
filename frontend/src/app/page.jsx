@@ -9,6 +9,7 @@ const Home = () => {
 
 
 
+
         <nav className="bg-white border-gray-200 dark:bg-gray-900">
           <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a
@@ -110,6 +111,9 @@ const Home = () => {
 
 
 
+
+
+
         <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
           <img
             src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -167,6 +171,9 @@ const Home = () => {
 
 
 
+
+
+
         <div className="overflow-hidden bg-white py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
@@ -178,7 +185,7 @@ const Home = () => {
                   <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                     ECHOSTREAM
                   </p>
-                  
+
                   <dl className="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
                     <div className="relative pl-9">
                       <dt className="inline font-semibold text-gray-900">
@@ -455,6 +462,8 @@ const Home = () => {
 
 
 
+
+
         <div className="relative isolate overflow-hidden bg-gray-900 py-16 sm:py-24 lg:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
@@ -550,6 +559,8 @@ const Home = () => {
             />
           </div>
         </div>
+
+
 
 
 
@@ -1075,11 +1086,9 @@ const Home = () => {
 
 
 
-        
 
 
 
-        
 
         <footer className="bg-white dark:bg-gray-900">
           <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
