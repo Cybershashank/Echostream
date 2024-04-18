@@ -39,14 +39,17 @@ const Signup = () => {
           'Content-Type': 'application/json'
         },
       })
-      console.log(res.status);
-      action.resetForm();
-
-      if (res.status === 200) {
-        toast.success('User created successfully');
-      } else {
-        toast.error('Something went wrong')
-      }
+    .then((response) => {
+      console.log(response.status);
+      toast.success('User Created Successfully');
+    }).catch((err) => {
+      console.log(err);
+      toast.error('User Creation Failed');
+    });
+    setTimeout(() => {
+      console.log(values);
+      resetForm();
+    }, 3000);
     }
 
     ,
