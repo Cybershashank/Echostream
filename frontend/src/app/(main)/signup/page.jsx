@@ -5,6 +5,7 @@ import classes from './signup.module.css';
 import { useFormik, } from 'formik'
 import Link from 'next/link';
 import * as Yup from "yup";
+import toast from 'react-hot-toast';
 
 
 const Signup = () => {
@@ -29,13 +30,26 @@ const Signup = () => {
       password: '',
       cpassword: ''
     },
-    onSubmit: (values, { resetForm }) => {
+    onSubmit: async (values, { resetForm }) => {
+      console.log(values);
+      const res = await fetch('http://localhost:3000/user/add', {
+        method: 'POST',
+        body: JSON.stringify(values),
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      })
+      console.log(res.status);
+      action.resetForm();
 
-      setTimeout(() => {
-        console.log(values);
-        resetForm();
-      }, 3000);
-    },
+      if (res.status === 200) {
+        toast.success('User created successfully');
+      } else {
+        toast.error('Something went wrong')
+      }
+    }
+
+    ,
     validationSchema: signupValidationSchema
   })
 
@@ -142,14 +156,14 @@ const Signup = () => {
                     signupForm.touched.cpassword &&
                     <small class="text-danger">{signupForm.errors.cpassword}</small>
                   }
-                  
+
                 </div>
 
 
                 <div className="flex items-start">
 
                   <div className="flex items-center h-5"></div>
-                
+
                   <div className="flex items-start">
 
                     <div className="flex items-center h-5">
@@ -185,17 +199,17 @@ const Signup = () => {
                   Create an account
                 </button>
 
-                
+
                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                   Already have an account?{" "}
                   <a
                     href="/login"
                     className="font-medium text-blue-600 hover:underline hover:underline-offset-4"
-                    >
+                  >
                     Login Here
                   </a>
                 </p>
-                
+
               </form>
             </div>
           </div>
