@@ -19,7 +19,7 @@ const Login = () => {
       email: '',
       password: ''
     },
-    onSubmit: (values, { resetForm }) => {
+    onSubmit: async (values, { resetForm }) => {
       console.log(values);
       resetForm();
       // send data to backend

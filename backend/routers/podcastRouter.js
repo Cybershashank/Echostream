@@ -7,6 +7,7 @@ router.post('/add', (req, res) => {
     console.log(req.body);
     new Model(req.body).save() 
     .then((result) => {
+        // console.log(result);
         res.status(200).json(result);
     }).catch((err) => {
         console.log(err);
@@ -14,9 +15,6 @@ router.post('/add', (req, res) => {
     });
 });
 
-router.get('/add', (req, res) => {
-    res.send('add response from podcast router'); 
-});
 
 router.get('/getall', (req, res) => {
     res.send('getall response from podcast router'); 

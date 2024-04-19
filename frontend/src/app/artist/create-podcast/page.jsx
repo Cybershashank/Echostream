@@ -1,12 +1,12 @@
 'use client';
 import { useFormik } from 'formik';
-import React from 'react';
+import React, { useState } from 'react';
 import * as Yup from "yup";
 import toast from 'react-hot-toast';
 
 
 const CreatePodcast = () => {
-
+const [Selfile, setSelfile] = useState([])
   const createPodcastValidationSchema = Yup.object().shape({
     title: Yup.string().required('title is Required'),
     genre: Yup.string().required('genre is Required'),
@@ -26,6 +26,7 @@ const CreatePodcast = () => {
       file_upload: ''
     },
     onSubmit: (values) => {
+      console.log(values);
 
       fetch(`${process.env.NEXT_PUBLIC_API_URL}/podcast/add`, {
         method: 'POST',
@@ -35,6 +36,7 @@ const CreatePodcast = () => {
         }
       })
         .then((response) => {
+          console.log(response.status);
           if (response.status === 200) {
             toast.success('Podcast Created successfully')
           } else {
@@ -48,7 +50,18 @@ const CreatePodcast = () => {
     }
   })
 
+const uploadFile = async (e) => {
+  let file = e.target.files[0];
+  setSelfile(file.name);
+  const fd = new FormData();
+  fd.append('file', file);
 
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/uploadfile`, {
+    method: 'POST',
+    body: fd
+  });
+  console.log(res.status);
+}
 
 
   return (
@@ -97,6 +110,7 @@ const CreatePodcast = () => {
                           name="file-upload"
                           type="file"
                           className="sr-only"
+                          onChange={uploadFile}
                         />
                       </label>
                       <p className="pl-1">or drag and drop</p>

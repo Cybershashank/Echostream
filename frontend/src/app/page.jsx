@@ -10,7 +10,7 @@ const Home = () => {
     { id: 3, name: 'Telugu', symbol: 'తె' },
     { id: 4, name: 'Marathi', symbol: 'मै' },
     { id: 5, name: 'Tamil', symbol: 'த' },
-    { id: 6, name: 'Urdu', symbol: 'اُ' },
+    { id: 6, name: 'English', symbol: 'Aa'},
     { id: 7, name: 'Gujarati', symbol: 'ગુ' },
     { id: 8, name: 'Kannada', symbol: 'ಕನ್' },
     { id: 9, name: 'Odia', symbol: 'ଓ' },
