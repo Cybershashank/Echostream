@@ -9,7 +9,7 @@ const mySchema = new Schema({
     language: String,
     type: String,
     discription: String,
-    file_upload: String,
+    image: String,
     icon: String,
     createdAt: {type : Date, default: Date.now},
     likes: String,
