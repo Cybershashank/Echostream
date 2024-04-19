@@ -1,21 +1,25 @@
+
+const multer = require('multer')
 const express = require('express')
-const router = express.Router()
-const multer  = require('multer')
+const router = express.Router();
 
 const storage = multer.diskStorage({
-    destination:  (req, file, cb) => {
-      cb(null, './Uploads')
+    destination:  (req, file, cb)  => {
+cb(null, './uploads');
     },
-    filename:  (req, file, cb) => {
-      cb(null, file.originalname)
+    filename: (req, file, cb) => {
+        cb(null, file.originalname)
     }
-  });
+});
 
-  
-  const upload = multer({ storage: storage });
-  router.post('/uploadfile', upload.single('file'), function (req, res) {
-res.json({message: 'file uploaded successfully'})
-    console.log(req.file, req.body)
- });
+const uploader = multer({ storage: storage });
+router.post('/uploadfile', uploader.single('myfile'), (req, res) => {
+    res.json({message : 'file uploaded successfully'})
+});
 
- module.exports = router;
+router.post( '/getfile',uploader.array('photos',5), (req,res) => {
+    res.json({message : 'photos uploaded successfully'})
+
+})
+
+module.exports = router;

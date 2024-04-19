@@ -3,6 +3,9 @@ import React from 'react'
 import classes from './browse_podcast.module.css';
 
 const browse_podcast = () => {
+
+  
+
   return (
     <>
 
@@ -14,7 +17,7 @@ const browse_podcast = () => {
       </svg>
     </div>
     <div className="px-2 mb-6">
-      <div className="bg-gray-200 flex font-medium items-center px-4 py-2 rounded text-sm text-white">
+      <div className=" flex font-medium items-center px-4 py-2 rounded text-sm text-white">
         <svg
           className="h-6 mr-4"
           viewBox="0 0 512 512"
