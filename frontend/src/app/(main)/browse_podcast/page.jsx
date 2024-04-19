@@ -25,7 +25,7 @@ const browse_podcast = () => {
     <>
 
       <div className="grid grid-rows-3 grid-cols-6 h-full">
-        <nav className="col-span-1 row-span-3 bg-gray-700 pt-6">
+        {/* <nav className="col-span-1 row-span-3 bg-gray-700 pt-6">
           <div className="px-6 mb-6">
             <svg viewBox="0 0 1134 340" className="w-auto h-10 text-white">
               <title>Echostream</title>
@@ -114,9 +114,9 @@ const browse_podcast = () => {
               </div>
             </div>
           </div>
-        </nav>
+        </nav> */}
         <main className="col-span-5 row-span-3 overflow-auto">
-          <header className="px-6 py-4 mb-6 bg-gray-600 flex items-center justify-between sticky top-0 z-10">
+          {/* <header className="px-6 py-4 mb-6 bg-gray-600 flex items-center justify-between sticky top-0 z-10">
             <div className="flex items-center">
               <button className="h-8 w-8 bg-gray-500 rounded-full text-white flex mr-4 opacity-50 cursor-not-allowed">
                 <svg className="h-5 w-5 m-auto" viewBox="0 0 24 24">
@@ -144,7 +144,7 @@ const browse_podcast = () => {
                 Jedidiah Avelino
               </button>
             </div>
-          </header>
+          </header> */}
           <section className="px-6 grid gap-6 mb-8">
             <div className="flex items-center">
               <div className="flex-1">
@@ -223,7 +223,7 @@ const browse_podcast = () => {
 
           </section>
         </main>
-        <footer className="bg-gray-800 col-span-6  p-4 grid grid-cols-3 gap-6">
+        <footer className="bg-gray-800 col-span-6  p-4 grid fixed w-full sticky bottom-0 grid-cols-3 gap-6">
           <div className="flex items-center bg-black">
             <img
               className="h-14 w-14 mr-4 flex-shrink-0"
