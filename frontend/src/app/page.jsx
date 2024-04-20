@@ -10,7 +10,7 @@ const Home = () => {
     { id: 3, name: 'Telugu', symbol: 'తె' },
     { id: 4, name: 'Marathi', symbol: 'मै' },
     { id: 5, name: 'Tamil', symbol: 'த' },
-    { id: 6, name: 'English', symbol: 'Aa'},
+    { id: 6, name: 'English', symbol: 'Aa' },
     { id: 7, name: 'Gujarati', symbol: 'ગુ' },
     { id: 8, name: 'Kannada', symbol: 'ಕನ್' },
     { id: 9, name: 'Odia', symbol: 'ଓ' },
@@ -20,36 +20,33 @@ const Home = () => {
   return (
     <>
       <div>
+        <Navbar />
+        <div style={{ backgroundColor: "black" }}>
 
+          <div className="container-fluid mb-3 ms-5 ">
+            <div className="grid grid-cols-2">
+              <div className="pt-5 ps-5">
+                <div className='mt-5' >
+                  <h4 className='text-purple-700'>Welcome to</h4>
+                </div>
+                <div className='text-white '>
+                  <h1 style={{ fontFamily: "initial", fontSize: "80px" }}>EchoStream</h1>
+                </div>
+                <div className="text-white fw-bold mt-3">
+                  <p>Weekly conversations with forward thinkers at the<br /> forefront of this $1.6 Trillion industry. </p>
+                </div>
+                <div className='mt-5'>
+                  <button className=' btn py-3 px-5 fw-bold rounded-pill bg-purple-800 border-none text-white'>ALL EPISODES</button>
+                </div>
+              </div>
+              <div className="col-6 mt-2 ">
+                <img src="https://cdn.pixabay.com/photo/2023/03/25/20/30/podcast-7876792_640.jpg" alt="" className='img-fluid rounded mx-auto d-block' />
 
-<Navbar />
+              </div>
+            </div>
+          </div>
 
-<div style={{ backgroundColor: "black" }}>
-
-<div className="container-fluid mb-3 ms-5 ">
-    <div className="grid grid-cols-2">
-        <div className="pt-5 ps-5">
-            <div className='mt-5' >
-                <h4 className='text-purple-700'>Welcome to</h4>
-            </div>
-            <div className='text-white '>
-                <h1 style={{ fontFamily: "initial", fontSize: "80px" }}>Echo Stream</h1>
-            </div>
-            <div className="text-white fw-bold mt-3">
-                <p>Weekly conversations with forward thinkers at the<br /> forefront of this $1.6 Trillion industry. </p>
-            </div>
-            <div className='mt-5'>
-                <button className=' btn py-3 px-5 fw-bold rounded-pill bg-purple-800 border-none text-white'>ALL EPISODES</button>
-            </div>
         </div>
-        <div className="col-6 mt-2 ">
-            <img src="https://cdn.pixabay.com/photo/2023/03/25/20/30/podcast-7876792_640.jpg" alt="" className='img-fluid rounded mx-auto d-block' />
-
-        </div>
-    </div>
-</div>
-
-</div>
 
 
         <div className="bg-cover bg-center" style={{ backgroundImage: 'url(https://media.istockphoto.com/id/1412634953/photo/podcast-recording-station.jpg?s=612x612&w=0&k=20&c=224aSXhwJ4wBm7TgAkR6vLvzz_zIK-TNJ-FtEypVJx0=)' }}></div>
@@ -471,6 +468,8 @@ const Home = () => {
               <h2 className="text-4xl text-center font-bold text-gray-900 lg:text-left">
                 Testimonials{" "}
               </h2>
+
+
               {/* Slider controls */}
               <div className="flex items-center gap-8">
                 <button
@@ -515,9 +514,13 @@ const Home = () => {
                 </button>
               </div>
             </div>
+
+
             {/*Slider wrapper*/}
             <div className="lg:flex grid grid-cols-1 md:grid-cols-2 justify-center items-center gap-8 swiper mySwiper">
               <div className="swiper-wrapper">
+
+
                 <div className="swiper-slide group bg-white border border-solid h-auto border-gray-300 rounded-2xl p-6 transition-all duration-500 w-full hover:border-indigo-600 slide-active:border-indigo-600">
                   <div className="flex items-center mb-9 gap-2 text-amber-500 transition-all duration-500  group-hover:text-indigo-600 swiper-slide-active:text-indigo-600">
                     <svg
@@ -593,6 +596,8 @@ const Home = () => {
                     </div>
                   </div>
                 </div>
+
+
                 <div className="swiper-slide group bg-white border border-solid border-gray-300 rounded-2xl p-6 transition-all duration-500 w-full hover:border-indigo-600 slide-active:border-indigo-600">
                   <div className="flex items-center mb-9 gap-2 text-amber-500 transition-all duration-500  group-hover:text-indigo-600 swiper-slide-active:text-indigo-600">
                     <svg
@@ -670,6 +675,8 @@ const Home = () => {
                     </div>
                   </div>
                 </div>
+
+
                 <div className="swiper-slide group bg-white border border-solid border-gray-300 rounded-2xl p-6 transition-all duration-500 w-full hover:border-indigo-600 ">
                   <div className="flex items-center mb-9 gap-2 text-amber-500 transition-all duration-500  group-hover:text-indigo-600 swiper-slide-active:text-indigo-600">
                     <svg
@@ -747,6 +754,8 @@ const Home = () => {
                     </div>
                   </div>
                 </div>
+
+
                 <div className="swiper-slide group bg-white border border-solid border-gray-300 rounded-2xl p-6 transition-all duration-500 w-full hover:border-indigo-600 slide-active:border-indigo-600">
                   <div className="flex items-center mb-9 gap-2 text-amber-500 transition-all duration-500  group-hover:text-indigo-600 swiper-slide-active:text-indigo-600">
                     <svg
@@ -822,6 +831,8 @@ const Home = () => {
                     </div>
                   </div>
                 </div>
+
+
                 <div className="swiper-slide group bg-white border border-solid border-gray-300 rounded-2xl p-6 transition-all duration-500 w-full hover:border-indigo-600 ">
                   <div className="flex items-center mb-9 gap-2 text-amber-500 transition-all duration-500  group-hover:text-indigo-600 swiper-slide-active:text-indigo-600">
                     <svg
@@ -899,6 +910,8 @@ const Home = () => {
                     </div>
                   </div>
                 </div>
+
+
                 <div className="swiper-slide group bg-white border border-solid border-gray-300 rounded-2xl p-6 transition-all duration-500 w-full hover:border-indigo-600 ">
                   <div className="flex items-center mb-9 gap-2 text-amber-500 transition-all duration-500  group-hover:text-indigo-600 swiper-slide-active:text-indigo-600">
                     <svg
@@ -976,6 +989,8 @@ const Home = () => {
                     </div>
                   </div>
                 </div>
+
+
               </div>
             </div>
           </div>

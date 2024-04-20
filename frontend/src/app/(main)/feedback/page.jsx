@@ -24,7 +24,7 @@ const feedback = () => {
 
     onSubmit: async (values, { resetForm }) => {
       console.log(values);
-      const res = await fetch('http://localhost:3000/feedback/add', {
+      const res = await fetch('http://localhost:5000/feedback/add', {
         method: 'POST',
         body: JSON.stringify(values),
         headers: {

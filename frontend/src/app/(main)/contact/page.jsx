@@ -25,7 +25,7 @@ const Contact = () => {
 
     onSubmit: async (values, { resetForm }) => {
       console.log(values);
-      const res = await fetch('http://localhost:3000/contact/add', {
+      const res = await fetch('http://localhost:5000/contact/add', {
         method: 'POST',
         body: JSON.stringify(values),
         headers: {
@@ -33,25 +33,23 @@ const Contact = () => {
         },
       })
 
-      .then((response) => {
-        console.log(response.status);
-        toast.success('Contacted Successfully');
-      }).catch((err) => {
-        console.log(err);
-        toast.error('Contact Failed');
-      });
+        .then((response) => {
+          console.log(response.status);
+          toast.success('Contacted Successfully');
+        }).catch((err) => {
+          console.log(err);
+          toast.error('Contact Failed');
+        });
       setTimeout(() => {
         console.log(values);
         resetForm();
       }, 3000);
-      }
-  
-      ,
-
-
+    },
 
     validationSchema: contactValidationSchema
-  })
+  });
+
+
   return (
     <>
       <div className="isolate bg-white px-6 py-24 sm:py-32 lg:px-8">

@@ -3,6 +3,7 @@ import { useFormik } from 'formik';
 import Link from 'next/link';
 import React from 'react'
 import * as Yup from 'yup';
+import toast from 'react-hot-toast';
 
 const artistSignup = () => {
 
@@ -25,12 +26,26 @@ const artistSignup = () => {
       password: '',
       cpassword: ''
     },
-    onSubmit: (values, { resetForm }) => {
-
-      setTimeout(() => {
+    onSubmit: async (values, { resetForm }) => {
         console.log(values);
-        resetForm();
-      }, 3000);
+        const res = await fetch('http://localhost:5000/artist/add', {
+        method: 'POST',
+        body: JSON.stringify(values),
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      })
+    .then((response) => {
+      console.log(response.status);
+      toast.success('Artist Created Successfully');
+    }).catch((err) => {
+      console.log(err);
+      toast.error('Artist Creation Failed');
+    });
+    setTimeout(() => {
+      console.log(values);
+      resetForm();
+    }, 3000);
     },
     validationSchema: signupValidationSchema
   })
