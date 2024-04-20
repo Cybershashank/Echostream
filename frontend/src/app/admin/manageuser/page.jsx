@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 // import { BsPersonFill } from 'react-icons/bs'
 
 const ManageUser = () => {
-<<<<<<< HEAD
 
   const [Data, setData] = useState([]);
 
@@ -53,9 +52,6 @@ const ManageUser = () => {
     ))
   }
 
-=======
-  
->>>>>>> 918f5232a063c91188d6dd04dc8cc202f40e8829
   return (
     <>
       <div className="shadow-lg rounded-lg overflow-hidden mx-4 md:mx-10">
