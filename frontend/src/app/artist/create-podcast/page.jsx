@@ -5,13 +5,8 @@ import React, { useEffect, useState } from 'react'
 import { toast } from "react-hot-toast";
 
 const PublishPage = () => {
-<<<<<<< HEAD
-  const[selImage, setselImage] = useState('');
-  const router=useRouter();
-=======
   const [selImage, setselImage] = useState('');
 
->>>>>>> adf3b14108f97e96df1ed8ca1016e7952bed0a4b
   const uploadeImage = async (e) => {
     const file = e.target.files[0];
     setselImage(file);
