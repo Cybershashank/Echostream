@@ -16,6 +16,18 @@ router.post('/add', (req, res) => {
         });
 });
 
+router.get("/getall", (req,res) => {
+    Model.find({})
+    .then((result) => {
+        
+        res.json(result)
+    }
+    ).catch((err) => {
+        console.error(err)
+        res.status(500).json(err)
+    });
+})
+
 router.get('/add', (req, res) => {
     res.send('add response from user router');
 });
