@@ -7,19 +7,14 @@ router.post("/add", (req, res) => {
   //Storing data to MongoDb
   new Model(req.body).save() //to add the data in database
     .then((result) => {
-      res.json(result);
-    })
-    .catch((err) => {
-      console.error(err);
-      res.status(500).json(err);
+        // console.log(result);
+        res.status(200).json(result);
+    }).catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
     });
 });
-router.post("/delete", (req, res) => {
-  res.send("Data deleted");
-});
-router.post("/update", (req, res) => {
-  res.send("updated data");
-});
+
 
 
 router.get("/getall", (req, res) => {

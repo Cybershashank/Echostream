@@ -4,6 +4,7 @@ import Link from 'next/link';
 import * as Yup from "yup";
 import classes from './login.module.css';
 import { useFormik, } from 'formik';
+import toast from 'react-hot-toast';
 
 
 const Login = () => {
@@ -19,10 +20,27 @@ const Login = () => {
       email: '',
       password: ''
     },
-    onSubmit: (values, { resetForm }) => {
+    onSubmit: async (values, { resetForm }) => {
+      console.log(values);
+      const res = await fetch('http://localhost:5000/user/add', {
+        method: 'POST',
+        body: JSON.stringify(values),
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      })
+    .then((response) => {
+      console.log(response.status);
+      toast.success('User Login Successfully');
+    }).catch((err) => {
+      console.log(err);
+      toast.error('User Login Failed');
+    });
+    setTimeout(() => {
       console.log(values);
       resetForm();
-      // send data to backend
+    }, 3000);
+    
     },
     validationSchema: loginValidationSchema
   });
