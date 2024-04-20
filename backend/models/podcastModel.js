@@ -5,6 +5,7 @@ const mySchema = new Schema({
     artist: {type: Types.ObjectId, ref : 'artist'},
     title: String,
     genre: String,
+    record:String,
     category: String,
     language: String,
     type: String,
