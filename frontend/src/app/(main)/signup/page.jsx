@@ -6,10 +6,11 @@ import { useFormik, } from 'formik'
 import Link from 'next/link';
 import * as Yup from "yup";
 import toast from 'react-hot-toast';
+import { useRouter } from 'next/router';
 
 
 const Signup = () => {
-
+const router = useRouter();
   const signupValidationSchema = Yup.object().shape({
     email: Yup.string().email('Email is invalid').required('Email is required'),
     name: Yup.string().required('Name is required'),
@@ -44,6 +45,7 @@ const Signup = () => {
     .then((response) => {
       console.log(response.status);
       toast.success('User Created Successfully');
+      router.push('/login')
     }).catch((err) => {
       console.log(err);
       toast.error('User Creation Failed');

@@ -36,9 +36,10 @@ const Home = () => {
                 <div className="text-white fw-bold mt-3">
                   <p>Weekly conversations with forward thinkers at the<br /> forefront of this $1.6 Trillion industry. </p>
                 </div>
+                <a href="/browse_podcast" >
                 <div className='mt-5'>
                   <button className=' btn py-3 px-5 fw-bold rounded-pill bg-purple-800 border-none text-white'>ALL EPISODES</button>
-                </div>
+                </div></a>
               </div>
               <div className="col-6 mt-2 ">
                 <img src="https://cdn.pixabay.com/photo/2023/03/25/20/30/podcast-7876792_640.jpg" alt="" className='img-fluid rounded mx-auto d-block' />

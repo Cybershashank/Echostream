@@ -1,248 +1,89 @@
-import React from 'react'
+'use client';
+import React, { useEffect, useState } from 'react'
+// import { BsPersonFill } from 'react-icons/bs'
 
 const ManageUser = () => {
+<<<<<<< HEAD
+
+  const [Data, setData] = useState([]);
+
+  //user fetch function
+  const fetchUser = async () => {
+    const res = await
+      fetch('http://localhost:5000/user/getall')
+
+    console.log(res.status);
+    if (res.status === 200) {
+      const data = await res.json();
+      console.log(data);
+      setData(data);
+    }
+  }
+
+  useEffect(() => {
+    fetchUser();
+  }, [])
+
+  //Delete func
+  const deleteFuction = async (id) => {
+    console.log(id);
+
+    const res = await fetch('http://localhost:5000/user/delete/' + id, { method: 'DELETE' })
+    if (res.status === 200) {
+      fetchUser();
+    }
+  }
+
+  //User Display func
+  const displayUsers = () => {
+    return Data.map((obj) => (
+<tr>
+              <td className="py-4 px-6 border-b border-gray-200">{obj.name}</td>
+              <td className="py-4 px-6 border-b border-gray-200 truncate">
+              {obj.email}
+              </td>
+              <td className="py-4 px-6 border-b border-gray-200">{obj.mobileNumber}</td>
+              <td className="py-4 px-6 border-b border-gray-200">
+                <span className="bg-green-500 text-white py-1 px-2 rounded-full text-xs">
+                  {obj.password}
+                </span>
+              </td>
+            </tr>
+
+    ))
+  }
+
+=======
+  
+>>>>>>> 918f5232a063c91188d6dd04dc8cc202f40e8829
   return (
     <>
-    <div className="shadow-lg rounded-lg overflow-hidden mx-4 md:mx-10">
-  <table className="w-full table-fixed">
-    <thead>
-      <tr className="bg-gray-100">
-        <th className="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">
-          Name
-        </th>
-        <th className="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">
-          Email
-        </th>
-        <th className="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">
-          Phone
-        </th>
-        <th className="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">
-          Status
-        </th>
-      </tr>
-    </thead>
-    <tbody className="bg-white">
-      <tr>
-        <td className="py-4 px-6 border-b border-gray-200">John Doe</td>
-        <td className="py-4 px-6 border-b border-gray-200 truncate">
-          johndoe@gmail.com
-        </td>
-        <td className="py-4 px-6 border-b border-gray-200">555-555-5555</td>
-        <td className="py-4 px-6 border-b border-gray-200">
-          <span className="bg-green-500 text-white py-1 px-2 rounded-full text-xs">
-            Active
-          </span>
-        </td>
-      </tr>
-      <tr>
-        <td className="py-4 px-6 border-b border-gray-200">Jane Doe</td>
-        <td className="py-4 px-6 border-b border-gray-200 truncate">
-          janedoe@gmail.com
-        </td>
-        <td className="py-4 px-6 border-b border-gray-200">555-555-5555</td>
-        <td className="py-4 px-6 border-b border-gray-200">
-          <span className="bg-red-500 text-white py-1 px-2 rounded-full text-xs">
-            Inactive
-          </span>
-        </td>
-      </tr>
-      <tr>
-        <td className="py-4 px-6 border-b border-gray-200">Jane Doe</td>
-        <td className="py-4 px-6 border-b border-gray-200 truncate">
-          janedoe@gmail.com
-        </td>
-        <td className="py-4 px-6 border-b border-gray-200">555-555-5555</td>
-        <td className="py-4 px-6 border-b border-gray-200">
-          <span className="bg-red-500 text-white py-1 px-2 rounded-full text-xs">
-            Inactive
-          </span>
-        </td>
-      </tr>
-      <tr>
-        <td className="py-4 px-6 border-b border-gray-200">Jane Doe</td>
-        <td className="py-4 px-6 border-b border-gray-200 truncate">
-          janedoe@gmail.com
-        </td>
-        <td className="py-4 px-6 border-b border-gray-200">555-555-5555</td>
-        <td className="py-4 px-6 border-b border-gray-200">
-          <span className="bg-red-500 text-white py-1 px-2 rounded-full text-xs">
-            Inactive
-          </span>
-        </td>
-      </tr>
-      <tr>
-        <td className="py-4 px-6 border-b border-gray-200">Jane Doe</td>
-        <td className="py-4 px-6 border-b border-gray-200 truncate">
-          janedoe@gmail.com
-        </td>
-        <td className="py-4 px-6 border-b border-gray-200">555-555-5555</td>
-        <td className="py-4 px-6 border-b border-gray-200">
-          <span className="bg-red-500 text-white py-1 px-2 rounded-full text-xs">
-            Inactive
-          </span>
-        </td>
-      </tr>
-      <tr>
-        <td className="py-4 px-6 border-b border-gray-200">Jane Doe</td>
-        <td className="py-4 px-6 border-b border-gray-200 truncate">
-          janedoe@gmail.com
-        </td>
-        <td className="py-4 px-6 border-b border-gray-200">555-555-5555</td>
-        <td className="py-4 px-6 border-b border-gray-200">
-          <span className="bg-red-500 text-white py-1 px-2 rounded-full text-xs">
-            Inactive
-          </span>
-        </td>
-      </tr>
-      <tr>
-        <td className="py-4 px-6 border-b border-gray-200">Jane Doe</td>
-        <td className="py-4 px-6 border-b border-gray-200 truncate">
-          janedoe@gmail.com
-        </td>
-        <td className="py-4 px-6 border-b border-gray-200">555-555-5555</td>
-        <td className="py-4 px-6 border-b border-gray-200">
-          <span className="bg-red-500 text-white py-1 px-2 rounded-full text-xs">
-            Inactive
-          </span>
-        </td>
-      </tr>
-      <tr>
-        <td className="py-4 px-6 border-b border-gray-200">Jane Doe</td>
-        <td className="py-4 px-6 border-b border-gray-200 truncate">
-          janedoe@gmail.com
-        </td>
-        <td className="py-4 px-6 border-b border-gray-200">555-555-5555</td>
-        <td className="py-4 px-6 border-b border-gray-200">
-          <span className="bg-red-500 text-white py-1 px-2 rounded-full text-xs">
-            Inactive
-          </span>
-        </td>
-      </tr>
-      <tr>
-        <td className="py-4 px-6 border-b border-gray-200">Jane Doe</td>
-        <td className="py-4 px-6 border-b border-gray-200 truncate">
-          janedoe@gmail.com
-        </td>
-        <td className="py-4 px-6 border-b border-gray-200">555-555-5555</td>
-        <td className="py-4 px-6 border-b border-gray-200">
-          <span className="bg-red-500 text-white py-1 px-2 rounded-full text-xs">
-            Inactive
-          </span>
-        </td>
-      </tr>
-      <tr>
-        <td className="py-4 px-6 border-b border-gray-200">Jane Doe</td>
-        <td className="py-4 px-6 border-b border-gray-200 truncate">
-          janedoe@gmail.com
-        </td>
-        <td className="py-4 px-6 border-b border-gray-200">555-555-5555</td>
-        <td className="py-4 px-6 border-b border-gray-200">
-          <span className="bg-red-500 text-white py-1 px-2 rounded-full text-xs">
-            Inactive
-          </span>
-        </td>
-      </tr>
-      <tr>
-        <td className="py-4 px-6 border-b border-gray-200">Jane Doe</td>
-        <td className="py-4 px-6 border-b border-gray-200 truncate">
-          janedoe@gmail.com
-        </td>
-        <td className="py-4 px-6 border-b border-gray-200">555-555-5555</td>
-        <td className="py-4 px-6 border-b border-gray-200">
-          <span className="bg-red-500 text-white py-1 px-2 rounded-full text-xs">
-            Inactive
-          </span>
-        </td>
-      </tr>
-      <tr>
-        <td className="py-4 px-6 border-b border-gray-200">Jane Doe</td>
-        <td className="py-4 px-6 border-b border-gray-200 truncate">
-          janedoe@gmail.com
-        </td>
-        <td className="py-4 px-6 border-b border-gray-200">555-555-5555</td>
-        <td className="py-4 px-6 border-b border-gray-200">
-          <span className="bg-red-500 text-white py-1 px-2 rounded-full text-xs">
-            Inactive
-          </span>
-        </td>
-      </tr>
-      <tr>
-        <td className="py-4 px-6 border-b border-gray-200">Jane Doe</td>
-        <td className="py-4 px-6 border-b border-gray-200 truncate">
-          janedoe@gmail.com
-        </td>
-        <td className="py-4 px-6 border-b border-gray-200">555-555-5555</td>
-        <td className="py-4 px-6 border-b border-gray-200">
-          <span className="bg-red-500 text-white py-1 px-2 rounded-full text-xs">
-            Inactive
-          </span>
-        </td>
-      </tr>
-      <tr>
-        <td className="py-4 px-6 border-b border-gray-200">Jane Doe</td>
-        <td className="py-4 px-6 border-b border-gray-200 truncate">
-          janedoe@gmail.com
-        </td>
-        <td className="py-4 px-6 border-b border-gray-200">555-555-5555</td>
-        <td className="py-4 px-6 border-b border-gray-200">
-          <span className="bg-red-500 text-white py-1 px-2 rounded-full text-xs">
-            Inactive
-          </span>
-        </td>
-      </tr>
-      <tr>
-        <td className="py-4 px-6 border-b border-gray-200">Jane Doe</td>
-        <td className="py-4 px-6 border-b border-gray-200 truncate">
-          janedoe@gmail.com
-        </td>
-        <td className="py-4 px-6 border-b border-gray-200">555-555-5555</td>
-        <td className="py-4 px-6 border-b border-gray-200">
-          <span className="bg-red-500 text-white py-1 px-2 rounded-full text-xs">
-            Inactive
-          </span>
-        </td>
-      </tr>
-      <tr>
-        <td className="py-4 px-6 border-b border-gray-200">Jane Doe</td>
-        <td className="py-4 px-6 border-b border-gray-200 truncate">
-          janedoe@gmail.com
-        </td>
-        <td className="py-4 px-6 border-b border-gray-200">555-555-5555</td>
-        <td className="py-4 px-6 border-b border-gray-200">
-          <span className="bg-red-500 text-white py-1 px-2 rounded-full text-xs">
-            Inactive
-          </span>
-        </td>
-      </tr>
-      <tr>
-        <td className="py-4 px-6 border-b border-gray-200">Jane Doe</td>
-        <td className="py-4 px-6 border-b border-gray-200 truncate">
-          janedoe@gmail.com
-        </td>
-        <td className="py-4 px-6 border-b border-gray-200">555-555-5555</td>
-        <td className="py-4 px-6 border-b border-gray-200">
-          <span className="bg-red-500 text-white py-1 px-2 rounded-full text-xs">
-            Inactive
-          </span>
-        </td>
-      </tr>
-      <tr>
-        <td className="py-4 px-6 border-b border-gray-200">Jane Doe</td>
-        <td className="py-4 px-6 border-b border-gray-200 truncate">
-          janedoe@gmail.com
-        </td>
-        <td className="py-4 px-6 border-b border-gray-200">555-555-5555</td>
-        <td className="py-4 px-6 border-b border-gray-200">
-          <span className="bg-red-500 text-white py-1 px-2 rounded-full text-xs">
-            Inactive
-          </span>
-        </td>
-      </tr>
-      
-    </tbody>
-  </table>
-</div>
-</>
+      <div className="shadow-lg rounded-lg overflow-hidden mx-4 md:mx-10">
+        <table className="w-full table-fixed">
+          <thead>
+            <tr className="bg-gray-100">
+              <th className="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">
+                Name
+              </th>
+              <th className="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">
+                Email
+              </th>
+              <th className="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">
+                Phone
+              </th>
+              <th className="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">
+                Password
+              </th>
+            </tr>
+          </thead>
+          <tbody className="bg-white">
+            
+          {displayUsers()}
+
+          </tbody>
+        </table>
+      </div>
+    </>
   )
 }
 
