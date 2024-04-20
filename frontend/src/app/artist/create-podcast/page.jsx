@@ -31,10 +31,6 @@ const PublishPage = () => {
       language: '',
       discription: '',
       image: '',
-
-
-
-
     },
     onSubmit: async (values) => {
       values.image = selImage.name;
