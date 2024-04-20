@@ -101,7 +101,7 @@ const PublishPage = () => {
                 <label htmlFor="" className='form-label fw-bold'>Genre</label>
                 <input type="text"
                   id='genre'
-                  value={PublishForm.values.category}
+                  value={PublishForm.values.genre}
                   onChange={PublishForm.handleChange}
                   className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   placeholder="Genre" />
@@ -112,7 +112,7 @@ const PublishPage = () => {
                 <label htmlFor="" className='form-label fw-bold'>Language</label>
                 <input type="text"
                   id='language'
-                  value={PublishForm.values.category}
+                  value={PublishForm.values.language}
                   onChange={PublishForm.handleChange}
                   className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   placeholder="Language"

@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from './(main)/navbar'
 import classes from './page.module.css';
 
+
 const Home = () => {
 
   const languages = [
@@ -1190,7 +1191,7 @@ const Home = () => {
 
       </div >
 
-
+     
 
 
     </>
