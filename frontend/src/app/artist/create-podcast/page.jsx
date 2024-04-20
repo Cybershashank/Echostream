@@ -1,12 +1,17 @@
 "use client";
 import { useFormik } from 'formik';
-
+import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
 import { toast } from "react-hot-toast";
 
 const PublishPage = () => {
+<<<<<<< HEAD
+  const[selImage, setselImage] = useState('');
+  const router=useRouter();
+=======
   const [selImage, setselImage] = useState('');
 
+>>>>>>> adf3b14108f97e96df1ed8ca1016e7952bed0a4b
   const uploadeImage = async (e) => {
     const file = e.target.files[0];
     setselImage(file);
@@ -51,6 +56,7 @@ const PublishPage = () => {
 
       if (res.status === 200) {
         toast.success("Publish Successfully");
+        router.push('/artist/publish_podcast');
       } else if (res.status === 400) {
         toast.error("Something went wrong");
       } else {
