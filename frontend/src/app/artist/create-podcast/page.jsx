@@ -6,6 +6,7 @@ import { toast } from "react-hot-toast";
 
 const PublishPage = () => {
   const [selImage, setselImage] = useState('');
+  const router = useRouter;
 
   const uploadeImage = async (e) => {
     const file = e.target.files[0];
@@ -148,7 +149,7 @@ const PublishPage = () => {
         </div>
       </div>
     </section>
-        )
+  )
 }
 
-        export default PublishPage
+export default PublishPage
