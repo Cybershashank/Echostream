@@ -8,13 +8,22 @@ import { CiMicrophoneOn } from "react-icons/ci";
 
 
 const pageDetails = [
-  {
-    pageName: 'home',
-    pagePath: '/'
-  },
+  
   {
     pageName: 'signup',
     pagePath: '/signup'
+  },
+  {
+    pageName: 'artistSignup',
+    pagePath: '/artist/artistSignup'
+  },
+  {
+    pageName: 'artistLogin',
+    pagePath: '/artist/artistLogin'
+  },
+  {
+    pageName: 'artistdashboard',
+    pagePath: '/artist/artistdashboard'
   },
   {
     pageName: 'login',
@@ -29,20 +38,84 @@ const pageDetails = [
     pagePath: '/about'
   },
   {
-    pageName: 'addProduct',
-    pagePath: '/seller/addProduct'
+    pageName: 'feedback',
+    pagePath: '/feedback'
   },
   {
     pageName: 'reset password',
     pagePath: '/reset-password'
   },
   {
-    pageName: 'cart',
-    pagePath: '/CartPage'
+    pageName: 'artist detail',
+    pagePath: '/artist_detail'
   },
   {
-    pageName: 'reset password',
-    pagePath: '/reset-password'
+    pageName: 'browse podcast',
+    pagePath: '/browse_podcast'
+  },
+  {
+    pageName: 'browse artist',
+    pagePath: '/browse_artist'
+  },
+  {
+    pageName: 'play podcast',
+    pagePath: '/play_podcast'
+  },
+  {
+    pageName: 'podcast series',
+    pagePath: '/podcast_series'
+  },
+  {
+    pageName: 'user profile',
+    pagePath: '/user/user_profile'
+  },
+  {
+    pageName: 'playlist',
+    pagePath: '/user/playlist'
+  },
+  {
+    pageName: 'edit profile',
+    pagePath: '/user/editprofile'
+  },
+  {
+    pageName: 'create podcast',
+    pagePath: '/artist/create-podcast'
+  },
+  {
+    pageName: 'manage podcast',
+    pagePath: '/artist/manage_podcast'
+  },
+  {
+    pageName: 'profile',
+    pagePath: '/artist/profile'
+  },
+  {
+    pageName: 'publish podcast',
+    pagePath: '/artist/publish_podcast'
+  },
+  {
+    pageName: 'series form',
+    pagePath: '/artist/series-form'
+  },
+  {
+    pageName: 'dashboard',
+    pagePath: '/admin/dashboard'
+  },
+  {
+    pageName: 'manage feedback',
+    pagePath: '/admin/manage_feedback'
+  },
+  {
+    pageName: 'manageartist',
+    pagePath: '/admin/manageartist'
+  },
+  {
+    pageName: 'manageuser',
+    pagePath: '/admin/manageuser'
+  },
+  {
+    pageName: 'profile',
+    pagePath: '/admin/profile'
   },
 
 ]
@@ -70,10 +143,24 @@ export const VoiceProvider = ({ children }) => {
       }
     },
     {
+      command: 'create an artist account',
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('artistSignup')
+      }
+    },
+    {
       command: 'I want to login',
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('login')
+      }
+    },
+    {
+      command: 'I want to login as an artist',
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('artistLogin')
       }
     },
     {
@@ -91,17 +178,129 @@ export const VoiceProvider = ({ children }) => {
       }
     },
     {
-      command: 'Open Cart',
+      command: 'feedback page open karo',
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
-        voicePageNavigator('CartPage')
+        voicePageNavigator('feedback')
       }
     },
     {
-      command: 'open add product page',
+      command: 'reset password',
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
-        voicePageNavigator('addproduct')
+        voicePageNavigator('reset password')
+      }
+    },
+    {
+      command: 'Home Page',
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('browse podcast')
+      }
+    },
+    {
+      command: 'browse artist page open karo',
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('browse artist')
+      }
+    },
+    {
+      command: 'artist detail page open karo',
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('artist detail')
+      }
+    },
+    {
+      command: 'podcast play karo',
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('play podcast')
+      }
+    },
+    {
+      command: 'open podcast series',
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('podcast series')
+      }
+    },
+    {
+      command: 'open user profile',
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('user profile')
+      }
+    },
+    {
+      command: 'open playlist',
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('playlist')
+      }
+    },
+    {
+      command: 'edit user profile',
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('edit profile')
+      }
+    },
+    {
+      command: 'open artist dashboard',
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('artistdashboard')
+      }
+    },
+    {
+      command: 'open create podcast',
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('create podcast')
+      }
+    },
+    {
+      command: 'open artist profile',
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('profile')
+      }
+    },
+    {
+      command: 'publish the podcast',
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('publish podcast')
+      }
+    },
+    {
+      command: 'open series form',
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('series form')
+      }
+    },
+    {
+      command: 'open admin dashboard',
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('dashboard')
+      }
+    },
+    {
+      command: 'manage feedback',
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('manage feedback')
+      }
+    },
+    {
+      command: 'open admin profile',
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('profile')
       }
     },
     {

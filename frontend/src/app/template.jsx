@@ -1,11 +1,8 @@
 
 'use client';
 import React, { useEffect } from 'react';
-import { AppProvider } from './context/AppContext';
-import { CartProvider } from './context/CartContext';
-import { VoiceProvider } from './context/voiceContext';
-
-
+import { VoiceProvider } from './Context/voiceContext';
+import { AppProvider } from './Context/userContext';
 
 const Template = ({ children }) => {
 
@@ -14,9 +11,9 @@ const Template = ({ children }) => {
        
       <VoiceProvider >
                 <AppProvider>
-                    <CartProvider>
+                   
                         {children }
-                    </CartProvider>
+                   
                 </AppProvider>
                 </VoiceProvider>
         </>
