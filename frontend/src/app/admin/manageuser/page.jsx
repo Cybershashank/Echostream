@@ -1,6 +1,7 @@
 import React from 'react'
 
 const ManageUser = () => {
+  
   return (
     <>
     <div className="shadow-lg rounded-lg overflow-hidden mx-4 md:mx-10">
