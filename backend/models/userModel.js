@@ -5,6 +5,7 @@ const mySchema = new Schema({
     email : String,
     mobileNumber : String,
     password : String,
+    
     avatar: {type : String, default: 'placeholder.png'},
     createdAt: {type : Date, default: Date.now}
 });

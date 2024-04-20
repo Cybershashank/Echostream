@@ -3,16 +3,16 @@ import React from 'react'
 const artist_detail = () => {
 
   const episodes = [
-    { id: 1, title: 'Episode 1', thumbnail: 'https://images.cdn.kukufm.com/w:256/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/cu_icons/5ae0cd1447954fba9f563de8adbb1a4e.png', description: 'Description of episode 1' },
-    { id: 2, title: 'Episode 2', thumbnail: 'https://images.cdn.kukufm.com/w:256/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/1fc78ad106ab4edcbb381fdf2d7032d2.jpeg', description: 'Description of episode 2' },
-    { id: 3, title: 'Episode 3', thumbnail: 'https://images.cdn.kukufm.com/w:256/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/1af40f46ab054de9bdf9e6ee932c3577.jpg', description: 'Description of episode 3' },
-    { id: 4, title: 'Episode 4', thumbnail: 'https://images.cdn.kukufm.com/w:256/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/f3e4b2eddeb84bff8eab839b4c4b588e.png', description: 'Description of episode 4' },
-    { id: 5, title: 'Episode 5', thumbnail: 'https://images.cdn.kukufm.com/w:256/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/1fbf1a3423274426a718ef0fa91cbf85.jpeg', description: 'Description of episode 5' },
-    { id: 6, title: 'Episode 6', thumbnail: 'https://images.cdn.kukufm.com/w:256/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/2b563e6fa6df48248e7fad454d0b0cbd.png', description: 'Description of episode 6' },
-    { id: 7, title: 'Episode 7', thumbnail: 'https://images.cdn.kukufm.com/w:256/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/25de0706d4df426a9b8c1f54f0aec66d.png', description: 'Description of episode 7' },
-    { id: 8, title: 'Episode 8', thumbnail: 'https://images.cdn.kukufm.com/w:256/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/65d456eda7f645eaae2d870406194c88.png', description: 'Description of episode 8' },
-    { id: 9, title: 'Episode 9', thumbnail: 'https://images.cdn.kukufm.com/w:256/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/a460f6b6c37348e288d5be916684a9b3.png', description: 'Description of episode 9' },
-    { id: 10, title: 'Episode 10', thumbnail: 'https://images.cdn.kukufm.com/w:1920/f:webp/q:75/https://images.cdn.kukufm.com/f:webp/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/917f376cdf9f4c96a65b74e5e4d6176a.png', description: 'Description of episode 10' },
+    { id: 1, title: 'Series 1', thumbnail: 'https://images.cdn.kukufm.com/w:256/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/cu_icons/5ae0cd1447954fba9f563de8adbb1a4e.png', description: 'Chanakya Niti' },
+    { id: 2, title: 'Series 2', thumbnail: 'https://images.cdn.kukufm.com/w:256/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/1fc78ad106ab4edcbb381fdf2d7032d2.jpeg', description: 'Zindagi Apne Liye Jiye Dusro Ke Liye Nahi' },
+    { id: 3, title: 'Series 3', thumbnail: 'https://images.cdn.kukufm.com/w:256/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/1af40f46ab054de9bdf9e6ee932c3577.jpg', description: 'Slice of Life' },
+    { id: 4, title: 'Series 4', thumbnail: 'https://images.cdn.kukufm.com/w:256/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/f3e4b2eddeb84bff8eab839b4c4b588e.png', description: 'Think Like a Monk' },
+    { id: 5, title: 'Series 5', thumbnail: 'https://images.cdn.kukufm.com/w:256/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/1fbf1a3423274426a718ef0fa91cbf85.jpeg', description: 'Real Life Baazigar' },
+    { id: 6, title: 'Series 6', thumbnail: 'https://images.cdn.kukufm.com/w:256/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/2b563e6fa6df48248e7fad454d0b0cbd.png', description: 'Natin Gadkari- Expressway Man of India' },
+    { id: 7, title: 'Series 7', thumbnail: 'https://images.cdn.kukufm.com/w:256/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/25de0706d4df426a9b8c1f54f0aec66d.png', description: 'Power of Awareness' },
+    { id: 8, title: 'Series 8', thumbnail: 'https://images.cdn.kukufm.com/w:256/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/65d456eda7f645eaae2d870406194c88.png', description: 'THe Power of Influence' },
+    { id: 9, title: 'Series 9', thumbnail: 'https://images.cdn.kukufm.com/w:256/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/a460f6b6c37348e288d5be916684a9b3.png', description: 'Unlock your Life with inner Greatness' },
+    { id: 10, title: 'Series 10', thumbnail: 'https://images.cdn.kukufm.com/w:1920/f:webp/q:75/https://images.cdn.kukufm.com/f:webp/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/917f376cdf9f4c96a65b74e5e4d6176a.png', description: 'Swami Vivekanand' },
   ];
 
   return (
@@ -30,7 +30,7 @@ const artist_detail = () => {
                   className="w-32 h-32 rounded-full"
                 />
               </div>
-              <h1 className="text-3xl font-bold mb-2 text-center">James Smith</h1>
+              <h1 className="text-3xl font-bold mb-2 text-center">Gaurav</h1>
               <p className="text-gray-600 text-center">Genre: Fiction</p>
             </div>
 
@@ -50,25 +50,25 @@ const artist_detail = () => {
                 <div className="flex flex-col items-start justify-center rounded-lg bg-white bg-clip-border px-3 py-4 shadow-md shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
                   <p className="text-sm text-gray-600">Education</p>
                   <p className="text-base font-medium text-navy-700 dark:text-white">
-                    Stanford University
+                    BBD University
                   </p>
                 </div>
                 <div className="flex flex-col justify-center rounded-lg bg-white bg-clip-border px-3 py-4 shadow-md shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
                   <p className="text-sm text-gray-600">Languages</p>
                   <p className="text-base font-medium text-navy-700 dark:text-white">
-                    English, Spanish, Italian
+                    English, Hindi
                   </p>
                 </div>
                 <div className="flex flex-col items-start justify-center rounded-lg bg-white bg-clip-border px-3 py-4 shadow-md shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
-                  <p className="text-sm text-gray-600">Department</p>
+                  <p className="text-sm text-gray-600">Role</p>
                   <p className="text-base font-medium text-navy-700 dark:text-white">
-                    Product Design
+                    Artist
                   </p>
                 </div>
                 <div className="flex flex-col justify-center rounded-lg bg-white bg-clip-border px-3 py-4 shadow-md shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
                   <p className="text-sm text-gray-600">Work History</p>
                   <p className="text-base font-medium text-navy-700 dark:text-white">
-                    English, Spanish, Italian
+                    English, Hindi
                   </p>
                 </div>
                 <div className="flex flex-col items-start justify-center rounded-lg bg-white bg-clip-border px-3 py-4 shadow-md shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
@@ -80,7 +80,7 @@ const artist_detail = () => {
                 <div className="flex flex-col justify-center rounded-lg bg-white bg-clip-border px-3 py-4 shadow-md shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
                   <p className="text-sm text-gray-600">Birthday</p>
                   <p className="text-base font-medium text-navy-700 dark:text-white">
-                    20 July 1986
+                    08 Jan 2001
                   </p>
                 </div>
               </div>
@@ -107,54 +107,7 @@ const artist_detail = () => {
           </div>
         </div>
       </div>
-      {/*
-      <div className="bg-gray-100 min-h-screen">
-        <div className="container mx-auto py-8">
-          <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-md">
-            <div className="mb-8">
-              <h1 className="text-3xl font-bold mb-2">Artist Name</h1>
-              <p className="text-gray-600">Genre: Pop, Rock</p>
-            </div>
-            <div className="mb-8">
-              <h2 className="text-xl font-bold mb-2">Bio</h2>
-              <p className="text-gray-700">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-                scelerisque dolor et diam vehicula, ut tempus lorem facilisis.
-                Nullam ac nunc at eros aliquet fermentum sit amet sed felis.
-                Phasellus vel semper ipsum. Nullam convallis aliquet leo, id
-                vestibulum magna lacinia nec. Curabitur ultrices sagittis turpis,
-                at lobortis mi pellentesque vel. Sed quis luctus nisi, a aliquet
-                magna. Proin consequat magna eget risus vestibulum, eget
-                tincidunt neque mattis.
-              </p>
-            </div>
-            <div className="mb-8">
-              <h2 className="text-xl font-bold mb-2">Albums</h2>
-              <ul>
-                <li className="text-gray-700">Album 1</li>
-                <li className="text-gray-700">Album 2</li>
-                <li className="text-gray-700">Album 3</li>
-              </ul>
-            </div>
-            <div>
-              <h2 className="text-xl font-bold mb-2">Podcasts & Interviews</h2>
-              <ul>
-                <li className="text-gray-700">
-                  Podcast 1 - Lorem ipsum dolor sit amet, consectetur adipiscing
-                  elit.
-                </li>
-                <li className="text-gray-700">
-                  Podcast 2 - Sed quis luctus nisi, a aliquet magna.
-                </li>
-                <li className="text-gray-700">
-                  Podcast 3 - Nullam ac nunc at eros aliquet fermentum.
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-*/}
+     
     </>
   )
 }
