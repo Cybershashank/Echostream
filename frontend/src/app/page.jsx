@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from './(main)/navbar'
 import classes from './page.module.css';
 
+
 const Home = () => {
 
   const languages = [
@@ -35,7 +36,7 @@ const Home = () => {
                 <div className="text-white fw-bold mt-3">
                   <p>Weekly conversations with forward thinkers at the<br /> forefront of this $1.6 Trillion industry. </p>
                 </div>
-                < a href='/browse_podcast'>
+                <a href="/browse_podcast" >
                 <div className='mt-5'>
                   <button className=' btn py-3 px-5 fw-bold rounded-pill bg-purple-800 border-none text-white'>ALL EPISODES</button>
                 </div></a>
@@ -1190,7 +1191,7 @@ const Home = () => {
 
       </div >
 
-
+     
 
 
     </>

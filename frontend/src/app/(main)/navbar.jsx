@@ -1,7 +1,47 @@
+"use client"
+import useAppContext from '@/app/Context/userContext';
+import Link from 'next/link';
 import React from 'react';
 
 const Navbar = () => {
+    
+  const { loggedIn, logout } = useAppContext();
+
+  console.log(loggedIn);
+
+  const showLoggedin = () => {
+    if (loggedIn) {
+      return (<div className=" ">
+        <div className="container d-flex flex-wrap justify-content-end ">
+
+          <div className="text-end">
+            <button onClick={logout} type="button" className="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded ">
+              Logout
+            </button>
+
+          </div>
+        </div>
+      </div>
+      );
+    } else {
+      return <div className=" ">
+        <div className="container d-flex flex-wrap justify-content-end">
+
+          <div className="text-end">
+            <Link href="/login" type="button" className="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded btn-dark" style={{ fontFamily: "initial" }}>
+              Login
+            </Link>
+            <Link href="/signup" type="button" className="bg-blue-600 mx-2 hover:bg-blue-700 text-white px-3 py-1 rounded " style={{ fontFamily: "initial" }}>
+              SignUp
+            </Link>
+          </div>
+        </div>
+      </div>
+    }
+  }
+
     return (
+
         <>
 
 
@@ -24,18 +64,9 @@ const Navbar = () => {
                     <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
 
                         <div className="flex-shrink-0 flex px-2 py-3 items-center space-x-8 flex-1 justify-end justify-self-end ">
-                            <a
-                                className="text-gray-700 hover:text-lime-700 text-sm font-medium"
-                                href="/login"
-                            >
-                                Login
-                            </a>
-                            <a
-                                className="text-white bg-gray-800 hover:bg-gray-900 inline-flex items-center justify-center px-3 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm "
-                                href="/signup"
-                            >
-                                Sign up
-                            </a>
+                  
+                {showLoggedin()}
+     
                         </div>
 
                         <button
@@ -69,12 +100,12 @@ const Navbar = () => {
                     >
                         <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                             <li>
-                                <a
+                                <Link
                                     href="http://localhost:3000/"
                                     className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                                 >
                                     Home
-                                </a>
+                                </Link>
                             </li>
                             <li>
                                 <a
