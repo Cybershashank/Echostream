@@ -1,11 +1,8 @@
 
 'use client';
 import React, { useEffect } from 'react';
+import { VoiceProvider } from './Context/voiceContext';
 import { AppProvider } from './Context/userContext';
-
-import { VoiceProvider } from './context/voiceContext';
-
-
 
 const Template = ({ children }) => {
 
@@ -14,9 +11,9 @@ const Template = ({ children }) => {
        
       <VoiceProvider >
                 <AppProvider>
-               
+                   
                         {children }
-            
+                   
                 </AppProvider>
                 </VoiceProvider>
         </>

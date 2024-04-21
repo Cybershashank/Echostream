@@ -3,14 +3,6 @@ import React from 'react'
 const AdminProfile = () => {
   return (
     <>
-  <>
-  <meta charSet="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Admin Profile</title>
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-  />
   <div className="container mx-auto py-6">
     <div className="bg-white shadow-md rounded-md overflow-hidden">
       <div className="bg-gray-800 text-white p-4">

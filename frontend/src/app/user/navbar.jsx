@@ -1,11 +1,9 @@
 import React from 'react'
 
-const ArtistNavbar = () => {
+const UserNavbar = () => {
   return (
     <>
-
-
-<nav className="border-gray-200 dark:bg-gray-900">
+    <nav className="border-gray-200 dark:bg-gray-900">
   <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
     <a
       href="http://localhost:3000/"
@@ -150,20 +148,8 @@ const ArtistNavbar = () => {
     </div>
   </div>
 </nav>
-
-
-
-
-
-
-
-
-
-
-
-      
     </>
   )
 }
 
-export default ArtistNavbar;
+export default UserNavbar;

@@ -1,16 +1,34 @@
 'use client';
-import React from 'react'
+import { useFormik } from 'formik';
+import React, { useState } from 'react'
 
 const UserProfile = () => {
+
+  const [currentUser, setCurrentUSer ] = useState(
+    JSON.parse(sessionStorage.getItem("user"))
+);
+
+ const useForm = useFormik({
+  initialValues: currentUser,
+  onSubmit : async (data) => {
+    console.log(data);
+  const res = await fetch(url + '/user/update/'+currentUser._id, {
+    method: 'PUT',
+    body: JSON.stringify(data),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
+  console.log(res.status);
+  const userData = await res.json();
+  console.log(userData);
+  setCurrentUSer(userData);
+  sessionStorage.setItem("user", JSON.stringify(userData));
+  }
+ })
   return (
     <>
-      <>
-
-
-
-
-
-        <>
+      
 
           <section className="relative pt-40 pb-24">
             <img
@@ -29,10 +47,10 @@ const UserProfile = () => {
               <div className="flex flex-col sm:flex-row max-sm:gap-5 items-center justify-between mb-5">
                 <div className="block">
                   <h3 className="font-manrope font-bold text-4xl text-gray-900 mb-1">
-                    Emma Smith
+                   {currentUser.name}
                   </h3>
                   <p className="font-normal text-base leading-7 text-gray-500">
-                    Los Anbeles, California
+                    {currentUser.email}
                   </p>
                 </div>
                 <button className="py-3.5 px-5 flex rounded-full bg-indigo-600 items-center shadow-sm shadow-transparent transition-all duration-500 hover:bg-indigo-700">
@@ -73,8 +91,7 @@ const UserProfile = () => {
         </>
 
 
-      </>
-    </>
+      
   )
 }
 

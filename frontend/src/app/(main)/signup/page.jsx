@@ -10,7 +10,7 @@ import { useRouter } from 'next/router';
 
 
 const Signup = () => {
-const router = useRouter();
+//const router = useRouter();
   const signupValidationSchema = Yup.object().shape({
     email: Yup.string().email('Email is invalid').required('Email is required'),
     name: Yup.string().required('Name is required'),
