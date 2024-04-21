@@ -28,14 +28,6 @@ router.get("/getall", (req,res) => {
     });
 })
 
-router.get('/add', (req, res) => {
-    res.send('add response from user router');
-});
-
-router.get('/getall', (req, res) => {
-    res.send('getall response from user router');
-
-});
 
 router.get('/delete', (req, res) => {
     Model.findByIdAndDelete(req.params.id)
