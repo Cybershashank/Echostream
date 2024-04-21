@@ -4,7 +4,6 @@ const Model = require('../models/userModel');
 const jwt = require('../models/userModel');
 require('dotenv').config();
 
-
 router.post('/add', (req, res) => {
     console.log(req.body);
     new Model(req.body).save()
