@@ -535,7 +535,7 @@ export const VoiceProvider = ({ children }) => {
 
   return (
     <VoiceContext.Provider value={{}}>
-    <div className="text-center h-7">
+    <div className="text-center bg-gray-700 h-7">
       <button className='floating-mic' onClick={() => {
         if (listening) {
           SpeechRecognition.stopListening();

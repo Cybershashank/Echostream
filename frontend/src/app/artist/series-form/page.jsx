@@ -13,27 +13,28 @@ const seriesForm = () => {
       likes: String,
       comments: String,
     },
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
+      values.image = selImage.name;
+      console.log(values);
 
-      fetch(`${process.env.NEXT_PUBLIC_API_URL}/series/add`, {
-        method: 'POST',
+      const res = await fetch("http://localhost:5000/series/add", {
+        method: "POST",
         body: JSON.stringify(values),
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json"
         }
-      })
-        .then((response) => {
-          if (response.status === 200) {
-            toast.success('Series Created successfully')
-          } else {
-            toast.error('Error creating Series')
-          }
-        }).catch((err) => {
-          toast.error('Error creating Series')
-          console.log(err);
-        });
+      });
+      console.log(res.status);
 
-    }
+      if (res.status === 200) {
+        toast.success("Series added Successfully");
+        router.push('/artist/publish_podcast');
+      } else if (res.status === 400) {
+        toast.error("Something went wrong");
+      } else {
+        toast.error("Something went wrong");
+      }
+    },
   })
 
   return (
