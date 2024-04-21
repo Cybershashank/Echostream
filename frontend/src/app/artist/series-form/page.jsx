@@ -1,15 +1,15 @@
 'use client';
 import { useFormik } from 'formik';
-import React from 'react'
+import React, { useState } from 'react'
 import toast from 'react-hot-toast';
 
 const seriesForm = () => {
+  const [selImage, setselImage] = useState('');
 
   const seriesForm = useFormik({
     initialValues: {
       name: String,
       cover: String,
-      artist: String,
       likes: String,
       comments: String,
     },
@@ -36,6 +36,23 @@ const seriesForm = () => {
       }
     },
   })
+
+  
+  const uploadeImage = async (e) => {
+    const file = e.target.files[0];
+    setselImage(file);
+    const fd = new FormData();
+    fd.append("myfile", file);
+    fetch("http://localhost:5000/util/uploadfile", {
+      method: "POST",
+      body: fd,
+    }).then((res) => {
+      if (res.status === 200) {
+        console.log("file uploaded");
+        toast.success('File Uploaded!!');
+      }
+    });
+  }
 
   return (
     <>
@@ -79,9 +96,10 @@ const seriesForm = () => {
                           <span>Upload a file</span>
                           <input
                             id="file-upload"
-                            name="file-upload"
+                            name="cover"
                             type="file"
                             className="sr-only"
+                            onChange={uploadeImage}
                           />
                         </label>
                         <p className="pl-1">or drag and drop</p>
@@ -115,25 +133,6 @@ const seriesForm = () => {
                         placeholder="Name" />
                     </div>
                   </div>
-
-
-                  <div className="w-full lg:w-6/12 px-4">
-                    <div className="relative w-full mb-3">
-                      <label
-                        className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                        htmlfor="grid-password">
-                        Cover
-                      </label>
-                      <input
-                        type="text"
-                        id="cover"
-                        onChange={seriesForm.handleChange}
-                        value={seriesForm.values.cover}
-                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                        placeholder="Cover" />
-                    </div>
-                  </div>
-
 
                   <div className="w-full lg:w-6/12 px-4">
                     <div className="relative w-full mb-3">
@@ -183,9 +182,9 @@ const seriesForm = () => {
                     <div className="relative w-full mb-3">
                       <textarea
                         type="text"
-                        id="comment"
+                        id="comments"
                         onChange={seriesForm.handleChange}
-                        value={seriesForm.values.comment}
+                        value={seriesForm.values.comments}
                         className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                         rows={4}
                         placeholder={
