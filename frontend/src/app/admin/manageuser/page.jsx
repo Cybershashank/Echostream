@@ -36,18 +36,26 @@ const ManageUser = () => {
   //User Display func
   const displayUsers = () => {
     return Data.map((obj) => (
-<tr>
-              <td className="py-4 px-6 border-b border-gray-200">{obj.name}</td>
-              <td className="py-4 px-6 border-b border-gray-200 truncate">
-              {obj.email}
-              </td>
-              <td className="py-4 px-6 border-b border-gray-200">{obj.mobileNumber}</td>
-              <td className="py-4 px-6 border-b border-gray-200">
-                <span className="bg-green-500 text-white py-1 px-2 rounded-full text-xs">
-                  {obj.password}
-                </span>
-              </td>
-            </tr>
+      <tr>
+        <td className="py-4  border-b border-gray-200">{obj.name}</td>
+        <td className="py-4  border-b border-gray-200 truncate">
+          {obj.email}
+        </td>
+        <td className="py-4  border-b border-gray-200">{obj.mobileNumber}</td>
+        <td className="py-4  border-b border-gray-200">
+          <span className="bg-green-500 text-white py-1 px-2 rounded-full text-xs">
+            {obj.password}
+          </span>
+        </td>
+        <td className="border px-4 py-2">
+          
+          <button onClick={() => { deleteFuction(obj._id) }} className="bg-red-500 hover:bg-red-700">
+            Delete
+          </button>
+          
+          
+        </td>
+      </tr>
 
     ))
   }
@@ -70,11 +78,14 @@ const ManageUser = () => {
               <th className="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">
                 Password
               </th>
+              <th className="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">
+                
+              </th>
             </tr>
           </thead>
           <tbody className="bg-white">
-            
-          {displayUsers()}
+
+            {displayUsers()}
 
           </tbody>
         </table>
