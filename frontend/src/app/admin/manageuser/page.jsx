@@ -37,8 +37,8 @@ const ManageUser = () => {
   const displayUsers = () => {
     return Data.map((obj) => (
       <tr>
-        <td className="py-4  border-b border-gray-200">{obj.name}</td>
-        <td className="py-4  border-b border-gray-200 truncate">
+        <td className="w-1/4 py-4 px-6 text-left text-gray-600 border-b  border-gray-200">{obj.name}</td>
+        <td className="py-4 w-1/4 px-6 text-left text-gray-600  border-b border-gray-200 truncate">
           {obj.email}
         </td>
         <td className="py-4  border-b border-gray-200">{obj.mobileNumber}</td>
@@ -49,7 +49,7 @@ const ManageUser = () => {
         </td>
         <td className="border px-4 py-2">
           
-          <button onClick={() => { deleteFuction(obj._id) }} className="bg-red-500 hover:bg-red-700">
+          <button onClick={() => { deleteFuction(obj._id) }} className="bg-red-500 hover:bg-red-700 px-6 py-1 rounded text-white">
             Delete
           </button>
           
