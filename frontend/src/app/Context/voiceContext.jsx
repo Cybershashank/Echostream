@@ -117,6 +117,10 @@ const pageDetails = [
     pageName: 'adminProfile',
     pagePath: '/admin/adminProfile'
   },
+  {
+    pageName: 'create podcast',
+    pagePath: '/artist/create-podcast'
+  },
 
 ]
 
@@ -450,6 +454,8 @@ export const VoiceProvider = ({ children }) => {
         voicePageNavigator('adminProfile')
       }
     },
+ 
+  
     {
       command: 'Beijing',
       callback: (command, spokenPhrase, similarityRatio) => setMessage(`${command} and ${spokenPhrase} are ${similarityRatio * 100}% similar`),
@@ -457,13 +463,7 @@ export const VoiceProvider = ({ children }) => {
       isFuzzyMatch: true,
       fuzzyMatchingThreshold: 0.2
     },
-    {
-      command: ['eat', 'sleep', 'leave'],
-      callback: (command) => setMessage(`Best matching command: ${command}`),
-      isFuzzyMatch: true,
-      fuzzyMatchingThreshold: 0.2,
-      bestMatchOnly: true
-    }
+  
   ]
 
   const {
