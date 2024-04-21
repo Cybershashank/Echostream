@@ -69,7 +69,7 @@ const PublishPage = () => {
 
             <form className="" onSubmit={PublishForm.handleSubmit}>
               <h1 className='text-center fw-bold text-4xl text-purple-600 mb-12' style={{ fontFamily: "serif" }}>Publish Podcast</h1>
-              <hr style={{ color: "black", Size: "10px" }} />
+              
 
 
               <div className="mb-2">
