@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Model = require('../models/artistModel');
 const jwt = require('jsonwebtoken');
+const verifyToken = require('./verifyToken');
 require('dotenv').config();
 
 router.post('/add', (req, res) => {
@@ -47,11 +48,12 @@ router.get('/update', (req, res) => {
         });
 });
 
-router.post("/authenticate", (req, res) => {
+router.post("/authenticate", verifyToken, (req, res) => {
+    req.body.artist = req.user._id;
     Model.find(req.body)
         .then((result) => {
             if (result) {
-                const { _id, name, email } = result;
+                const { _id, name, email, avatar } = result;
                 const payload = { _id, name, email };
 
                 jwt.sign(
@@ -63,7 +65,7 @@ router.post("/authenticate", (req, res) => {
                             res.status(400).json({ message: 'error creating token' })
                         } else {
                             res.status(200).json({
-                                token, role: reault.role
+                                token, role, name, avatar
                             })
 
                         }
