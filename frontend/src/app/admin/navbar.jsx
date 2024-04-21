@@ -68,7 +68,7 @@ const AdminNavbar = () => {
                 <li>
                   <a
                     href="http://localhost:3000/"
-                    className="block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:dark:text-blue-500"
+                    className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                     aria-current="page"
                   >
                     Home
@@ -76,7 +76,7 @@ const AdminNavbar = () => {
                 </li>
                 <li>
                   <a
-                    href="http://localhost:3000/about"
+                    href="/about"
                     className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                   >
                     About
@@ -84,15 +84,15 @@ const AdminNavbar = () => {
                 </li>
                 <li>
                   <a
-                    href="http://localhost:3000/"
+                    href="/browse_podcast"
                     className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                   >
-                    Services
+                    Podcast
                   </a>
                 </li>
                 <li>
                   <a
-                    href="http://localhost:3000/contact"
+                    href="/contact"
                     className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                   >
                     Contact

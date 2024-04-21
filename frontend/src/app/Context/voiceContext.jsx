@@ -43,7 +43,7 @@ const pageDetails = [
   },
   {
     pageName: 'reset password',
-    pagePath: '/reset-password'
+    pagePath: '/resetPassword'
   },
   {
     pageName: 'artist detail',
@@ -114,8 +114,8 @@ const pageDetails = [
     pagePath: '/admin/manageuser'
   },
   {
-    pageName: 'profile',
-    pagePath: '/admin/profile'
+    pageName: 'adminProfile',
+    pagePath: '/admin/adminProfile'
   },
 
 ]
@@ -136,7 +136,14 @@ export const VoiceProvider = ({ children }) => {
       }
     },
     {
-      command: 'I want to create an account',
+      command: 'create an account',
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('signup')
+      }
+    },
+    {
+      command: 'signup page open karo',
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('signup')
@@ -150,6 +157,13 @@ export const VoiceProvider = ({ children }) => {
       }
     },
     {
+      command: 'artist sign up open karo',
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('artistSignup')
+      }
+    },
+    {
       command: 'I want to login',
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
@@ -157,24 +171,52 @@ export const VoiceProvider = ({ children }) => {
       }
     },
     {
-      command: 'I want to login as an artist',
+      command: 'login page open karo',
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('login')
+      }
+    },
+    {
+      command: 'artist login open karo',
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('artistLogin')
       }
     },
     {
-      command: 'I want to know about you',
+      command: 'open about page',
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('about')
       }
     },
     {
-      command: 'I want to contact you',
+      command: 'about page open karo',
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('about')
+      }
+    },
+    {
+      command: 'open contact page',
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('contact')
+      }
+    },
+    {
+      command: 'contact page open karo',
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('contact')
+      }
+    },
+    {
+      command: 'open feedback page',
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('feedback')
       }
     },
     {
@@ -199,10 +241,24 @@ export const VoiceProvider = ({ children }) => {
       }
     },
     {
+      command: 'open front page',
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('browse artist')
+      }
+    },
+    {
       command: 'browse artist page open karo',
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('browse artist')
+      }
+    },
+    {
+      command: 'open artist detail page',
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('artist detail')
       }
     },
     {
@@ -213,7 +269,14 @@ export const VoiceProvider = ({ children }) => {
       }
     },
     {
-      command: 'podcast play karo',
+      command: 'podcast play page open karo',
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('play podcast')
+      }
+    },
+    {
+      command: 'open podcast play page',
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('play podcast')
@@ -227,7 +290,21 @@ export const VoiceProvider = ({ children }) => {
       }
     },
     {
+      command: 'podcast series page open karo',
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('podcast series')
+      }
+    },
+    {
       command: 'open user profile',
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('user profile')
+      }
+    },
+    {
+      command: 'user profile open karo',
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('user profile')
@@ -241,7 +318,21 @@ export const VoiceProvider = ({ children }) => {
       }
     },
     {
+      command: 'playlist open karo',
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('playlist')
+      }
+    },
+    {
       command: 'edit user profile',
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('edit profile')
+      }
+    },
+    {
+      command: 'user profile edit karo',
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('edit profile')
@@ -255,7 +346,21 @@ export const VoiceProvider = ({ children }) => {
       }
     },
     {
+      command: 'artist dashboard open karo',
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('artistdashboard')
+      }
+    },
+    {
       command: 'open create podcast',
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('create podcast')
+      }
+    },
+    {
+      command: 'create podcast page open karo',
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('create podcast')
@@ -269,7 +374,21 @@ export const VoiceProvider = ({ children }) => {
       }
     },
     {
-      command: 'publish the podcast',
+      command: 'artist profile page open karo',
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('profile')
+      }
+    },
+    {
+      command: 'open publish podcast page',
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('publish podcast')
+      }
+    },
+    {
+      command: 'publish page open karo',
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('publish podcast')
@@ -283,7 +402,21 @@ export const VoiceProvider = ({ children }) => {
       }
     },
     {
+      command: 'series form open karo',
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('series form')
+      }
+    },
+    {
       command: 'open admin dashboard',
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('dashboard')
+      }
+    },
+    {
+      command: 'admin dashboard open karo',
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('dashboard')
@@ -297,10 +430,24 @@ export const VoiceProvider = ({ children }) => {
       }
     },
     {
+      command: 'manage feedback open karo',
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('manage feedback')
+      }
+    },
+    {
       command: 'open admin profile',
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
-        voicePageNavigator('profile')
+        voicePageNavigator('adminProfile')
+      }
+    },
+    {
+      command: 'admin profile open karo',
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('adminProfile')
       }
     },
     {

@@ -37,9 +37,9 @@ const Home = () => {
                   <p>Weekly conversations with forward thinkers at the<br /> forefront of this $1.6 Trillion industry. </p>
                 </div>
                 <a href="/browse_podcast" >
-                <div className='mt-5'>
-                  <button className=' btn py-3 px-5 fw-bold rounded-pill bg-purple-800 border-none text-white'>ALL EPISODES</button>
-                </div></a>
+                  <div className='mt-5'>
+                    <button className=' btn py-3 px-5 fw-bold rounded-pill bg-purple-800 border-none text-white'>ALL EPISODES</button>
+                  </div></a>
               </div>
               <div className="col-6 mt-2 ">
                 <img src="https://cdn.pixabay.com/photo/2023/03/25/20/30/podcast-7876792_640.jpg" alt="" className='img-fluid rounded mx-auto d-block' />
@@ -153,7 +153,7 @@ const Home = () => {
                 </div>
               </div>
               <img
-                src="https://cdn.pixabay.com/photo/2023/03/25/20/30/podcast-7876792_640.jpg"
+                src="https://assets-global.website-files.com/5fac161927bf86485ba43fd0/6470607db5ddc9c102ef4a14_How-to-Start-a-Podcast-(1).jpeg"
                 alt="Product screenshot"
                 className="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0"
                 width={2432}
@@ -582,7 +582,7 @@ const Home = () => {
                     </svg>
                   </div>
                   <p className="text-lg text-gray-500 leading-8 h-24 transition-all duration-500 mb-9 group-hover:text-gray-800">
-                    Pagedone is simply the best tool of investment in the market right
+                    Echostream is simply the best tool of investment in the market right
                     now.
                   </p>
                   <div className="flex items-center gap-5">
@@ -595,85 +595,6 @@ const Home = () => {
                         Jane D
                       </h5>
                       <span className="text-sm leading-6 text-gray-500">CEO </span>
-                    </div>
-                  </div>
-                </div>
-
-
-                <div className="swiper-slide group bg-white border border-solid border-gray-300 rounded-2xl p-6 transition-all duration-500 w-full hover:border-indigo-600 slide-active:border-indigo-600">
-                  <div className="flex items-center mb-9 gap-2 text-amber-500 transition-all duration-500  group-hover:text-indigo-600 swiper-slide-active:text-indigo-600">
-                    <svg
-                      className="w-5 h-5"
-                      viewBox="0 0 18 17"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M8.10326 1.31699C8.47008 0.57374 9.52992 0.57374 9.89674 1.31699L11.7063 4.98347C11.8519 5.27862 12.1335 5.48319 12.4592 5.53051L16.5054 6.11846C17.3256 6.23765 17.6531 7.24562 17.0596 7.82416L14.1318 10.6781C13.8961 10.9079 13.7885 11.2389 13.8442 11.5632L14.5353 15.5931C14.6754 16.41 13.818 17.033 13.0844 16.6473L9.46534 14.7446C9.17402 14.5915 8.82598 14.5915 8.53466 14.7446L4.91562 16.6473C4.18199 17.033 3.32456 16.41 3.46467 15.5931L4.15585 11.5632C4.21148 11.2389 4.10393 10.9079 3.86825 10.6781L0.940384 7.82416C0.346867 7.24562 0.674378 6.23765 1.4946 6.11846L5.54081 5.53051C5.86652 5.48319 6.14808 5.27862 6.29374 4.98347L8.10326 1.31699Z"
-                        fill="currentColor"
-                      />
-                    </svg>
-                    <svg
-                      className="w-5 h-5"
-                      viewBox="0 0 18 17"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M8.10326 1.31699C8.47008 0.57374 9.52992 0.57374 9.89674 1.31699L11.7063 4.98347C11.8519 5.27862 12.1335 5.48319 12.4592 5.53051L16.5054 6.11846C17.3256 6.23765 17.6531 7.24562 17.0596 7.82416L14.1318 10.6781C13.8961 10.9079 13.7885 11.2389 13.8442 11.5632L14.5353 15.5931C14.6754 16.41 13.818 17.033 13.0844 16.6473L9.46534 14.7446C9.17402 14.5915 8.82598 14.5915 8.53466 14.7446L4.91562 16.6473C4.18199 17.033 3.32456 16.41 3.46467 15.5931L4.15585 11.5632C4.21148 11.2389 4.10393 10.9079 3.86825 10.6781L0.940384 7.82416C0.346867 7.24562 0.674378 6.23765 1.4946 6.11846L5.54081 5.53051C5.86652 5.48319 6.14808 5.27862 6.29374 4.98347L8.10326 1.31699Z"
-                        fill="currentColor"
-                      />
-                    </svg>
-                    <svg
-                      className="w-5 h-5"
-                      viewBox="0 0 18 17"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M8.10326 1.31699C8.47008 0.57374 9.52992 0.57374 9.89674 1.31699L11.7063 4.98347C11.8519 5.27862 12.1335 5.48319 12.4592 5.53051L16.5054 6.11846C17.3256 6.23765 17.6531 7.24562 17.0596 7.82416L14.1318 10.6781C13.8961 10.9079 13.7885 11.2389 13.8442 11.5632L14.5353 15.5931C14.6754 16.41 13.818 17.033 13.0844 16.6473L9.46534 14.7446C9.17402 14.5915 8.82598 14.5915 8.53466 14.7446L4.91562 16.6473C4.18199 17.033 3.32456 16.41 3.46467 15.5931L4.15585 11.5632C4.21148 11.2389 4.10393 10.9079 3.86825 10.6781L0.940384 7.82416C0.346867 7.24562 0.674378 6.23765 1.4946 6.11846L5.54081 5.53051C5.86652 5.48319 6.14808 5.27862 6.29374 4.98347L8.10326 1.31699Z"
-                        fill="currentColor"
-                      />
-                    </svg>
-                    <svg
-                      className="w-5 h-5"
-                      viewBox="0 0 18 17"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M8.10326 1.31699C8.47008 0.57374 9.52992 0.57374 9.89674 1.31699L11.7063 4.98347C11.8519 5.27862 12.1335 5.48319 12.4592 5.53051L16.5054 6.11846C17.3256 6.23765 17.6531 7.24562 17.0596 7.82416L14.1318 10.6781C13.8961 10.9079 13.7885 11.2389 13.8442 11.5632L14.5353 15.5931C14.6754 16.41 13.818 17.033 13.0844 16.6473L9.46534 14.7446C9.17402 14.5915 8.82598 14.5915 8.53466 14.7446L4.91562 16.6473C4.18199 17.033 3.32456 16.41 3.46467 15.5931L4.15585 11.5632C4.21148 11.2389 4.10393 10.9079 3.86825 10.6781L0.940384 7.82416C0.346867 7.24562 0.674378 6.23765 1.4946 6.11846L5.54081 5.53051C5.86652 5.48319 6.14808 5.27862 6.29374 4.98347L8.10326 1.31699Z"
-                        fill="currentColor"
-                      />
-                    </svg>
-                    <svg
-                      className="w-5 h-5"
-                      viewBox="0 0 18 17"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M8.10326 1.31699C8.47008 0.57374 9.52992 0.57374 9.89674 1.31699L11.7063 4.98347C11.8519 5.27862 12.1335 5.48319 12.4592 5.53051L16.5054 6.11846C17.3256 6.23765 17.6531 7.24562 17.0596 7.82416L14.1318 10.6781C13.8961 10.9079 13.7885 11.2389 13.8442 11.5632L14.5353 15.5931C14.6754 16.41 13.818 17.033 13.0844 16.6473L9.46534 14.7446C9.17402 14.5915 8.82598 14.5915 8.53466 14.7446L4.91562 16.6473C4.18199 17.033 3.32456 16.41 3.46467 15.5931L4.15585 11.5632C4.21148 11.2389 4.10393 10.9079 3.86825 10.6781L0.940384 7.82416C0.346867 7.24562 0.674378 6.23765 1.4946 6.11846L5.54081 5.53051C5.86652 5.48319 6.14808 5.27862 6.29374 4.98347L8.10326 1.31699Z"
-                        fill="currentColor"
-                      />
-                    </svg>
-                  </div>
-                  <p className="text-lg text-gray-500 leading-8 h-24 transition-all duration-500 mb-9  group-hover:text-gray-800">
-                    I was hesitant to try pagedone at first, but I'm so glad I did -
-                    it's exceeded all of my expectations.
-                  </p>
-                  <div className="flex items-center gap-5">
-                    <img
-                      src="https://pagedone.io/asset/uploads/1696229994.png"
-                      alt="avatar"
-                    />
-                    <div className="grid gap-1">
-                      <h5 className="text-gray-900 font-medium transition-all duration-500  group-hover:text-indigo-600 swiper-slide-active:text-indigo-600">
-                        Harsh P.
-                      </h5>
-                      <span className="text-sm leading-6 text-gray-500">
-                        Product Designer
-                      </span>
                     </div>
                   </div>
                 </div>
@@ -738,7 +659,7 @@ const Home = () => {
                     </svg>
                   </div>
                   <p className="text-lg text-gray-500 leading-8 h-24 transition-all duration-500 mb-9 group-hover:text-gray-800 ">
-                    Pagedone stands out as the most user-friendly and effective
+                  Echostream stands out as the most user-friendly and effective
                     solution I've ever used.
                   </p>
                   <div className="flex items-center gap-5">
@@ -817,7 +738,7 @@ const Home = () => {
                     </svg>
                   </div>
                   <p className="text-lg text-gray-500 leading-8 h-24 transition-all duration-500 mb-9 group-hover:text-gray-800">
-                    Pagedone is simply the best tool of investment in the market right
+                  Echostream is simply the best tool of investment in the market right
                     now.
                   </p>
                   <div className="flex items-center gap-5">
@@ -894,7 +815,7 @@ const Home = () => {
                     </svg>
                   </div>
                   <p className="text-lg text-gray-500 leading-8 h-24 transition-all duration-500 mb-9  group-hover:text-gray-800">
-                    I was hesitant to try pagedone at first, but I'm so glad I did -
+                    I was hesitant to try Echostream at first, but I'm so glad I did -
                     it's exceeded all of my expectations.
                   </p>
                   <div className="flex items-center gap-5">
@@ -973,7 +894,7 @@ const Home = () => {
                     </svg>
                   </div>
                   <p className="text-lg text-gray-500 leading-8 h-24 transition-all duration-500 mb-9 group-hover:text-gray-800 ">
-                    Pagedone stands out as the most user-friendly and effective
+                    Echostream stands out as the most user-friendly and effective
                     solution I've ever used.
                   </p>
                   <div className="flex items-center gap-5">
@@ -991,12 +912,12 @@ const Home = () => {
                     </div>
                   </div>
                 </div>
-
-
               </div>
             </div>
           </div>
         </section>
+
+
 
 
 
@@ -1028,12 +949,12 @@ const Home = () => {
                   </h2>
                   <ul className="text-gray-500 dark:text-gray-400 font-medium">
                     <li className="mb-4">
-                      <a href="http://localhost:3000/" className="hover:underline">
+                      <a href="/about" className="hover:underline">
                         Echostream
                       </a>
                     </li>
                     <li>
-                      <a href="http://localhost:3000/contact" className="hover:underline">
+                      <a href="/contact" className="hover:underline">
                         Contact Us
                       </a>
                     </li>
@@ -1046,18 +967,18 @@ const Home = () => {
                   <ul className="text-gray-500 dark:text-gray-400 font-medium">
                     <li className="mb-4">
                       <a
-                        href="https://github.com/themesberg/flowbite"
+                        href="#"
                         className="hover:underline "
                       >
-                        Github
+                        Facebook
                       </a>
                     </li>
                     <li>
                       <a
-                        href="https://discord.gg/4eeurUVvTy"
+                        href="#"
                         className="hover:underline"
                       >
-                        Discord
+                        Instagram
                       </a>
                     </li>
                   </ul>
@@ -1068,12 +989,12 @@ const Home = () => {
                   </h2>
                   <ul className="text-gray-500 dark:text-gray-400 font-medium">
                     <li className="mb-4">
-                      <a href="#" className="hover:underline">
+                      <a href="/privacyPolicy" className="hover:underline">
                         Privacy Policy
                       </a>
                     </li>
                     <li>
-                      <a href="#" className="hover:underline">
+                      <a href="/terms&conditions" className="hover:underline">
                         Terms &amp; Conditions
                       </a>
                     </li>
@@ -1191,7 +1112,7 @@ const Home = () => {
 
       </div >
 
-     
+
 
 
     </>

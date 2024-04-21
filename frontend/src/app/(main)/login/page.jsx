@@ -9,6 +9,8 @@ import toast from 'react-hot-toast';
 
 const Login = () => {
 
+  const { setLoggedIn } = useAppContext();
+  
   const loginValidationSchema = Yup.object().shape({
     email: Yup.string().required('Email is Required').email('Email is invalid'),
     password: Yup.string().required('Password is Required')
@@ -22,7 +24,7 @@ const Login = () => {
     },
     onSubmit: async (values, { resetForm }) => {
       console.log(values);
-      const res = await fetch('http://localhost:5000/user/add', {
+      fetch('http://localhost:5000/user/authenticate', {
         method: 'POST',
         body: JSON.stringify(values),
         headers: {
@@ -31,8 +33,27 @@ const Login = () => {
       })
     .then((response) => {
       console.log(response.status);
-      toast.success('User Login Successfully');
-    }).catch((err) => {
+      if(response.status === 200){
+        toast.success('User Login Successfully');
+        return response.json();
+      }
+    })
+    .then((data) => {
+      sessionStorage.setItem("user", JSON.stringify(data));
+      setLoggedIn(true);
+      const data =  res.json();
+      sessionStorage.setItem('isLoggedIn', true);
+      if(data.user.role === 'admin'){
+        sessionStorage.setItem('admin', JSON.stringify(data));
+        router.push('/admin/dashboard');
+      } else {
+        sessionStorage.setItem('user', JSON.stringify(data));
+        router.push('/user/dashboard');
+      }
+    })
+  
+   
+    .catch((err) => {
       console.log(err);
       toast.error('User Login Failed');
     });
@@ -43,6 +64,7 @@ const Login = () => {
     
     },
     validationSchema: loginValidationSchema
+    
   });
 
   return (

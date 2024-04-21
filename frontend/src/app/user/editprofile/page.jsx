@@ -1,6 +1,60 @@
-import React from 'react'
+'use client';
+import { useFormik } from 'formik';
+import React, { useState } from 'react'
 
 const editPofile = () => {
+
+  const [currentUser, setCurrentUSer ] = useState(
+    JSON.parse(sessionStorage.getItem("user"))
+);
+
+ const useForm = useFormik({
+  initialValues: currentUser,
+  onSubmit : async (data) => {
+    console.log(data);
+  const res = await fetch(url + '/user/update/'+currentUser._id, {
+    method: 'PUT',
+    body: JSON.stringify(data),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
+  console.log(res.status);
+  const userData = await res.json();
+  console.log(userData);
+  setCurrentUSer(userData);
+  sessionStorage.setItem("user", JSON.stringify(userData));
+  }
+ })
+
+//  const uploadProfileImage = (e) => {
+//   const file = e.target.files[0];
+//   setSelImage(file.name);
+//   const fd = new FormData();
+//   fd.append("myfile", file);
+//   fetch(url + "/util/uploadfile", {
+//     method: "POST",
+//     body: fd,
+//   }).then((res) => {
+//     if (res.status === 200) {
+//       console.log("file uploaded");
+//       updateProfile({ avatar: file.name });
+//     }
+//   });
+// };
+
+const deleteAccount = async (id) => {
+  console.log(id);
+
+  const res = await fetch('http://localhost:3000/user/delete/' + id, { method: 'DELETE' });
+  console.log(res.status);
+  if (res.status === 200) {
+    // fetchPlanningServices();
+    // alert.success('User Deleted Successfully');
+
+  }
+}
+
   return (
     <>
     <>
@@ -83,29 +137,16 @@ const editPofile = () => {
                   </label>
                   <input
                     type="text"
-                    id="first_name"
+                    id="name"
+                    onChange={useForm.handleChange}
+                    value={useForm.values.name}
                     className="bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 "
                     placeholder="Your first name"
-                    defaultValue="Jane"
+                    defaultValue=""
                     required=""
                   />
                 </div>
-                <div className="w-full">
-                  <label
-                    htmlFor="last_name"
-                    className="block mb-2 text-sm font-medium text-indigo-900 dark:text-white"
-                  >
-                    Your last name
-                  </label>
-                  <input
-                    type="text"
-                    id="last_name"
-                    className="bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 "
-                    placeholder="Your last name"
-                    defaultValue="Ferguson"
-                    required=""
-                  />
-                </div>
+                
               </div>
               <div className="mb-2 sm:mb-6">
                 <label
@@ -117,26 +158,14 @@ const editPofile = () => {
                 <input
                   type="email"
                   id="email"
+                  onChange={useForm.handleChange}
+                    value={useForm.values.email}
                   className="bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 "
                   placeholder="your.email@mail.com"
                   required=""
                 />
               </div>
-              <div className="mb-2 sm:mb-6">
-                <label
-                  htmlFor="profession"
-                  className="block mb-2 text-sm font-medium text-indigo-900 dark:text-white"
-                >
-                  Profession
-                </label>
-                <input
-                  type="text"
-                  id="profession"
-                  className="bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 "
-                  placeholder="your profession"
-                  required=""
-                />
-              </div>
+              
               <div className="mb-6">
                 <label
                   htmlFor="message"
@@ -146,6 +175,8 @@ const editPofile = () => {
                 </label>
                 <textarea
                   id="message"
+                  onChange={useForm.handleChange}
+                    value={useForm.values.bio}
                   rows={4}
                   className="block p-2.5 w-full text-sm text-indigo-900 bg-indigo-50 rounded-lg border border-indigo-300 focus:ring-indigo-500 focus:border-indigo-500 "
                   placeholder="Write your bio here..."
