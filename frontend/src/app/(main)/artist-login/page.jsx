@@ -4,8 +4,11 @@ import Link from 'next/link';
 import * as Yup from "yup";
 import { useFormik } from 'formik';
 import toast from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
 
 const artistLogin = () => {
+
+  const router = useRouter();
 
   const loginValidationSchema = Yup.object().shape({
     email: Yup.string().required('Email is Required').email('Email is invalid'),
@@ -29,15 +32,15 @@ const artistLogin = () => {
       })
     .then((response) => {
       console.log(response.status);
-      toast.success('Artist Login Successfully');
+      if(response.status === 200){
+        toast.success('Artist Login Successfully');
+        resetForm();
+        router.push('/artist/artistdashboard');
+      }
     }).catch((err) => {
       console.log(err);
       toast.error('Artist Login Failed');
     });
-    setTimeout(() => {
-      console.log(values);
-      resetForm();
-    }, 3000);
     },
     validationSchema: loginValidationSchema
   });

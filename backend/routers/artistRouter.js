@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const Model = require('../models/artistModel');
 const jwt = require('../models/artistModel')
-const { model } = require('mongoose');
 require('dotenv').config();
 
 router.post('/add', (req, res) => {
@@ -21,7 +20,13 @@ router.get('/add', (req, res) => {
 });
 
 router.get('/getall', (req, res) => {
-    res.send('getall response from artist router');
+    Model.find()
+        .then((result) => {
+            res.json(result);
+        }).catch((err) => {
+            console.log(err);
+            res.json(err);
+        });
 
 });
 
@@ -49,7 +54,7 @@ router.post("/authenticate", (req, res) => {
                 jwt.sign(
                     payload,
                     process.env.JWT_SECRET,
-                    { expiry: '2 days' },
+                    { expiresIn: '2 days' },
                     (err, token) => {
                         if (err) {
                             res.status(400).json({ message: 'error creating token' })

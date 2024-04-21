@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Footer = () => {
+const PodcastPlayer = () => {
   return (
     <>
        <footer className="bg-gray-800 col-span-6  p-4 grid fixed w-full sticky bottom-0 grid-cols-3 gap-6">
@@ -104,4 +104,4 @@ const Footer = () => {
   )
 }
 
-export default Footer
+export default PodcastPlayer;
