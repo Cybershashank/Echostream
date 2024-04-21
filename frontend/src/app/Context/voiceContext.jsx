@@ -44,6 +44,10 @@ const pageDetails = [
     pageName: 'reset password',
     pagePath: '/reset-password'
   },
+  {
+    pageName: 'create podcast',
+    pagePath: '/artist/create-podcast'
+  },
 
 ]
 
@@ -91,19 +95,14 @@ export const VoiceProvider = ({ children }) => {
       }
     },
     {
-      command: 'Open Cart',
+      command: 'create podcast',
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
-        voicePageNavigator('CartPage')
+        voicePageNavigator('create podcast')
       }
     },
-    {
-      command: 'open add product page',
-      callback: (pageName) => {
-        console.log('Opening page: ', pageName);
-        voicePageNavigator('addproduct')
-      }
-    },
+ 
+  
     {
       command: 'Beijing',
       callback: (command, spokenPhrase, similarityRatio) => setMessage(`${command} and ${spokenPhrase} are ${similarityRatio * 100}% similar`),
@@ -111,13 +110,7 @@ export const VoiceProvider = ({ children }) => {
       isFuzzyMatch: true,
       fuzzyMatchingThreshold: 0.2
     },
-    {
-      command: ['eat', 'sleep', 'leave'],
-      callback: (command) => setMessage(`Best matching command: ${command}`),
-      isFuzzyMatch: true,
-      fuzzyMatchingThreshold: 0.2,
-      bestMatchOnly: true
-    }
+  
   ]
 
   const {

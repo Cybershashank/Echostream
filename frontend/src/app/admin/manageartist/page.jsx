@@ -1,6 +1,15 @@
+"user client";
 import React from 'react'
+import { useState, useEffect } from "react";
+const Manage = () => {
+  const [Data, setData] =
+}
+
 
 const manageartist = () => {
+
+
+
   return (
     <>
     <>
@@ -14,15 +23,7 @@ const manageartist = () => {
         className="w-full p-2 rounded border"
       />
     </div>
-    <div className="flex justify-between items-center mb-4">
-      <h2 className="text-xl font-bold">Artists List</h2>
-      <a
-        href="#"
-        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-      >
-        Add New Artist
-      </a>
-    </div>
+   
     <div className="overflow-x-auto">
       <table className="min-w-full bg-white rounded">
         <thead className="bg-gray-200">
