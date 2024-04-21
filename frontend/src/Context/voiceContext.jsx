@@ -535,7 +535,7 @@ export const VoiceProvider = ({ children }) => {
 
   return (
     <VoiceContext.Provider value={{}}>
-    <div className="text-center  h-7 " style={{backgroundColor:"rgb(2,48,71"}}>
+    <div className="text-center h-7">
       <button className='floating-mic' onClick={() => {
         if (listening) {
           SpeechRecognition.stopListening();
@@ -556,8 +556,8 @@ export const VoiceProvider = ({ children }) => {
       <button onClick={SpeechRecognition.stopListening}>Stop</button>
       <button onClick={resetTranscript}>Reset</button> */}
       <span className='text-white'>{transcript}</span>
-      {children}
       </div>
+      {children}
     </VoiceContext.Provider>
   )
 }

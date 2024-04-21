@@ -2,9 +2,6 @@ import React from 'react'
 
 const artistdashboard = () => {
   return (
-    <>
-    <>
-  
   <div className="container mx-auto py-8">
     <h1 className="text-3xl font-semibold mb-8">
       Welcome to Your Artist Dashboard
@@ -68,10 +65,6 @@ const artistdashboard = () => {
       </div>
     </div>
   </div>
-</>
-
-    
-    </>
   )
 }
 

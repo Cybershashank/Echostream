@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Model = require('../models/artistModel');
-const jwt = require('../models/artistModel')
+const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
 router.post('/add', (req, res) => {
@@ -15,9 +15,6 @@ router.post('/add', (req, res) => {
         });
 });
 
-router.get('/add', (req, res) => {
-    res.send('add response from artist router');
-});
 
 router.get('/getall', (req, res) => {
     Model.find()
@@ -41,7 +38,13 @@ router.get('/delete', (req, res) => {
 });
 
 router.get('/update', (req, res) => {
-    res.send('update response from artist router');
+     Model.findByIdAndUpdate(req.params.id, req.body, { new: true })
+        .then((result) => {
+            res.status(200).json(result);
+        }).catch((err) => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 router.post("/authenticate", (req, res) => {
