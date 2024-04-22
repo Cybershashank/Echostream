@@ -8,14 +8,14 @@ const Template = ({ children }) => {
 
     return (
         <>
-       
-      <VoiceProvider >
+
+            <VoiceProvider >
                 <AppProvider>
-                   
-                        {children }
-                   
+
+                    {children}
+
                 </AppProvider>
-                </VoiceProvider>
+            </VoiceProvider>
         </>
     )
 }
