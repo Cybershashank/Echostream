@@ -128,6 +128,10 @@ const PublishPage = () => {
 
 
 
+              
+
+
+
               <div className="mb-2">
                 <label htmlFor="" className='form-label fw-bold'>Category</label>
                 <input type="text"
@@ -183,7 +187,7 @@ const PublishPage = () => {
               </div>
 
               <div className="text-center mt-5">
-                <button type="submit" className='btn bg-[#b06eb0] text-white hover:bg-purple-700 text-lg' type='submit'>Add Podcast</button>
+                <button  className='btn bg-[#b06eb0] text-white hover:bg-purple-700 text-lg' type='submit'>Add Podcast</button>
               </div>
             </form>
 
