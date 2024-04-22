@@ -1,5 +1,5 @@
 "use client"
-import useAppContext from '@/app/Context/userContext';
+import useAppContext from '@/Context/userContext';
 import Link from 'next/link';
 import React from 'react';
 
@@ -28,11 +28,14 @@ const Navbar = () => {
         <div className="container d-flex flex-wrap justify-content-end">
 
           <div className="text-end">
-            <Link href="/login" type="button" className="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded btn-dark" style={{ fontFamily: "initial" }}>
+            <Link href="/login" className="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded btn-dark" style={{ fontFamily: "initial" }}>
               Login
             </Link>
-            <Link href="/signup" type="button" className="bg-blue-600 mx-2 hover:bg-blue-700 text-white px-3 py-1 rounded " style={{ fontFamily: "initial" }}>
+            <Link href="/signup" className="bg-blue-600 mx-2 hover:bg-blue-700 text-white px-3 py-1 rounded " style={{ fontFamily: "initial" }}>
               SignUp
+            </Link>
+            <Link href="/artist-login" className="bg-blue-600 mx-2 hover:bg-blue-700 text-white px-3 py-1 rounded " style={{ fontFamily: "initial" }}>
+              Artist
             </Link>
           </div>
         </div>
@@ -101,7 +104,7 @@ const Navbar = () => {
                         <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                             <li>
                                 <Link
-                                    href="http://localhost:3000/"
+                                    href="http://localhost:3000/browse_podcast"
                                     className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                                 >
                                     Home
@@ -121,6 +124,14 @@ const Navbar = () => {
                                     className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                                 >
                                     Podcasts
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="/browse_series"
+                                    className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                                >
+                                    Series
                                 </a>
                             </li>
                             <li>

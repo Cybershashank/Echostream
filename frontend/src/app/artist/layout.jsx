@@ -1,11 +1,14 @@
 import React from 'react'
-import ArtistNavbar from './navbar'
 
-const Layout = ({children}) => {
+import Sidebar from './Sidebar'
+
+const Layout = ({ children }) => {
   return (
-    <div>
-      <ArtistNavbar/>
-      {children}</div>
+    <>
+      <Sidebar />
+       <div className='ms-60 '> {children}</div>
+  
+    </>
   )
 }
 

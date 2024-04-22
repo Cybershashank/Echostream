@@ -5,8 +5,31 @@ import React, { useEffect, useState } from 'react'
 import { toast } from "react-hot-toast";
 
 const PublishPage = () => {
+  
   const [selImage, setselImage] = useState('');
-  const router = useRouter;
+  const router = useRouter();
+  const [seriesList, setSeriesList] = useState([]);
+  const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('artist')));
+
+  const fetchSeriesData = () => {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/series/getbyartist`, {
+      headers: {
+        'x-auth-token': currentUser.token
+      }
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setSeriesList(data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
+
+  useEffect(() => {
+    fetchSeriesData();
+  }, [])
 
   const uploadeImage = async (e) => {
     const file = e.target.files[0];
@@ -20,6 +43,8 @@ const PublishPage = () => {
       if (res.status === 200) {
         console.log("file uploaded");
         toast.success('File Uploaded!!');
+      
+        return res.json();
       }
     });
   }
@@ -29,6 +54,7 @@ const PublishPage = () => {
       title: '',
       category: '',
       genre: '',
+      series: '',
       language: '',
       discription: '',
       image: '',
@@ -41,7 +67,8 @@ const PublishPage = () => {
         method: "POST",
         body: JSON.stringify(values),
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          'x-auth-token': currentUser.token
         }
       });
       console.log(res.status);
@@ -59,7 +86,7 @@ const PublishPage = () => {
 
   return (
 
-    <section className=" bg-[#c2abc5] py-1 bg-blueGray-50">
+    <section className=" bg-white py-1 bg-blueGray-50">
       <div className="w-full lg:w-8/12 px-4 mx-auto mt-6">
         <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0">
         </div>
@@ -74,6 +101,22 @@ const PublishPage = () => {
 
               <div className="mb-2">
                 <label htmlFor="" className=' form-label fw-bold'>Title</label>
+                <select
+                  id='series'
+                  value={PublishForm.values.series}
+                  onChange={PublishForm.handleChange}
+                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  placeholder="Name"
+                >
+                  <option value="">Select Series</option>
+                  {seriesList.map((series) => (
+                    <option key={series._id} value={series._id}>{series.name}</option>
+                  ))}
+                </select>
+              </div>
+              
+              <div className="mb-2">
+                <label htmlFor="" className=' form-label fw-bold'>Title</label>
                 <input type="text"
                   id='title'
                   value={PublishForm.values.title}
@@ -82,6 +125,10 @@ const PublishPage = () => {
                   placeholder="Name"
                 />
               </div>
+
+
+
+              
 
 
 
@@ -140,7 +187,7 @@ const PublishPage = () => {
               </div>
 
               <div className="text-center mt-5">
-                <button className='btn bg-[#b06eb0] text-white hover:bg-purple-700 text-lg' type='submit'>Add Podcast</button>
+                <button  className='btn bg-[#b06eb0] text-white hover:bg-purple-700 text-lg' type='submit'>Add Podcast</button>
               </div>
             </form>
 
