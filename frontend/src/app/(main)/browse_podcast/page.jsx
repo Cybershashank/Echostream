@@ -32,7 +32,7 @@ const browse_podcast = () => {
   return (
     <>
 
-<Swiper
+      <Swiper
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
@@ -46,19 +46,13 @@ const browse_podcast = () => {
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
       >
-        <SwiperSlide><img src='https://images.squarespace-cdn.com/content/v1/5323486ee4b00fc9686151f5/d7c2baf1-e190-46fc-a4ba-f8d8b84242d9/Podcast-covers.jpg'/></SwiperSlide>
-        <SwiperSlide><img src='https://images.cdn.kukufm.com/w:256/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/cu_icons/5ae0cd1447954fba9f563de8adbb1a4e.png'/></SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
+        <SwiperSlide><img src='https://images.squarespace-cdn.com/content/v1/5323486ee4b00fc9686151f5/d7c2baf1-e190-46fc-a4ba-f8d8b84242d9/Podcast-covers.jpg' /></SwiperSlide>
+        <SwiperSlide><img src='https://images.cdn.kukufm.com/w:256/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/cu_icons/5ae0cd1447954fba9f563de8adbb1a4e.png' /></SwiperSlide>
+     
       </Swiper>
 
       <div className="grid  h-screen w-screen  ">
-    
+
         <main className="col-span-5 row-span-3 overflow-auto">
 
           <section className="px-6 grid gap-6 mb-8">
@@ -72,29 +66,29 @@ const browse_podcast = () => {
 
 
                 return <div className="grid grid-cols-6  gap-4">
-                 <div className="">
-                  <div className="bg-gray-200 rounded-lg p-5">
-                    <div className="relative pt-full mb-4">
-                      <img src={"http://localhost:5000/" + pod.image} alt="" className='h-auto w-screen' style={{ height: "10rem" }} />
+                  <div className="">
+                    <div className="bg-gray-200 rounded-lg p-5">
+                      <div className="relative pt-full mb-4">
+                        <img src={"http://localhost:5000/" + pod.image} alt="" className='h-auto w-screen' style={{ height: "10rem" }} />
 
-                    </div>
-                    <div className="text-sm text-black text-line-clamp-1 mb-1 block">
-                      {pod.title}
-                    </div>
-                    <div className="relative pb-5">
-                      <span className="text-s text-purple-700 text-line-clamp-1">
-                        {pod.category}
-                      </span>
+                      </div>
+                      <div className="text-sm text-black text-line-clamp-1 mb-1 block">
+                        {pod.title}
+                      </div>
+                      <div className="relative pb-5">
+                        <span className="text-s text-purple-700 text-line-clamp-1">
+                          {pod.category}
+                        </span>
+                      </div>
                     </div>
                   </div>
-                  </div>
-              </div>
+                </div>
               })
             }
-    </section>
-        
+          </section>
+
         </main>
-     
+
       </div>
 
 

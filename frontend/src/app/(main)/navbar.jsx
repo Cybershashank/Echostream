@@ -1,5 +1,5 @@
 "use client"
-import useAppContext from '@/app/Context/userContext';
+import useAppContext from '@/Context/userContext';
 import Link from 'next/link';
 import React from 'react';
 
@@ -28,11 +28,14 @@ const Navbar = () => {
         <div className="container d-flex flex-wrap justify-content-end">
 
           <div className="text-end">
-            <Link href="/login" type="button" className="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded btn-dark" style={{ fontFamily: "initial" }}>
+            <Link href="/login" className="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded btn-dark" style={{ fontFamily: "initial" }}>
               Login
             </Link>
-            <Link href="/signup" type="button" className="bg-blue-600 mx-2 hover:bg-blue-700 text-white px-3 py-1 rounded " style={{ fontFamily: "initial" }}>
+            <Link href="/signup" className="bg-blue-600 mx-2 hover:bg-blue-700 text-white px-3 py-1 rounded " style={{ fontFamily: "initial" }}>
               SignUp
+            </Link>
+            <Link href="/artist-login" className="bg-blue-600 mx-2 hover:bg-blue-700 text-white px-3 py-1 rounded " style={{ fontFamily: "initial" }}>
+              Artist
             </Link>
           </div>
         </div>

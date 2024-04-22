@@ -4,6 +4,7 @@ import Link from 'next/link';
 import React from 'react'
 import * as Yup from 'yup';
 import toast from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
 
 const artistSignup = () => {
 
@@ -18,6 +19,8 @@ const artistSignup = () => {
     cpassword: Yup.string().required('Confirm Password is required')
       .oneOf([Yup.ref('password'), null], 'Passwords must match')
   })
+
+  const router = useRouter();
 
   const artistSignupForm = useFormik({
     initialValues: {
@@ -37,7 +40,10 @@ const artistSignup = () => {
       })
     .then((response) => {
       console.log(response.status);
-      toast.success('Artist Created Successfully');
+      if(response.status === 200){
+        toast.success('Artist Created Successfully');
+        router.push('/artist-login');
+      }
     }).catch((err) => {
       console.log(err);
       toast.error('Artist Creation Failed');
@@ -81,6 +87,10 @@ const artistSignup = () => {
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Name"
                     required="" />
+                    {
+                      artistSignupForm.touched.name &&
+                      <small class="text-sm text-red-500">{artistSignupForm.errors.name}</small>
+                    }
                 </div>
 
                 <div>
@@ -98,6 +108,10 @@ const artistSignup = () => {
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="name@echostream.com"
                     required="" />
+                    {
+                      artistSignupForm.touched.email &&
+                      <small class="text-sm text-red-500">{artistSignupForm.errors.email}</small>
+                    }
                 </div>
 
                 <div>
@@ -107,7 +121,7 @@ const artistSignup = () => {
                     Password
                   </label>
                   <input
-                    type="text"
+                    type="password"
                     id="password"
                     onChange={artistSignupForm.handleChange}
                     value={artistSignupForm.values.password}
@@ -115,6 +129,10 @@ const artistSignup = () => {
                     placeholder="Password (minimum 8 characters)"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     required="" />
+                  {
+                    artistSignupForm.touched.password &&
+                    <small class="text-sm text-red-500">{artistSignupForm.errors.password}</small>
+                  }
                 </div>
 
                 <div>
@@ -135,7 +153,7 @@ const artistSignup = () => {
 
                   {
                     artistSignupForm.touched.cpassword &&
-                    <small class="text-danger">{artistSignupForm.errors.cpassword}</small>
+                    <small class="text-sm text-red-500">{artistSignupForm.errors.cpassword}</small>
                   }
 
                 </div>

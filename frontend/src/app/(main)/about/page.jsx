@@ -59,44 +59,6 @@ const About = () => {
             </div>
           </div>
 
-
-          
-          <div className="bg-white shadow rounded-lg p-6 mb-8">
-            <h2 className="font-semibold text-lg">Meet our team</h2>
-            <p class="text-sm text-muted text-opacity-70 mt-1">People who started & now manage Echostream</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            
-              <div className="flex-shrink-0">
-                <img
-                  src="https://via.placeholder.com/150"
-                  alt="Team Member"
-                  className="h-36 w-36 md:h-48 md:w-48 relative mr-3"
-                />
-                <p className="font-normal text-center w-36 md:w-48 truncate my-2">Gaurav Tiwari</p>
-              </div>
-             
-              <div className="flex-shrink-0">
-                <img
-                  src="https://via.placeholder.com/150"
-                  alt="Team Member"
-                  className="h-36 w-36 md:h-48 md:w-48 relative mr-3"
-                />
-                <p className="font-normal text-center w-36 md:w-48 truncate my-2">Shashank Yadav</p>
-              </div>
-              
-              <div className="flex-shrink-0">
-                <img
-                  src="https://via.placeholder.com/150"
-                  alt="Team Member"
-                  className="h-36 w-36 md:h-48 md:w-48 relative mr-3"
-                />
-                <p className="font-normal text-center w-36 md:w-48 truncate my-2">Shashank Yadav</p>
-              </div>
-
-            </div>
-          </div>
-
-
           <div className="bg-white shadow rounded-lg p-6 mb-8">
             <h2 className="text-xl font-semibold mb-4">Contact Us</h2>
             <p className="text-gray-700">
