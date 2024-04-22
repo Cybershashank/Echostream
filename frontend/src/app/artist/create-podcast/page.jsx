@@ -8,6 +8,28 @@ const PublishPage = () => {
   
   const [selImage, setselImage] = useState('');
   const router = useRouter();
+  const [seriesList, setSeriesList] = useState([]);
+  const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('artist')));
+
+  const fetchSeriesData = () => {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/series/getbyartist`, {
+      headers: {
+        'x-auth-token': currentUser.token
+      }
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setSeriesList(data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
+
+  useEffect(() => {
+    fetchSeriesData();
+  }, [])
 
   const uploadeImage = async (e) => {
     const file = e.target.files[0];
@@ -32,6 +54,7 @@ const PublishPage = () => {
       title: '',
       category: '',
       genre: '',
+      series: '',
       language: '',
       discription: '',
       image: '',
@@ -44,7 +67,8 @@ const PublishPage = () => {
         method: "POST",
         body: JSON.stringify(values),
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          'x-auth-token': currentUser.token
         }
       });
       console.log(res.status);
@@ -75,6 +99,22 @@ const PublishPage = () => {
               
 
 
+              <div className="mb-2">
+                <label htmlFor="" className=' form-label fw-bold'>Title</label>
+                <select
+                  id='series'
+                  value={PublishForm.values.series}
+                  onChange={PublishForm.handleChange}
+                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  placeholder="Name"
+                >
+                  <option value="">Select Series</option>
+                  {seriesList.map((series) => (
+                    <option key={series._id} value={series._id}>{series.name}</option>
+                  ))}
+                </select>
+              </div>
+              
               <div className="mb-2">
                 <label htmlFor="" className=' form-label fw-bold'>Title</label>
                 <input type="text"

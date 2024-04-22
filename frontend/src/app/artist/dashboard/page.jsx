@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 const artistdashboard = () => {
+
+
+
   return (
   <div className="container mx-auto ms-16 py-8">
     <h1 className="text-3xl font-semibold mb-8">
@@ -8,10 +11,25 @@ const artistdashboard = () => {
     </h1>
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
       {/* Left Section - Upload Audio */}
-      <div className="bg-white shadow-md rounded-md p-6">
+      <div className="bg-white dark:bg-slate-500 shadow-md rounded-md p-6">
         <h2 className="text-xl font-semibold mb-4">Upload New Audio</h2>
         <form>
           <div className="mb-4">
+
+            
+
+            <label
+              htmlFor="series"
+              className="block text-gray-700 font-semibold mb-2"
+            >
+              Select Series
+            </label>
+            <input
+              type="text"
+              id="audioTitle"
+              name="audioTitle"
+              className="w-full px-4 py-2 border rounded-md"
+            />
             <label
               htmlFor="audioTitle"
               className="block text-gray-700 font-semibold mb-2"

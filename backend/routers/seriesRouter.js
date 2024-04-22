@@ -74,6 +74,17 @@ router.put("/update/:id", (req, res) => {
     });
 })
 
+// getbyartist
+router.get("/getbyartist", verifyToken, (req, res) => {
+  Model.find({ artist: req.user._id })
+    .then((result) => {
+      res.json(result)
+    }).catch((err) => {
+      console.error(err)
+      res.status(500).json(err)
+    });
+});
+
 
 
 

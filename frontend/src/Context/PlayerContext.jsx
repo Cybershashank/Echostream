@@ -8,12 +8,14 @@ export const PlayerProvider = ({ children }) => {
     const audioRef = useRef();
 
     const playerAction = (song, action) => {
+        console.log(song, action);
+        console.log(songPlaying);
         if (action === 'play') {
             if (songPlaying === song) {
                 audioRef.current.play();
             } else {
                 setSongPlaying(song);
-                audioRef.current.src = song;
+                audioRef.current.src = `${process.env.NEXT_PUBLIC_API_URL}/${song.record}`;
                 audioRef.current.play();
             }
         } else if (action === 'pause') {
