@@ -7,7 +7,7 @@ const privacyPolicy = () => {
                 <div className="container mx-auto px-4 py-8">
                     <h1 className="text-3xl font-bold mb-4">Privacy Policy</h1>
                     <p className="mb-4">
-                        This Privacy Policy describes how [Your Podcast Website] (the "Podcast") collects,
+                        This Privacy Policy describes how [Echostream] (the "Podcast") collects,
                         uses, and shares information about you when you use our website and services.
                         By accessing or using the Podcast, you agree to this Privacy Policy.
                     </p>

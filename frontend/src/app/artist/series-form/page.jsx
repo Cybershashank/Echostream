@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import toast from 'react-hot-toast';
 
 const seriesForm = () => {
+  const [selImage, setselImage] = useState('');
 
   const [currentArtist, setCurrentArtist] = useState(JSON.parse(
     sessionStorage.getItem('artist')
@@ -53,6 +54,23 @@ const seriesForm = () => {
       }
     },
   })
+
+  
+  const uploadeImage = async (e) => {
+    const file = e.target.files[0];
+    setselImage(file);
+    const fd = new FormData();
+    fd.append("myfile", file);
+    fetch("http://localhost:5000/util/uploadfile", {
+      method: "POST",
+      body: fd,
+    }).then((res) => {
+      if (res.status === 200) {
+        console.log("file uploaded");
+        toast.success('File Uploaded!!');
+      }
+    });
+  }
 
   return (
     <>

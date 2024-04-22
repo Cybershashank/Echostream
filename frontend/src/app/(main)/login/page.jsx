@@ -5,9 +5,11 @@ import * as Yup from "yup";
 import classes from './login.module.css';
 import { useFormik, } from 'formik';
 import toast from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
 
 
 const Login = () => {
+  const router = useRouter();
 
   const loginValidationSchema = Yup.object().shape({
     email: Yup.string().required('Email is Required').email('Email is invalid'),
@@ -33,6 +35,7 @@ const Login = () => {
       console.log(response.status);
       if(response.status === 200){
         toast.success('User Login Successfully');
+        router.push('/browse_podcast')
         return response.json();
       }
     })

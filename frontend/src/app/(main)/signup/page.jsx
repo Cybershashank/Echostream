@@ -6,11 +6,11 @@ import { useFormik, } from 'formik'
 import Link from 'next/link';
 import * as Yup from "yup";
 import toast from 'react-hot-toast';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 
 const Signup = () => {
-//const router = useRouter();
+const router = useRouter();
   const signupValidationSchema = Yup.object().shape({
     email: Yup.string().email('Email is invalid').required('Email is required'),
     name: Yup.string().required('Name is required'),
