@@ -23,7 +23,7 @@ const artistLogin = () => {
     },
     onSubmit: async (values, { resetForm }) => {
       console.log(values);
-      const res = await fetch('http://localhost:5000/artist/add', {
+      const res = await fetch('http://localhost:5000/artist/authenticate', {
         method: 'POST',
         body: JSON.stringify(values),
         headers: {
@@ -39,7 +39,7 @@ const artistLogin = () => {
               .then((data) => {
                 console.log(data);
                 sessionStorage.setItem('artist', JSON.stringify(data));
-                router.push('/artist/artistdashboard');
+                router.push('/artist/dashboard');
               })
           }
         }).catch((err) => {
@@ -188,7 +188,7 @@ const artistLogin = () => {
 
             <div className="mt-4 text-sm flex justify-between items-center container-mr">
               <p className="mr-3 md:mr-0 ">If you don't have an account..</p>
-              <Link href="/artist-signup" className="hover:border register hover:bg-blue-950 text-white bg-[#002D74] hover:border-gray-400 rounded-xl py-2 px-5 hover:scale-110 hover:bg-[#002c7424] font-semibold duration-300">
+              <Link href='/artist-signup' className="hover:border register text-white bg-[#002D74] hover:border-gray-400 rounded-xl py-2 px-5 hover:scale-110 hover:bg-[#002c7424] font-semibold duration-300">
                 Register
               </Link>
             </div>

@@ -6,22 +6,40 @@ import toast from 'react-hot-toast';
 const seriesForm = () => {
   const [selImage, setselImage] = useState('');
 
+  const [currentArtist, setCurrentArtist] = useState(JSON.parse(
+    sessionStorage.getItem('artist')
+  ))
+
+  const uploadImage = (e) => {
+    const file = e.target.files[0];
+    const fd = new FormData();
+    fd.append("myfile", file);
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/util/uploadfile`, {
+      method: "POST",
+      body: fd,
+    }).then((res) => {
+      if (res.status === 200) {
+        console.log("file uploaded");
+        seriesForm.setFieldValue('cover', file.name);
+        toast.success('File Uploaded!!');
+      }
+    });
+  }
+
   const seriesForm = useFormik({
     initialValues: {
-      name: String,
-      cover: String,
-      likes: String,
-      comments: String,
+      name: '',
+      cover: ''
     },
     onSubmit: async (values) => {
-      values.image = selImage.name;
       console.log(values);
 
       const res = await fetch("http://localhost:5000/series/add", {
         method: "POST",
         body: JSON.stringify(values),
         headers: {
-          "Content-Type": "application/json"
+          'Content-Type': 'application/json',
+          'x-auth-token': currentArtist.token
         }
       });
       console.log(res.status);
@@ -95,11 +113,10 @@ const seriesForm = () => {
                         >
                           <span>Upload a file</span>
                           <input
-                            id="file-upload"
-                            name="cover"
+                            id='file-upload'
+                            onChange={uploadImage}
                             type="file"
                             className="sr-only"
-                            onChange={uploadeImage}
                           />
                         </label>
                         <p className="pl-1">or drag and drop</p>
@@ -129,75 +146,12 @@ const seriesForm = () => {
                         id="name"
                         onChange={seriesForm.handleChange}
                         value={seriesForm.values.name}
-                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-800 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                         placeholder="Name" />
                     </div>
                   </div>
-
-                  <div className="w-full lg:w-6/12 px-4">
-                    <div className="relative w-full mb-3">
-                      <label
-                        className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                        htmlfor="grid-password">
-                        Artist
-                      </label>
-                      <input
-                        type="text"
-                        id="artist"
-                        onChange={seriesForm.handleChange}
-                        value={seriesForm.values.artist}
-                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                        placeholder="artist" />
-                    </div>
-                  </div>
-
-
-                  <div className="w-full lg:w-6/12 px-4">
-                    <div className="relative w-full mb-3">
-                      <label
-                        className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                        htmlfor="grid-password">
-                        Likes
-                      </label>
-                      <input
-                        type="text"
-                        id="likes"
-                        onChange={seriesForm.handleChange}
-                        value={seriesForm.values.likes}
-                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                        placeholder="likes" />
-                    </div>
-                  </div>
                 </div>
-
-
-                <hr className="mt-6 border-b-1 border-blueGray-300" />
-                <h6 className="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
-                  Comment
-                </h6>
-
-
-                <div className="flex flex-wrap">
-                  <div className="w-full lg:w-12/12 px-4">
-                    <div className="relative w-full mb-3">
-                      <textarea
-                        type="text"
-                        id="comments"
-                        onChange={seriesForm.handleChange}
-                        value={seriesForm.values.comments}
-                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                        rows={4}
-                        placeholder={
-                          "Write your comment here."
-                        }
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <button type="submit" class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
-                >Submit</button>
-
+                <button type="submit" class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Submit</button>
               </form>
             </div>
           </div>

@@ -1,20 +1,19 @@
 const { Schema, model, Types } = require('../connection');
 
 const mySchema = new Schema({
-    series: {type: Types.ObjectId, ref : 'series'},
-    artist: {type: Types.ObjectId, ref : 'artist'},
+    series: { type: Types.ObjectId, ref: 'series' },
+    artist: { type: Types.ObjectId, ref: 'artist' },
     title: String,
     genre: String,
-    record:String,
+    record: String,
     category: String,
     language: String,
     type: String,
     discription: String,
     image: String,
     icon: String,
-    createdAt: {type : Date, default: Date.now},
-    likes: String,
-
+    createdAt: { type: Date, default: Date.now },
+    likes: { type: Number, default: 0 }
 });
 
 module.exports = model('podcast', mySchema);
