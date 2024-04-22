@@ -21,8 +21,8 @@ const PublishPage = () => {
       if (res.status === 200) {
         console.log("file uploaded");
         toast.success('File Uploaded!!');
-        router.push('/artist/publish_podcast');
-        return response.json();
+      
+        return res.json();
       }
     });
   }
@@ -143,7 +143,7 @@ const PublishPage = () => {
               </div>
 
               <div className="text-center mt-5">
-                <button className='btn bg-[#b06eb0] text-white hover:bg-purple-700 text-lg' type='submit'>Add Podcast</button>
+                <button type="submit" className='btn bg-[#b06eb0] text-white hover:bg-purple-700 text-lg' type='submit'>Add Podcast</button>
               </div>
             </form>
 

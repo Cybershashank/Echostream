@@ -80,6 +80,11 @@ const browse_podcast = () => {
                           {pod.category}
                         </span>
                       </div>
+                      <div className="relative pb-5">
+                        <span className="text-s text-purple-700 text-line-clamp-1">
+                          {pod.record}
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>

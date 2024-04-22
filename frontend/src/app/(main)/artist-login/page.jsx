@@ -62,7 +62,7 @@ const artistLogin = () => {
             </p>
             <form onSubmit={artistLoginForm.handleSubmit} className="flex flex-col gap-4">
               <input
-                className="p-2 mt-8 rounded-xl border"
+                className="border-0 pd-10px margin-auto px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                 type="text"
                 id="email"
                 onChange={artistLoginForm.handleChange}
@@ -79,10 +79,11 @@ const artistLogin = () => {
 
               <div className="relative">
                 <input
-                  className="p-2 rounded-xl border w-full"
+                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   type="password"
                   id="password"
                   onChange={artistLoginForm.handleChange}
+                  
                   value={artistLoginForm.values.password}
                   class="form-control"
                   placeholder="Password"
