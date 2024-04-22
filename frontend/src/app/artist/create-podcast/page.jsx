@@ -5,8 +5,9 @@ import React, { useEffect, useState } from 'react'
 import { toast } from "react-hot-toast";
 
 const PublishPage = () => {
+  
   const [selImage, setselImage] = useState('');
-  const router = useRouter;
+  const router = useRouter();
 
   const uploadeImage = async (e) => {
     const file = e.target.files[0];
@@ -20,6 +21,8 @@ const PublishPage = () => {
       if (res.status === 200) {
         console.log("file uploaded");
         toast.success('File Uploaded!!');
+        router.push('/artist/publish_podcast');
+        return response.json();
       }
     });
   }
@@ -59,7 +62,7 @@ const PublishPage = () => {
 
   return (
 
-    <section className=" bg-[#c2abc5] py-1 bg-blueGray-50">
+    <section className=" bg-white py-1 bg-blueGray-50">
       <div className="w-full lg:w-8/12 px-4 mx-auto mt-6">
         <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0">
         </div>

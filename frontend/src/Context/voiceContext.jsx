@@ -14,12 +14,12 @@ const pageDetails = [
     pagePath: '/signup'
   },
   {
-    pageName: 'artistSignup',
-    pagePath: '/artist/artistSignup'
+    pageName: 'artistsignup',
+    pagePath: '/artist-signup'
   },
   {
-    pageName: 'artistLogin',
-    pagePath: '/artist/artistLogin'
+    pageName: 'artistlogin',
+    pagePath: '/artist-login'
   },
   {
     pageName: 'artistdashboard',
@@ -157,7 +157,7 @@ export const VoiceProvider = ({ children }) => {
       command: 'create an artist account',
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
-        voicePageNavigator('artistSignup')
+        voicePageNavigator('artist-signup')
       }
     },
     {
