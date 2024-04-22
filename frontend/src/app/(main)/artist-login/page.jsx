@@ -23,7 +23,7 @@ const artistLogin = () => {
     },
     onSubmit: async (values, { resetForm }) => {
       console.log(values);
-      const res = await fetch('http://localhost:5000/artist/add', {
+      const res = await fetch('http://localhost:5000/artist/authenticate', {
         method: 'POST',
         body: JSON.stringify(values),
         headers: {
@@ -39,7 +39,7 @@ const artistLogin = () => {
               .then((data) => {
                 console.log(data);
                 sessionStorage.setItem('artist', JSON.stringify(data));
-                router.push('/artist/artistdashboard');
+                router.push('/artist/dashboard');
               })
           }
         }).catch((err) => {

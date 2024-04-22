@@ -4,8 +4,8 @@ const mySchema = new Schema({
     name : String,
     cover : String,
     artist : {type: Types.ObjectId, ref : 'artist'},
-    likes : String,
-    comments : String,
+    likes : {type : Number, default : 0},
+    createdAt: { type: Date, default: Date.now }
     
 });
 

@@ -48,12 +48,12 @@ router.get('/update', (req, res) => {
         });
 });
 
-router.post("/authenticate", verifyToken, (req, res) => {
-    req.body.artist = req.user._id;
-    Model.find(req.body)
+router.post("/authenticate", (req, res) => {
+    console.log(req.body);
+    Model.findOne(req.body)
         .then((result) => {
             if (result) {
-                const { _id, name, email, avatar } = result;
+                const { _id, name, role, email, avatar } = result;
                 const payload = { _id, name, email };
 
                 jwt.sign(
