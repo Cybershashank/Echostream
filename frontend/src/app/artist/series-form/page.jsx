@@ -1,37 +1,57 @@
 'use client';
 import { useFormik } from 'formik';
-import React from 'react'
+import React, { useState } from 'react'
 import toast from 'react-hot-toast';
 
 const seriesForm = () => {
+
+  const [currentArtist, setCurrentArtist] = useState(JSON.parse(
+    sessionStorage.getItem('artist')
+  ))
+
+  const uploadImage = (e) => {
+    const file = e.target.files[0];
+    const fd = new FormData();
+    fd.append("myfile", file);
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/util/uploadfile`, {
+      method: "POST",
+      body: fd,
+    }).then((res) => {
+      if (res.status === 200) {
+        console.log("file uploaded");
+        seriesForm.setFieldValue('cover', file.name);
+        toast.success('File Uploaded!!');
+      }
+    });
+  }
 
   const seriesForm = useFormik({
     initialValues: {
       name: '',
       cover: ''
     },
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
+      console.log(values);
 
-      fetch(`${process.env.NEXT_PUBLIC_API_URL}/series/add`, {
-        method: 'POST',
+      const res = await fetch("http://localhost:5000/series/add", {
+        method: "POST",
         body: JSON.stringify(values),
         headers: {
           'Content-Type': 'application/json',
-
+          'x-auth-token': currentArtist.token
         }
-      })
-        .then((response) => {
-          if (response.status === 200) {
-            toast.success('Series Created successfully')
-          } else {
-            toast.error('Error creating Series')
-          }
-        }).catch((err) => {
-          toast.error('Error creating Series')
-          console.log(err);
-        });
+      });
+      console.log(res.status);
 
-    }
+      if (res.status === 200) {
+        toast.success("Series added Successfully");
+        router.push('/artist/publish_podcast');
+      } else if (res.status === 400) {
+        toast.error("Something went wrong");
+      } else {
+        toast.error("Something went wrong");
+      }
+    },
   })
 
   return (
@@ -75,8 +95,7 @@ const seriesForm = () => {
                         >
                           <span>Upload a file</span>
                           <input
-                            id="file-upload"
-                            name="file-upload"
+                            onChange={uploadImage}
                             type="file"
                             className="sr-only"
                           />

@@ -108,7 +108,7 @@ const publish_podcast = () => {
       <div className="container-fluid flex rounded-2xl justify-center ">
 
         <form onSubmit={PublishForm.handleSubmit}>
-          <div className="mb-2  px-24 py-4  bg-purple-600 mt-5 rounded-xl">
+          <div className="mb-2  px-24 py-4  bg-purple-600  rounded-xl">
 
             <AudioRecorder type="file" id='record'
               value={PublishForm.values.record}
