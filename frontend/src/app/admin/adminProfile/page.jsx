@@ -3,7 +3,7 @@ import React from 'react'
 const AdminProfile = () => {
   return (
     <>
-  <div className="container mx-auto py-6">
+  <div className="container  py-6">
     <div className="bg-white shadow-md rounded-md overflow-hidden">
       <div className="bg-gray-800 text-white p-4">
         <div className="flex items-center">
@@ -19,7 +19,7 @@ const AdminProfile = () => {
         </div>
       </div>
       <div className="p-4">
-        <h2 className="text-lg font-semibold mb-4">Profile Information</h2>
+        <h2 className="text-lg  font-semibold mb-4">Profile Information</h2>
         <div className="grid grid-cols-2 gap-4">
           <div>
             <p className="text-gray-600 font-semibold">Email:</p>
@@ -44,6 +44,8 @@ const AdminProfile = () => {
       </div>
     </div>
   </div>
+
+
 </>
 
 
