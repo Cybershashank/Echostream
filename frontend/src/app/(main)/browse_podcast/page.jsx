@@ -10,7 +10,9 @@ import 'swiper/css/navigation';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 
+
 const browse_podcast = () => {
+  const [swiperRef, setSwiperRef] = useState();
 
   const [podcastList, setPodcastList] = useState([]);
 
@@ -32,7 +34,27 @@ const browse_podcast = () => {
   return (
     <>
 
-      <Swiper
+<Swiper
+        onSwiper={setSwiperRef}
+        slidesPerView={3}
+        centeredSlides={true}
+        spaceBetween={30}
+        pagination={{
+          type: 'fraction',
+        }}
+        navigation={true}
+        modules={[Pagination, Navigation]}
+        className="mySwiper"
+      >
+        <SwiperSlide><img src='https://images.cdn.kukufm.com/w:256/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/f701ac7546e243c3b2eb310d8b0df751.png' /></SwiperSlide>
+        <SwiperSlide><img src='https://images.cdn.kukufm.com/w:256/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/cu_icons/5ae0cd1447954fba9f563de8adbb1a4e.png' /></SwiperSlide>
+        <SwiperSlide><img src='https://images.cdn.kukufm.com/w:256/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/4f022d474a334c88818f7fba6ba5e7f3.png' /></SwiperSlide>
+        <SwiperSlide><img src='https://images.cdn.kukufm.com/w:256/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/cu_icons/bb5505badc5c4797a917d19d39fdda89.png' /></SwiperSlide>
+        <SwiperSlide><img src='https://images.cdn.kukufm.com/w:256/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/cu_icons/bb5505badc5c4797a917d19d39fdda89.png' /></SwiperSlide>
+      </Swiper>
+
+
+      {/* <Swiper
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
@@ -51,7 +73,7 @@ const browse_podcast = () => {
         <SwiperSlide><img src='https://images.cdn.kukufm.com/w:256/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/4f022d474a334c88818f7fba6ba5e7f3.png' /></SwiperSlide>
         <SwiperSlide><img src='https://images.cdn.kukufm.com/w:256/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/cu_icons/bb5505badc5c4797a917d19d39fdda89.png' /></SwiperSlide>
 
-      </Swiper>
+      </Swiper> */}
 
       <div className="grid  h-screen w-screen  ">
 
