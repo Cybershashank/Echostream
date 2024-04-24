@@ -12,9 +12,6 @@ const Template = ({ children }) => {
 
             <VoiceProvider >
                 <AppProvider>
-
-                    {children}
-
                     <PlayerProvider>
                         {children}
                     </PlayerProvider>

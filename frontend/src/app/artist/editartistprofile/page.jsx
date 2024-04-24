@@ -2,63 +2,46 @@
 import { useFormik } from 'formik';
 import React, { useState } from 'react'
 
-const editPofile = () => {
+const editartistprofile = () => {
 
-  const [currentUser, setCurrentUSer ] = useState(
-    JSON.parse(sessionStorage.getItem("user"))
-);
+    const [currentArtist, setCurrentArtist ] = useState(
+    JSON.parse(sessionStorage.getItem("artist"))
+    );
 
- const useForm = useFormik({
-  initialValues: currentUser,
-  onSubmit : async (data) => {
-    console.log(data);
-  const res = await fetch(url + '/user/update/'+currentUser._id, {
-    method: 'PUT',
-    body: JSON.stringify(data),
-    headers: {
-      'Content-Type': 'application/json'
+    const useForm = useFormik({
+    initialValues: currentArtist,
+
+    onSubmit : async (data) => {
+        console.log(data);
+    const res = await fetch(url + '/artist/update/'+currentArtist._id, {
+        method: 'PUT',
+        body: JSON.stringify(data),
+        headers: {
+        'Content-Type': 'application/json'
+        }
+    });
+    console.log(res.status);
+    const artistData = await res.json();
+    console.log(artistData);
+    setCurrentArtist(artistData);
+    sessionStorage.setItem("artist", JSON.stringify(artistData));
     }
-  });
-  console.log(res.status);
-  const userData = await res.json();
-  console.log(userData);
-  setCurrentUSer(userData);
-  sessionStorage.setItem("user", JSON.stringify(userData));
+  })
+
+  const deleteAccount = async (id) => {
+    console.log(id);
+  
+    const res = await fetch('http://localhost:3000/artist/delete/' + id, { method: 'DELETE' });
+    console.log(res.status);
+    if (res.status === 200) {
+      // fetchPlanningServices();
+      // alert.success('Artist Deleted Successfully');
+  
+    }
   }
- })
-
-//  const uploadProfileImage = (e) => {
-//   const file = e.target.files[0];
-//   setSelImage(file.name);
-//   const fd = new FormData();
-//   fd.append("myfile", file);
-//   fetch(url + "/util/uploadfile", {
-//     method: "POST",
-//     body: fd,
-//   }).then((res) => {
-//     if (res.status === 200) {
-//       console.log("file uploaded");
-//       updateProfile({ avatar: file.name });
-//     }
-//   });
-// };
-
-const deleteAccount = async (id) => {
-  console.log(id);
-
-  const res = await fetch('http://localhost:3000/user/delete/' + id, { method: 'DELETE' });
-  console.log(res.status);
-  if (res.status === 200) {
-    // fetchPlanningServices();
-    // alert.success('User Deleted Successfully');
-
-  }
-}
-
   return (
     <>
-    <>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
   <link
     href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
@@ -78,7 +61,7 @@ const deleteAccount = async (id) => {
           href="#"
           className="flex items-center px-3 py-2.5 font-bold bg-white  text-indigo-900 border rounded-full"
         >
-          Pubic Profile
+          Edit Profile
         </a>
         <a
           href="#"
@@ -92,18 +75,13 @@ const deleteAccount = async (id) => {
         >
           Notifications
         </a>
-        <a
-          href="#"
-          className="flex items-center px-3 py-2.5 font-semibold hover:text-indigo-900 hover:border hover:rounded-full  "
-        >
-          PRO Account
-        </a>
+        
       </div>
     </aside>
     <main className="w-full min-h-screen py-1 md:w-2/3 lg:w-3/4">
       <div className="p-2 md:p-4">
         <div className="w-full px-6 pb-8 mt-8 sm:max-w-xl sm:rounded-lg">
-          <h2 className="pl-6 text-2xl font-bold sm:text-xl">Public Profile</h2>
+          <h2 className="pl-6 text-2xl font-bold sm:text-xl">Edit Profile</h2>
           <div className="grid max-w-2xl mx-auto mt-8">
             <div className="flex flex-col items-center space-y-5 sm:flex-row sm:space-y-0">
               <img
@@ -197,10 +175,8 @@ const deleteAccount = async (id) => {
       </div>
     </main>
   </div>
-</>
-
     </>
   )
 }
 
-export default editPofile;
+export default editartistprofile
