@@ -6,7 +6,7 @@ const AppContext = createContext();
 
 export const AppProvider = ({ children  }) => {
 
-    const [ currentUser ] = useState(
+    const [ currentUser, setCurrentUser ] = useState(
         JSON.parse(sessionStorage.getItem('user'))
       );
 
@@ -20,7 +20,7 @@ export const AppProvider = ({ children  }) => {
     }
 
     return (
-        <AppContext.Provider value={{ loggedIn, setLoggedIn, logout }} >
+        <AppContext.Provider value={{ loggedIn, setLoggedIn, logout, currentUser, setCurrentUser }} >
             {children}
         </AppContext.Provider>
     )

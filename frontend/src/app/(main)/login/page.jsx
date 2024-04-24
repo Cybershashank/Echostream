@@ -6,10 +6,13 @@ import classes from './login.module.css';
 import { useFormik, } from 'formik';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
+import useAppContext from '@/Context/userContext';
 
 
 const Login = () => {
   const router = useRouter();
+
+  const { setLoggedIn, setCurrentUser } = useAppContext();
 
   const loginValidationSchema = Yup.object().shape({
     email: Yup.string().required('Email is Required').email('Email is invalid'),
@@ -40,6 +43,8 @@ const Login = () => {
       }
     })
     .then((data) => {
+      setLoggedIn(true);
+      setCurrentUser(data);
       sessionStorage.setItem("user", JSON.stringify(data));
      
     })
