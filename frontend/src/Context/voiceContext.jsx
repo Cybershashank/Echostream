@@ -535,33 +535,6 @@ export const VoiceProvider = ({ children }) => {
 
   return (
     <VoiceContext.Provider value={{}}>
-<<<<<<< HEAD:frontend/src/app/Context/voiceContext.jsx
-      <>
-        <div className="text-center  h-7 " style={{ backgroundColor: "rgb(2,48,71" }}>
-          <button className='floating-mic' onClick={() => {
-            if (listening) {
-              SpeechRecognition.stopListening();
-            } else {
-              SpeechRecognition.startListening();
-            }
-          }}>{listening ?
-            (
-              <span className='text-white'>
-                <IconPlayerRecordFilled style={{ display: 'inline' }} color='#f00' /> listening...
-              </span>
-            ) : (
-              <span> <CiMicrophoneOn className='text-2xl text-white' /></span>
-            )
-            }   </button>
-          {/* <p>Microphone: </p> */}
-          {/* <button onClick={SpeechRecognition.startListening}>Start</button>
-      <button onClick={SpeechRecognition.stopListening}>Stop</button>
-      <button onClick={resetTranscript}>Reset</button> */}
-          <span className='text-white'>{transcript}</span>
-        </div>
-        {children}
-      </>
-=======
     <div className="text-center bg-gray-700 h-7">
       <button className='floating-mic' onClick={() => {
         if (listening) {
@@ -585,7 +558,6 @@ export const VoiceProvider = ({ children }) => {
       <span className='text-white'>{transcript}</span>
       </div>
       {children}
->>>>>>> 60cde88a71bf13f19de0ed1d70ab4f1decc96a75:frontend/src/Context/voiceContext.jsx
     </VoiceContext.Provider>
   )
 }
