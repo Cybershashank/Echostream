@@ -535,7 +535,7 @@ export const VoiceProvider = ({ children }) => {
 
   return (
     <VoiceContext.Provider value={{}}>
-<<<<<<< HEAD:frontend/src/app/Context/voiceContext.jsx
+
       <>
         <div className="text-center  h-7 " style={{ backgroundColor: "rgb(2,48,71" }}>
           <button className='floating-mic' onClick={() => {
@@ -561,7 +561,6 @@ export const VoiceProvider = ({ children }) => {
         </div>
         {children}
       </>
-=======
     <div className="text-center bg-gray-700 h-7">
       <button className='floating-mic' onClick={() => {
         if (listening) {
@@ -585,11 +584,11 @@ export const VoiceProvider = ({ children }) => {
       <span className='text-white'>{transcript}</span>
       </div>
       {children}
->>>>>>> 60cde88a71bf13f19de0ed1d70ab4f1decc96a75:frontend/src/Context/voiceContext.jsx
+
     </VoiceContext.Provider>
   )
 }
 
 const useVoiceContext = () => useContext(VoiceContext);
 
-export default useVoiceContext;             
+export default useVoiceContext;         
