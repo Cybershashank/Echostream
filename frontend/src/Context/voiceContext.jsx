@@ -535,56 +535,29 @@ export const VoiceProvider = ({ children }) => {
 
   return (
     <VoiceContext.Provider value={{}}>
-
-      <>
-        <div className="text-center  h-7 " style={{ backgroundColor: "rgb(2,48,71" }}>
-          <button className='floating-mic' onClick={() => {
-            if (listening) {
-              SpeechRecognition.stopListening();
-            } else {
-              SpeechRecognition.startListening();
-            }
-          }}>{listening ?
-            (
-              <span className='text-white'>
-                <IconPlayerRecordFilled style={{ display: 'inline' }} color='#f00' /> listening...
-              </span>
-            ) : (
-              <span> <CiMicrophoneOn className='text-2xl text-white' /></span>
-            )
-            }   </button>
-          {/* <p>Microphone: </p> */}
-          {/* <button onClick={SpeechRecognition.startListening}>Start</button>
+      <div className="text-center bg-gray-700 h-7">
+        <button className='floating-mic' onClick={() => {
+          if (listening) {
+            SpeechRecognition.stopListening();
+          } else {
+            SpeechRecognition.startListening();
+          }
+        }}>{listening ?
+          (
+            <span className='text-white'>
+              <IconPlayerRecordFilled style={{ display: 'inline' }} color='#f00' /> listening...
+            </span>
+          ) : (
+            <span> <CiMicrophoneOn className='text-2xl text-white' /></span>
+          )
+          }   </button>
+        {/* <p>Microphone: </p> */}
+        {/* <button onClick={SpeechRecognition.startListening}>Start</button>
       <button onClick={SpeechRecognition.stopListening}>Stop</button>
       <button onClick={resetTranscript}>Reset</button> */}
-          <span className='text-white'>{transcript}</span>
-        </div>
-        {children}
-      </>
-    <div className="text-center bg-gray-700 h-7">
-      <button className='floating-mic' onClick={() => {
-        if (listening) {
-          SpeechRecognition.stopListening();
-        } else {
-          SpeechRecognition.startListening();
-        }
-      }}>{listening ?
-        (
-          <span className='text-white'>
-            <IconPlayerRecordFilled style={{ display: 'inline' }} color='#f00' /> listening...
-          </span>
-        ):(
-            <span> <CiMicrophoneOn className='text-2xl text-white'/></span>
-        )
-        }   </button>
-      {/* <p>Microphone: </p> */}
-      {/* <button onClick={SpeechRecognition.startListening}>Start</button>
-      <button onClick={SpeechRecognition.stopListening}>Stop</button>
-      <button onClick={resetTranscript}>Reset</button> */}
-      <span className='text-white'>{transcript}</span>
+        <span className='text-white'>{transcript}</span>
       </div>
       {children}
-
     </VoiceContext.Provider>
   )
 }

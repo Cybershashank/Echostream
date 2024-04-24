@@ -88,7 +88,7 @@ router.get("/getbyartist", verifyToken, (req, res) => {
 });
 
 router.get("/getbyseries/:id", (req, res) => {
-  Model.find({ series: req.params.id }) //to get the data of the user who is logged in
+  Model.find({ series: req.params.id }).populate('artist') //to get the data of the user who is logged in
     .then((result) => {
       res.json(result)
     }).catch((err) => {
