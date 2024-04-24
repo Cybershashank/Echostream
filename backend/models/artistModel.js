@@ -12,7 +12,7 @@ const mySchema = new Schema({
     type: String,
     avatar: {type : String, default: 'placeholder.png'},
     createdAt: {type : Date, default: Date.now},
-
+    role: {type : String, default: 'artist'},
 });
 
 module.exports = model('artist', mySchema);
