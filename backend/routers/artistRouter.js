@@ -18,12 +18,13 @@ router.post('/add', (req, res) => {
 
 
 router.get('/getall', (req, res) => {
-    Model.find()
+    Model.find({})
         .then((result) => {
             res.json(result);
+
         }).catch((err) => {
-            console.log(err);
-            res.json(err);
+            console.error(err);
+            res.state(500).json(err)
         });
 
 });
@@ -39,13 +40,14 @@ router.get('/delete', (req, res) => {
 });
 
 router.get('/update', (req, res) => {
-    Model.findByIdAndUpdate(req.params.id, req.body, { new: true })
-        .then((result) => {
-            res.status(200).json(result);
-        }).catch((err) => {
-            console.log(err);
-            res.status(500).json(err);
-        });
+    res.send('update response from artist router');
+     {/* Model.findByIdAndUpdate(req.params.id, req.body, { new: true })
+            .then((result) => {
+                res.status(200).json(result);
+            }).catch((err) => {
+                console.log(err);
+                res.status(500).json(err);
+            });  */}  
 });
 
 router.post("/authenticate", (req, res) => {
