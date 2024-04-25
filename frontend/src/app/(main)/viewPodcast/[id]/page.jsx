@@ -65,9 +65,11 @@ const viewPodcast = () => {
     <>
       {series != null ? (
 
-        <div className="container mx-auto px-4 py-8">
+        <div className='flex justify-center'>
+        <div className="w-full lg:w-3/6">
 
-
+          
+          
           <div key={series.id} className="bg-white rounded-lg shadow-md overflow-hidden">
             <div className="relative w-60 mx-auto block h-60">
               <img src={"http://localhost:5000/" + series.cover}
@@ -82,6 +84,7 @@ const viewPodcast = () => {
           </div>
 
           {displayPodcastEpisodes()}
+        </div>
         </div>
       ) : (
         <div className="flex justify-center">
