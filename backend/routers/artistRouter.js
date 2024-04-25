@@ -39,7 +39,7 @@ router.get('/delete', (req, res) => {
 });
 
 router.get('/update', (req, res) => {
-     Model.findByIdAndUpdate(req.params.id, req.body, { new: true })
+    Model.findByIdAndUpdate(req.params.id, req.body, { new: true })
         .then((result) => {
             res.status(200).json(result);
         }).catch((err) => {

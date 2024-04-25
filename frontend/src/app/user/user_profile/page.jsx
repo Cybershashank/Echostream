@@ -25,7 +25,7 @@ const UserProfile = () => {
   setCurrentUSer(userData);
   sessionStorage.setItem("user", JSON.stringify(userData));
   }
- })
+ });
   return (
     <>
       

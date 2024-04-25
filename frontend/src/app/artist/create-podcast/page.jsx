@@ -95,12 +95,12 @@ const PublishPage = () => {
           <div className="flex justify-center mt-5">
 
             <form className="" onSubmit={PublishForm.handleSubmit}>
-              <h1 className='text-center fw-bold text-4xl text-purple-600 mb-12' style={{ fontFamily: "serif" }}>Publish Podcast</h1>
+              <h1 className='text-center fw-bold text-4xl text-purple-600 mb-12' style={{ fontFamily: "serif" }}>Create Podcast</h1>
               
 
 
               <div className="mb-2">
-                <label htmlFor="" className=' form-label fw-bold'>Title</label>
+                <label htmlFor="" className=' form-label fw-bold'>Series</label>
                 <select
                   id='series'
                   value={PublishForm.values.series}
@@ -128,10 +128,25 @@ const PublishPage = () => {
 
 
 
-              
-
-
-
+              <div className="mb-2">
+                <label htmlFor="" className='form-label fw-bold'>Category</label>
+                <select
+                  id='category'
+                  value={PublishForm.values.category}
+                  onChange={PublishForm.handleChange}
+                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  placeholder="Category"
+                >
+                  <option value="">Select Category</option>
+                  
+                  
+                  <option value="">Solo</option>
+                  <option value="">Educational</option>
+                  <option value="">Fictional</option>
+                  <option value="">Interview</option>
+                  <option value="">Motivational</option>
+                </select>
+              </div>
               <div className="mb-2">
                 <label htmlFor="" className='form-label fw-bold'>Category</label>
                 <input type="text"
@@ -147,6 +162,35 @@ const PublishPage = () => {
 
               <div className="mb-2">
                 <label htmlFor="" className='form-label fw-bold'>Genre</label>
+                <select
+                  id='genre'
+                  value={PublishForm.values.genre}
+                  onChange={PublishForm.handleChange}
+                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  placeholder="Genre"
+                  >
+                  <option value="">Select Genre</option>
+                  
+                  <option value="">Busniess</option>
+                  <option value="">Career</option>
+                  <option value="">Comedy</option>
+                  <option value="">Crime</option>
+                  <option value="">Entertainment</option>
+                  <option value="">Health</option>
+                  <option value="">History</option>
+                  <option value="">Horror</option>
+                  <option value="">Information</option>
+                  <option value="">Kids</option>
+                  <option value="">Mythology</option>
+                  <option value="">Sci-Fi</option>
+                  <option value="">Sports</option>
+                  <option value="">Thriller</option>
+                  <option value="">True Crime</option>
+                  <option value="">TV & Film</option>
+                </select>
+              </div>
+              <div className="mb-2">
+                <label htmlFor="" className='form-label fw-bold'>Genre</label>
                 <input type="text"
                   id='genre'
                   value={PublishForm.values.genre}
@@ -156,6 +200,29 @@ const PublishPage = () => {
               </div>
 
 
+              <div className="mb-2">
+                <label htmlFor="" className='form-label fw-bold'>Language</label>
+                <select
+                  id='language'
+                  value={PublishForm.values.language}
+                  onChange={PublishForm.handleChange}
+                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  placeholder="Language"
+                  >
+                  <option value="">Select Language</option>
+                
+                  <option value="">English</option>
+                  <option value="">Hindi</option>
+                  <option value="">Marathi</option>
+                  <option value="">Bangla</option>
+                  <option value="">Telugu</option>
+                  <option value="">Health</option>
+                  <option value="">Tamil</option>
+                  <option value="">Malayalam</option>
+                  <option value="">Gujrati</option>
+                  <option value="">Punjabi</option>
+                </select>
+              </div>
               <div className="mb-2">
                 <label htmlFor="" className='form-label fw-bold'>Language</label>
                 <input type="text"
