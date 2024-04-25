@@ -42,6 +42,14 @@ const pageDetails = [
     pagePath: '/feedback'
   },
   {
+    pageName: 'terms&conditions',
+    pagePath: '/terms&conditions'
+  },
+  {
+    pageName: 'privacyPolicy',
+    pagePath: '/privacyPolicy'
+  },
+  {
     pageName: 'reset password',
     pagePath: '/resetPassword'
   },
@@ -231,6 +239,27 @@ export const VoiceProvider = ({ children }) => {
       }
     },
     {
+      command: 'feedback page open karo',
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('feedback')
+      }
+    },
+    {
+      command: 'open terms and conditions page',
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('terms&conditions')
+      }
+    },
+    {
+      command: 'open privacy policy page',
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('privacyPolicy')
+      }
+    },
+    {
       command: 'reset password',
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
@@ -246,6 +275,13 @@ export const VoiceProvider = ({ children }) => {
     },
     {
       command: 'open front page',
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('browse artist')
+      }
+    },
+    {
+      command: 'open browse artist page',
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('browse artist')

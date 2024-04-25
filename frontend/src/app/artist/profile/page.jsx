@@ -1,6 +1,31 @@
-import React from 'react'
+'use client';
+import { useFormik } from 'formik';
+import React, { useState } from 'react'
 
 const ArtistProfile = () => {
+
+  const [ currentArtist, setCurrentArtist ]= useState(
+    JSON.parse(sessionStorage.getItem("artist"))
+  );
+
+  const useForm = useFormik({
+    initialValues: currentArtist,
+    onSubmit : async (data) => {
+      console.log(data);
+      const res = await fetch(url + '/artist/update/'+currentArtist._id, {
+        method: 'PUT',
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      console.log(res.status);
+      const artistData = await res.json();
+      console.log(artistData);
+      setCurrentArtist(artistData);
+      sessionStorage.setItem("artist", JSON.stringify(artistData));
+    }
+  });
   return (
     <>
     <section className="relative pt-40 pb-24">
@@ -20,10 +45,10 @@ const ArtistProfile = () => {
               <div className="flex flex-col sm:flex-row max-sm:gap-5 items-center justify-between mb-5">
                 <div className="block">
                   <h3 className="font-manrope font-bold text-4xl text-gray-900 mb-1">
-                    Emma Smith
+                    {currentArtist.name}
                   </h3>
                   <p className="font-normal text-base leading-7 text-gray-500">
-                    Los Anbeles, California
+                    {currentArtist.email}
                   </p>
                 </div>
                 <button className="py-3.5 px-5 flex rounded-full bg-indigo-600 items-center shadow-sm shadow-transparent transition-all duration-500 hover:bg-indigo-700">
