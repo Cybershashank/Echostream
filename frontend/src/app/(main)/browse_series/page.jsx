@@ -20,25 +20,27 @@ const browse_series = () => {
   }, [])
 
 
- 
+
   return (
     <>
-    <div className="bg-gray-100 h-screen">
+      <div className="bg-gray-100 h-screen">
         <div className="container mx-auto py-8">
           <h1 className="text-3xl font-bold mb-8">Podcast Series</h1>
           <div className="grid grid-cols-4 gap-6  flex-warp md:flex-nowrap md:overflow-x-scroll w-full md:space-x-4 space-y-3 md:space-y-0 scrollbar-style">
             {podcastList.map(episode => (
-             <Link href={`/viewPodcast/${episode._id}`}> <div key={episode.id} className="border-2 flex md:block space-x-3 md:space-x-0">
-                <div className="relative ">
-                <img src={"http://localhost:5000/" + episode.cover}
-                  alt={episode.name} 
-                  className="h-28 w-100 md:h-48 inline-block relative flex-shrink-0 rounded-lg" />
+              <Link href={`/viewPodcast/${episode._id}`}>
+                <div key={episode.id} className="border-2 flex md:block">
+                  <div className="relative ">
+                    <img src={"http://localhost:5000/" + episode.cover}
+                      alt={episode.name}
+                      className="h-84 w-full object-contain md:h-96 inline-block relative flex-shrink-0 rounded-lg" />
+                  </div>
+                  <div className="p-4">
+                    <h2 className="text-lg font-bold mb-2">{episode.name}</h2>
+                    <p className="text-gray-900">{episode.artist.name}</p>
+                  </div>
                 </div>
-                <div className="p-4">
-                <p className="text-gray-700">{episode.artist}</p>
-                  <h2 className="text-lg font-bold mb-2">{episode.name}</h2>
-                </div>
-              </div></Link>
+              </Link>
             ))}
           </div>
         </div>

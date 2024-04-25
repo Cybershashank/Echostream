@@ -19,7 +19,7 @@ router.post("/add", verifyToken, (req, res) => {
 
 
 router.get("/getall", (req, res) => {
-  Model.find({}) //empty brackets will give all the data from the database
+  Model.find({}).populate("artist")
     .then((result) => {
       res.json(result)
     }).catch((err) => {

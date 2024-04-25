@@ -1,14 +1,17 @@
 'use client';
-import React from 'react'
+import React, { use } from 'react'
 import Link from 'next/link';
 import * as Yup from "yup";
 import { useFormik } from 'formik';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
+import useArtistContext from '@/Context/ArtistContext';
 
 const artistLogin = () => {
 
   const router = useRouter();
+
+  const { setCurrentArtist, setArtistLoggedIn } = useArtistContext();
 
   const loginValidationSchema = Yup.object().shape({
     email: Yup.string().required('Email is Required').email('Email is invalid'),
@@ -38,6 +41,8 @@ const artistLogin = () => {
             response.json()
               .then((data) => {
                 console.log(data);
+                setArtistLoggedIn(true);
+                setCurrentArtist(data);
                 sessionStorage.setItem('artist', JSON.stringify(data));
                 router.push('/artist/dashboard');
               })
@@ -52,7 +57,6 @@ const artistLogin = () => {
 
   return (
     <>
-
       <section className="bg-[#060119] min-h-screen flex box-border justify-center items-center">
         <div className="bg-[#fff] rounded-2xl flex max-w-3xl p-5 items-center">
           <div className="md:w-1/2 px-8">

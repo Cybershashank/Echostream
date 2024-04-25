@@ -4,6 +4,7 @@ import React, { useEffect } from 'react';
 import { VoiceProvider } from '../Context/voiceContext';
 import { AppProvider } from '../Context/userContext';
 import { PlayerProvider } from '@/Context/PlayerContext';
+import { ArtistProvider } from '@/Context/ArtistContext';
 
 const Template = ({ children }) => {
 
@@ -12,9 +13,11 @@ const Template = ({ children }) => {
 
             <VoiceProvider >
                 <AppProvider>
-                    <PlayerProvider>
-                        {children}
-                    </PlayerProvider>
+                    <ArtistProvider>
+                        <PlayerProvider>
+                            {children}
+                        </PlayerProvider>
+                    </ArtistProvider>
                 </AppProvider>
             </VoiceProvider>
         </>
