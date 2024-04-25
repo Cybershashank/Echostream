@@ -16,7 +16,8 @@ export const AppProvider = ({ children  }) => {
     const logout = () => {
         sessionStorage.removeItem('user');
         setLoggedIn(false);
-        router.push('/product');
+        setCurrentUser(null);
+        router.push('/login');
     }
 
     return (
