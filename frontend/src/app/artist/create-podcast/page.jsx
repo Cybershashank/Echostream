@@ -147,6 +147,7 @@ const PublishPage = () => {
                   <option value="">Motivational</option>
                 </select>
               </div>
+
               <div className="mb-2">
                 <label htmlFor="" className='form-label fw-bold'>Category</label>
                 <input type="text"
@@ -189,6 +190,7 @@ const PublishPage = () => {
                   <option value="">TV & Film</option>
                 </select>
               </div>
+              
               <div className="mb-2">
                 <label htmlFor="" className='form-label fw-bold'>Genre</label>
                 <input type="text"

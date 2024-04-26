@@ -1,4 +1,7 @@
+'use client';
 import React from 'react'
+import Link from 'next/link';
+
 
 const artist_detail = () => {
 
@@ -35,9 +38,9 @@ const artist_detail = () => {
 
               <div className="flex items-center justify-center gap-5">
 
-
-                <a
-                  href="javascript:;"
+                {/*  Add your social media links here */}
+                <Link
+                  href=""
                   className="p-3 rounded-full border border-solid border-gray-300 group bg-gray-50 transition-all duration-500 hover:bg-indigo-700 hover:border-indigo-700"
                  >
                   <svg
@@ -75,13 +78,13 @@ const artist_detail = () => {
                       </clipPath>
                     </defs>
                   </svg>
-                </a>
+                </Link>
 
 
 
-
-                <a
-                  href="javascript:;"
+                {/*  Add your social media links here */}
+                <Link
+                  href=""
                   className="p-3 rounded-full border border-solid border-gray-300 bg-gray-50 group transition-all duration-500 hover:bg-indigo-700 hover:border-indigo-700"
                 >
                   <svg
@@ -109,11 +112,12 @@ const artist_detail = () => {
                       </clipPath>
                     </defs>
                   </svg>
-                </a>
+                </Link>
 
 
-                <a
-                  href="javascript:;"
+                {/*  Add your social media links here */}
+                 <Link
+                  href=""
                   className="p-3 rounded-full border border-solid border-gray-300 bg-gray-50 group transition-all duration-500 hover:bg-indigo-700 hover:border-indigo-700"
                 >
                   <svg
@@ -131,11 +135,12 @@ const artist_detail = () => {
                       strokeLinecap="round"
                     />
                   </svg>
-                </a>
+                </Link>
 
 
-                <a
-                  href="javascript:;"
+                {/*  Add your social media links here */}
+                <Link
+                  href=""
                   className="p-3 rounded-full border border-solid border-gray-300 group bg-gray-50 transition-all duration-500 hover:bg-indigo-700 hover:border-indigo-700"
                 >
                   <svg
@@ -156,11 +161,12 @@ const artist_detail = () => {
                       fill="white"
                     />
                   </svg>
-                </a>
+                </Link>
 
 
-                <a
-                  href="javascript:;"
+                {/*  Add your social media links here */}
+                <Link
+                  href=""
                   className="p-3 rounded-full border border-solid border-gray-300 group bg-gray-50 transition-all duration-500 hover:bg-indigo-700 hover:border-indigo-700"
                  >
                   <svg
@@ -196,7 +202,7 @@ const artist_detail = () => {
                       </linearGradient>
                     </defs>
                   </svg>
-                </a>
+                </Link>
 
 
               </div>

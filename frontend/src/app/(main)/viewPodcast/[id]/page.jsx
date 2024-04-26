@@ -63,6 +63,7 @@ const viewPodcast = () => {
 
   return (
     <>
+    
       {series != null ? (
 
         <div className='flex justify-center'>

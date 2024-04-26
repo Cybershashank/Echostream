@@ -173,11 +173,11 @@ const artistSignup = () => {
                       htmlFor="terms"
                       className="font-light text-gray-500 dark:text-gray-300" >
                       I accept the{" "}
-                      <a
+                      <Link
                         className="font-medium text-primary-600 hover:underline dark:text-primary-500"
-                        href="#">
+                        href="/terms&conditions">
                         Terms and Conditions
-                      </a>
+                      </Link>
                     </label>
                   </div>
 
@@ -190,11 +190,11 @@ const artistSignup = () => {
                 </button>
                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                   Already have an account?{" "}
-                  <a
-                    href="#"
+                  <Link
+                    href="/artist-login"
                     className="font-medium text-blue-600 hover:underline hover:underline-offset-4" >
                     Login Here
-                  </a>
+                  </Link>
                 </p>
               </form>
             </div>
