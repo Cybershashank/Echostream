@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Model = require('../models/userModel');
 const jwt = require('jsonwebtoken');
+const verifyToken = require('./verifyToken');
 require('dotenv').config();
 
 router.post('/add', (req, res) => {
@@ -27,6 +28,18 @@ router.get("/getall", (req,res) => {
     });
 })
 
+router.get('/getbymail/:email', (req, res) => {
+    Model.findOne({ email: req.params.email })
+        .then((result) => {
+            if (result) res.status(200).json(result);
+            else res.status(404).json({ message: 'User not found' });
+        }).catch((err) => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+    console.log(req.body);
+});
+
 
 router.get('/delete', (req, res) => {
     Model.findByIdAndDelete(req.params.id)
@@ -38,8 +51,14 @@ router.get('/delete', (req, res) => {
         });
 });
 
-router.get('/update', (req, res) => {
-    res.send('update response from user router');
+router.put('/update/:id',  (req, res) => {
+    Model.findByIdAndUpdate(req.params.id, req.body, { new: true })
+        .then((result) => {
+            res.json(result);
+        }).catch((err) => {
+            console.log(err);
+            res.json(err)
+        });
 });
 
 

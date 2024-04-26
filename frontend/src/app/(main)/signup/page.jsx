@@ -9,8 +9,13 @@ import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 
 
+
 const Signup = () => {
 const router = useRouter();
+
+//const { setLoggedIn, setCurrentUser } = useAppContext();
+//const { performActionUsingVoice, finalTranscript, fillInputUsingVoice } = useVoiceContext();
+
   const signupValidationSchema = Yup.object().shape({
     email: Yup.string().email('Email is invalid').required('Email is required'),
     name: Yup.string().required('Name is required'),

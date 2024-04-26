@@ -168,11 +168,11 @@ const Login = () => {
                     </div>
                   </div>
 
-                  <a
+                  <Link
                     href="/resetPassword"
                     className="text-sm font-medium text-blue-600 hover:text-blue-700 hover:underline hover:underline-offset-4">
                     Forgot password?
-                  </a>
+                  </Link>
 
                 </div>
 
@@ -187,11 +187,11 @@ const Login = () => {
 
                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                   Don't have an account?{" "}
-                  <a
-                    href="#"
+                  <Link
+                    href="/signup"
                     className="font-medium text-red-600 hover:underline hover:underline-offset-4">
                     Register
-                  </a>
+                  </Link>
                 </p>
 
 
