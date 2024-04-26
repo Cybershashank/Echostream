@@ -10,7 +10,7 @@ import { CiMicrophoneOn } from "react-icons/ci";
 const pageDetails = [
 
   {
-    pageName: 'signup',
+    pageName: 'sign up',
     pagePath: '/signup'
   },
   {
@@ -513,8 +513,10 @@ export const VoiceProvider = ({ children }) => {
     transcript,
     listening,
     resetTranscript,
-    browserSupportsSpeechRecognition
+    browserSupportsSpeechRecognition,
+    finalTranscript
   } = useSpeechRecognition({ commands, continuous: true });
+
 
   if (!browserSupportsSpeechRecognition) {
     alert('Your browser does not support speech recognition software! Please try again with a different browser.');
@@ -529,6 +531,20 @@ export const VoiceProvider = ({ children }) => {
       alert('Page not found!');
     }
   }
+
+  const fillInputUsingVoice = (cb) => {
+    if(finalTranscript.toLowerCase().startsWith('enter')){
+      cb();
+    }
+  }
+
+  const performActionUsingVoice = (triggerCommand, command, cb) => {
+    if(finalTranscript.toLowerCase().startsWith(triggerCommand) && finalTranscript.toLowerCase().includes(command) ){
+      cb();
+    }
+  }
+
+
 
   useEffect(() => {
     if (!hasRun.current) {
@@ -577,7 +593,7 @@ export const VoiceProvider = ({ children }) => {
 
 
   return (
-    <VoiceContext.Provider value={{}}>
+    <VoiceContext.Provider value={{fillInputUsingVoice, performActionUsingVoice, finalTranscript}}>
       <div className="text-center bg-gray-700 h-7">
         <button className='floating-mic' onClick={() => {
           if (listening) {

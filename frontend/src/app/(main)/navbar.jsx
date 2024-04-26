@@ -1,29 +1,44 @@
 "use client"
+import useArtistContext from '@/Context/ArtistContext';
 import useAppContext from '@/Context/userContext';
 import Link from 'next/link';
 import React from 'react';
 
+const Avatar = ({user, logout}) => {
+    return (
+        <div className="hs-dropdown hs-dropdown-example relative inline-flex">
+            <img className="cursor-pointer inline-block size-8 rounded-full"
+                src={`${process.env.NEXT_PUBLIC_API_URL}/${user.avatar}`} alt={user.name} />
+            <div
+                className="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 w-56 hidden z-10 mt-2 min-w-60 bg-white shadow-md rounded-lg p-2 dark:bg-neutral-800 dark:border dark:border-neutral-700 dark:divide-neutral-700"
+                aria-labelledby="hs-dropdown-example"
+            >
+                <button
+                    className="w-full flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700"
+                    onClick={logout}
+                    type='button'
+                >
+                    Logout
+                </button>
+            </div>
+        </div>
+    )
+}
+
 const Navbar = () => {
 
     const { loggedIn, logout } = useAppContext();
+    const { artistLoggedIn, artistLogout } = useArtistContext();
 
-    console.log(loggedIn);
+    // console.log(loggedIn);
 
     const showLoggedin = () => {
         if (loggedIn) {
-            return (<div className=" ">
-                <div className="container d-flex flex-wrap justify-content-end ">
-
-                    <div className="text-end">
-                        <button onClick={logout} type="button" className="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded ">
-                            Logout
-                        </button>
-
-                    </div>
-                </div>
-            </div>
-            );
-        } else {
+            return <Avatar user={loggedIn} logout={logout} />
+        } else if (artistLoggedIn) {
+            return <Avatar user={artistLoggedIn} logout={artistLogout} />
+        }
+        else {
             return <div className=" ">
                 <div className="container d-flex flex-wrap justify-content-end">
 
@@ -44,11 +59,7 @@ const Navbar = () => {
     }
 
     return (
-
         <>
-
-
-
             <nav className="bg-white border-gray-200 shadow dark:bg-gray-900">
                 <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto ">
                     <Link
@@ -131,55 +142,10 @@ const Navbar = () => {
                     </div>
 
                     <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-                        <button
-                            type="button"
-                            className="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
-                            id="user-menu-button"
-                            aria-expanded="false"
-                            data-dropdown-toggle="user-dropdown"
-                            data-dropdown-placement="bottom"
-                        >
-                            <span className="sr-only">Open user menu</span>
-                            <img
-                                className="w-8 h-8 rounded-full"
-                                src="/docs/images/people/profile-picture-3.jpg"
-                                alt="user photo"
-                            />
-                        </button>
-                        {/* Dropdown menu */}
-                        <div
-                            className="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
-                            id="user-dropdown"
-                        >
-                            <div className="px-4 py-3">
-                                <span className="block text-sm text-gray-900 dark:text-white">
-                                    Bonnie Green
-                                </span>
-                                <span className="block text-sm  text-gray-500 truncate dark:text-gray-400">
-                                    name@echostream.com
-                                </span>
-                            </div>
-                            <ul className="py-2" aria-labelledby="user-menu-button">
-                                <li>
-                                    <Link
-                                        href="./user/user_profile"
-                                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                                    >
-                                        Profile
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link
-                                        href="#"
-                                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                                    >
-                                        Settings
-                                    </Link>
-                                </li>
 
 
-                            </ul>
-                        </div>
+
+
                         <button
                             data-collapse-toggle="navbar-user"
                             type="button"
@@ -194,7 +160,7 @@ const Navbar = () => {
                                 xmlns="http://www.w3.org/2000/svg"
                                 fill="none"
                                 viewBox="0 0 17 14"
-                             >
+                            >
                                 <path
                                     stroke="currentColor"
                                     strokeLinecap="round"
