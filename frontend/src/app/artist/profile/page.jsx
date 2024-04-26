@@ -1,5 +1,6 @@
 'use client';
 import { useFormik } from 'formik';
+import Link from 'next/link';
 import React, { useState } from 'react'
 
 const ArtistProfile = () => {
@@ -74,9 +75,11 @@ const ArtistProfile = () => {
               </div>
               <div className="flex flex-col lg:flex-row max-lg:gap-5 items-center justify-between py-0.5">
                 <div className="flex items-center gap-4">
-                  <a href="/artist/editartistprofile"><button className="py-3.5 px-5 rounded-full bg-indigo-600 text-white font-semibold text-base leading-7 shadow-sm shadow-transparent transition-all duration-500 hover:shadow-gray-100 hover:bg-indigo-700">
+                  <Link 
+                  href="/artist/editartistprofile"><button className="py-3.5 px-5 rounded-full bg-indigo-600 text-white font-semibold text-base leading-7 shadow-sm shadow-transparent transition-all duration-500 hover:shadow-gray-100 hover:bg-indigo-700">
                     Edit Profile
-                  </button></a>
+                  </button>
+                  </Link>
                   <button className="py-3.5 px-5 rounded-full bg-indigo-50 text-indigo-600 font-semibold text-base leading-7 shadow-sm shadow-transparent transition-all duration-500 hover:bg-indigo-100">
                     Settings
                   </button>
