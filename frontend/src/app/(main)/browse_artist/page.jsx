@@ -5,14 +5,14 @@ const browse_artist = () => {
     <>
     <>
   <div className="max-h-screen bg-gray-100 flex justify-center items-center">
-    <div className="container mx-auto bg-indigo-500 rounded-lg p-8">
+    <div className="container mx-auto bg-purple-500  p-8">
       <form>
         <h1 className="text-center font-bold text-white text-4xl">
           Find the favourite Artist here
           
           <div className="sm:flex items-center bg-white rounded-lg overflow-hidden px-2 py-1 justify-between">
             <input
-              className="text-base text-gray-400 flex-grow outline-none px-2 "
+              className="text-base text-black-400 flex-grow outline-none px-2 "
               type="text"
               placeholder="Search here..."
             />
