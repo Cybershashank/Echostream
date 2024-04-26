@@ -267,7 +267,14 @@ export const VoiceProvider = ({ children }) => {
       }
     },
     {
-      command: 'Home Page',
+      command: ['Home Page', 'Open Home page'],
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('browse podcast')
+      }
+    },
+    {
+      command: 'Open Home Page',
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('browse podcast')
