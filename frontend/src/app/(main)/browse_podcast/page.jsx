@@ -10,7 +10,9 @@ import 'swiper/css/navigation';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 
+
 const browse_podcast = () => {
+  const [swiperRef, setSwiperRef] = useState();
 
   const [podcastList, setPodcastList] = useState([]);
 
@@ -32,7 +34,27 @@ const browse_podcast = () => {
   return (
     <>
 
-      <Swiper
+<Swiper
+        onSwiper={setSwiperRef}
+        slidesPerView={3}
+        centeredSlides={true}
+        spaceBetween={30}
+        pagination={{
+          type: 'fraction',
+        }}
+        navigation={true}
+        modules={[Pagination, Navigation]}
+        className="mySwiper"
+      >
+        <SwiperSlide><img src='https://images.cdn.kukufm.com/w:256/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/f701ac7546e243c3b2eb310d8b0df751.png' /></SwiperSlide>
+        <SwiperSlide><img src='https://images.cdn.kukufm.com/w:256/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/cu_icons/5ae0cd1447954fba9f563de8adbb1a4e.png' /></SwiperSlide>
+        <SwiperSlide><img src='https://images.cdn.kukufm.com/w:256/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/4f022d474a334c88818f7fba6ba5e7f3.png' /></SwiperSlide>
+        <SwiperSlide><img src='https://images.cdn.kukufm.com/w:256/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/cu_icons/bb5505badc5c4797a917d19d39fdda89.png' /></SwiperSlide>
+        <SwiperSlide><img src='https://images.cdn.kukufm.com/w:256/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/cu_icons/bb5505badc5c4797a917d19d39fdda89.png' /></SwiperSlide>
+      </Swiper>
+
+
+      {/* <Swiper
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
@@ -46,10 +68,12 @@ const browse_podcast = () => {
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
       >
-        <SwiperSlide><img src='https://images.squarespace-cdn.com/content/v1/5323486ee4b00fc9686151f5/d7c2baf1-e190-46fc-a4ba-f8d8b84242d9/Podcast-covers.jpg' /></SwiperSlide>
+        <SwiperSlide><img src='https://images.cdn.kukufm.com/w:256/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/f701ac7546e243c3b2eb310d8b0df751.png' /></SwiperSlide>
         <SwiperSlide><img src='https://images.cdn.kukufm.com/w:256/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/cu_icons/5ae0cd1447954fba9f563de8adbb1a4e.png' /></SwiperSlide>
-     
-      </Swiper>
+        <SwiperSlide><img src='https://images.cdn.kukufm.com/w:256/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/4f022d474a334c88818f7fba6ba5e7f3.png' /></SwiperSlide>
+        <SwiperSlide><img src='https://images.cdn.kukufm.com/w:256/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/cu_icons/bb5505badc5c4797a917d19d39fdda89.png' /></SwiperSlide>
+
+      </Swiper> */}
 
       <div className="grid  h-screen w-screen  ">
 
@@ -78,6 +102,11 @@ const browse_podcast = () => {
                       <div className="relative pb-5">
                         <span className="text-s text-purple-700 text-line-clamp-1">
                           {pod.category}
+                        </span>
+                      </div>
+                      <div className="relative pb-5">
+                        <span className="text-s text-purple-700 text-line-clamp-1">
+                          {pod.record}
                         </span>
                       </div>
                     </div>

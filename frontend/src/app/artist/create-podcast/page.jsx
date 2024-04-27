@@ -8,6 +8,28 @@ const PublishPage = () => {
   
   const [selImage, setselImage] = useState('');
   const router = useRouter();
+  const [seriesList, setSeriesList] = useState([]);
+  const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('artist')));
+
+  const fetchSeriesData = () => {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/series/getbyartist`, {
+      headers: {
+        'x-auth-token': currentUser.token
+      }
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setSeriesList(data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
+
+  useEffect(() => {
+    fetchSeriesData();
+  }, [])
 
   const uploadeImage = async (e) => {
     const file = e.target.files[0];
@@ -21,8 +43,8 @@ const PublishPage = () => {
       if (res.status === 200) {
         console.log("file uploaded");
         toast.success('File Uploaded!!');
-        router.push('/artist/publish_podcast');
-        return response.json();
+      
+        return res.json();
       }
     });
   }
@@ -32,6 +54,7 @@ const PublishPage = () => {
       title: '',
       category: '',
       genre: '',
+      series: '',
       language: '',
       discription: '',
       image: '',
@@ -44,7 +67,8 @@ const PublishPage = () => {
         method: "POST",
         body: JSON.stringify(values),
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          'x-auth-token': currentUser.token
         }
       });
       console.log(res.status);
@@ -71,10 +95,26 @@ const PublishPage = () => {
           <div className="flex justify-center mt-5">
 
             <form className="" onSubmit={PublishForm.handleSubmit}>
-              <h1 className='text-center fw-bold text-4xl text-purple-600 mb-12' style={{ fontFamily: "serif" }}>Publish Podcast</h1>
+              <h1 className='text-center fw-bold text-4xl text-purple-600 mb-12' style={{ fontFamily: "serif" }}>Create Podcast</h1>
               
 
 
+              <div className="mb-2">
+                <label htmlFor="" className=' form-label fw-bold'>Series</label>
+                <select
+                  id='series'
+                  value={PublishForm.values.series}
+                  onChange={PublishForm.handleChange}
+                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  placeholder="Name"
+                >
+                  <option value="">Select Series</option>
+                  {seriesList.map((series) => (
+                    <option key={series._id} value={series._id}>{series.name}</option>
+                  ))}
+                </select>
+              </div>
+              
               <div className="mb-2">
                 <label htmlFor="" className=' form-label fw-bold'>Title</label>
                 <input type="text"
@@ -87,6 +127,26 @@ const PublishPage = () => {
               </div>
 
 
+
+              <div className="mb-2">
+                <label htmlFor="" className='form-label fw-bold'>Category</label>
+                <select
+                  id='category'
+                  value={PublishForm.values.category}
+                  onChange={PublishForm.handleChange}
+                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  placeholder="Category"
+                >
+                  <option value="">Select Category</option>
+                  
+                  
+                  <option value="">Solo</option>
+                  <option value="">Educational</option>
+                  <option value="">Fictional</option>
+                  <option value="">Interview</option>
+                  <option value="">Motivational</option>
+                </select>
+              </div>
 
               <div className="mb-2">
                 <label htmlFor="" className='form-label fw-bold'>Category</label>
@@ -103,6 +163,36 @@ const PublishPage = () => {
 
               <div className="mb-2">
                 <label htmlFor="" className='form-label fw-bold'>Genre</label>
+                <select
+                  id='genre'
+                  value={PublishForm.values.genre}
+                  onChange={PublishForm.handleChange}
+                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  placeholder="Genre"
+                  >
+                  <option value="">Select Genre</option>
+                  
+                  <option value="">Busniess</option>
+                  <option value="">Career</option>
+                  <option value="">Comedy</option>
+                  <option value="">Crime</option>
+                  <option value="">Entertainment</option>
+                  <option value="">Health</option>
+                  <option value="">History</option>
+                  <option value="">Horror</option>
+                  <option value="">Information</option>
+                  <option value="">Kids</option>
+                  <option value="">Mythology</option>
+                  <option value="">Sci-Fi</option>
+                  <option value="">Sports</option>
+                  <option value="">Thriller</option>
+                  <option value="">True Crime</option>
+                  <option value="">TV & Film</option>
+                </select>
+              </div>
+              
+              <div className="mb-2">
+                <label htmlFor="" className='form-label fw-bold'>Genre</label>
                 <input type="text"
                   id='genre'
                   value={PublishForm.values.genre}
@@ -112,6 +202,29 @@ const PublishPage = () => {
               </div>
 
 
+              <div className="mb-2">
+                <label htmlFor="" className='form-label fw-bold'>Language</label>
+                <select
+                  id='language'
+                  value={PublishForm.values.language}
+                  onChange={PublishForm.handleChange}
+                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  placeholder="Language"
+                  >
+                  <option value="">Select Language</option>
+                
+                  <option value="">English</option>
+                  <option value="">Hindi</option>
+                  <option value="">Marathi</option>
+                  <option value="">Bangla</option>
+                  <option value="">Telugu</option>
+                  <option value="">Health</option>
+                  <option value="">Tamil</option>
+                  <option value="">Malayalam</option>
+                  <option value="">Gujrati</option>
+                  <option value="">Punjabi</option>
+                </select>
+              </div>
               <div className="mb-2">
                 <label htmlFor="" className='form-label fw-bold'>Language</label>
                 <input type="text"
@@ -143,7 +256,7 @@ const PublishPage = () => {
               </div>
 
               <div className="text-center mt-5">
-                <button className='btn bg-[#b06eb0] text-white hover:bg-purple-700 text-lg' type='submit'>Add Podcast</button>
+                <button  className='btn bg-[#b06eb0] text-white hover:bg-purple-700 text-lg' type='submit'>Add Podcast</button>
               </div>
             </form>
 

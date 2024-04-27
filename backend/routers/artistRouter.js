@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Model = require('../models/artistModel');
 const jwt = require('jsonwebtoken');
+const verifyToken = require('./verifyToken');
 require('dotenv').config();
 
 router.post('/add', (req, res) => {
@@ -17,12 +18,13 @@ router.post('/add', (req, res) => {
 
 
 router.get('/getall', (req, res) => {
-    Model.find()
+    Model.find({})
         .then((result) => {
             res.json(result);
+
         }).catch((err) => {
-            console.log(err);
-            res.json(err);
+            console.error(err);
+            res.state(500).json(err)
         });
 
 });
@@ -38,20 +40,22 @@ router.get('/delete', (req, res) => {
 });
 
 router.get('/update', (req, res) => {
-     Model.findByIdAndUpdate(req.params.id, req.body, { new: true })
-        .then((result) => {
-            res.status(200).json(result);
-        }).catch((err) => {
-            console.log(err);
-            res.status(500).json(err);
-        });
+    res.send('update response from artist router');
+     {/* Model.findByIdAndUpdate(req.params.id, req.body, { new: true })
+            .then((result) => {
+                res.status(200).json(result);
+            }).catch((err) => {
+                console.log(err);
+                res.status(500).json(err);
+            });  */}  
 });
 
 router.post("/authenticate", (req, res) => {
-    Model.find(req.body)
+    console.log(req.body);
+    Model.findOne(req.body)
         .then((result) => {
             if (result) {
-                const { _id, name, email } = result;
+                const { _id, name, role, email, avatar } = result;
                 const payload = { _id, name, email };
 
                 jwt.sign(
@@ -63,7 +67,7 @@ router.post("/authenticate", (req, res) => {
                             res.status(400).json({ message: 'error creating token' })
                         } else {
                             res.status(200).json({
-                                token, role: reault.role
+                                token, role, name, avatar
                             })
 
                         }
@@ -75,6 +79,7 @@ router.post("/authenticate", (req, res) => {
 
 
         }).catch((err) => {
+            console.log(err);
             res.status(500).json(err);
         });
 });

@@ -8,9 +8,9 @@ import { CiMicrophoneOn } from "react-icons/ci";
 
 
 const pageDetails = [
-  
+
   {
-    pageName: 'signup',
+    pageName: 'sign up',
     pagePath: '/signup'
   },
   {
@@ -40,6 +40,14 @@ const pageDetails = [
   {
     pageName: 'feedback',
     pagePath: '/feedback'
+  },
+  {
+    pageName: 'terms&conditions',
+    pagePath: '/terms&conditions'
+  },
+  {
+    pageName: 'privacyPolicy',
+    pagePath: '/privacyPolicy'
   },
   {
     pageName: 'reset password',
@@ -231,6 +239,27 @@ export const VoiceProvider = ({ children }) => {
       }
     },
     {
+      command: 'feedback page open karo',
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('feedback')
+      }
+    },
+    {
+      command: 'open terms and conditions page',
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('terms&conditions')
+      }
+    },
+    {
+      command: 'open privacy policy page',
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('privacyPolicy')
+      }
+    },
+    {
       command: 'reset password',
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
@@ -238,7 +267,14 @@ export const VoiceProvider = ({ children }) => {
       }
     },
     {
-      command: 'Home Page',
+      command: ['Home Page', 'Open Home page'],
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('browse podcast')
+      }
+    },
+    {
+      command: 'Open Home Page',
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('browse podcast')
@@ -246,6 +282,13 @@ export const VoiceProvider = ({ children }) => {
     },
     {
       command: 'open front page',
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('browse artist')
+      }
+    },
+    {
+      command: 'open browse artist page',
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('browse artist')
@@ -454,8 +497,8 @@ export const VoiceProvider = ({ children }) => {
         voicePageNavigator('adminProfile')
       }
     },
- 
-  
+
+
     {
       command: 'Beijing',
       callback: (command, spokenPhrase, similarityRatio) => setMessage(`${command} and ${spokenPhrase} are ${similarityRatio * 100}% similar`),
@@ -463,15 +506,17 @@ export const VoiceProvider = ({ children }) => {
       isFuzzyMatch: true,
       fuzzyMatchingThreshold: 0.2
     },
-  
+
   ]
 
   const {
     transcript,
     listening,
     resetTranscript,
-    browserSupportsSpeechRecognition
+    browserSupportsSpeechRecognition,
+    finalTranscript
   } = useSpeechRecognition({ commands, continuous: true });
+
 
   if (!browserSupportsSpeechRecognition) {
     alert('Your browser does not support speech recognition software! Please try again with a different browser.');
@@ -486,6 +531,20 @@ export const VoiceProvider = ({ children }) => {
       alert('Page not found!');
     }
   }
+
+  const fillInputUsingVoice = (cb) => {
+    if(finalTranscript.toLowerCase().startsWith('enter')){
+      cb();
+    }
+  }
+
+  const performActionUsingVoice = (triggerCommand, command, cb) => {
+    if(finalTranscript.toLowerCase().startsWith(triggerCommand) && finalTranscript.toLowerCase().includes(command) ){
+      cb();
+    }
+  }
+
+
 
   useEffect(() => {
     if (!hasRun.current) {
@@ -534,28 +593,28 @@ export const VoiceProvider = ({ children }) => {
 
 
   return (
-    <VoiceContext.Provider value={{}}>
-    <div className="text-center bg-gray-700 h-7">
-      <button className='floating-mic' onClick={() => {
-        if (listening) {
-          SpeechRecognition.stopListening();
-        } else {
-          SpeechRecognition.startListening();
-        }
-      }}>{listening ?
-        (
-          <span className='text-white'>
-            <IconPlayerRecordFilled style={{ display: 'inline' }} color='#f00' /> listening...
-          </span>
-        ):(
-            <span> <CiMicrophoneOn className='text-2xl text-white'/></span>
-        )
-        }   </button>
-      {/* <p>Microphone: </p> */}
-      {/* <button onClick={SpeechRecognition.startListening}>Start</button>
+    <VoiceContext.Provider value={{fillInputUsingVoice, performActionUsingVoice, finalTranscript}}>
+      <div className="text-center bg-gray-700 h-7">
+        <button className='floating-mic' onClick={() => {
+          if (listening) {
+            SpeechRecognition.stopListening();
+          } else {
+            SpeechRecognition.startListening();
+          }
+        }}>{listening ?
+          (
+            <span className='text-white'>
+              <IconPlayerRecordFilled style={{ display: 'inline' }} color='#f00' /> listening...
+            </span>
+          ) : (
+            <span> <CiMicrophoneOn className='text-2xl text-white' /></span>
+          )
+          }   </button>
+        {/* <p>Microphone: </p> */}
+        {/* <button onClick={SpeechRecognition.startListening}>Start</button>
       <button onClick={SpeechRecognition.stopListening}>Stop</button>
       <button onClick={resetTranscript}>Reset</button> */}
-      <span className='text-white'>{transcript}</span>
+        <span className='text-white'>{transcript}</span>
       </div>
       {children}
     </VoiceContext.Provider>
@@ -564,4 +623,4 @@ export const VoiceProvider = ({ children }) => {
 
 const useVoiceContext = () => useContext(VoiceContext);
 
-export default useVoiceContext;             
+export default useVoiceContext;         

@@ -1,169 +1,234 @@
 import React from 'react'
 import ArtistNavbar from './navbar'
+import Link from 'next/link'
+import { IconBroadcast, IconPlaylist } from '@tabler/icons-react'
 
 const Sidebar = ({ children }) => {
     return (
         <>
-        
-          
+
+
             <aside
-                id="logo-sidebar"
-                className="fixed  top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
+                id="sidebar"
+                className="fixed hidden z-20 h-full top-0 left-0 pt-16 flex lg:flex flex-shrink-0 flex-col w-64 transition-width duration-75"
                 aria-label="Sidebar"
             >
-                <div className="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
-                    <ul className="space-y-2 font-medium">
-                        <li>
-                            <a
-                                href="artistdashboard"
-                                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
-                            >
-                                <svg
-                                    className="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                                    aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="currentColor"
-                                    viewBox="0 0 22 21"
+                <div className="relative flex-1 flex flex-col min-h-0 border-r border-gray-200 bg-white pt-0">
+                    <div className="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
+                        <div className="flex-1 px-3 bg-white divide-y space-y-1">
+                            <ul className="space-y-2 pb-2">
+                                <li>
+                                    <form action="#" method="GET" className="lg:hidden">
+                                        <label htmlFor="mobile-search" className="sr-only">
+                                            Search
+                                        </label>
+                                        <div className="relative">
+                                            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                                <svg
+                                                    className="w-5 h-5 text-gray-500"
+                                                    fill="currentColor"
+                                                    viewBox="0 0 20 20"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                >
+                                                    <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                                                </svg>
+                                            </div>
+                                            <input
+                                                type="text"
+                                                name="email"
+                                                id="mobile-search"
+                                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-cyan-600 focus:ring-cyan-600 block w-full pl-10 p-2.5"
+                                                placeholder="Search"
+                                            />
+                                        </div>
+                                    </form>
+                                </li>
+                                <li>
+                                    <Link
+                                        href="/artist/profile"
+                                        className="text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group"
+                                    >
+<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="currentColor"  class="icon icon-tabler icons-tabler-filled icon-tabler-user"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 2a5 5 0 1 1 -5 5l.005 -.217a5 5 0 0 1 4.995 -4.783z" /><path d="M14 14a5 5 0 0 1 5 5v1a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-1a5 5 0 0 1 5 -5h4z" /></svg>
+                                        <span className="ml-3">profile</span>
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        href="/artist/dashboard"
+                                        className="text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group"
+                                    >
+                                        <svg
+                                            className="w-6 h-6 text-gray-500 group-hover:text-gray-900 transition duration-75"
+                                            fill="currentColor"
+                                            viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
+                                            <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
+                                        </svg>
+                                        <span className="ml-3">Dashboard</span>
+                                    </Link>
+                                </li>
+
+                                <li>
+                                    <Link
+                                        href="/artist/manage_podcast"
+                                        className="text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group"
+                                    >
+                                        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-device-audio-tape"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 5m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" /><path d="M3 17l4 -3h10l4 3" /><circle cx="7.5" cy="9.5" r=".5" fill="currentColor" /><circle cx="16.5" cy="9.5" r=".5" fill="currentColor" /></svg>
+                                        <span className="ml-3">Manage Podcast</span>
+                                    </Link>
+                                </li>
+
+                                <li>
+                                    <Link
+                                        href="/admin/manageseries"
+                                        className="text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group"
+                                    >
+                                        <svg
+                                            className="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75"
+                                            fill="currentColor"
+                                            viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <path
+                                                fillRule="evenodd"
+                                                d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                                                clipRule="evenodd"
+                                            />
+                                        </svg>
+
+                                        <span className="ml-3">Manage Series</span>
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        href="/artist/create-podcast"
+                                        className="text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group"
+                                    >
+                                        <svg
+                                            className="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75"
+                                            fill="currentColor"
+                                            viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <path
+                                                fillRule="evenodd"
+                                                d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                                                clipRule="evenodd"
+                                            />
+                                        </svg>
+
+                                        <span className="ml-3">Create Podcast</span>
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        href="/artist/publish_podcast"
+                                        className="text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group"
+                                    >
+                                        <svg
+                                            className="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75"
+                                            fill="currentColor"
+                                            viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <path
+                                                fillRule="evenodd"
+                                                d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                                                clipRule="evenodd"
+                                            />
+                                        </svg>
+
+                                        <span className="ml-3">Publish Podcast</span>
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        href="/artist/series-form"
+                                        className="text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group"
+                                    >
+                                        <svg
+                                            className="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75"
+                                            fill="currentColor"
+                                            viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <path
+                                                fillRule="evenodd"
+                                                d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                                                clipRule="evenodd"
+                                            />
+                                        </svg>
+
+                                        <span className="ml-3">Add Series</span>
+                                    </Link>
+                                </li>
+                            </ul>
+                            <div className="space-y-2 pt-2">
+                                <Link
+                                    href="/contact"
+                                    target="_blank"
+                                    className="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 group transition duration-75 flex items-center p-2"
                                 >
-                                    <path d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z" />
-                                    <path d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z" />
-                                </svg>
-                                <span className="ms-3">Dashboard</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="/artist/create-podcast"
-                                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
-                            >
-                                <svg
-                                    className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                                    aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="currentColor"
-                                    viewBox="0 0 18 18"
+                                    <svg
+                                        className="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            fillRule="evenodd"
+                                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-2 0c0 .993-.241 1.929-.668 2.754l-1.524-1.525a3.997 3.997 0 00.078-2.183l1.562-1.562C15.802 8.249 16 9.1 16 10zm-5.165 3.913l1.58 1.58A5.98 5.98 0 0110 16a5.976 5.976 0 01-2.516-.552l1.562-1.562a4.006 4.006 0 001.789.027zm-4.677-2.796a4.002 4.002 0 01-.041-2.08l-.08.08-1.53-1.533A5.98 5.98 0 004 10c0 .954.223 1.856.619 2.657l1.54-1.54zm1.088-6.45A5.974 5.974 0 0110 4c.954 0 1.856.223 2.657.619l-1.54 1.54a4.002 4.002 0 00-2.346.033L7.246 4.668zM12 10a2 2 0 11-4 0 2 2 0 014 0z"
+                                            clipRule="evenodd"
+                                        />
+                                    </svg>
+                                    <span className="ml-3">Notification</span>
+                                </Link>
+                                <Link
+                                    href="#"
+                                    target="_blank"
+                                    className="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 group transition duration-75 flex items-center p-2"
                                 >
-                                    <path d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z" />
-                                </svg>
-                                <span className="flex-1 ms-3 whitespace-nowrap">Create Podcast</span>
-                              
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="/artist/publish_podcast"
-                                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
-                            >
-                                <svg
-                                    className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                                    aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="currentColor"
-                                    viewBox="0 0 20 20"
+                                    <svg
+                                        className="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            fillRule="evenodd"
+                                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-2 0c0 .993-.241 1.929-.668 2.754l-1.524-1.525a3.997 3.997 0 00.078-2.183l1.562-1.562C15.802 8.249 16 9.1 16 10zm-5.165 3.913l1.58 1.58A5.98 5.98 0 0110 16a5.976 5.976 0 01-2.516-.552l1.562-1.562a4.006 4.006 0 001.789.027zm-4.677-2.796a4.002 4.002 0 01-.041-2.08l-.08.08-1.53-1.533A5.98 5.98 0 004 10c0 .954.223 1.856.619 2.657l1.54-1.54zm1.088-6.45A5.974 5.974 0 0110 4c.954 0 1.856.223 2.657.619l-1.54 1.54a4.002 4.002 0 00-2.346.033L7.246 4.668zM12 10a2 2 0 11-4 0 2 2 0 014 0z"
+                                            clipRule="evenodd"
+                                        />
+                                    </svg>
+                                    <span className="ml-3">Account Setting</span>
+                                </Link>
+                                <Link
+                                    href="#"
+                                    target="_blank"
+                                    className="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 group transition duration-75 flex items-center p-2"
                                 >
-                                    <path d="m17.418 3.623-.018-.008a6.713 6.713 0 0 0-2.4-.569V2h1a1 1 0 1 0 0-2h-2a1 1 0 0 0-1 1v2H9.89A6.977 6.977 0 0 1 12 8v5h-2V8A5 5 0 1 0 0 8v6a1 1 0 0 0 1 1h8v4a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-4h6a1 1 0 0 0 1-1V8a5 5 0 0 0-2.582-4.377ZM6 12H4a1 1 0 0 1 0-2h2a1 1 0 0 1 0 2Z" />
-                                </svg>
-                                <span className="flex-1 ms-3 whitespace-nowrap">Publish</span>
-                               
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="/artist/manage_podcast"
-                                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
-                            >
-                                <svg
-                                    className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                                    aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="currentColor"
-                                    viewBox="0 0 20 20"
-                                >
-                                    <path d="m17.418 3.623-.018-.008a6.713 6.713 0 0 0-2.4-.569V2h1a1 1 0 1 0 0-2h-2a1 1 0 0 0-1 1v2H9.89A6.977 6.977 0 0 1 12 8v5h-2V8A5 5 0 1 0 0 8v6a1 1 0 0 0 1 1h8v4a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-4h6a1 1 0 0 0 1-1V8a5 5 0 0 0-2.582-4.377ZM6 12H4a1 1 0 0 1 0-2h2a1 1 0 0 1 0 2Z" />
-                                </svg>
-                                <span className="flex-1 ms-3 whitespace-nowrap">Podcast</span>
-                              
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="/artist/series-form"
-                                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
-                            >
-                                <svg
-                                    className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                                    aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="currentColor"
-                                    viewBox="0 0 20 18"
-                                >
-                                    <path d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z" />
-                                </svg>
-                                <span className="flex-1 ms-3 whitespace-nowrap">Add Series</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="#"
-                                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
-                            >
-                                <svg
-                                    className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                                    aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="currentColor"
-                                    viewBox="0 0 18 20"
-                                >
-                                    <path d="M17 5.923A1 1 0 0 0 16 5h-3V4a4 4 0 1 0-8 0v1H2a1 1 0 0 0-1 .923L.086 17.846A2 2 0 0 0 2.08 20h13.84a2 2 0 0 0 1.994-2.153L17 5.923ZM7 9a1 1 0 0 1-2 0V7h2v2Zm0-5a2 2 0 1 1 4 0v1H7V4Zm6 5a1 1 0 1 1-2 0V7h2v2Z" />
-                                </svg>
-                                <span className="flex-1 ms-3 whitespace-nowrap">Products</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="#"
-                                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
-                            >
-                                <svg
-                                    className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                                    aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 18 16"
-                                >
-                                    <path
-                                        stroke="currentColor"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3"
-                                    />
-                                </svg>
-                                <span className="flex-1 ms-3 whitespace-nowrap">Sign In</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="#"
-                                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
-                            >
-                                <svg
-                                    className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                                    aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="currentColor"
-                                    viewBox="0 0 20 20"
-                                >
-                                    <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.96 2.96 0 0 0 .13 5H5Z" />
-                                    <path d="M6.737 11.061a2.961 2.961 0 0 1 .81-1.515l6.117-6.116A4.839 4.839 0 0 1 16 2.141V2a1.97 1.97 0 0 0-1.933-2H7v5a2 2 0 0 1-2 2H0v11a1.969 1.969 0 0 0 1.933 2h12.134A1.97 1.97 0 0 0 16 18v-3.093l-1.546 1.546c-.413.413-.94.695-1.513.81l-3.4.679a2.947 2.947 0 0 1-1.85-.227 2.96 2.96 0 0 1-1.635-3.257l.681-3.397Z" />
-                                    <path d="M8.961 16a.93.93 0 0 0 .189-.019l3.4-.679a.961.961 0 0 0 .49-.263l6.118-6.117a2.884 2.884 0 0 0-4.079-4.078l-6.117 6.117a.96.96 0 0 0-.263.491l-.679 3.4A.961.961 0 0 0 8.961 16Zm7.477-9.8a.958.958 0 0 1 .68-.281.961.961 0 0 1 .682 1.644l-.315.315-1.36-1.36.313-.318Zm-5.911 5.911 4.236-4.236 1.359 1.359-4.236 4.237-1.7.339.341-1.699Z" />
-                                </svg>
-                                <span className="flex-1 ms-3 whitespace-nowrap">Sign Up</span>
-                            </a>
-                        </li>
-                    </ul>
+                                    <svg
+                                        className="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            fillRule="evenodd"
+                                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-2 0c0 .993-.241 1.929-.668 2.754l-1.524-1.525a3.997 3.997 0 00.078-2.183l1.562-1.562C15.802 8.249 16 9.1 16 10zm-5.165 3.913l1.58 1.58A5.98 5.98 0 0110 16a5.976 5.976 0 01-2.516-.552l1.562-1.562a4.006 4.006 0 001.789.027zm-4.677-2.796a4.002 4.002 0 01-.041-2.08l-.08.08-1.53-1.533A5.98 5.98 0 004 10c0 .954.223 1.856.619 2.657l1.54-1.54zm1.088-6.45A5.974 5.974 0 0110 4c.954 0 1.856.223 2.657.619l-1.54 1.54a4.002 4.002 0 00-2.346.033L7.246 4.668zM12 10a2 2 0 11-4 0 2 2 0 014 0z"
+                                            clipRule="evenodd"
+                                        />
+                                    </svg>
+                                    <span className="ml-3">Help</span>
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </aside>
+
             <div className="p-4 sm:ml-64">
                 {children}
             </div>
