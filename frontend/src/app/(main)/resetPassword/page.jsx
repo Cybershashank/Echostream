@@ -1,7 +1,7 @@
 "use client";
 import { useFormik } from "formik";
 import { useRouter } from "next/navigation";
-
+import Link from "next/link";
 import React, { useRef, useState } from "react";
 import { useNavigate } from "next/navigation";
 import toast from "react-hot-toast";
@@ -98,13 +98,13 @@ const ResetPassword = () => {
     <>
       <section className="bg-[#F5F5F5] dark:bg-gray-900">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-          <a
-            href="#"
+          <Link
+            href="http://localhost:3000/"
             className="flex items-center mb-6 text-2xl font-semibold text-black dark:text-white"
           >
             <img className="w-12 h-12 mr-2" src="logo.png" alt="logo" />
-            ECHO STREAM
-          </a>
+            ECHOSTREAM
+          </Link>
           <div className="w-full p-6 bg-purple-50 rounded-lg shadow dark:border md:mt-0 sm:max-w-md dark:bg-gray-800 dark:border-gray-700 sm:p-8">
             <h2 className="mb-1 text-xl justify-center text-center font-bold leading-tight tracking-tight text-black md:text-2xl dark:text-white">
               Change Password
@@ -121,7 +121,7 @@ const ResetPassword = () => {
                 type="email"
                 ref={emailRef}
                 className="bg-gray-50 border border-[#000] text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="name@company.com"
+                placeholder="email@echostream.com"
                 required=""
               />
             </div>
@@ -201,12 +201,12 @@ const ResetPassword = () => {
                       className="font-light text-black dark:text-gray-300"
                     >
                       I accept the{" "}
-                      <a
+                      <Link
                         className="font-medium text-black hover:underline dark:text-primary-500"
-                        href="#"
+                        href="/terms&conditions"
                       >
                         Terms and Conditions
-                      </a>
+                      </Link>
                     </label>
                   </div>
                 </div>

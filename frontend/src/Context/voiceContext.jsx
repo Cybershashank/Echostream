@@ -9,6 +9,11 @@ import { CiMicrophoneOn } from "react-icons/ci";
 
 const pageDetails = [
 
+// main pages
+  {
+    pageName: 'home page',
+    pagePath: 'http://localhost:3000/'
+  },
   {
     pageName: 'sign up',
     pagePath: '/signup'
@@ -20,10 +25,6 @@ const pageDetails = [
   {
     pageName: 'artistlogin',
     pagePath: '/artist-login'
-  },
-  {
-    pageName: 'artistdashboard',
-    pagePath: '/artist/artistdashboard'
   },
   {
     pageName: 'login',
@@ -73,6 +74,11 @@ const pageDetails = [
     pageName: 'podcast series',
     pagePath: '/podcast_series'
   },
+
+
+
+
+  // user pages
   {
     pageName: 'user profile',
     pagePath: '/user/user_profile'
@@ -85,6 +91,12 @@ const pageDetails = [
     pageName: 'edit profile',
     pagePath: '/user/editprofile'
   },
+
+
+
+
+
+  // artist pages
   {
     pageName: 'create podcast',
     pagePath: '/artist/create-podcast'
@@ -94,8 +106,16 @@ const pageDetails = [
     pagePath: '/artist/manage_podcast'
   },
   {
+    pageName: 'artistdashboard',
+    pagePath: '/artist/dashboard'
+  },
+  {
     pageName: 'profile',
     pagePath: '/artist/profile'
+  },
+  {
+    pageName: 'profile',
+    pagePath: '/artist/editartistprofile'
   },
   {
     pageName: 'publish podcast',
@@ -105,6 +125,12 @@ const pageDetails = [
     pageName: 'series form',
     pagePath: '/artist/series-form'
   },
+
+
+
+
+
+  // admin pages
   {
     pageName: 'dashboard',
     pagePath: '/admin/dashboard'
@@ -125,10 +151,6 @@ const pageDetails = [
     pageName: 'adminProfile',
     pagePath: '/admin/adminProfile'
   },
-  {
-    pageName: 'create podcast',
-    pagePath: '/artist/create-podcast'
-  },
 
 ]
 
@@ -147,351 +169,230 @@ export const VoiceProvider = ({ children }) => {
         voicePageNavigator(pageName)
       }
     },
+
+    // main page
     {
-      command: 'create an account',
+      command: ['home page open karo', 'home page open', 'open home page', 'home page'],
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('home page')
+      }
+    },
+    {
+      command: ['create an account', 'signup page open karo','signup open karo', 'signup page open', 'signup page'],
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('signup')
       }
     },
     {
-      command: 'signup page open karo',
-      callback: (pageName) => {
-        console.log('Opening page: ', pageName);
-        voicePageNavigator('signup')
-      }
-    },
-    {
-      command: 'create an artist account',
+      command: ['create an artist account', 'artist sign up open karo','artist sign up page open karo', 'artist sign up page open', 'artist sign up page', 'artist sign up'],
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('artist-signup')
       }
     },
     {
-      command: 'artist sign up open karo',
-      callback: (pageName) => {
-        console.log('Opening page: ', pageName);
-        voicePageNavigator('artistSignup')
-      }
-    },
-    {
-      command: 'I want to login',
+      command: ['I want to login','open login page', 'login page open karo', 'login page open', 'login page'],
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('login')
       }
     },
     {
-      command: 'login page open karo',
-      callback: (pageName) => {
-        console.log('Opening page: ', pageName);
-        voicePageNavigator('login')
-      }
-    },
-    {
-      command: 'artist login open karo',
+      command: ['artist login open karo', 'artist login page open karo', 'open artist login page'],
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('artistLogin')
       }
     },
     {
-      command: 'open about page',
+      command: ['open about page', 'about page open karo', 'about page open', 'about page'],
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('about')
       }
     },
     {
-      command: 'about page open karo',
-      callback: (pageName) => {
-        console.log('Opening page: ', pageName);
-        voicePageNavigator('about')
-      }
-    },
-    {
-      command: 'open contact page',
+      command: ['open contact page', 'contact page open karo', 'contact page open', 'contact page'],
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('contact')
       }
     },
     {
-      command: 'contact page open karo',
-      callback: (pageName) => {
-        console.log('Opening page: ', pageName);
-        voicePageNavigator('contact')
-      }
-    },
-    {
-      command: 'open feedback page',
+      command: ['open feedback page', 'feedback page open karo', 'feedback page open', 'feedback page'],
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('feedback')
       }
     },
     {
-      command: 'feedback page open karo',
-      callback: (pageName) => {
-        console.log('Opening page: ', pageName);
-        voicePageNavigator('feedback')
-      }
-    },
-    {
-      command: 'feedback page open karo',
-      callback: (pageName) => {
-        console.log('Opening page: ', pageName);
-        voicePageNavigator('feedback')
-      }
-    },
-    {
-      command: 'open terms and conditions page',
+      command: ['open terms and conditions page', 'terms and conditions page open karo', 'terms and conditions page open', 'terms and conditions page', 'terms and conditions'],
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('terms&conditions')
       }
     },
     {
-      command: 'open privacy policy page',
+      command: ['open privacy policy page', 'privacy policy page open karo', 'privacy policy page open', 'privacy policy page', 'privacy policy'],
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('privacyPolicy')
       }
     },
     {
-      command: 'reset password',
+      command: ['reset password', 'forgot password', 'password reset', 'reset password page open karo', 'reset password page open', 'reset password page'],
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('reset password')
       }
     },
     {
-      command: ['Home Page', 'Open Home page'],
+      command: ['browse podcast', 'open browse podcast page', 'browse podcast page open karo', 'search podcast', 'search podcast page', 'open search podcast page'],
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('browse podcast')
       }
     },
     {
-      command: 'Open Home Page',
-      callback: (pageName) => {
-        console.log('Opening page: ', pageName);
-        voicePageNavigator('browse podcast')
-      }
-    },
-    {
-      command: 'open front page',
+      command: ['browse artist', 'open browse artist page', 'browse artist page open karo', 'search artist', 'search artist page', 'open search artist page'],
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('browse artist')
       }
     },
     {
-      command: 'open browse artist page',
-      callback: (pageName) => {
-        console.log('Opening page: ', pageName);
-        voicePageNavigator('browse artist')
-      }
-    },
-    {
-      command: 'browse artist page open karo',
-      callback: (pageName) => {
-        console.log('Opening page: ', pageName);
-        voicePageNavigator('browse artist')
-      }
-    },
-    {
-      command: 'open artist detail page',
+      command: ['open artist detail page', 'artist detail page open karo', 'artist detail page open', 'artist detail page', 'artist detail'],
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('artist detail')
       }
     },
     {
-      command: 'artist detail page open karo',
-      callback: (pageName) => {
-        console.log('Opening page: ', pageName);
-        voicePageNavigator('artist detail')
-      }
-    },
-    {
-      command: 'podcast play page open karo',
+      command: ['open podcast play page','open play podcast','podcast play page open karo', 'play podcast page open karo', 'play podcast page open', 'play podcast page', 'play podcast'],
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('play podcast')
       }
     },
     {
-      command: 'open podcast play page',
-      callback: (pageName) => {
-        console.log('Opening page: ', pageName);
-        voicePageNavigator('play podcast')
-      }
-    },
-    {
-      command: 'open podcast series',
+      command: ['open podcast series', 'open podcast series page', 'podcast series page open', 'podcast series page open karo', 'podcast series page', 'podcast series'],
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('podcast series')
       }
     },
+
+
+
+
+
+
+
+    // user pages
     {
-      command: 'podcast series page open karo',
-      callback: (pageName) => {
-        console.log('Opening page: ', pageName);
-        voicePageNavigator('podcast series')
-      }
-    },
-    {
-      command: 'open user profile',
+      command: ['open user profile', 'user profile page open karo', 'user profile open karo', 'user profile page open', 'user profile page', 'user profile','open user profile page'],
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('user profile')
       }
     },
     {
-      command: 'user profile open karo',
-      callback: (pageName) => {
-        console.log('Opening page: ', pageName);
-        voicePageNavigator('user profile')
-      }
-    },
-    {
-      command: 'open playlist',
+      command: ['open playlist', 'playlist page open karo', 'playlist open karo', 'playlist page open', 'playlist page', 'playlist','open playlist page'],
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('playlist')
       }
     },
     {
-      command: 'playlist open karo',
-      callback: (pageName) => {
-        console.log('Opening page: ', pageName);
-        voicePageNavigator('playlist')
-      }
-    },
-    {
-      command: 'edit user profile',
+      command: ['edit user profile', 'edit profile page open karo', 'edit profile open karo', 'edit profile page open', 'edit profile page', 'edit profile','open edit profile page','open edit profile','user profile edit karo','user profile edit'],
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('edit profile')
       }
     },
+
+
+
+
+
+
+
+  // artist pages
     {
-      command: 'user profile edit karo',
-      callback: (pageName) => {
-        console.log('Opening page: ', pageName);
-        voicePageNavigator('edit profile')
-      }
-    },
-    {
-      command: 'open artist dashboard',
+      command: ['open artist dashboard', 'artist dashboard page open karo', 'artist dashboard open karo', 'artist dashboard page open', 'artist dashboard page', 'artist dashboard'],
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('artistdashboard')
       }
     },
     {
-      command: 'artist dashboard open karo',
-      callback: (pageName) => {
-        console.log('Opening page: ', pageName);
-        voicePageNavigator('artistdashboard')
-      }
-    },
-    {
-      command: 'open create podcast',
+      command: ['open create podcast', 'create podcast page open karo', 'create podcast open karo', 'create podcast page open', 'create podcast page', 'create podcast','open create podcast page'],
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('create podcast')
       }
     },
     {
-      command: 'create podcast page open karo',
-      callback: (pageName) => {
-        console.log('Opening page: ', pageName);
-        voicePageNavigator('create podcast')
-      }
-    },
-    {
-      command: 'open artist profile',
+      command: ['open artist profile', 'artist profile page open karo', 'artist profile open karo', 'artist profile page open', 'artist profile page', 'artist profile','open artist profile page'],
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('profile')
       }
     },
     {
-      command: 'artist profile page open karo',
-      callback: (pageName) => {
-        console.log('Opening page: ', pageName);
-        voicePageNavigator('profile')
-      }
-    },
-    {
-      command: 'open publish podcast page',
+      command: ['open publish podcast page', 'publish podcast page open karo', 'publish podcast open karo', 'publish podcast page open', 'publish podcast page', 'publish podcast','open publish podcast page'],
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('publish podcast')
       }
     },
     {
-      command: 'publish page open karo',
-      callback: (pageName) => {
-        console.log('Opening page: ', pageName);
-        voicePageNavigator('publish podcast')
-      }
-    },
-    {
-      command: 'open series form',
+      command: ['open series form', 'series form page open karo', 'series form open karo', 'series form page open', 'series form page', 'series form','open series form page'],
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('series form')
       }
     },
+
+
+
+
+
+
+
+    // admin pages
     {
-      command: 'series form open karo',
-      callback: (pageName) => {
-        console.log('Opening page: ', pageName);
-        voicePageNavigator('series form')
-      }
-    },
-    {
-      command: 'open admin dashboard',
+      command: ['open admin dashboard', 'admin dashboard page open karo', 'admin dashboard open karo', 'admin dashboard page open', 'admin dashboard page', 'admin dashboard'],
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('dashboard')
       }
     },
     {
-      command: 'admin dashboard open karo',
+      command: ['manage user', 'manage user page open karo', 'manage user open karo', 'manage user page open', 'manage user page', 'manage user'],
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
-        voicePageNavigator('dashboard')
+        voicePageNavigator('manage user')
       }
     },
     {
-      command: 'manage feedback',
+      command: ['manage artist', 'manage artist page open karo', 'manage artist open karo', 'manage artist page open', 'manage artist page', 'manage artist'],
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('manage artist')
+      }
+    },
+    {
+      command: ['manage feedback', 'manage feedback page open karo', 'manage feedback open karo', 'manage feedback page open', 'manage feedback page', 'manage feedback'],
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('manage feedback')
       }
     },
     {
-      command: 'manage feedback open karo',
-      callback: (pageName) => {
-        console.log('Opening page: ', pageName);
-        voicePageNavigator('manage feedback')
-      }
-    },
-    {
-      command: 'open admin profile',
-      callback: (pageName) => {
-        console.log('Opening page: ', pageName);
-        voicePageNavigator('adminProfile')
-      }
-    },
-    {
-      command: 'admin profile open karo',
+      command: ['open admin profile', 'admin profile page open karo', 'admin profile open karo', 'admin profile page open', 'admin profile page', 'admin profile','open admin profile page'],
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('adminProfile')
