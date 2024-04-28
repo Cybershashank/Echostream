@@ -69,7 +69,7 @@ const router = useRouter();
 
     <>
 
-
+     <div style={{backgroundImage: "url('https://i.pinimg.com/originals/3a/29/9a/3a299a13f5aa7dfa33c70776e7f7e1d6.jpg')"}} className="bg-cover bg-center bg-no-repeat h-screen">
       <section className="h-screen flex flex-col md:flex-row justify-center space-y-10 md:space-y-0 md:space-x-16 items-center my-2 mx-5 md:mx-0 md:my-0">
         <div className="md:w-1/3 max-w-sm">
           <img src="https://cdni.iconscout.com/illustration/premium/thumb/sign-up-6333618-5230178.png?f=webp" alt="" />
@@ -229,7 +229,7 @@ const router = useRouter();
       </section>
 
 
-
+</div>
     </>
 
   )

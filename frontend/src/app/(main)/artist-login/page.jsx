@@ -57,7 +57,7 @@ const artistLogin = () => {
 
   return (
     <>
-   
+      <div style={{ backgroundImage: "url('https://www.creativefabrica.com/wp-content/uploads/2022/03/12/Colorful-Abstract-Fluid-Background-Graphics-27058033-1.jpg')" }} className="bg-cover bg-center h-screen flex items-center justify-center">
       <section className="h-screen flex flex-col md:flex-row justify-center space-y-10 md:space-y-0 md:space-x-16 items-center my-2 mx-5 md:mx-0 md:my-0">
         <div className="md:w-1/2 max-w-sm">
           <img
@@ -374,7 +374,7 @@ const artistLogin = () => {
 
 
 
-
+</div>
     </>
   )
 }

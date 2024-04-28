@@ -58,7 +58,8 @@ const artistSignup = () => {
 
   return (
     <>
-      <section className="bg-[#16386f] h-screen flex flex-col md:flex-row justify-center space-y-10 md:space-y-0 md:space-x-16 items-center my-2 mx-5 md:mx-0 md:my-0">
+    <div style={{backgroundImage: "url('https://i.pinimg.com/736x/11/75/a6/1175a679f07dc6705e46f873b2e10c99.jpg')"}} className="bg-cover bg-center bg-no-repeat h-screen">
+      <section className="h-screen flex flex-col md:flex-row justify-center space-y-10 md:space-y-0 md:space-x-16 items-center my-2 mx-5 md:mx-0 md:my-0">
         <div className="md:w-1/3 max-w-sm">
           <img src="https://cdni.iconscout.com/illustration/premium/thumb/sign-up-6333618-5230178.png?f=webp" alt="" />
         </div>
@@ -202,7 +203,7 @@ const artistSignup = () => {
         </div>
       </section>
 
-
+</div>
     </>
   )
 }
