@@ -172,22 +172,19 @@ const PublishPage = () => {
                   >
                   <option value="">Select Genre</option>
                   
-                  <option value="">Busniess</option>
-                  <option value="">Career</option>
-                  <option value="">Comedy</option>
-                  <option value="">Crime</option>
-                  <option value="">Entertainment</option>
-                  <option value="">Health</option>
-                  <option value="">History</option>
-                  <option value="">Horror</option>
-                  <option value="">Information</option>
-                  <option value="">Kids</option>
-                  <option value="">Mythology</option>
-                  <option value="">Sci-Fi</option>
-                  <option value="">Sports</option>
-                  <option value="">Thriller</option>
-                  <option value="">True Crime</option>
-                  <option value="">TV & Film</option>
+                  <option value="Business">Busniess</option>
+                  <option value="Career">Career</option>
+                  <option value="Comedy">Comedy</option>
+                  <option value="Education">Education</option>
+                  <option value="Health">Health</option>
+                  <option value="History">History</option>
+                  <option value="News">News</option>
+                  <option value="Religion">Religion</option>
+                  <option value="Science">Science</option>
+                  <option value="Society">Society</option>
+                  <option value="Sports">Sports</option>
+                  <option value="Technology">Technology</option>
+                  <option value="True Crime">True Crime</option>
                 </select>
               </div>
               

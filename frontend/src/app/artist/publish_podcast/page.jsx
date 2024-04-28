@@ -49,6 +49,22 @@ const publish_podcast = () => {
     });
   };
 
+  const uploadPodcastFile = (e) => {
+    const file = e.target.files[0];
+    const fd = new FormData();
+    fd.append("myfile", file);
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/util/uploadfile`, {
+      method: "POST",
+      body: fd,
+    }).then((res) => {
+      if (res.status === 200) {
+        console.log("file uploaded");
+        updatePodcast({ published: true, record: file.name });
+        toast.success('File Uploaded!!');
+      }
+    });
+  };
+
   const PublishForm = useFormik({
     initialValues: {
       record: "",
@@ -170,17 +186,17 @@ const publish_podcast = () => {
 
 
             {/* <form onSubmit={PublishForm.handleSubmit}> */}
-              <div className="mb-2  px-24 py-4  bg-purple-600  rounded-xl">
+            <div className="mb-2  px-24 py-4  bg-purple-600  rounded-xl">
 
-                <AudioRecorder type="file" id='record'
-                  value={PublishForm.values.record}
-                  onChange={PublishForm.handleChange}
-                  onRecordingComplete={(blob) => addAudioElement(blob)}
-                  recorderControls={recorderControls}
-                />
-                <button type='submit' onClick={recorderControls.stopRecording} className='btn btn-danger mt-3'>Stop recording</button>
-              </div>
-              {/* <button className="bg-purple-700 text-white block mx-auto px-4 py-1 rounded-lg">Publish</button> */}
+              <AudioRecorder type="file" id='record'
+                value={PublishForm.values.record}
+                onChange={PublishForm.handleChange}
+                onRecordingComplete={(blob) => addAudioElement(blob)}
+                recorderControls={recorderControls}
+              />
+              <button type='submit' onClick={recorderControls.stopRecording} className='btn btn-danger mt-3'>Stop recording</button>
+            </div>
+            {/* <button className="bg-purple-700 text-white block mx-auto px-4 py-1 rounded-lg">Publish</button> */}
 
             {/* </form> */}
             {
@@ -188,6 +204,9 @@ const publish_podcast = () => {
                 <audio ref={audioRef} controls></audio>
               )
             }
+
+            <label>Upload Podcast</label>
+            <input type="file" onChange={uploadPodcastFile} />
           </div>
         )
       }
