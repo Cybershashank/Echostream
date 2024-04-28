@@ -62,6 +62,15 @@ const ManageUser = () => {
 
   return (
     <>
+    <div className="container mx-auto p-8">
+    <h1 className="text-2xl font-bold mb-4">Manage Users</h1>
+    <div className="mb-4">
+      <input
+        type="text"
+        placeholder="Search User..."
+        className="w-full p-2 rounded border"
+      />
+    </div>
       <div className="shadow-lg rounded-lg overflow-hidden mx-4 md:mx-10">
         <table className="w-full table-fixed">
           <thead>
@@ -90,6 +99,7 @@ const ManageUser = () => {
           </tbody>
         </table>
       </div>
+    </div>
     </>
   )
 }
