@@ -29,6 +29,18 @@ router.get('/getall', (req, res) => {
 
 });
 
+router.get('/getbymail/:email', (req, res) => {
+    Model.findOne({ email: req.params.email })
+        .then((result) => {
+            if (result) res.status(200).json(result);
+            else res.status(404).json({ message: 'Artist not found' });
+        }).catch((err) => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+    console.log(req.body);
+});
+
 router.get('/delete', (req, res) => {
     Model.findByIdAndDelete(req.params.id)
         .then((result) => {
@@ -39,15 +51,15 @@ router.get('/delete', (req, res) => {
         });
 });
 
-router.get('/update', (req, res) => {
-    res.send('update response from artist router');
-     {/* Model.findByIdAndUpdate(req.params.id, req.body, { new: true })
+router.put('/update/:id', (req, res) => {
+   // res.send('update response from artist router');
+      Model.findByIdAndUpdate(req.params.id, req.body, { new: true })
             .then((result) => {
-                res.status(200).json(result);
+                res.json(result);
             }).catch((err) => {
                 console.log(err);
-                res.status(500).json(err);
-            });  */}  
+                res.json(err);
+            });  
 });
 
 router.post("/authenticate", (req, res) => {

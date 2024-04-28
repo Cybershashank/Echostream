@@ -39,10 +39,7 @@ const manageartist = () => {
   <td className="border px-4 py-2">{obj.password}</td>
   <td className="border px-4 py-2">{obj.gender}</td>
   <td className="border px-4 py-2">
-    <a href="#" className="text-blue-500 hover:text-blue-700">
-      Edit
-    </a>
-    <span className="text-gray-400 mx-2">|</span>
+  
     <button  onClick={() => {deleteFuction(obj._id)}} className="text-red-500 hover:text-red-700">
       Delete
     </button>

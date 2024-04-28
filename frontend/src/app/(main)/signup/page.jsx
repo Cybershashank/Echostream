@@ -7,14 +7,34 @@ import Link from 'next/link';
 import * as Yup from "yup";
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
+import useAppContext from '@/Context/userContext';
+import useVoiceContext from '@/Context/voiceContext';
 
 
 
 const Signup = () => {
 const router = useRouter();
 
-//const { setLoggedIn, setCurrentUser } = useAppContext();
-//const { performActionUsingVoice, finalTranscript, fillInputUsingVoice } = useVoiceContext();
+const btnRef = useRef();
+
+const { setLoggedIn, setCurrentUser } = useAppContext();
+const { performActionUsingVoice, finalTranscript, fillInputUsingVoice } = useVoiceContext();
+// console.log(transcript);
+
+useEffect(() => {
+  console.log(finalTranscript);
+  performActionUsingVoice('submit', 'signup form', () => {
+    // btnRef.current.submit();
+    // trigger form submit
+    btnRef.current.click();
+  });
+
+  fillInputUsingVoice(() => {
+      signupForm.setFieldValue(finalTranscript.split(' ').at(-1), finalTranscript.split(' ')[1]);
+  });
+}, [finalTranscript]);
+
+
 
   const signupValidationSchema = Yup.object().shape({
     email: Yup.string().email('Email is invalid').required('Email is required'),
@@ -192,11 +212,11 @@ const router = useRouter();
                         htmlFor="terms"
                         className="font-light text-gray-500 dark:text-gray-300" >
                         I accept the{" "}
-                        <a
+                        <Link
                           className="font-medium text-primary-600 hover:underline dark:text-primary-500"
-                          href="#">
+                          href="/terms&conditions">
                           Terms and Conditions
-                        </a>
+                        </Link>
                       </label>
                     </div>
 
@@ -207,6 +227,7 @@ const router = useRouter();
 
                 <button disabled={signupForm.isSubmitting}
                   type="submit"
+                  ref={btnRef}
                   className="w-full text-white bg-purple-600 hover:bg-purple-700 focus:ring-2 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                   Create an account
                 </button>
@@ -214,12 +235,12 @@ const router = useRouter();
 
                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                   Already have an account?{" "}
-                  <a
+                  <Link
                     href="/login"
                     className="font-medium text-blue-600 hover:underline hover:underline-offset-4"
                   >
                     Login Here
-                  </a>
+                  </Link>
                 </p>
 
               </form>

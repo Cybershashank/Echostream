@@ -143,7 +143,7 @@ const artistLogin = () => {
                   </div>
 
                   <Link
-                    href="/resetPassword"
+                    href="/artistresetpassword"
                     className="text-sm font-medium text-blue-600 hover:text-blue-700 hover:underline hover:underline-offset-4">
                     Forgot password?
                   </Link>
