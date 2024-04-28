@@ -39,7 +39,7 @@ const ArtistNavbar = () => {
     <>
       <nav className="bg-white border-gray-200 dark:bg-gray-900">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-          <a
+          <Link
             href="http://localhost:3000/"
             className="flex items-center space-x-3 rtl:space-x-reverse"
           >
@@ -51,7 +51,7 @@ const ArtistNavbar = () => {
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
               Echostream
             </span>
-          </a>
+          </Link>
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
 
             <div className="flex-shrink-0 flex px-2 py-3 items-center space-x-8 flex-1 justify-end justify-self-end ">

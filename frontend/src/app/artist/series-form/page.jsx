@@ -46,7 +46,7 @@ const seriesForm = () => {
 
       if (res.status === 200) {
         toast.success("Series added Successfully");
-        router.push('/artist/publish_podcast');
+        router.push('/artist/create-podcast');
       } else if (res.status === 400) {
         toast.error("Something went wrong");
       } else {

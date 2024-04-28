@@ -14,25 +14,25 @@ import useVoiceContext from '@/Context/voiceContext';
 
 const Signup = () => {
 const router = useRouter();
-
-const btnRef = useRef();
-
-const { setLoggedIn, setCurrentUser } = useAppContext();
-const { performActionUsingVoice, finalTranscript, fillInputUsingVoice } = useVoiceContext();
+// 
+// const btnRef = useRef();
+// 
+// const { setLoggedIn, setCurrentUser } = useAppContext();
+// const { performActionUsingVoice, finalTranscript, fillInputUsingVoice } = useVoiceContext();
 // console.log(transcript);
-
-useEffect(() => {
-  console.log(finalTranscript);
-  performActionUsingVoice('submit', 'signup form', () => {
+// 
+// useEffect(() => {
+  // console.log(finalTranscript);
+  // performActionUsingVoice('submit', 'signup form', () => {
     // btnRef.current.submit();
     // trigger form submit
-    btnRef.current.click();
-  });
-
-  fillInputUsingVoice(() => {
-      signupForm.setFieldValue(finalTranscript.split(' ').at(-1), finalTranscript.split(' ')[1]);
-  });
-}, [finalTranscript]);
+    // btnRef.current.click();
+  // });
+// 
+  // fillInputUsingVoice(() => {
+      // signupForm.setFieldValue(finalTranscript.split(' ').at(-1), finalTranscript.split(' ')[1]);
+  // });
+// }, [finalTranscript]);
 
 
 
@@ -227,7 +227,7 @@ useEffect(() => {
 
                 <button disabled={signupForm.isSubmitting}
                   type="submit"
-                  ref={btnRef}
+                  //ref={btnRef}
                   className="w-full text-white bg-purple-600 hover:bg-purple-700 focus:ring-2 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                   Create an account
                 </button>
