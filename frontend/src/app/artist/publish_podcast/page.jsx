@@ -166,10 +166,10 @@ const publish_podcast = () => {
 
   return (
     <>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-3 gap-4">
         {/* Card 1 */}
         <div className="bg-gray-300 bg-white rounded-lg shadow-md p-6">
-          <h2 className="text-lg font-semibold mb-2">Select Podcast</h2>
+          <h2 className="text-lg font-semibold mb-2">Select Series</h2>
           <br />
           <select className="form-select" onChange={
             (e) => {
@@ -209,11 +209,15 @@ const publish_podcast = () => {
                   )
                 }
 
-                <label>Upload Podcast</label>
-                <input type="file" onChange={uploadPodcastFile} />
+
+
               </div>
             )
           }
+        </div>
+        <div className="bg-gray-00 rounded-lg shadow-md p-6">
+          <label>Upload Podcast</label>
+          <input type="file" onChange={uploadPodcastFile} />
         </div>
       </div>
 

@@ -22,24 +22,7 @@ const artistSignup = () => {
 
   const router = useRouter();
 
-  const btnRef = useRef();
 
-  const { setLoggedIn, setCurrentUser } = useAppContext();
-  const { performActionUsingVoice, finalTranscript, fillInputUsingVoice } = useVoiceContext();
-  // console.log(transcript);
-
-  useEffect(() => {
-    console.log(finalTranscript);
-    performActionUsingVoice('submit', 'login form', () => {
-      // btnRef.current.submit();
-      // trigger form submit
-      btnRef.current.click();
-    });
-
-    fillInputUsingVoice(() => {
-       loginForm.setFieldValue(finalTranscript.split(' ').at(-1), finalTranscript.split(' ')[1]);
-    });
-  }, [finalTranscript]);
 
   const artistSignupForm = useFormik({
     initialValues: {
