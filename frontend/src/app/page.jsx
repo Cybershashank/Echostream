@@ -25,7 +25,6 @@ const Home = () => {
       <div>
         <Navbar />
         <div style={{ backgroundColor: "black" }}>
-
           <div className="container-fluid mb-3 ms-5 ">
             <div className="grid grid-cols-2">
               <div className="pt-5 ps-5">
@@ -41,7 +40,8 @@ const Home = () => {
                 <Link href="/browse_series" >
                   <div className='mt-5'>
                     <button className=' btn py-3 px-5 fw-bold rounded-pill bg-purple-800 border-none text-white'>EXPLORE</button>
-                  </div></Link>
+                  </div>
+                </Link>
               </div>
               <div className="col-6 mt-2 ">
                 <img src="https://cdn.pixabay.com/photo/2023/03/25/20/30/podcast-7876792_640.jpg" alt="" className='img-fluid rounded mx-auto d-block' />
@@ -49,7 +49,6 @@ const Home = () => {
               </div>
             </div>
           </div>
-
         </div>
 
 
@@ -994,13 +993,13 @@ const Home = () => {
                   <ul className="text-white dark:text-gray-400 font-medium">
                     <li className="mb-4">
                       <Link
-                      href="/privacyPolicy" className="hover:underline">
+                        href="/privacyPolicy" className="hover:underline">
                         Privacy Policy
                       </Link>
                     </li>
                     <li>
                       <Link
-                      href="/terms&conditions" className="hover:underline">
+                        href="/terms&conditions" className="hover:underline">
                         Terms &amp; Conditions
                       </Link>
                     </li>
@@ -1013,7 +1012,7 @@ const Home = () => {
               <span className="text-white text-gray-500 sm:text-center dark:text-gray-400">
                 © 2024{" "}
                 <Link
-                href="http://localhost:3000/" className="hover:underline">
+                  href="http://localhost:3000/" className="hover:underline">
                   Echostream™
                 </Link>
                 . All Rights Reserved.
