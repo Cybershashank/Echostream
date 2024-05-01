@@ -140,11 +140,12 @@ const PublishPage = () => {
                   <option value="">Select Category</option>
                   
                   
-                  <option value="">Solo</option>
-                  <option value="">Educational</option>
-                  <option value="">Fictional</option>
-                  <option value="">Interview</option>
-                  <option value="">Motivational</option>
+                  <option value="Solo">Solo</option>
+                  <option value="Educational">Educational</option>
+                  <option value="Fictional">Fictional</option>
+                  <option value="Interview">Interview</option>
+                  <option value="Motivational">Motivational</option>
+                  <option value="Emotional">Emotional</option>
                 </select>
               </div>
 
@@ -210,16 +211,16 @@ const PublishPage = () => {
                   >
                   <option value="">Select Language</option>
                 
-                  <option value="">English</option>
-                  <option value="">Hindi</option>
-                  <option value="">Marathi</option>
-                  <option value="">Bangla</option>
-                  <option value="">Telugu</option>
-                  <option value="">Health</option>
-                  <option value="">Tamil</option>
-                  <option value="">Malayalam</option>
-                  <option value="">Gujrati</option>
-                  <option value="">Punjabi</option>
+                  <option value="English">English</option>
+                  <option value="Hindi">Hindi</option>
+                  <option value="Marathi">Marathi</option>
+                  <option value="Bangla">Bangla</option>
+                  <option value="Telugu">Telugu</option>
+                  <option value="Health">Health</option>
+                  <option value="Tamil">Tamil</option>
+                  <option value="Malayalam">Malayalam</option>
+                  <option value="Gujrati">Gujrati</option>
+                  <option value="Punjabi">Punjabi</option>
                 </select>
               </div>
               <div className="mb-2">
