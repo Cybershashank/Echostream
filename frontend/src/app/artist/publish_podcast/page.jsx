@@ -166,50 +166,56 @@ const publish_podcast = () => {
 
   return (
     <>
-      <div>
-        <label htmlFor="">Select Podcast to Record</label>
-
-        <select className="form-select" onChange={
-          (e) => {
-            setSelPodcast(e.target.value);
-          }
-        }>
-          <option value="">Select Podcast</option>
-          {podcastList.map((podcast) => (
-            <option key={podcast._id} value={podcast._id}>{podcast.title}</option>
-          ))}
-        </select>
-      </div>
-      {
-        selPodcast !== null && (
-          <div className="container-fluid h-screen flex rounded-2xl justify-center ">
-
-
-            {/* <form onSubmit={PublishForm.handleSubmit}> */}
-            <div className="mb-2  px-24 py-4  bg-purple-600  rounded-xl">
-
-              <AudioRecorder type="file" id='record'
-                value={PublishForm.values.record}
-                onChange={PublishForm.handleChange}
-                onRecordingComplete={(blob) => addAudioElement(blob)}
-                recorderControls={recorderControls}
-              />
-              <button type='submit' onClick={recorderControls.stopRecording} className='btn btn-danger mt-3'>Stop recording</button>
-            </div>
-            {/* <button className="bg-purple-700 text-white block mx-auto px-4 py-1 rounded-lg">Publish</button> */}
-
-            {/* </form> */}
-            {
-              audioRef.current !== null && (
-                <audio ref={audioRef} controls></audio>
-              )
+      <div className="grid grid-cols-2 gap-4">
+        {/* Card 1 */}
+        <div className="bg-gray-300 bg-white rounded-lg shadow-md p-6">
+          <h2 className="text-lg font-semibold mb-2">Select Podcast</h2>
+          <br />
+          <select className="form-select" onChange={
+            (e) => {
+              setSelPodcast(e.target.value);
             }
+          }>
+            <option value="">Select Podcast</option>
+            {podcastList.map((podcast) => (
+              <option key={podcast._id} value={podcast._id}>{podcast.title}</option>
+            ))}
+          </select>
+        </div>
 
-            <label>Upload Podcast</label>
-            <input type="file" onChange={uploadPodcastFile} />
-          </div>
-        )
-      }
+        <div className="bg-gray-00 rounded-lg shadow-md p-6">
+          {
+            selPodcast !== null && (
+              <div className="container-fluid h-screen flex rounded-2xl justify-center ">
+
+
+                {/* <form onSubmit={PublishForm.handleSubmit}> */}
+                <div className="mb-2  px-24 py-4  bg-purple-600  rounded-xl">
+
+                  <AudioRecorder type="file" id='record'
+                    value={PublishForm.values.record}
+                    onChange={PublishForm.handleChange}
+                    onRecordingComplete={(blob) => addAudioElement(blob)}
+                    recorderControls={recorderControls}
+                  />
+                  <button type='submit' onClick={recorderControls.stopRecording} className='btn btn-danger mt-3'>Stop recording</button>
+                </div>
+                {/* <button className="bg-purple-700 text-white block mx-auto px-4 py-1 rounded-lg">Publish</button> */}
+
+                {/* </form> */}
+                {
+                  audioRef.current !== null && (
+                    <audio ref={audioRef} controls></audio>
+                  )
+                }
+
+                <label>Upload Podcast</label>
+                <input type="file" onChange={uploadPodcastFile} />
+              </div>
+            )
+          }
+        </div>
+      </div>
 
 
     </>

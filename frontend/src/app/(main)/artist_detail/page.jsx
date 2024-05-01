@@ -36,6 +36,13 @@ const artist_detail = () => {
               <h1 className="text-3xl font-bold mb-2 text-center">Gaurav</h1>
               <p className="text-gray-600 text-center">Category: Educational and Motivational</p>
 
+              <button className="py-3.5 px-5 flex rounded-full bg-indigo-600 items-center shadow-sm shadow-transparent transition-all duration-500 hover:bg-indigo-700">
+                  
+                  <span className="px-2 font-semibold text-base leading-7 text-white text-center">
+                    Follow
+                  </span>
+                </button>
+
               <div className="flex items-center justify-center gap-5">
 
                 {/*  Add your social media links here */}

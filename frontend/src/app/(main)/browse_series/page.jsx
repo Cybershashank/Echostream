@@ -4,11 +4,8 @@ import React, { useEffect, useState } from 'react'
 
 const browse_series = () => {
 
+
   
-
-
-
-
   const [podcastList, setPodcastList] = useState([]);
 
   const fetchPodcastData = async () => {

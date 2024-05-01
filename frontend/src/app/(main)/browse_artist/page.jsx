@@ -4,8 +4,13 @@ import React from 'react'
 
 const browse_artist = () => {
 
+  
+
   return (
     <>
+
+
+
 
     {/*
       <form className="flex items-center max-w-lg mx-auto p-8">
@@ -84,13 +89,13 @@ const browse_artist = () => {
 
 
       
-      <div className="dark:bg-gray-800">
+      <div className="dark:bg-gray-800 ">
         <div className="dark:bg-transparent">
           <div className="mx-auto flex flex-col items-center py-12 sm:py-24">
             <div className="w-11/12 sm:w-1/3 lg:flex justify-center items-center flex-col mb-5 sm:mb-10">
-              <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-5xl xl:text-6xl text-center text-gray-800 dark:text-white font-black leading-10">
-                Search for your favourite
-                <span className="text-violet-800 dark:text-violet-500">Artist</span>
+              <h1 className="text-4xl sm:text-4xl md:text-4xl lg:text-4xl xl:text-4xl text-center text-gray-800 dark:text-white font-black leading-10">
+                Search for your favourite 
+                <span className="text-violet-800 dark:text-violet-500"> Artist </span>
                 here.
               </h1>
             </div>
@@ -124,6 +129,7 @@ const browse_artist = () => {
         </div>
       </div>
       
+
 
 
 
