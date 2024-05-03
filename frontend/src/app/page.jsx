@@ -24,32 +24,54 @@ const Home = () => {
     <>
       <div>
         <Navbar />
-        <div style={{ backgroundColor: "black" }}>
-          <div className="container-fluid mb-3 ms-5 ">
-            <div className="grid grid-cols-2">
-              <div className="pt-5 ps-5">
-                <div className='mt-5' >
-                  <h4 className='text-purple-700'>Welcome to</h4>
-                </div>
-                <div className='text-white '>
-                  <h1 style={{ fontFamily: "initial", fontSize: "80px" }}>EchoStream</h1>
-                </div>
-                <div className="text-white fw-bold mt-3">
-                  <p>Weekly conversations with forward thinkers at the<br /> forefront of this Podcast industry. </p>
-                </div>
-                <Link href="/browse_series" >
-                  <div className='mt-5'>
-                    <button className=' btn py-3 px-5 fw-bold rounded-pill bg-purple-800 border-none text-white'>EXPLORE</button>
-                  </div>
-                </Link>
-              </div>
-              <div className="col-6 mt-2 ">
-                <img src="https://cdn.pixabay.com/photo/2023/03/25/20/30/podcast-7876792_640.jpg" alt="" className='img-fluid rounded mx-auto d-block' />
 
+        <div style={{ backgroundImage: 'url(https://www.finding-rhythms.co.uk/wp-content/uploads/2021/03/finding-rhythms-hero-podcast-b-and-w-1600x900.jpg)' }} className='bg-cover'>
+          <div className='backdrop-blur-sm'>                         
+            <div className="flex h-screen justify-center items-center dark:bg-slate-800">
+              <div className="mx-auto mt-10 flex justify-center px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8">
+                <div className="text-center ">
+                  <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-slate-200 sm:text-5xl md:text-6xl">
+
+
+                    <div className='text-center lg:space-x-4 space-x-2 my-12'>
+                      <span className='text-white font bold'>Create</span>
+                      <span className='text-purple-500 font-bold'>amazing</span>
+                      <div className='lg:my-5 my'></div>
+                      <span className='text-purple-500 font-bold'>podcast</span>
+                      <span className='text-white font bold'>show</span>
+
+                    </div>
+
+                  </h1>
+                  <h1 className='text-lg lg:text-2x1'>
+                    <div className="text-center text-[#FFFFFF] font-normal">
+                      Weekly conversations with forward thinkers at the
+                      <br />
+                      forefront of this Podcast industry.
+                    </div>
+                  </h1>
+                  <div className="mt-5 sm:mt-8 sm:flex sm:justify-center">
+                    <div className="rounded-md shadow">
+                      <Link
+                        className="flex w-full items-center justify-center rounded-md border border-transparent bg-purple-700 px-8 py-3 text-base font-medium text-white hover:bg-purple-700 md:py-4 md:px-10 md:text-lg"
+                        href="/browse_series"
+                      >
+                        Explore
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-right">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M5 12l14 0" />
+                          <path d="M13 18l6 -6" />
+                          <path d="M13 6l6 6" />
+                        </svg>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
+
 
 
         <div className="bg-cover bg-center" style={{ backgroundImage: 'url(https://media.istockphoto.com/id/1412634953/photo/podcast-recording-station.jpg?s=612x612&w=0&k=20&c=224aSXhwJ4wBm7TgAkR6vLvzz_zIK-TNJ-FtEypVJx0=)' }}></div>
