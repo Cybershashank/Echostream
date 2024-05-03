@@ -145,6 +145,7 @@ const PublishPage = () => {
                   <option value="Fictional">Fictional</option>
                   <option value="Interview">Interview</option>
                   <option value="Motivational">Motivational</option>
+                  <option value="Emotional">Emotional</option>
                 </select>
               </div>
 
@@ -215,6 +216,7 @@ const PublishPage = () => {
                   <option value="Marathi">Marathi</option>
                   <option value="Bangla">Bangla</option>
                   <option value="Telugu">Telugu</option>
+                  <option value="Health">Health</option>
                   <option value="Tamil">Tamil</option>
                   <option value="Malayalam">Malayalam</option>
                   <option value="Gujrati">Gujrati</option>

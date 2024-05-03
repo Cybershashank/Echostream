@@ -22,7 +22,7 @@ const artistSignup = () => {
 
   const router = useRouter();
 
-
+  
 
   const artistSignupForm = useFormik({
     initialValues: {
