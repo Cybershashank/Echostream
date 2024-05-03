@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "preline": "^2.1.0"
+    "preline": "^2.1.0",
+    "react-mic": "^12.4.6"
   }
 }

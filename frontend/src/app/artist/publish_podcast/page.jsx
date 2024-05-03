@@ -12,6 +12,8 @@ const publish_podcast = () => {
   const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('artist')));
   const [selPodcast, setSelPodcast] = useState(null);
 
+  const [selFile, setSelFile] = useState('');
+
   const fetchPodcastData = () => {
     fetch(`${process.env.NEXT_PUBLIC_API_URL}/podcast/getbyartist`, {
       headers: {
@@ -44,7 +46,8 @@ const publish_podcast = () => {
       if (res.status === 200) {
         console.log("file uploaded");
         toast.success('File Uploaded!!');
-        updatePodcast({ published: true, record: file.name });
+        setSelFile(file.name)
+        // updatePodcast({ published: true, record: file.name });
       }
     });
   };
@@ -59,7 +62,8 @@ const publish_podcast = () => {
     }).then((res) => {
       if (res.status === 200) {
         console.log("file uploaded");
-        updatePodcast({ published: true, record: file.name });
+        setSelFile(file.name)
+        // updatePodcast({ published: true, record: file.name });
         toast.success('File Uploaded!!');
       }
     });
@@ -183,12 +187,16 @@ const publish_podcast = () => {
           </select>
         </div>
 
+
+
+
+
         <div className="bg-gray-00 rounded-lg shadow-md p-6">
+        <h1 className="text-lg font-semibold mb-2"> Podcast Recorder</h1>
+        <br/>
           {
             selPodcast !== null && (
               <div className="container-fluid h-screen flex rounded-2xl justify-center ">
-
-
                 {/* <form onSubmit={PublishForm.handleSubmit}> */}
                 <div className="mb-2  px-24 py-4  bg-purple-600  rounded-xl">
 
@@ -197,26 +205,37 @@ const publish_podcast = () => {
                     onChange={PublishForm.handleChange}
                     onRecordingComplete={(blob) => addAudioElement(blob)}
                     recorderControls={recorderControls}
+                    canvasHeight={50}
+                    canvasWidth={300}
                   />
-                  <button type='submit' onClick={recorderControls.stopRecording} className='btn btn-danger mt-3'>Stop recording</button>
+                  <button type='submit' onClick={recorderControls.stopRecording} className='btn btn-danger mt-3'>Stop recording
+                  </button>
                 </div>
-                {/* <button className="bg-purple-700 text-white block mx-auto px-4 py-1 rounded-lg">Publish</button> */}
-
                 {/* </form> */}
                 {
                   audioRef.current !== null && (
                     <audio ref={audioRef} controls></audio>
                   )
                 }
-
-
-
               </div>
             )
           }
+
+          <button className="bg-purple-700 text-white block mx-auto px-6 py-1 rounded-lg"
+            onClick={e => updatePodcast({ published: true, record: selFile.name })}
+          >Publish</button>
         </div>
+        
+
+
+
+
+
+
+
         <div className="bg-gray-00 rounded-lg shadow-md p-6">
-          <label>Upload Podcast</label>
+          <label className="text-lg font-semibold mb-2">Upload Podcast</label>
+          <br/>
           <input type="file" onChange={uploadPodcastFile} />
         </div>
       </div>

@@ -60,6 +60,7 @@ const Navbar = () => {
 
     return (
         <>
+        
             <nav className="bg-white border-gray-200 shadow dark:bg-gray-900">
                 <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto ">
                     <Link
@@ -132,6 +133,9 @@ const Navbar = () => {
                             </li>
                         </ul>
                     </div>
+
+
+                    
 
                     <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
 
