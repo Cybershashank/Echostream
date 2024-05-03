@@ -10,7 +10,7 @@ const viewPodcast = () => {
   const [series, setseries] = useState([]);
   const [podcastList, setPodcastList] = useState([]);
 
-  const { playerAction, isSongPlaying } = usePlayerContext();
+  const { playerAction, isSongPlaying, songStatus } = usePlayerContext();
 
   const fetchSeriesData = async () => {
     const res = await fetch("http://localhost:5000/series/getbyid/" + id);
@@ -35,6 +35,21 @@ const viewPodcast = () => {
     fetchSeriesData();
   }, [])
 
+  const displayIcon = (podcast) => {
+    if (isSongPlaying(podcast) && (songStatus === 'playing')) {
+      return <IconPlayerPause
+        onClick={() => playerAction(podcast, 'pause')}
+        size={30} className='text-purple-500 hover:text-purple-600' />
+    } else if (!isSongPlaying(podcast)) {
+      return <IconPlayerPlayFilled
+        onClick={() => playerAction(podcast, 'play')}
+        size={30} className='text-purple-500 hover:text-purple-600' />
+    } else if(isSongPlaying(podcast) && (songStatus === 'paused')) {
+      return <IconPlayerPlayFilled
+        onClick={() => playerAction(podcast, 'play')}
+        size={30} className='text-purple-500 hover:text-purple-600' />
+    }
+  }
 
   const displayPodcastEpisodes = () => {
     if (podcastList.length > 0) {
@@ -42,15 +57,7 @@ const viewPodcast = () => {
         <>
           <div key={podcast._id} className='col-span-1'>
             {
-              !isSongPlaying(podcast) ?
-                <IconPlayerPlayFilled
-                  onClick={() => playerAction(podcast, 'play')}
-                  size={30} className='text-purple-500 hover:text-purple-600' />
-                :
-                <IconPlayerPause
-                  onClick={() => playerAction(podcast, 'pause')}
-                  size={30} className='text-purple-500 hover:text-purple-600' />
-
+              displayIcon(podcast)
             }
           </div>
           <div className='col-span-5'>
@@ -71,13 +78,8 @@ const viewPodcast = () => {
 
   return (
     <>
-
       {series != null ? (
-
-
-
-        <div className="bg-white p-8 rounded-lg shadow-md w-full">
-
+        <div className="bg-white p-8 rounded-lg shadow-md w-full min-h-screen">
           <div className="flex items-center mb-4">
             <img
               src={`${process.env.NEXT_PUBLIC_API_URL}/${series.cover}`}
@@ -91,7 +93,9 @@ const viewPodcast = () => {
           </div>
 
           <div className="flex items-center mb-4">
-            <button className="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-full mr-4">
+            <button className="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-full mr-4"
+              onClick={() => playerAction(podcastList[0], 'play')}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"

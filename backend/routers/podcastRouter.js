@@ -4,7 +4,6 @@ const Model = require("../models/podcastModel");
 const verifyToken = require("./verifyToken");
 
 router.post("/add", verifyToken, (req, res) => {
-
   req.body.artist = req.user._id; //to get the id of the user who is adding the data
   //Storing data to MongoDb
   new Model(req.body).save() //to add the data in database
@@ -20,7 +19,7 @@ router.post("/add", verifyToken, (req, res) => {
 
 
 router.get("/getall", (req, res) => {
-  Model.find({}) //empty brackets will give all the data from the database
+  Model.find({}).populate("artist") //empty brackets will give all the data from the database
     .then((result) => {
       res.json(result)
     }).catch((err) => {
@@ -66,7 +65,6 @@ router.delete("/delete/:id", (req, res) => {
 })
 
 router.put("/update/:id", (req, res) => {
-  // console.log(req.body);
   Model.findByIdAndUpdate(req.params.id, req.body, { new: true })             //new:true is for data update
     .then((result) => {
       res.json(result)
