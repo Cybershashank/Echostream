@@ -196,7 +196,7 @@ const publish_podcast = () => {
         <br/>
           {
             selPodcast !== null && (
-              <div className="container-fluid h-screen flex rounded-2xl justify-center ">
+              <div className="container-fluid  flex rounded-2xl justify-center ">
                 {/* <form onSubmit={PublishForm.handleSubmit}> */}
                 <div className="mb-2  px-24 py-4  bg-purple-600  rounded-xl">
 
