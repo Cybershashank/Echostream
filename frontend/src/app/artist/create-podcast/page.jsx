@@ -172,7 +172,6 @@ const PublishPage = () => {
                   placeholder="Genre"
                   >
                   <option value="">Select Genre</option>
-                  
                   <option value="Business">Busniess</option>
                   <option value="Career">Career</option>
                   <option value="Comedy">Comedy</option>
