@@ -10,10 +10,102 @@ const Home = () => {
   return (
     <>
       <div>
-        <Navbar />
+        <div className='bg-[#191B1F]'>
+        <div className='md:sticky flex z-51 top-0 md:h-28 h-20 transition-all duration-500'>
+          <nav className='hidden w-full md:flex items-center text-white justify-between py-8 px-16 z-50 relative'>
+            <div className='flex-shrink-0 flex-1'>
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Podcasts_%28iOS%29.svg/2048px-Podcasts_%28iOS%29.svg.png"
+                className="h-8"
+                alt="Podcast Logo"
+              />
+              <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+                Echostream
+              </span>
+            </div>
+            <div className='flex items-center space-x-12'>
+              <div className>
+                <div className='hover:bg-[#3E434C] hover:scale-110 transition ease-in-out group relative cursor-pointer rounded-2x1'>
+                  <div className='flex items-center px-3 py-2'>
+                    <div className='menu-hover text-white text-lg font-normal'>Genres</div>
+                    <span className='m1-2'>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M6 9l6 6l6 -6" /></svg>
+                    </span>
+                  </div>
+                  <div className='pt-4 invisible absolute flex shadow-xl group-hover:visible w-full rounded-sm'>
+                    <div className='bg-zinc-800 text-white rounded-sm w-auto'>
+                      <a className='py-4 px-5 w-full block whitespace-nowrap hover:bg-[#3e434c]' href=''>
+                        <div className='text-white-text-lg font-normal capitalize'>Business</div>
+                      </a>
+                      <a className='py-4 px-5 w-full block whitespace-nowrap hover:bg[#3e434c]' href=''>
+                        <div className='text-white-text-lg font-normal capitalize'>Comedy</div>
+                      </a>
+                      <a className='py-4 px-5 w-full block whitespace-nowrap hover:bg[#3E434C]' href=''>
+                        <div className='text-white-text-lg font-normal capitalize'>Emotional</div>
+                      </a>
+                      <a className='py-4 px-5 w-full block whitespace-nowrap hover:bg[#3E434C]' href=''>
+                        <div className='text-white-text-lg font-normal capitalize'>Career</div>
+                      </a>
+                      <a className='py-4 px-5 w-full block whitespace-nowrap hover:bg[#3E434C]' href=''>
+                        <div className='text-white-text-lg font-normal capitalize'>Society</div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className>
+                <div className='hover:bg-[#3E434C] hover:scale-110 transition ease-in-out group relative cursor-pointer rounded-2x1'>
+                  <div className='flex items-center px-3 py-2'>
+                    <div className='menu-hover text-white text-lg font-normal'>Language</div>
+                    <span className='m1-2'>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M6 9l6 6l6 -6" /></svg>
+                    </span>
+                  </div>
+                  <div className='pt-4 invisible absolute flex shadow-xl group-hover:visible w-full rounded-sm'>
+                    <div className='bg-zinc-800 text-white rounded-sm w-auto'>
+                      <a className='py-4 px-5 w-full block whitespace-nowrap hover:bg[#3E434C]' href=''>
+                        <div className='text-white-text-lg font-normal capitalize'>English</div>
+                      </a>
+                      <a className='py-4 px-5 w-full block whitespace-nowrap hover:bg[#3E434C]' href=''>
+                        <div className='text-white-text-lg font-normal capitalize'>Hindi</div>
+                      </a>
+                      <a className='py-4 px-5 w-full block whitespace-nowrap hover:bg[#3E434C]' href=''>
+                        <div className='text-white-text-lg font-normal capitalize'>Tamil</div>
+                      </a>
+                      <a className='py-4 px-5 w-full block whitespace-nowrap hover:bg[#3E434C]' href=''>
+                        <div className='text-white-text-lg font-normal capitalize'>telgu</div>
+                      </a>
+                      <a className='py-4 px-5 w-full block whitespace-nowrap hover:bg[#3E434C]' href=''>
+                        <div className='text-white-text-lg font-normal capitalize'>bengali</div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <Link href='/about'>
+                <div className='text-white text-lg font-normal hover:scale-110 hover:bg[#3E434C] transition ease-in-out px-3 py-2 rounded-xl'>About</div>
+              </Link>
+            </div>
+            <div className='flex items-center space-x-6 flex-1 justify-end'>
+              <Link className='w-[156px] h-[50px] flex justify-center items-center text-white text-base font-bold rounded-[10px] border border-white' target='_blank' href='/login' rel='noreferrer'>Login</Link>
+              <Link className='inline-flex justify-center items-center bg-purple-500 rounded-md text-white text-base font-bold px-5 py-3' href='/browse_series'>
+                <div className='font-bold text-xs md:text-lg'>Explore</div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-right">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M5 12l14 0" />
+                  <path d="M13 18l6 -6" />
+                  <path d="M13 6l6 6" />
+                </svg>
+              </Link>
+            </div>
+
+          </nav>
+        </div>
+
 
         <div style={{ backgroundImage: 'url(https://www.finding-rhythms.co.uk/wp-content/uploads/2021/03/finding-rhythms-hero-podcast-b-and-w-1600x900.jpg)' }} className='bg-cover'>
-          <div className='backdrop-blur-sm'>
+        
             <div className="flex h-screen justify-center items-center dark:bg-slate-800">
               <div className="mx-auto mt-10 flex justify-center px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8">
                 <div className="text-center ">
@@ -40,7 +132,7 @@ const Home = () => {
                   <div className="mt-5 sm:mt-8 sm:flex sm:justify-center">
                     <div className="rounded-md shadow">
                       <Link
-                        className="flex w-full items-center justify-center rounded-md border border-transparent bg-purple-700 px-8 py-3 text-base font-medium text-white hover:bg-purple-700 md:py-4 md:px-10 md:text-lg"
+                        className="inline-flex justify-center items-center bg-purple-500 rounded-md text-white text-base font-bold px-5 py-3"
                         href="/browse_series"
                       >
                         Explore
@@ -56,7 +148,7 @@ const Home = () => {
                 </div>
               </div>
             </div>
-          </div>
+          
         </div>
 
 
@@ -956,7 +1048,7 @@ const Home = () => {
         </footer>
 
 
-
+</div>
       </div >
 
 
