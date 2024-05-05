@@ -326,10 +326,10 @@ const Home = () => {
               <div className="w-full lg:w-1/2">
                 <div className="lg:max-w-xl">
                   <div className="mb-6 lg:mb-16">
-                    <h6 className="text-lg text-center font-medium text-indigo-600 mb-2 lg:text-left">
+                    <h6 className="text-lg text-center font-medium text-purple-600 mb-2 lg:text-left">
                       Frequently asked questions
                     </h6>
-                    <h2 className="text-4xl text-center font-bold text-gray-900 leading-[3.25rem] mb-5 lg:text-left">
+                    <h2 className="text-4xl text-center font-bold text-white leading-[3.25rem] mb-5 lg:text-left">
                       Looking for answers?
                     </h2>
                   </div>
@@ -339,12 +339,12 @@ const Home = () => {
                       id="basic-heading-one-with-arrow-always-open"
                     >
                       <button
-                        className="accordion-toggle group inline-flex items-center justify-between text-xl font-normal leading-8 text-gray-600 w-full transition duration-500 hover:text-indigo-600 accordion-active:text-indigo-600 accordion-active:font-medium always-open"
+                        className="accordion-toggle group inline-flex items-center justify-between text-xl font-normal leading-8 text-white w-full transition duration-500 hover:text-purple-600 accordion-active:text-purple-600 accordion-active:font-medium always-open"
                         aria-controls="basic-collapse-one-with-arrow-always-open"
                       >
                         <h5>How to create an account?</h5>
                         <svg
-                          className="text-gray-900 transition duration-500 group-hover:text-indigo-600 accordion-active:text-indigo-600 accordion-active:rotate-180"
+                          className="text-white transition duration-500 group-hover:text-purple-600 accordion-active:text-purple-600 accordion-active:rotate-180"
                           width={22}
                           height={22}
                           viewBox="0 0 22 22"
@@ -366,7 +366,7 @@ const Home = () => {
                         style={{ maxHeight: 100 }}
                         aria-labelledby="basic-heading-one-with-arrow-always-open"
                       >
-                        <p className="text-base font-normal text-gray-600 ">
+                        <p className="text-base font-normal text-white ">
                           To create an account, find the 'Sign up' or 'Create account'
                           button, fill out the registration form with your personal
                           information, and click 'Create account' or 'Sign up.' Verify
@@ -380,12 +380,12 @@ const Home = () => {
                       id="basic-heading-two-with-arrow-always-open"
                     >
                       <button
-                        className="accordion-toggle group inline-flex items-center justify-between font-normal text-xl leading-8 text-gray-600 w-full transition duration-500 hover:text-indigo-600 accordion-active:text-indigo-600 accordion-active:font-medium"
+                        className="accordion-toggle group inline-flex items-center justify-between font-normal text-xl leading-8 text-white w-full transition duration-500 hover:text-purple-600 accordion-active:text-purple-600 accordion-active:font-medium"
                         aria-controls="basic-collapse-two-with-arrow-always-open"
                       >
                         <h5>Have any trust issue?</h5>
                         <svg
-                          className="text-gray-900 transition duration-500 group-hover:text-indigo-600 accordion-active:text-indigo-600 accordion-active:rotate-180"
+                          className="text-white transition duration-500 group-hover:text-purple-600 accordion-active:text-purple-600 accordion-active:rotate-180"
                           width={22}
                           height={22}
                           viewBox="0 0 22 22"
@@ -407,7 +407,7 @@ const Home = () => {
                         aria-labelledby="basic-heading-two-with-arrow-always-open"
                         style={{}}
                       >
-                        <p className="text-base text-gray-500 font-normal">
+                        <p className="text-base text-white font-normal">
                           Our focus on providing robust and user-friendly content
                           management capabilities ensures that you can manage your
                           content with confidence, and achieve your content marketing
@@ -420,12 +420,12 @@ const Home = () => {
                       id="basic-heading-three-with-arrow-always-open"
                     >
                       <button
-                        className="accordion-toggle group inline-flex items-center justify-between text-xl font-normal leading-8 text-gray-600 w-full transition duration-500 hover:text-indigo-600 accordion-active:font-medium accordion-active:text-indigo-600"
+                        className="accordion-toggle group inline-flex items-center justify-between text-xl font-normal leading-8 text-white w-full transition duration-500 hover:text-purple-600 accordion-active:font-medium accordion-active:text-purple-600"
                         aria-controls="basic-collapse-three-with-arrow-always-open"
                       >
                         <h5>How can I reset my password?</h5>
                         <svg
-                          className="text-gray-900 transition duration-500 group-hover:text-indigo-600 accordion-active:text-indigo-600 accordion-active:rotate-180"
+                          className="text-white transition duration-500 group-hover:text-purple-600 accordion-active:text-purple-600 accordion-active:rotate-180"
                           width={22}
                           height={22}
                           viewBox="0 0 22 22"
@@ -446,7 +446,7 @@ const Home = () => {
                         className="accordion-content w-full px-0 overflow-hidden pr-4"
                         aria-labelledby="basic-heading-three-with-arrow-always-open"
                       >
-                        <p className="text-base text-gray-500 font-normal">
+                        <p className="text-base text-white font-normal">
                           Our focus on providing robust and user-friendly content
                           management capabilities ensures that you can manage your
                           content with confidence, and achieve your content marketing
@@ -459,12 +459,12 @@ const Home = () => {
                       id="basic-heading-four-with-arrow-always-open"
                     >
                       <button
-                        className="accordion-toggle group inline-flex items-center justify-between text-xl font-normal leading-8 text-gray-600 w-full transition duration-500 hover:text-indigo-600 accordion-active:font-medium accordion-active:text-indigo-600"
+                        className="accordion-toggle group inline-flex items-center justify-between text-xl font-normal leading-8 text-white w-full transition duration-500 hover:text-purple-600 accordion-active:font-medium accordion-active:text-purple-600"
                         aria-controls="basic-collapse-four-with-arrow-always-open"
                       >
                         <h5>What is the payment process?</h5>
                         <svg
-                          className="text-gray-900 transition duration-500 group-hover:text-indigo-600 accordion-active:text-indigo-600 accordion-active:rotate-180"
+                          className="text-white transition duration-500 group-hover:text-purple-600 accordion-active:text-Purple accordion-active:rotate-180"
                           width={22}
                           height={22}
                           viewBox="0 0 22 22"
@@ -485,7 +485,7 @@ const Home = () => {
                         className="accordion-content w-full px-0 overflow-hidden pr-4"
                         aria-labelledby="basic-heading-four-with-arrow-always-open"
                       >
-                        <p className="text-base text-gray-500 font-normal">
+                        <p className="text-base text-white font-normal">
                           Our focus on providing robust and user-friendly content
                           management capabilities ensures that you can manage your
                           content with confidence, and achieve your content marketing
@@ -710,9 +710,9 @@ const Home = () => {
               src="https://pagedone.io/asset/uploads/1701928910.jpg"
             />
             <div className='space-y-2 md:space-y-4 w-full h-auto'>
-              <div className='text-dark lg:text-x1 font-normal'>"Drive, exercise, or sleep"</div>
-              <div className='text-zinc-text lg:text-lg text-xs font-normal'>"I listen to it while travelling because you can download and listen offline"</div>
-              <div className='text-dark lg:text-x1 font-bold'>"Amit"</div>
+              <div className='text-white lg:text-x1 font-normal'>"Drive, exercise, or sleep"</div>
+              <div className='text-white lg:text-x1 font-normal'>"I listen to it while travelling because you can download and listen offline"</div>
+              <div className='text-white lg:text-x1 font-bold'>"Amit"</div>
             </div>
           </div>
           <img
@@ -742,9 +742,9 @@ const Home = () => {
               src="https://pagedone.io/asset/uploads/1701928898.jpg"
             />
             <div className='space-y-2 md:space-y-4 w-full h-auto'>
-              <div className='text-dark lg:text-x1 font-normal'>"Listen when feeling low"</div>
-              <div className='text-zinc-text lg:text-lg text-xs font-normal'>"Everyone should try this when feelinf low!"</div>
-              <div className='text-dark lg:text-x1 font-bold'>"Durga"</div>
+              <div className='text-white lg:text-x1 font-normal'>"Listen when feeling low"</div>
+              <div className='text-white lg:text-x1 font-normal'>"Everyone should try this when feelinf low!"</div>
+              <div className='text-white lg:text-x1 font-bold'>"Durga"</div>
             </div>
           </div>
           <img
@@ -774,9 +774,9 @@ const Home = () => {
               src="https://pagedone.io/asset/uploads/1703590007.png"
             />
             <div className='space-y-2 md:space-y-4 w-full h-auto'>
-              <div className='text-dark lg:text-x1 font-normal'>"Best companion for gym"</div>
-              <div className='text-zinc-text lg:text-lg text-xs font-normal'>"I listen during gym sessions, walks, and other daily routines"</div>
-              <div className='text-dark lg:text-x1 font-bold'>"Ritesh"</div>
+              <div className='text-white lg:text-x1 font-normal'>"Best companion for gym"</div>
+              <div className='text-white lg:text-x1 font-normal'>"I listen during gym sessions, walks, and other daily routines"</div>
+              <div className='text-white lg:text-x1 font-bold'>"Ritesh"</div>
 
             </div>
           </div>
@@ -807,9 +807,9 @@ const Home = () => {
               src="https://pagedone.io/asset/uploads/1696229969.png"
             />
             <div className='space-y-2 md:space-y-4 w-full h-auto'>
-              <div className='text-dark lg:text-x1 font-normal'>"I listen while cooking"</div>
-              <div className='text-zinc-text lg:text-lg text-xs font-normal'>"AS ahousewife this is my best partner. I don't feel lonely in the kitchen anymore"</div>
-              <div className='text-dark lg:text-x1 font-bold'>"Amita"</div>
+              <div className='text-white lg:text-x1 font-normal'>"I listen while cooking"</div>
+              <div className='text-white lg:text-x1 font-normal'>"AS ahousewife this is my best partner. I don't feel lonely in the kitchen anymore"</div>
+              <div className='text-white lg:text-x1 font-bold'>"Amita"</div>
             </div>
           </div>
           <img
@@ -839,9 +839,9 @@ const Home = () => {
               src="https://pagedone.io/asset/uploads/1696230027.png"
             />
             <div className='space-y-2 md:space-y-4 w-full h-auto'>
-              <div className='text-dark lg:text-x1 font-normal'>"Good app to learn"</div>
-              <div className='text-zinc-text lg:text-lg text-xs font-normal'>"Ecellent explanation of books. You will learn a lot"</div>
-              <div className='text-dark lg:text-x1 font-bold'>"Rajesh"</div>
+              <div className='text-white lg:text-x1 font-normal'>"Good app to learn"</div>
+              <div className='text-white lg:text-x1 font-normal'>"Ecellent explanation of books. You will learn a lot"</div>
+              <div className='text-white lg:text-x1 font-bold'>"Rajesh"</div>
             </div>
           </div>
           <img
