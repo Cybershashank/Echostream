@@ -34,7 +34,7 @@ const trending = () => {
                       data-nimg='fill'
                       className='rounded-lg contain'
                       sizes='100vw'
-                      src='https://images.unsplash.com/photo-1627632958716-3c2a7a6b6c4d?auto=format&fit=crop&w=400&q=60'
+                      src='https://images.cdn.kukufm.com/w:1920/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/5d9c076977f54068ba0f6b786af18828.png'
                       style={{ width: '100%', height: '100%', inset: '0px', position: 'absolute', color: 'transparent' }}
                     />
                   </div>
