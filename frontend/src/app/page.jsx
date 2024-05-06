@@ -748,7 +748,7 @@ const Home = () => {
                 />
                 <div className='space-y-2 md:space-y-4 w-full h-auto'>
                   <div className='text-white lg:text-x1 font-normal'>"Listen when feeling low"</div>
-                  <div className='text-white lg:text-x1 font-normal'>"Everyone should try this when feelinf low!"</div>
+                  <div className='text-white lg:text-x1 font-normal'>"Everyone should try this when feeling low!"</div>
                   <div className='text-white lg:text-x1 font-bold'>"Durga"</div>
                 </div>
               </div>
@@ -813,7 +813,7 @@ const Home = () => {
                 />
                 <div className='space-y-2 md:space-y-4 w-full h-auto'>
                   <div className='text-white lg:text-x1 font-normal'>"I listen while cooking"</div>
-                  <div className='text-white lg:text-x1 font-normal'>"AS ahousewife this is my best partner. I don't feel lonely in the kitchen anymore"</div>
+                  <div className='text-white lg:text-x1 font-normal'>"As housewife this is my best partner. I don't feel lonely in the kitchen anymore"</div>
                   <div className='text-white lg:text-x1 font-bold'>"Amita"</div>
                 </div>
               </div>
@@ -845,7 +845,7 @@ const Home = () => {
                 />
                 <div className='space-y-2 md:space-y-4 w-full h-auto'>
                   <div className='text-white lg:text-x1 font-normal'>"Good app to learn"</div>
-                  <div className='text-white lg:text-x1 font-normal'>"Ecellent explanation of books. You will learn a lot"</div>
+                  <div className='text-white lg:text-x1 font-normal'>"Excellent explanation of books. You will learn a lot"</div>
                   <div className='text-white lg:text-x1 font-bold'>"Rajesh"</div>
                 </div>
               </div>
