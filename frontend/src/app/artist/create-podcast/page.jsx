@@ -178,6 +178,7 @@ const PublishPage = () => {
                   <option value="Education">Education</option>
                   <option value="Health">Health</option>
                   <option value="History">History</option>
+                  <option value="Moral">Moral</option>
                   <option value="News">News</option>
                   <option value="Religion">Religion</option>
                   <option value="Science">Science</option>
