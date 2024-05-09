@@ -84,6 +84,15 @@ const Home = () => {
                         <a className='py-4 px-5 w-full block whitespace-nowrap hover:bg-[#3E434C]' href=''>
                           <div className='text-white-text-lg font-normal capitalize'>bengali</div>
                         </a>
+                        <a className='py-4 px-5 w-full block whitespace-nowrap hover:bg-[#3E434C]' href=''>
+                          <div className='text-white-text-lg font-normal capitalize'>Malayalam</div>
+                        </a>
+                        <a className='py-4 px-5 w-full block whitespace-nowrap hover:bg-[#3E434C]' href=''>
+                          <div className='text-white-text-lg font-normal capitalize'>Kannada</div>
+                        </a>
+                        <a className='py-4 px-5 w-full block whitespace-nowrap hover:bg-[#3E434C]' href=''>
+                          <div className='text-white-text-lg font-normal capitalize'>Marathi</div>
+                        </a>
                       </div>
                     </div>
                   </div>
