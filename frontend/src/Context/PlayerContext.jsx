@@ -35,8 +35,10 @@ export const PlayerProvider = ({ children }) => {
     const togglePause = () => {
         if (audioRef.current.paused) {
             audioRef.current.play();
+            setSongStatus('playing');
         } else {
             audioRef.current.pause();
+            setSongStatus('paused');
         }
     }
 
@@ -115,10 +117,10 @@ export const PlayerProvider = ({ children }) => {
                                 </button>
                                 <button className="w-8 h-8 rounded-full flex text-gray-100 mr-6">
                                     {
-                                        audioRef.current && audioRef.current.paused ? (
-                                            <IconPlayerPlayFilled size={30} />
+                                        audioRef.current && songStatus === 'paused' ? (
+                                            <IconPlayerPlayFilled size={30} onClick={togglePause} />
                                         ) : (
-                                            <IconPlayerPause size={30} />
+                                            <IconPlayerPause onClick={togglePause} size={30} />
                                         )
                                     }
                                 </button>
