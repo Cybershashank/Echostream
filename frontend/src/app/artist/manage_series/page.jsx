@@ -36,7 +36,7 @@ const manage_series = () => {
   const displayUsers = () => {
     return Data.map((obj) => (
       <tr>
-        <td className="w-1/4 py-4 px-6 text-left text-gray-600 border-b  border-gray-200">{obj.series}</td>
+        <td className="w-1/4 py-4 px-6 text-left text-gray-600 border-b  border-gray-200">{obj.name}</td>
         <td className="py-4 w-1/4 px-6 text-left text-gray-600  border-b border-gray-200 truncate">
           {obj.category}
         </td>

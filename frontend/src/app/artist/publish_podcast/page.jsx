@@ -222,16 +222,9 @@ const publish_podcast = () => {
           }
 
           <button className="bg-purple-700 text-white block mx-auto px-6 py-1 rounded-lg"
-            onClick={e => updatePodcast({ published: true, record: selFile.name })}
+            onClick={e => updatePodcast({ published: true, record: selFile })}
           >Publish</button>
         </div>
-        
-
-
-
-
-
-
 
         <div className="bg-gray-00 rounded-lg shadow-md p-6">
           <label className="text-lg font-semibold mb-2">Upload Podcast</label>
