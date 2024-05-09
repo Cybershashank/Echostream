@@ -32,8 +32,7 @@ const publish_podcast = () => {
 
   useEffect(() => {
     fetchPodcastData();
-  }, [])
-
+  }, []);
 
   const uploadFile = (file) => {
     const fd = new FormData();
