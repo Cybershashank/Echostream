@@ -231,7 +231,14 @@ const browse_podcast = () => {
               <div className='relative'>
                 <a href=''>
                   <div className='h-28 w-28 md:h-48 md:w-48 inline-block relative flex-shrink-0 rounded-lg'>
-                    <img alt='Secret Billionaire | ' loading='lazy' decoding='async' data-nimg='fill' className='rounded-lg contain' sizes='100vw' srcSet='https://images.cdn.kukufm.com/w:1920/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/5d9c076977f54068ba0f6b786af18828.png' />
+                    <img 
+                    alt='Secret Billionaire | ' 
+                    loading='lazy' 
+                    decoding='async' 
+                    data-nimg='fill' 
+                    className='rounded-lg contain' 
+                    sizes='100vw' 
+                    srcSet='https://images.cdn.kukufm.com/w:1920/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/5d9c076977f54068ba0f6b786af18828.png' />
                   </div>
                 </a>
               </div>
