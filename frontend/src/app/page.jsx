@@ -42,16 +42,16 @@ const Home = () => {
                         <a className='py-4 px-5 w-full block whitespace-nowrap hover:bg-[#3e434c]' href='/show/religion'>
                           <div className='text-white-text-lg font-normal capitalize'>Religion</div>
                         </a>
-                        <a className='py-4 px-5 w-full block whitespace-nowrap hover:bg[#3e434c]' href='/show/trending'>
+                        <a className='py-4 px-5 w-full block whitespace-nowrap hover:bg-[#3e434c]' href='/show/trending'>
                           <div className='text-white-text-lg font-normal capitalize'>Trending</div>
                         </a>
-                        <a className='py-4 px-5 w-full block whitespace-nowrap hover:bg[#3E434C]' href='/show/Romance'>
+                        <a className='py-4 px-5 w-full block whitespace-nowrap hover:bg-[#3E434C]' href='/show/Romance'>
                           <div className='text-white-text-lg font-normal capitalize'>Romance</div>
                         </a>
-                        <a className='py-4 px-5 w-full block whitespace-nowrap hover:bg[#3E434C]' href='/show/motivational'>
+                        <a className='py-4 px-5 w-full block whitespace-nowrap hover:bg-[#3E434C]' href='/show/motivational'>
                           <div className='text-white-text-lg font-normal capitalize'>Motivational</div>
                         </a>
-                        <a className='py-4 px-5 w-full block whitespace-nowrap hover:bg[#3E434C]' href='/show/horror'>
+                        <a className='py-4 px-5 w-full block whitespace-nowrap hover:bg-[#3E434C]' href='/show/horror'>
                           <div className='text-white-text-lg font-normal capitalize'>Horror</div>
                         </a>
                       </div>
@@ -69,19 +69,19 @@ const Home = () => {
                     </div>
                     <div className='pt-4 invisible absolute flex shadow-xl group-hover:visible w-full rounded-sm'>
                       <div className='bg-zinc-800 text-white rounded-sm w-auto'>
-                        <a className='py-4 px-5 w-full block whitespace-nowrap hover:bg[#3E434C]' href=''>
+                        <a className='py-4 px-5 w-full block whitespace-nowrap hover:bg-[#3E434C]' href=''>
                           <div className='text-white-text-lg font-normal capitalize'>English</div>
                         </a>
-                        <a className='py-4 px-5 w-full block whitespace-nowrap hover:bg[#3E434C]' href=''>
+                        <a className='py-4 px-5 w-full block whitespace-nowrap hover:bg-[#3E434C]' href=''>
                           <div className='text-white-text-lg font-normal capitalize'>Hindi</div>
                         </a>
-                        <a className='py-4 px-5 w-full block whitespace-nowrap hover:bg[#3E434C]' href=''>
+                        <a className='py-4 px-5 w-full block whitespace-nowrap hover:bg-[#3E434C]' href=''>
                           <div className='text-white-text-lg font-normal capitalize'>Tamil</div>
                         </a>
-                        <a className='py-4 px-5 w-full block whitespace-nowrap hover:bg[#3E434C]' href=''>
+                        <a className='py-4 px-5 w-full block whitespace-nowrap hover:bg-[#3E434C]' href=''>
                           <div className='text-white-text-lg font-normal capitalize'>telgu</div>
                         </a>
-                        <a className='py-4 px-5 w-full block whitespace-nowrap hover:bg[#3E434C]' href=''>
+                        <a className='py-4 px-5 w-full block whitespace-nowrap hover:bg-[#3E434C]' href=''>
                           <div className='text-white-text-lg font-normal capitalize'>bengali</div>
                         </a>
                       </div>
@@ -89,7 +89,7 @@ const Home = () => {
                   </div>
                 </div>
                 <Link href='/about'>
-                  <div className='text-white text-lg font-normal hover:scale-110 hover:bg[#3E434C] transition ease-in-out px-3 py-2 rounded-xl'>About</div>
+                  <div className='text-white text-lg font-normal hover:scale-110 hover:bg-[#3E434C] transition ease-in-out px-3 py-2 rounded-xl'>About</div>
                 </Link>
               </div>
               <div className='flex items-center space-x-6 flex-1 justify-end'>
