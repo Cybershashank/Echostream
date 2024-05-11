@@ -35,24 +35,15 @@ const browse_podcast = () => {
   return (
     <>
 
-      <Swiper
-        onSwiper={setSwiperRef}
-        slidesPerView={3}
-        centeredSlides={true}
-        spaceBetween={30}
-        pagination={{
-          type: 'fraction',
-        }}
-        navigation={true}
-        modules={[Pagination, Navigation]}
-        className="mySwiper"
-      >
-        <SwiperSlide><img src='https://images.cdn.kukufm.com/w:256/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/f701ac7546e243c3b2eb310d8b0df751.png' /></SwiperSlide>
-        <SwiperSlide><img src='https://images.cdn.kukufm.com/w:256/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/cu_icons/5ae0cd1447954fba9f563de8adbb1a4e.png' /></SwiperSlide>
-        <SwiperSlide><img src='https://images.cdn.kukufm.com/w:256/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/4f022d474a334c88818f7fba6ba5e7f3.png' /></SwiperSlide>
-        <SwiperSlide><img src='https://images.cdn.kukufm.com/w:256/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/cu_icons/bb5505badc5c4797a917d19d39fdda89.png' /></SwiperSlide>
-        <SwiperSlide><img src='https://images.cdn.kukufm.com/w:256/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/cu_icons/bb5505badc5c4797a917d19d39fdda89.png' /></SwiperSlide>
-      </Swiper>
+     <div className='flex overflow-x-scroll m-5 justify-between scrollbar-style'>
+      <div className='relative mx-2 rounded-xl'>
+        <a href=''>
+          <div className='h-72 w-72 rounded-xl'>
+            <img src='https://images.cdn.kukufm.com/w:384/f:webp/q:75/https://images.cdn.kukufm.com/f:webp/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/c81642757af240b188615fad2b9bf1b1_landscape_952.jpg' />
+          </div>
+        </a>
+      </div>
+      </div> 
 
       <div></div>
       <div>

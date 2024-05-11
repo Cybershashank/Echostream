@@ -26,7 +26,7 @@ const Home = () => {
       <div>
         <div className='bg-[#191B1F]'>
           <div className='md:sticky flex z-51 top-0 md:h-28 h-20 transition-all duration-500'>
-            <nav className={`${scrolled ? 'bg-slate-900' : 'bg-transparent'} z-50 hidden w-full md:flex items-center text-white justify-between py-8 px-16 z-50 relative`}>
+            <nav className={`${scrolled ? 'bg-[#191b1f]' : 'bg-transparent'} z-50 hidden w-full md:flex items-center text-white justify-between py-8 px-16 z-50 relative`}>
               <div className='flex-shrink-0 flex-1'>
                 <Link
                   href="http://localhost:3000/"
@@ -180,62 +180,70 @@ const Home = () => {
           </div>
 
 
-          <div className="bg-[#191B1F]  py-12">
-            <div className="container mx-auto text-center">
-              <div class="card bg-[#272A30] rounded-lg shadow-lg lg:pt-[50px] py-[50px]">
-                <h1 className=" text-white text-3xl font-bold mb-2">Listen to Audiobooks in</h1>
-                <p className=" text-white text-lg font-bold mb-4">Multiple Languages</p>
+          <div className="w-full lg:px-24 pointer-events-none">
+            <div className="bg-[#272A30] rounded-xl w-full lg:p-12 py-5">
+              
+                <h1 className='text-base text-sm '>
+                  <div className='text-center mb-5 lg:mb-12 text-white'>
+                    <div className='text-4xl font-normal'>
+                      "Listen to Audiobooks in"
+                    </div>
+                    <div className='text-4xl font-bold mt-2'>
+                      Multiple Languages
+                    </div>
+                  </div>
+                </h1>
                 <div className='flex justify-center flex-wrap gap-6'>
-                  <Link className=' group p-2 lg:p-5 text-center w-[130px] md:w-[120px] bg-[#3e434c] rounded-lg flex justify-center items-center hover:bg-[#22C55E]' href='/browse_series'>
+                  <Link className=' group p-2 lg:p-5 text-center w-[130px] md:w-[120px] bg-[#3e434c] rounded-xl flex justify-center items-center hover:bg-[#22C55E]' href='/browse_series'>
                     <div>
-                      <div className='text-white text-x1 md:text-5x1 group-hover:scale-125 transition ease-in-out duration-300 font-bold'>हि</div>
-                      <div className='text-white text-base md:text-x1 font-normal md:mt-4 mt-2'>Hindi</div>
+                      <div className='text-white text-x1 md:text-5xl group-hover:scale-125 transition ease-in-out duration-300 font-normal'>हि</div>
+                      <div className='text-white text-base md:text-xl font-normal md:mt-4 mt-2'>Hindi</div>
                     </div>
                   </Link>
                   <Link className=' group p-2 lg:p-5 text-center w-[130px] md:w-[120px] bg-[#3e434c] rounded-lg flex justify-center items-center hover:bg-[#22C55E]' href='/browse_series'>
                     <div>
-                      <div className='text-white text-x1 md:text-5x1 group-hover:scale-125 transition ease-in-out duration-300 font-bold'>Aa</div>
-                      <div className='text-white text-base md:text-x1 font-normal md:mt-4 mt-2'>English</div>
+                      <div className='text-white text-x1 md:text-5xl group-hover:scale-125 transition ease-in-out duration-300 font-bold'>Aa</div>
+                      <div className='text-white text-base md:text-xl font-normal md:mt-4 mt-2'>English</div>
                     </div>
                   </Link>
                   <Link className=' group p-2 lg:p-5 text-center w-[130px] md:w-[120px] bg-[#3e434c] rounded-lg flex justify-center items-center hover:bg-[#22C55E]' href='/browse_series'>
                     <div>
-                      <div className='text-white text-x1 md:text-5x1 group-hover:scale-125 transition ease-in-out duration-300 font-bold'>த</div>
-                      <div className='text-white text-base md:text-x1 font-normal md:mt-4 mt-2'>Tamil</div>
+                      <div className='text-white text-x1 md:text-5xl group-hover:scale-125 transition ease-in-out duration-300 font-bold'>த</div>
+                      <div className='text-white text-base md:text-xl font-normal md:mt-4 mt-2'>Tamil</div>
                     </div>
                   </Link>
                   <Link className=' group p-2 lg:p-5 text-center w-[130px] md:w-[120px] bg-[#3e434c] rounded-lg flex justify-center items-center hover:bg-[#22C55E]' href='/browse_series'>
                     <div>
-                      <div className='text-white text-x1 md:text-5x1 group-hover:scale-125 transition ease-in-out duration-300 font-bold'>తె</div>
-                      <div className='text-white text-base md:text-x1 font-normal md:mt-4 mt-2'>Telugu</div>
+                      <div className='text-white text-x1 md:text-5xl group-hover:scale-125 transition ease-in-out duration-300 font-bold'>తె</div>
+                      <div className='text-white text-base md:text-xl font-normal md:mt-4 mt-2'>Telugu</div>
                     </div>
                   </Link>
                   <Link className=' group p-2 lg:p-5 text-center w-[130px] md:w-[120px] bg-[#3e434c] rounded-lg flex justify-center items-center hover:bg-[#22C55E]' href='/browse_series'>
                     <div>
-                      <div className='text-white text-x1 md:text-5x1 group-hover:scale-125 transition ease-in-out duration-300 font-bold'>മ</div>
-                      <div className='text-white text-base md:text-x1 font-normal md:mt-4 mt-2'>Malayalam</div>
+                      <div className='text-white text-x1 md:text-5xl group-hover:scale-125 transition ease-in-out duration-300 font-bold'>മ</div>
+                      <div className='text-white text-base md:text-xl font-normal md:mt-4 mt-2'>Malayalam</div>
                     </div>
                   </Link>
                   <Link className=' group p-2 lg:p-5 text-center w-[130px] md:w-[120px] bg-[#3e434c] rounded-lg flex justify-center items-center hover:bg-[#22C55E]' href='/browse_series'>
                     <div>
-                      <div className='text-white text-x1 md:text-5x1 group-hover:scale-125 transition ease-in-out duration-300 font-bold'>ಕನ್</div>
-                      <div className='text-white text-base md:text-x1 font-normal md:mt-4 mt-2'>Kannada</div>
+                      <div className='text-white text-x1 md:text-5xl group-hover:scale-125 transition ease-in-out duration-300 font-bold'>ಕನ್</div>
+                      <div className='text-white text-base md:text-xl font-normal md:mt-4 mt-2'>Kannada</div>
                     </div>
                   </Link>
                   <Link className=' group p-2 lg:p-5 text-center w-[130px] md:w-[120px] bg-[#3e434c] rounded-lg flex justify-center items-center hover:bg-[#22C55E]' href='/browse_series'>
                     <div>
-                      <div className='text-white text-x1 md:text-5x1 group-hover:scale-125 transition ease-in-out duration-300 font-bold'>বে</div>
-                      <div className='text-white text-base md:text-x1 font-normal md:mt-4 mt-2'>Bangla</div>
+                      <div className='text-white text-x1 md:text-5xl group-hover:scale-125 transition ease-in-out duration-300 font-bold'>বে</div>
+                      <div className='text-white text-base md:text-xl font-normal md:mt-4 mt-2'>Bangla</div>
                     </div>
                   </Link>
                   <Link className=' group p-2 lg:p-5 text-center w-[130px] md:w-[120px] bg-[#3e434c] rounded-lg flex justify-center items-center hover:bg-[#22C55E]' href='/browse_series'>
                     <div>
-                      <div className='text-white text-x1 md:text-5x1 group-hover:scale-125 transition ease-in-out duration-300 font-bold'>मै</div>
-                      <div className='text-white text-base md:text-x1 font-normal md:mt-4 mt-2'>Marathi</div>
+                      <div className='text-white text-x1 md:text-5xl group-hover:scale-125 transition ease-in-out duration-300 font-bold'>मै</div>
+                      <div className='text-white text-base md:text-xl font-normal md:mt-4 mt-2'>Marathi</div>
                     </div>
                   </Link>
                 </div>
-              </div>
+              
             </div>
           </div>
 
