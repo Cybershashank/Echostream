@@ -39,7 +39,15 @@ const browse_podcast = () => {
       <div className='relative mx-2 rounded-xl'>
         <a href=''>
           <div className='h-72 w-72 rounded-xl'>
-            <img src='https://images.cdn.kukufm.com/w:384/f:webp/q:75/https://images.cdn.kukufm.com/f:webp/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/c81642757af240b188615fad2b9bf1b1_landscape_952.jpg' />
+            <img 
+            style={{ 
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: 'contain',
+              maskImage: 'linear-gradient(rgb(193, 176, 112) 10%, rgb(41, 12, 6) 80%, transparent: 100%)',
+              backgroundImage: 'url(https://images.cdn.kukufm.com/w:384/f:webp/q:75/https://images.cdn.kukufm.com/f:webp/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/c81642757af240b188615fad2b9bf1b1_landscape_952.jpg)',
+              radialGradient: 'rgb(193, 176, 112), rgb(41, 12, 6)'
+            }}
+            />
           </div>
         </a>
       </div>
