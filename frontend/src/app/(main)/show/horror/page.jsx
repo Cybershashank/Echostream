@@ -21,10 +21,10 @@ const horror = () => {
       <div className='flex sm:justify-center'>
         <div className='container'>
           <h1 className='p-4 text-lg font-semisolid'>Best in Motivation</h1>
-          
-          <div className='flex flex-wrap md:justify-start mx-auto w-full md:overflow md:space-x-4 space-y-3 md:space-y-0'>
-          <div className='flex md:block space-x-3 md:space-x-0 md:mt-0 md:mr-0 '>
-          <div className='relative'>
+
+          <div className=' flex flex-wrap md:justify-start mx-auto w-full md:overflow md:space-x-4 space-y-3 md:space-y-0'>
+            <div className='mx-auto flex md:block space-x-3 md:space-x-0 md:mt-0 md:mr-0 '>
+              <div className='relative'>
                 <a href=''>
                   <div className='h-28 w-28 md:h-48 md:w-48 inline-block relative flex-shrink-0 rounded-lg'>
                     <img alt='Secret Billionaire | ' loading='lazy' decoding='async' data-nimg='fill' className='rounded-lg contain' sizes='100vw' srcSet='https://images.cdn.kukufm.com/w:1920/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/3f783e04873245aa8767cf733893b9c9.png' />
@@ -32,7 +32,7 @@ const horror = () => {
                 </a>
               </div>
               <a href=''>
-              <div className='mr-2 w-52 md:w-44 truncate !text-clip md:overflow-visible md:whitespace-normal md:mb-2 md:text-base font-semibold md:font-normal '>13 Khoon Maaf</div>
+                <div className='mr-2 w-52 md:w-44 truncate !text-clip md:overflow-visible md:whitespace-normal md:mb-2 md:text-base font-semibold md:font-normal '>13 Khoon Maaf</div>
                 <div className='block md:hidden'>
                   <div className='flex flex-wrap gap-1 items-center'>
                     <div className='bg-[#228b22] rounded-full p-0.5'>
@@ -54,7 +54,7 @@ const horror = () => {
             </div>
 
             <div className='flex md:block space-x-3 md:space-x-0 md:mt-0 md:mr-4'>
-          <div className='relative'>
+              <div className='relative'>
                 <a href=''>
                   <div className='h-28 w-28 md:h-48 md:w-48 inline-block relative flex-shrink-0 rounded-lg'>
                     <img alt='Secret Billionaire | ' loading='lazy' decoding='async' data-nimg='fill' className='rounded-lg contain' sizes='100vw' srcSet='https://images.cdn.kukufm.com/w:1920/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/3f783e04873245aa8767cf733893b9c9.png' />
@@ -62,7 +62,7 @@ const horror = () => {
                 </a>
               </div>
               <a href=''>
-              <div className='mr-2 w-52 md:w-44 truncate !text-clip md:overflow-visible md:whitespace-normal md:mb-2 md:text-base font-semibold md:font-normal '>13 Khoon Maaf</div>
+                <div className='mr-2 w-52 md:w-44 truncate !text-clip md:overflow-visible md:whitespace-normal md:mb-2 md:text-base font-semibold md:font-normal '>13 Khoon Maaf</div>
                 <div className='block md:hidden'>
                   <div className='flex flex-wrap gap-1 items-center'>
                     <div className='bg-[#228b22] rounded-full p-0.5'>
@@ -84,7 +84,7 @@ const horror = () => {
             </div>
 
             <div className='flex md:block space-x-3 md:space-x-0 md:mt-0 md:mr-4'>
-          <div className='relative'>
+              <div className='relative'>
                 <a href=''>
                   <div className='h-28 w-28 md:h-48 md:w-48 inline-block relative flex-shrink-0 rounded-lg'>
                     <img alt='Secret Billionaire | ' loading='lazy' decoding='async' data-nimg='fill' className='rounded-lg contain' sizes='100vw' srcSet='https://images.cdn.kukufm.com/w:1920/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/3f783e04873245aa8767cf733893b9c9.png' />
@@ -92,7 +92,7 @@ const horror = () => {
                 </a>
               </div>
               <a href=''>
-              <div className='mr-2 w-52 md:w-44 truncate !text-clip md:overflow-visible md:whitespace-normal md:mb-2 md:text-base font-semibold md:font-normal '>13 Khoon Maaf</div>
+                <div className='mr-2 w-52 md:w-44 truncate !text-clip md:overflow-visible md:whitespace-normal md:mb-2 md:text-base font-semibold md:font-normal '>13 Khoon Maaf</div>
                 <div className='block md:hidden'>
                   <div className='flex flex-wrap gap-1 items-center'>
                     <div className='bg-[#228b22] rounded-full p-0.5'>
@@ -114,7 +114,7 @@ const horror = () => {
             </div>
 
             <div className='flex md:block space-x-3 md:space-x-0 md:mt-0 md:mr-4'>
-          <div className='relative'>
+              <div className='relative'>
                 <a href=''>
                   <div className='h-28 w-28 md:h-48 md:w-48 inline-block relative flex-shrink-0 rounded-lg'>
                     <img alt='Secret Billionaire | ' loading='lazy' decoding='async' data-nimg='fill' className='rounded-lg contain' sizes='100vw' srcSet='https://images.cdn.kukufm.com/w:1920/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/3f783e04873245aa8767cf733893b9c9.png' />
@@ -122,7 +122,7 @@ const horror = () => {
                 </a>
               </div>
               <a href=''>
-              <div className='mr-2 w-52 md:w-44 truncate !text-clip md:overflow-visible md:whitespace-normal md:mb-2 md:text-base font-semibold md:font-normal '>13 Khoon Maaf</div>
+                <div className='mr-2 w-52 md:w-44 truncate !text-clip md:overflow-visible md:whitespace-normal md:mb-2 md:text-base font-semibold md:font-normal '>13 Khoon Maaf</div>
                 <div className='block md:hidden'>
                   <div className='flex flex-wrap gap-1 items-center'>
                     <div className='bg-[#228b22] rounded-full p-0.5'>
@@ -144,7 +144,7 @@ const horror = () => {
             </div>
 
             <div className='flex md:block space-x-3 md:space-x-0 md:mt-0 md:mr-4'>
-          <div className='relative'>
+              <div className='relative'>
                 <a href=''>
                   <div className='h-28 w-28 md:h-48 md:w-48 inline-block relative flex-shrink-0 rounded-lg'>
                     <img alt='Secret Billionaire | ' loading='lazy' decoding='async' data-nimg='fill' className='rounded-lg contain' sizes='100vw' srcSet='https://images.cdn.kukufm.com/w:1920/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/3f783e04873245aa8767cf733893b9c9.png' />
@@ -152,7 +152,7 @@ const horror = () => {
                 </a>
               </div>
               <a href=''>
-              <div className='mr-2 w-52 md:w-44 truncate !text-clip md:overflow-visible md:whitespace-normal md:mb-2 md:text-base font-semibold md:font-normal '>13 Khoon Maaf</div>
+                <div className='mr-2 w-52 md:w-44 truncate !text-clip md:overflow-visible md:whitespace-normal md:mb-2 md:text-base font-semibold md:font-normal '>13 Khoon Maaf</div>
                 <div className='block md:hidden'>
                   <div className='flex flex-wrap gap-1 items-center'>
                     <div className='bg-[#228b22] rounded-full p-0.5'>
@@ -174,7 +174,7 @@ const horror = () => {
             </div>
 
             <div className='flex md:block space-x-3 md:space-x-0 md:mt-0 md:mr-4'>
-          <div className='relative'>
+              <div className='relative'>
                 <a href=''>
                   <div className='h-28 w-28 md:h-48 md:w-48 inline-block relative flex-shrink-0 rounded-lg'>
                     <img alt='Secret Billionaire | ' loading='lazy' decoding='async' data-nimg='fill' className='rounded-lg contain' sizes='100vw' srcSet='https://images.cdn.kukufm.com/w:1920/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/3f783e04873245aa8767cf733893b9c9.png' />
@@ -182,7 +182,7 @@ const horror = () => {
                 </a>
               </div>
               <a href=''>
-              <div className='mr-2 w-52 md:w-44 truncate !text-clip md:overflow-visible md:whitespace-normal md:mb-2 md:text-base font-semibold md:font-normal '>13 Khoon Maaf</div>
+                <div className='mr-2 w-52 md:w-44 truncate !text-clip md:overflow-visible md:whitespace-normal md:mb-2 md:text-base font-semibold md:font-normal '>13 Khoon Maaf</div>
                 <div className='block md:hidden'>
                   <div className='flex flex-wrap gap-1 items-center'>
                     <div className='bg-[#228b22] rounded-full p-0.5'>
@@ -204,7 +204,7 @@ const horror = () => {
             </div>
 
             <div className='flex md:block space-x-3 md:space-x-0 md:mt-0 md:mr-4'>
-          <div className='relative'>
+              <div className='relative'>
                 <a href=''>
                   <div className='h-28 w-28 md:h-48 md:w-48 inline-block relative flex-shrink-0 rounded-lg'>
                     <img alt='Secret Billionaire | ' loading='lazy' decoding='async' data-nimg='fill' className='rounded-lg contain' sizes='100vw' srcSet='https://images.cdn.kukufm.com/w:1920/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/3f783e04873245aa8767cf733893b9c9.png' />
@@ -212,7 +212,7 @@ const horror = () => {
                 </a>
               </div>
               <a href=''>
-              <div className='mr-2 w-52 md:w-44 truncate !text-clip md:overflow-visible md:whitespace-normal md:mb-2 md:text-base font-semibold md:font-normal '>13 Khoon Maaf</div>
+                <div className='mr-2 w-52 md:w-44 truncate !text-clip md:overflow-visible md:whitespace-normal md:mb-2 md:text-base font-semibold md:font-normal '>13 Khoon Maaf</div>
                 <div className='block md:hidden'>
                   <div className='flex flex-wrap gap-1 items-center'>
                     <div className='bg-[#228b22] rounded-full p-0.5'>
@@ -234,7 +234,7 @@ const horror = () => {
             </div>
 
             <div className='flex md:block space-x-3 md:space-x-0 md:mt-0 md:mr-4'>
-          <div className='relative'>
+              <div className='relative'>
                 <a href=''>
                   <div className='h-28 w-28 md:h-48 md:w-48 inline-block relative flex-shrink-0 rounded-lg'>
                     <img alt='Secret Billionaire | ' loading='lazy' decoding='async' data-nimg='fill' className='rounded-lg contain' sizes='100vw' srcSet='https://images.cdn.kukufm.com/w:1920/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/3f783e04873245aa8767cf733893b9c9.png' />
@@ -242,7 +242,7 @@ const horror = () => {
                 </a>
               </div>
               <a href=''>
-              <div className='mr-2 w-52 md:w-44 truncate !text-clip md:overflow-visible md:whitespace-normal md:mb-2 md:text-base font-semibold md:font-normal '>13 Khoon Maaf</div>
+                <div className='mr-2 w-52 md:w-44 truncate !text-clip md:overflow-visible md:whitespace-normal md:mb-2 md:text-base font-semibold md:font-normal '>13 Khoon Maaf</div>
                 <div className='block md:hidden'>
                   <div className='flex flex-wrap gap-1 items-center'>
                     <div className='bg-[#228b22] rounded-full p-0.5'>
@@ -264,7 +264,7 @@ const horror = () => {
             </div>
 
             <div className='flex md:block space-x-3 md:space-x-0 md:mt-0 md:mr-4'>
-          <div className='relative'>
+              <div className='relative'>
                 <a href=''>
                   <div className='h-28 w-28 md:h-48 md:w-48 inline-block relative flex-shrink-0 rounded-lg'>
                     <img alt='Secret Billionaire | ' loading='lazy' decoding='async' data-nimg='fill' className='rounded-lg contain' sizes='100vw' srcSet='https://images.cdn.kukufm.com/w:1920/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/3f783e04873245aa8767cf733893b9c9.png' />
@@ -272,7 +272,7 @@ const horror = () => {
                 </a>
               </div>
               <a href=''>
-              <div className='mr-2 w-52 md:w-44 truncate !text-clip md:overflow-visible md:whitespace-normal md:mb-2 md:text-base font-semibold md:font-normal '>13 Khoon Maaf</div>
+                <div className='mr-2 w-52 md:w-44 truncate !text-clip md:overflow-visible md:whitespace-normal md:mb-2 md:text-base font-semibold md:font-normal '>13 Khoon Maaf</div>
                 <div className='block md:hidden'>
                   <div className='flex flex-wrap gap-1 items-center'>
                     <div className='bg-[#228b22] rounded-full p-0.5'>
@@ -294,7 +294,7 @@ const horror = () => {
             </div>
 
             <div className='flex md:block space-x-3 md:space-x-0 md:mt-0 md:mr-4'>
-          <div className='relative'>
+              <div className='relative'>
                 <a href=''>
                   <div className='h-28 w-28 md:h-48 md:w-48 inline-block relative flex-shrink-0 rounded-lg'>
                     <img alt='Secret Billionaire | ' loading='lazy' decoding='async' data-nimg='fill' className='rounded-lg contain' sizes='100vw' srcSet='https://images.cdn.kukufm.com/w:1920/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/3f783e04873245aa8767cf733893b9c9.png' />
@@ -302,7 +302,7 @@ const horror = () => {
                 </a>
               </div>
               <a href=''>
-              <div className='mr-2 w-52 md:w-44 truncate !text-clip md:overflow-visible md:whitespace-normal md:mb-2 md:text-base font-semibold md:font-normal '>13 Khoon Maaf</div>
+                <div className='mr-2 w-52 md:w-44 truncate !text-clip md:overflow-visible md:whitespace-normal md:mb-2 md:text-base font-semibold md:font-normal '>13 Khoon Maaf</div>
                 <div className='block md:hidden'>
                   <div className='flex flex-wrap gap-1 items-center'>
                     <div className='bg-[#228b22] rounded-full p-0.5'>
@@ -323,15 +323,15 @@ const horror = () => {
               </a>
             </div>
 
-            </div>
           </div>
         </div>
-       
+      </div>
 
-      
 
-            
-           
+
+
+
+
 
     </>
   )

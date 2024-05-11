@@ -1,4 +1,5 @@
-import React from 'react'
+'use client';
+import React, { useEffect, useState } from 'react'
 import Navbar from './(main)/navbar'
 import Link from 'next/link';
 
@@ -7,12 +8,25 @@ import classes from './page.module.css';
 
 const Home = () => {
 
+  const [scrolled, setScrolled] = useState(false);
+  const scrollThreshold = 100; // Adjust this value to define the scroll position
+
+  const handleScroll = () => {
+    const currentScrollY = window.pageYOffset;
+    setScrolled(currentScrollY > scrollThreshold);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <>
       <div>
         <div className='bg-[#191B1F]'>
           <div className='md:sticky flex z-51 top-0 md:h-28 h-20 transition-all duration-500'>
-            <nav className='hidden w-full md:flex items-center text-white justify-between py-8 px-16 z-50 relative'>
+            <nav className={`${scrolled ? 'bg-slate-900' : 'bg-transparent'} z-50 hidden w-full md:flex items-center text-white justify-between py-8 px-16 z-50 relative`}>
               <div className='flex-shrink-0 flex-1'>
                 <Link
                   href="http://localhost:3000/"
@@ -83,6 +97,15 @@ const Home = () => {
                         </a>
                         <a className='py-4 px-5 w-full block whitespace-nowrap hover:bg-[#3E434C]' href=''>
                           <div className='text-white-text-lg font-normal capitalize'>bengali</div>
+                        </a>
+                        <a className='py-4 px-5 w-full block whitespace-nowrap hover:bg-[#3E434C]' href=''>
+                          <div className='text-white-text-lg font-normal capitalize'>Malayalam</div>
+                        </a>
+                        <a className='py-4 px-5 w-full block whitespace-nowrap hover:bg-[#3E434C]' href=''>
+                          <div className='text-white-text-lg font-normal capitalize'>Kannada</div>
+                        </a>
+                        <a className='py-4 px-5 w-full block whitespace-nowrap hover:bg-[#3E434C]' href=''>
+                          <div className='text-white-text-lg font-normal capitalize'>Marathi</div>
                         </a>
                       </div>
                     </div>
