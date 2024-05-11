@@ -1178,11 +1178,11 @@ const browse_podcast = () => {
 
       </Swiper> */}
 
-      <div className="grid  h-screen w-screen  ">
+      <div className="flex flex-wrap  h-screen w-screen  ">
 
         <main className="col-span-5 row-span-3 overflow-auto">
 
-          <section className="px-6 grid gap-6 mb-8">
+          <section className="px-6 flex flex-wrap gap-6 mb-8">
             <div className="flex items-center">
               <div className="flex-1">
                 <h3 className="text-2xl text-white"></h3>
@@ -1192,7 +1192,7 @@ const browse_podcast = () => {
               podcastList.map((pod) => {
 
 
-                return <div className="grid grid-cols-6  gap-4">
+                return <div className="flex flex-wrap grid-cols-6  gap-4">
                   <div className="">
                     <div className="bg-gray-200 rounded-lg p-5">
                       <div className="relative pt-full mb-4">
