@@ -7,6 +7,7 @@ const mySchema = new Schema({
     cover : String,
     artist : {type: Types.ObjectId, ref : 'artist'},
     likes : {type : Number, default : 0},
+    type : {type : String, default: 'trending'},
     createdAt: { type: Date, default: Date.now }
     
 });

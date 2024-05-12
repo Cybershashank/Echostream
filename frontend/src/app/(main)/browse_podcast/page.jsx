@@ -16,6 +16,7 @@ const browse_podcast = () => {
   const [swiperRef, setSwiperRef] = useState();
 
   const [podcastList, setPodcastList] = useState([]);
+  const [trendingSeries, setTrendingSeries] = useState([]);
 
   const fetchPodcastData = async () => {
     const res = await fetch("http://localhost:5000/podcast/getall");
@@ -26,97 +27,137 @@ const browse_podcast = () => {
 
     setPodcastList(data);
   }
+
+  const fetchTrendingSeries = async () => {
+    const res = await fetch("http://localhost:5000/series/get-trending");
+    console.log(res.status);
+    const data = await res.json();
+    console.log(data);
+    setTrendingSeries(data);
+  }
+
   useEffect(() => {
     fetchPodcastData();
+    fetchTrendingSeries();
   }, [])
 
+  const displayTrending = () => {
+    return trendingSeries.map(series => (
+      <div className='flex md:block space-x-3 md:space-x-0'>
+        <div className='relative'>
+          <Link href={'/viewPodcast/'+series._id}>
+            <div className='h-28 w-28 md:h-48 md:w-48 inline-block relative flex-shrink-0 rounded-lg'>
+              <img alt='Secret Billionaire | ' loading='lazy' decoding='async' data-nimg='fill' className='rounded-lg contain' sizes='100vw' srcSet='https://images.cdn.kukufm.com/w:1920/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/5d9c076977f54068ba0f6b786af18828.png' />
+            </div>
+          </Link>
+        </div>
+        <Link href={'/viewPodcast/'+series._id}>
+          <div className='mr-2 w-52 md:w-44 truncate !text-clip md:overflow-visible md:whitespace-normal md:mb-2 md:text-base font-semibold md:font-normal '>{series.name}</div>
+          <div className='block md:hidden'>
+            <div className='flex flex-wrap gap-1 items-center'>
+              <div className='bg-[#228b22] rounded-full p-0.5'>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" /></svg>
+              </div>
+              <div className='font-semibold text-xs'>4.7</div>
+              <div className='text-xs'>(66 Lakh+ listens)</div>
+              <span className='bg-gray-700 rounded-full h-[6px] w-[6px]'></span>
+              <div className='text-xs'>15 hr 10 min</div>
+            </div>
+            <div className='h-16 w-56 overflow-hidden text-gray-500 text-sm'>
+              "Dhruv ko apni girlfriend Jasmine ko chhote gifts bhi dilane se pehle 100 baar sochna padta hai. Par ek din use pata chalta hai ki uski girlfried usi ki class ke bigde ameerzade 'Playboy Kartik' ke sath kai raat guzar chuki hai. Yahi nahi, Kartik ke sath mil kar Jasmine online stripping bhi kar chuki hai. Dhruv ko bada jhatka lagta hai. Par Dhruv ki zindagi usdin badal jaati hai jisdin use pata chalta hai ki wo ek billionnaire ka beta hai. Kya in paison se Dhruv le payega Jasmine ke dhokhe ka badla? Ya inhi paison se wo banayega ek nayi kahani?"
+            </div>
+          </div>
+        </Link>
+      </div>
+    ))
+  }
 
 
   return (
     <>
 
-     <div className='flex overflow-x-scroll m-5 justify-between scrollbar-style'>
-      <div className='relative mx-2 rounded-xl'>
-        <a href=''>
-        <div className='h-72 w-72  inline-block relative flex-shrink-0 rounded-lg'>
-                  <img alt='Rich Dad Poor Dad | ' loading='lazy' decoding='async' data-nimg='fill' className='rounded-lg contain' sizes='100vw' srcSet='https://images.cdn.kukufm.com/w:350/f:webp/q:100/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/06c81664f3114a7c9020f4a17be85bd4.jpeg' />
-                </div>
-        </a>
-        <div className='my-2 text-sm flex justify-between items-end w-72'>
-          <a className='self-center' href=''>
-            <p className='px-2 font-sm font-medium'>The Kerala girl</p>
+      <div className='flex overflow-x-scroll m-5 justify-between scrollbar-style'>
+        <div className='relative mx-2 rounded-xl'>
+          <a href=''>
+            <div className='h-72 w-72  inline-block relative flex-shrink-0 rounded-lg'>
+              <img alt='Rich Dad Poor Dad | ' loading='lazy' decoding='async' data-nimg='fill' className='rounded-lg contain' sizes='100vw' srcSet='https://images.cdn.kukufm.com/w:350/f:webp/q:100/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/06c81664f3114a7c9020f4a17be85bd4.jpeg' />
+            </div>
           </a>
-          <button className='h-10 w-10 rounded-full bg-[#ab21c6] hover:bg-[#ab21c6] flex justify-center items-center flex-shrink-0' href=''>
-          <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-player-play"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 4v16l13 -8z" /></svg>
-          </button>
+          <div className='my-2 text-sm flex justify-between items-end w-72'>
+            <a className='self-center' href=''>
+              <p className='px-2 font-sm font-medium'>The Kerala girl</p>
+            </a>
+            <button className='h-10 w-10 rounded-full bg-[#ab21c6] hover:bg-[#ab21c6] flex justify-center items-center flex-shrink-0' href=''>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-player-play"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 4v16l13 -8z" /></svg>
+            </button>
+          </div>
         </div>
-      </div>
 
-      <div className='relative mx-2 rounded-xl'>
-        <a href=''>
-        <div className='h-72 w-72  inline-block relative flex-shrink-0 rounded-lg'>
-                  <img alt='Rich Dad Poor Dad | ' loading='lazy' decoding='async' data-nimg='fill' className='rounded-lg contain' sizes='100vw' srcSet='https://images.cdn.kukufm.com/w:350/f:webp/q:100/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/12faae0f14ed4c83bb4d67cfe4d5f09b.png' />
-                </div>
-        </a>
-        <div className='my-2 text-sm flex justify-between items-end w-72'>
-          <a className='self-center' href=''>
-            <p className='px-2 font-sm font-medium'>Shrimad Bhagwat Geeta</p>
+        <div className='relative mx-2 rounded-xl'>
+          <a href=''>
+            <div className='h-72 w-72  inline-block relative flex-shrink-0 rounded-lg'>
+              <img alt='Rich Dad Poor Dad | ' loading='lazy' decoding='async' data-nimg='fill' className='rounded-lg contain' sizes='100vw' srcSet='https://images.cdn.kukufm.com/w:350/f:webp/q:100/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/12faae0f14ed4c83bb4d67cfe4d5f09b.png' />
+            </div>
           </a>
-          <button className='h-10 w-10 rounded-full bg-[#ab21c6] hover:bg-[#ab21c6] flex justify-center items-center flex-shrink-0' href=''>
-          <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-player-play"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 4v16l13 -8z" /></svg>
-          </button>
+          <div className='my-2 text-sm flex justify-between items-end w-72'>
+            <a className='self-center' href=''>
+              <p className='px-2 font-sm font-medium'>Shrimad Bhagwat Geeta</p>
+            </a>
+            <button className='h-10 w-10 rounded-full bg-[#ab21c6] hover:bg-[#ab21c6] flex justify-center items-center flex-shrink-0' href=''>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-player-play"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 4v16l13 -8z" /></svg>
+            </button>
+          </div>
         </div>
-      </div>
 
-      <div className='relative mx-2 rounded-xl'>
-        <a href=''>
-        <div className='h-72 w-72  inline-block relative flex-shrink-0 rounded-lg'>
-                  <img alt='Rich Dad Poor Dad | ' loading='lazy' decoding='async' data-nimg='fill' className='rounded-lg contain' sizes='100vw' srcSet='https://images.cdn.kukufm.com/w:350/f:webp/q:100/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/bd00aeeec68b4bd48ea5e10bb8549977.jpeg' />
-                </div>
-        </a>
-        <div className='my-2 text-sm flex justify-between items-end w-72'>
-          <a className='self-center' href=''>
-            <p className='px-2 font-sm font-medium'>Child Killer</p>
+        <div className='relative mx-2 rounded-xl'>
+          <a href=''>
+            <div className='h-72 w-72  inline-block relative flex-shrink-0 rounded-lg'>
+              <img alt='Rich Dad Poor Dad | ' loading='lazy' decoding='async' data-nimg='fill' className='rounded-lg contain' sizes='100vw' srcSet='https://images.cdn.kukufm.com/w:350/f:webp/q:100/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/bd00aeeec68b4bd48ea5e10bb8549977.jpeg' />
+            </div>
           </a>
-          <button className='h-10 w-10 rounded-full bg-[#ab21c6] hover:bg-[#ab21c6] flex justify-center items-center flex-shrink-0' href=''>
-          <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-player-play"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 4v16l13 -8z" /></svg>
-          </button>
+          <div className='my-2 text-sm flex justify-between items-end w-72'>
+            <a className='self-center' href=''>
+              <p className='px-2 font-sm font-medium'>Child Killer</p>
+            </a>
+            <button className='h-10 w-10 rounded-full bg-[#ab21c6] hover:bg-[#ab21c6] flex justify-center items-center flex-shrink-0' href=''>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-player-play"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 4v16l13 -8z" /></svg>
+            </button>
+          </div>
         </div>
-      </div>
 
-      <div className='relative mx-2 rounded-xl'>
-        <a href=''>
-        <div className='h-72 w-72  inline-block relative flex-shrink-0 rounded-lg'>
-                  <img alt='Rich Dad Poor Dad | ' loading='lazy' decoding='async' data-nimg='fill' className='rounded-lg contain' sizes='100vw' srcSet='https://images.cdn.kukufm.com/w:350/f:webp/q:100/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/222a258d5e0f4121ab0ceaa5026982da.png' />
-                </div>
-        </a>
-        <div className='my-2 text-sm flex justify-between items-end w-72'>
-          <a className='self-center' href=''>
-            <p className='px-2 font-sm font-medium'>Rich Dad Poor Dad</p>
+        <div className='relative mx-2 rounded-xl'>
+          <a href=''>
+            <div className='h-72 w-72  inline-block relative flex-shrink-0 rounded-lg'>
+              <img alt='Rich Dad Poor Dad | ' loading='lazy' decoding='async' data-nimg='fill' className='rounded-lg contain' sizes='100vw' srcSet='https://images.cdn.kukufm.com/w:350/f:webp/q:100/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/222a258d5e0f4121ab0ceaa5026982da.png' />
+            </div>
           </a>
-          <button className='h-10 w-10 rounded-full bg-[#ab21c6] hover:bg-[#ab21c6] flex justify-center items-center flex-shrink-0' href=''>
-          <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-player-play"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 4v16l13 -8z" /></svg>
-          </button>
+          <div className='my-2 text-sm flex justify-between items-end w-72'>
+            <a className='self-center' href=''>
+              <p className='px-2 font-sm font-medium'>Rich Dad Poor Dad</p>
+            </a>
+            <button className='h-10 w-10 rounded-full bg-[#ab21c6] hover:bg-[#ab21c6] flex justify-center items-center flex-shrink-0' href=''>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-player-play"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 4v16l13 -8z" /></svg>
+            </button>
+          </div>
         </div>
-      </div>
 
-      <div className='relative mx-2 rounded-xl'>
-        <a href=''>
-        <div className='h-72 w-72  inline-block relative flex-shrink-0 rounded-lg'>
-                  <img alt='Rich Dad Poor Dad | ' loading='lazy' decoding='async' data-nimg='fill' className='rounded-lg contain' sizes='100vw' srcSet='https://images.cdn.kukufm.com/w:350/f:webp/q:100/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/3a918e2cbd544ded91f365406ecb6145.png' />
-                </div>
-        </a>
-        <div className='my-2 text-sm flex justify-between items-end w-72'>
-          <a className='self-center' href=''>
-            <p className='px-2 font-sm font-medium'>Secret Billionaire</p>
+        <div className='relative mx-2 rounded-xl'>
+          <a href=''>
+            <div className='h-72 w-72  inline-block relative flex-shrink-0 rounded-lg'>
+              <img alt='Rich Dad Poor Dad | ' loading='lazy' decoding='async' data-nimg='fill' className='rounded-lg contain' sizes='100vw' srcSet='https://images.cdn.kukufm.com/w:350/f:webp/q:100/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/3a918e2cbd544ded91f365406ecb6145.png' />
+            </div>
           </a>
-          <button className='h-10 w-10 rounded-full bg-[#ab21c6] hover:bg-[#ab21c6] flex justify-center items-center flex-shrink-0' href=''>
-          <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-player-play"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 4v16l13 -8z" /></svg>
-          </button>
+          <div className='my-2 text-sm flex justify-between items-end w-72'>
+            <a className='self-center' href=''>
+              <p className='px-2 font-sm font-medium'>Secret Billionaire</p>
+            </a>
+            <button className='h-10 w-10 rounded-full bg-[#ab21c6] hover:bg-[#ab21c6] flex justify-center items-center flex-shrink-0' href=''>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-player-play"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 4v16l13 -8z" /></svg>
+            </button>
+          </div>
         </div>
-      </div>
 
-      </div> 
+      </div>
 
       <div></div>
       <div>
@@ -264,309 +305,9 @@ const browse_podcast = () => {
             </header>
           </Link>
           <div className='flex flex-wrap md:flex-nowrap md:overflow-x-scroll w-full md:space-x-4 space-y-3 md:space-y-0 scrollbar-style'>
-            <div className='flex md:block space-x-3 md:space-x-0'>
-              <div className='relative'>
-                <a href=''>
-                  <div className='h-28 w-28 md:h-48 md:w-48 inline-block relative flex-shrink-0 rounded-lg'>
-                    <img alt='Secret Billionaire | ' loading='lazy' decoding='async' data-nimg='fill' className='rounded-lg contain' sizes='100vw' srcSet='https://images.cdn.kukufm.com/w:1920/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/5d9c076977f54068ba0f6b786af18828.png' />
-                  </div>
-                </a>
-              </div>
-              <a href=''>
-                <div className='mr-2 w-52 md:w-44 truncate !text-clip md:overflow-visible md:whitespace-normal md:mb-2 md:text-base font-semibold md:font-normal '>Secret Billionare</div>
-                <div className='block md:hidden'>
-                  <div className='flex flex-wrap gap-1 items-center'>
-                    <div className='bg-[#228b22] rounded-full p-0.5'>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" /></svg>
-                    </div>
-                    <div className='font-semibold text-xs'>4.7</div>
-                    <div className='text-xs'>(66 Lakh+ listens)</div>
-                    <span className='bg-gray-700 rounded-full h-[6px] w-[6px]'></span>
-                    <div className='text-xs'>15 hr 10 min</div>
-                  </div>
-                  <div className='h-16 w-56 overflow-hidden text-gray-500 text-sm'>
-                    "Dhruv ko apni girlfriend Jasmine ko chhote gifts bhi dilane se pehle 100 baar sochna padta hai. Par ek din use pata chalta hai ki uski girlfried usi ki class ke bigde ameerzade 'Playboy Kartik' ke sath kai raat guzar chuki hai. Yahi nahi, Kartik ke sath mil kar Jasmine online stripping bhi kar chuki hai. Dhruv ko bada jhatka lagta hai. Par Dhruv ki zindagi usdin badal jaati hai jisdin use pata chalta hai ki wo ek billionnaire ka beta hai. Kya in paison se Dhruv le payega Jasmine ke dhokhe ka badla? Ya inhi paison se wo banayega ek nayi kahani?"
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <div className='flex md:block space-x-3 md:space-x-0'>
-              <div className='relative'>
-                <a href=''>
-                  <div className='h-28 w-28 md:h-48 md:w-48 inline-block relative flex-shrink-0 rounded-lg'>
-                    <img 
-                    alt='Secret Billionaire | ' 
-                    loading='lazy' 
-                    decoding='async' 
-                    data-nimg='fill' 
-                    className='rounded-lg contain' 
-                    sizes='100vw' 
-                    srcSet='https://images.cdn.kukufm.com/w:1920/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/5d9c076977f54068ba0f6b786af18828.png' />
-                  </div>
-                </a>
-              </div>
-              <a href=''>
-                <div className='mr-2 w-52 md:w-44 truncate !text-clip md:overflow-visible md:whitespace-normal md:mb-2 md:text-base font-semibold md:font-normal '>Secret Billionare</div>
-                <div className='block md:hidden'>
-                  <div className='flex flex-wrap gap-1 items-center'>
-                    <div className='bg-[#228b22] rounded-full p-0.5'>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" /></svg>
-                    </div>
-                    <div className='font-semibold text-xs'>4.7</div>
-                    <div className='text-xs'>(66 Lakh+ listens)</div>
-                    <span className='bg-gray-700 rounded-full h-[6px] w-[6px]'></span>
-                    <div className='text-xs'>15 hr 10 min</div>
-                  </div>
-                  <div className='h-16 w-56 overflow-hidden text-gray-500 text-sm'>
-                    "Dhruv ko apni girlfriend Jasmine ko chhote gifts bhi dilane se pehle 100 baar sochna padta hai. Par ek din use pata chalta hai ki uski girlfried usi ki class ke bigde ameerzade 'Playboy Kartik' ke sath kai raat guzar chuki hai. Yahi nahi, Kartik ke sath mil kar Jasmine online stripping bhi kar chuki hai. Dhruv ko bada jhatka lagta hai. Par Dhruv ki zindagi usdin badal jaati hai jisdin use pata chalta hai ki wo ek billionnaire ka beta hai. Kya in paison se Dhruv le payega Jasmine ke dhokhe ka badla? Ya inhi paison se wo banayega ek nayi kahani?"
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <div className='flex md:block space-x-3 md:space-x-0'>
-              <div className='relative'>
-                <a href=''>
-                  <div className='h-28 w-28 md:h-48 md:w-48 inline-block relative flex-shrink-0 rounded-lg'>
-                    <img alt='Secret Billionaire | ' loading='lazy' decoding='async' data-nimg='fill' className='rounded-lg contain' sizes='100vw' srcSet='https://images.cdn.kukufm.com/w:1920/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/5d9c076977f54068ba0f6b786af18828.png' />
-                  </div>
-                </a>
-              </div>
-              <a href=''>
-                <div className='mr-2 w-52 md:w-44 truncate !text-clip md:overflow-visible md:whitespace-normal md:mb-2 md:text-base font-semibold md:font-normal '>Secret Billionare</div>
-                <div className='block md:hidden'>
-                  <div className='flex flex-wrap gap-1 items-center'>
-                    <div className='bg-[#228b22] rounded-full p-0.5'>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" /></svg>
-                    </div>
-                    <div className='font-semibold text-xs'>4.7</div>
-                    <div className='text-xs'>(66 Lakh+ listens)</div>
-                    <span className='bg-gray-700 rounded-full h-[6px] w-[6px]'></span>
-                    <div className='text-xs'>15 hr 10 min</div>
-                  </div>
-                  <div className='h-16 w-56 overflow-hidden text-gray-500 text-sm'>
-                    "Dhruv ko apni girlfriend Jasmine ko chhote gifts bhi dilane se pehle 100 baar sochna padta hai. Par ek din use pata chalta hai ki uski girlfried usi ki class ke bigde ameerzade 'Playboy Kartik' ke sath kai raat guzar chuki hai. Yahi nahi, Kartik ke sath mil kar Jasmine online stripping bhi kar chuki hai. Dhruv ko bada jhatka lagta hai. Par Dhruv ki zindagi usdin badal jaati hai jisdin use pata chalta hai ki wo ek billionnaire ka beta hai. Kya in paison se Dhruv le payega Jasmine ke dhokhe ka badla? Ya inhi paison se wo banayega ek nayi kahani?"
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <div className='flex md:block space-x-3 md:space-x-0'>
-              <div className='relative'>
-                <a href=''>
-                  <div className='h-28 w-28 md:h-48 md:w-48 inline-block relative flex-shrink-0 rounded-lg'>
-                    <img alt='Secret Billionaire | ' loading='lazy' decoding='async' data-nimg='fill' className='rounded-lg contain' sizes='100vw' srcSet='https://images.cdn.kukufm.com/w:1920/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/5d9c076977f54068ba0f6b786af18828.png' />
-                  </div>
-                </a>
-              </div>
-              <a href=''>
-                <div className='mr-2 w-52 md:w-44 truncate !text-clip md:overflow-visible md:whitespace-normal md:mb-2 md:text-base font-semibold md:font-normal '>Secret Billionare</div>
-                <div className='block md:hidden'>
-                  <div className='flex flex-wrap gap-1 items-center'>
-                    <div className='bg-[#228b22] rounded-full p-0.5'>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" /></svg>
-                    </div>
-                    <div className='font-semibold text-xs'>4.7</div>
-                    <div className='text-xs'>(66 Lakh+ listens)</div>
-                    <span className='bg-gray-700 rounded-full h-[6px] w-[6px]'></span>
-                    <div className='text-xs'>15 hr 10 min</div>
-                  </div>
-                  <div className='h-16 w-56 overflow-hidden text-gray-500 text-sm'>
-                    "Dhruv ko apni girlfriend Jasmine ko chhote gifts bhi dilane se pehle 100 baar sochna padta hai. Par ek din use pata chalta hai ki uski girlfried usi ki class ke bigde ameerzade 'Playboy Kartik' ke sath kai raat guzar chuki hai. Yahi nahi, Kartik ke sath mil kar Jasmine online stripping bhi kar chuki hai. Dhruv ko bada jhatka lagta hai. Par Dhruv ki zindagi usdin badal jaati hai jisdin use pata chalta hai ki wo ek billionnaire ka beta hai. Kya in paison se Dhruv le payega Jasmine ke dhokhe ka badla? Ya inhi paison se wo banayega ek nayi kahani?"
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <div className='flex md:block space-x-3 md:space-x-0'>
-              <div className='relative'>
-                <a href=''>
-                  <div className='h-28 w-28 md:h-48 md:w-48 inline-block relative flex-shrink-0 rounded-lg'>
-                    <img alt='Secret Billionaire | ' loading='lazy' decoding='async' data-nimg='fill' className='rounded-lg contain' sizes='100vw' srcSet='https://images.cdn.kukufm.com/w:1920/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/5d9c076977f54068ba0f6b786af18828.png' />
-                  </div>
-                </a>
-              </div>
-              <a href=''>
-                <div className='mr-2 w-52 md:w-44 truncate !text-clip md:overflow-visible md:whitespace-normal md:mb-2 md:text-base font-semibold md:font-normal '>Secret Billionare</div>
-                <div className='block md:hidden'>
-                  <div className='flex flex-wrap gap-1 items-center'>
-                    <div className='bg-[#228b22] rounded-full p-0.5'>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" /></svg>
-                    </div>
-                    <div className='font-semibold text-xs'>4.7</div>
-                    <div className='text-xs'>(66 Lakh+ listens)</div>
-                    <span className='bg-gray-700 rounded-full h-[6px] w-[6px]'></span>
-                    <div className='text-xs'>15 hr 10 min</div>
-                  </div>
-                  <div className='h-16 w-56 overflow-hidden text-gray-500 text-sm'>
-                    "Dhruv ko apni girlfriend Jasmine ko chhote gifts bhi dilane se pehle 100 baar sochna padta hai. Par ek din use pata chalta hai ki uski girlfried usi ki class ke bigde ameerzade 'Playboy Kartik' ke sath kai raat guzar chuki hai. Yahi nahi, Kartik ke sath mil kar Jasmine online stripping bhi kar chuki hai. Dhruv ko bada jhatka lagta hai. Par Dhruv ki zindagi usdin badal jaati hai jisdin use pata chalta hai ki wo ek billionnaire ka beta hai. Kya in paison se Dhruv le payega Jasmine ke dhokhe ka badla? Ya inhi paison se wo banayega ek nayi kahani?"
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <div className='flex md:block space-x-3 md:space-x-0'>
-              <div className='relative'>
-                <a href=''>
-                  <div className='h-28 w-28 md:h-48 md:w-48 inline-block relative flex-shrink-0 rounded-lg'>
-                    <img alt='Secret Billionaire | ' loading='lazy' decoding='async' data-nimg='fill' className='rounded-lg contain' sizes='100vw' srcSet='https://images.cdn.kukufm.com/w:1920/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/5d9c076977f54068ba0f6b786af18828.png' />
-                  </div>
-                </a>
-              </div>
-              <a href=''>
-                <div className='mr-2 w-52 md:w-44 truncate !text-clip md:overflow-visible md:whitespace-normal md:mb-2 md:text-base font-semibold md:font-normal '>Secret Billionare</div>
-                <div className='block md:hidden'>
-                  <div className='flex flex-wrap gap-1 items-center'>
-                    <div className='bg-[#228b22] rounded-full p-0.5'>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" /></svg>
-                    </div>
-                    <div className='font-semibold text-xs'>4.7</div>
-                    <div className='text-xs'>(66 Lakh+ listens)</div>
-                    <span className='bg-gray-700 rounded-full h-[6px] w-[6px]'></span>
-                    <div className='text-xs'>15 hr 10 min</div>
-                  </div>
-                  <div className='h-16 w-56 overflow-hidden text-gray-500 text-sm'>
-                    "Dhruv ko apni girlfriend Jasmine ko chhote gifts bhi dilane se pehle 100 baar sochna padta hai. Par ek din use pata chalta hai ki uski girlfried usi ki class ke bigde ameerzade 'Playboy Kartik' ke sath kai raat guzar chuki hai. Yahi nahi, Kartik ke sath mil kar Jasmine online stripping bhi kar chuki hai. Dhruv ko bada jhatka lagta hai. Par Dhruv ki zindagi usdin badal jaati hai jisdin use pata chalta hai ki wo ek billionnaire ka beta hai. Kya in paison se Dhruv le payega Jasmine ke dhokhe ka badla? Ya inhi paison se wo banayega ek nayi kahani?"
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <div className='flex md:block space-x-3 md:space-x-0'>
-              <div className='relative'>
-                <a href=''>
-                  <div className='h-28 w-28 md:h-48 md:w-48 inline-block relative flex-shrink-0 rounded-lg'>
-                    <img alt='Secret Billionaire | ' loading='lazy' decoding='async' data-nimg='fill' className='rounded-lg contain' sizes='100vw' srcSet='https://images.cdn.kukufm.com/w:1920/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/5d9c076977f54068ba0f6b786af18828.png' />
-                  </div>
-                </a>
-              </div>
-              <a href=''>
-                <div className='mr-2 w-52 md:w-44 truncate !text-clip md:overflow-visible md:whitespace-normal md:mb-2 md:text-base font-semibold md:font-normal '>Secret Billionare</div>
-                <div className='block md:hidden'>
-                  <div className='flex flex-wrap gap-1 items-center'>
-                    <div className='bg-[#228b22] rounded-full p-0.5'>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" /></svg>
-                    </div>
-                    <div className='font-semibold text-xs'>4.7</div>
-                    <div className='text-xs'>(66 Lakh+ listens)</div>
-                    <span className='bg-gray-700 rounded-full h-[6px] w-[6px]'></span>
-                    <div className='text-xs'>15 hr 10 min</div>
-                  </div>
-                  <div className='h-16 w-56 overflow-hidden text-gray-500 text-sm'>
-                    "Dhruv ko apni girlfriend Jasmine ko chhote gifts bhi dilane se pehle 100 baar sochna padta hai. Par ek din use pata chalta hai ki uski girlfried usi ki class ke bigde ameerzade 'Playboy Kartik' ke sath kai raat guzar chuki hai. Yahi nahi, Kartik ke sath mil kar Jasmine online stripping bhi kar chuki hai. Dhruv ko bada jhatka lagta hai. Par Dhruv ki zindagi usdin badal jaati hai jisdin use pata chalta hai ki wo ek billionnaire ka beta hai. Kya in paison se Dhruv le payega Jasmine ke dhokhe ka badla? Ya inhi paison se wo banayega ek nayi kahani?"
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <div className='flex md:block space-x-3 md:space-x-0'>
-              <div className='relative'>
-                <a href=''>
-                  <div className='h-28 w-28 md:h-48 md:w-48 inline-block relative flex-shrink-0 rounded-lg'>
-                    <img alt='Secret Billionaire | ' loading='lazy' decoding='async' data-nimg='fill' className='rounded-lg contain' sizes='100vw' srcSet='https://images.cdn.kukufm.com/w:1920/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/5d9c076977f54068ba0f6b786af18828.png' />
-                  </div>
-                </a>
-              </div>
-              <a href=''>
-                <div className='mr-2 w-52 md:w-44 truncate !text-clip md:overflow-visible md:whitespace-normal md:mb-2 md:text-base font-semibold md:font-normal '>Secret Billionare</div>
-                <div className='block md:hidden'>
-                  <div className='flex flex-wrap gap-1 items-center'>
-                    <div className='bg-[#228b22] rounded-full p-0.5'>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" /></svg>
-                    </div>
-                    <div className='font-semibold text-xs'>4.7</div>
-                    <div className='text-xs'>(66 Lakh+ listens)</div>
-                    <span className='bg-gray-700 rounded-full h-[6px] w-[6px]'></span>
-                    <div className='text-xs'>15 hr 10 min</div>
-                  </div>
-                  <div className='h-16 w-56 overflow-hidden text-gray-500 text-sm'>
-                    "Dhruv ko apni girlfriend Jasmine ko chhote gifts bhi dilane se pehle 100 baar sochna padta hai. Par ek din use pata chalta hai ki uski girlfried usi ki class ke bigde ameerzade 'Playboy Kartik' ke sath kai raat guzar chuki hai. Yahi nahi, Kartik ke sath mil kar Jasmine online stripping bhi kar chuki hai. Dhruv ko bada jhatka lagta hai. Par Dhruv ki zindagi usdin badal jaati hai jisdin use pata chalta hai ki wo ek billionnaire ka beta hai. Kya in paison se Dhruv le payega Jasmine ke dhokhe ka badla? Ya inhi paison se wo banayega ek nayi kahani?"
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <div className='flex md:block space-x-3 md:space-x-0'>
-              <div className='relative'>
-                <a href=''>
-                  <div className='h-28 w-28 md:h-48 md:w-48 inline-block relative flex-shrink-0 rounded-lg'>
-                    <img alt='Secret Billionaire | ' loading='lazy' decoding='async' data-nimg='fill' className='rounded-lg contain' sizes='100vw' srcSet='https://images.cdn.kukufm.com/w:1920/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/5d9c076977f54068ba0f6b786af18828.png' />
-                  </div>
-                </a>
-              </div>
-              <a href=''>
-                <div className='mr-2 w-52 md:w-44 truncate !text-clip md:overflow-visible md:whitespace-normal md:mb-2 md:text-base font-semibold md:font-normal '>Secret Billionare</div>
-                <div className='block md:hidden'>
-                  <div className='flex flex-wrap gap-1 items-center'>
-                    <div className='bg-[#228b22] rounded-full p-0.5'>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" /></svg>
-                    </div>
-                    <div className='font-semibold text-xs'>4.7</div>
-                    <div className='text-xs'>(66 Lakh+ listens)</div>
-                    <span className='bg-gray-700 rounded-full h-[6px] w-[6px]'></span>
-                    <div className='text-xs'>15 hr 10 min</div>
-                  </div>
-                  <div className='h-16 w-56 overflow-hidden text-gray-500 text-sm'>
-                    "Dhruv ko apni girlfriend Jasmine ko chhote gifts bhi dilane se pehle 100 baar sochna padta hai. Par ek din use pata chalta hai ki uski girlfried usi ki class ke bigde ameerzade 'Playboy Kartik' ke sath kai raat guzar chuki hai. Yahi nahi, Kartik ke sath mil kar Jasmine online stripping bhi kar chuki hai. Dhruv ko bada jhatka lagta hai. Par Dhruv ki zindagi usdin badal jaati hai jisdin use pata chalta hai ki wo ek billionnaire ka beta hai. Kya in paison se Dhruv le payega Jasmine ke dhokhe ka badla? Ya inhi paison se wo banayega ek nayi kahani?"
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <div className='flex md:block space-x-3 md:space-x-0'>
-              <div className='relative'>
-                <a href=''>
-                  <div className='h-28 w-28 md:h-48 md:w-48 inline-block relative flex-shrink-0 rounded-lg'>
-                    <img alt='Secret Billionaire | ' loading='lazy' decoding='async' data-nimg='fill' className='rounded-lg contain' sizes='100vw' srcSet='https://images.cdn.kukufm.com/w:1920/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/5d9c076977f54068ba0f6b786af18828.png' />
-                  </div>
-                </a>
-              </div>
-              <a href=''>
-                <div className='mr-2 w-52 md:w-44 truncate !text-clip md:overflow-visible md:whitespace-normal md:mb-2 md:text-base font-semibold md:font-normal '>Secret Billionare</div>
-                <div className='block md:hidden'>
-                  <div className='flex flex-wrap gap-1 items-center'>
-                    <div className='bg-[#228b22] rounded-full p-0.5'>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" /></svg>
-                    </div>
-                    <div className='font-semibold text-xs'>4.7</div>
-                    <div className='text-xs'>(66 Lakh+ listens)</div>
-                    <span className='bg-gray-700 rounded-full h-[6px] w-[6px]'></span>
-                    <div className='text-xs'>15 hr 10 min</div>
-                  </div>
-                  <div className='h-16 w-56 overflow-hidden text-gray-500 text-sm'>
-                    "Dhruv ko apni girlfriend Jasmine ko chhote gifts bhi dilane se pehle 100 baar sochna padta hai. Par ek din use pata chalta hai ki uski girlfried usi ki class ke bigde ameerzade 'Playboy Kartik' ke sath kai raat guzar chuki hai. Yahi nahi, Kartik ke sath mil kar Jasmine online stripping bhi kar chuki hai. Dhruv ko bada jhatka lagta hai. Par Dhruv ki zindagi usdin badal jaati hai jisdin use pata chalta hai ki wo ek billionnaire ka beta hai. Kya in paison se Dhruv le payega Jasmine ke dhokhe ka badla? Ya inhi paison se wo banayega ek nayi kahani?"
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <div className='flex md:block space-x-3 md:space-x-0'>
-              <div className='relative'>
-                <a href=''>
-                  <div className='h-28 w-28 md:h-48 md:w-48 inline-block relative flex-shrink-0 rounded-lg'>
-                    <img alt='Secret Billionaire | ' loading='lazy' decoding='async' data-nimg='fill' className='rounded-lg contain' sizes='100vw' srcSet='https://images.cdn.kukufm.com/w:1920/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/5d9c076977f54068ba0f6b786af18828.png' />
-                  </div>
-                </a>
-              </div>
-              <a href=''>
-                <div className='mr-2 w-52 md:w-44 truncate !text-clip md:overflow-visible md:whitespace-normal md:mb-2 md:text-base font-semibold md:font-normal '>Secret Billionare</div>
-                <div className='block md:hidden'>
-                  <div className='flex flex-wrap gap-1 items-center'>
-                    <div className='bg-[#228b22] rounded-full p-0.5'>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" /></svg>
-                    </div>
-                    <div className='font-semibold text-xs'>4.7</div>
-                    <div className='text-xs'>(66 Lakh+ listens)</div>
-                    <span className='bg-gray-700 rounded-full h-[6px] w-[6px]'></span>
-                    <div className='text-xs'>15 hr 10 min</div>
-                  </div>
-                  <div className='h-16 w-56 overflow-hidden text-gray-500 text-sm'>
-                    "Dhruv ko apni girlfriend Jasmine ko chhote gifts bhi dilane se pehle 100 baar sochna padta hai. Par ek din use pata chalta hai ki uski girlfried usi ki class ke bigde ameerzade 'Playboy Kartik' ke sath kai raat guzar chuki hai. Yahi nahi, Kartik ke sath mil kar Jasmine online stripping bhi kar chuki hai. Dhruv ko bada jhatka lagta hai. Par Dhruv ki zindagi usdin badal jaati hai jisdin use pata chalta hai ki wo ek billionnaire ka beta hai. Kya in paison se Dhruv le payega Jasmine ke dhokhe ka badla? Ya inhi paison se wo banayega ek nayi kahani?"
-                  </div>
-                </div>
-              </a>
-            </div>
+            {
+              displayTrending()
+            }
           </div>
         </div>
       </div>
@@ -1117,7 +858,7 @@ const browse_podcast = () => {
             <header className='flex justify-between md:justify-start items-center py-3'>
               <div className='flex'>
                 <div className='block md:hidden mt-0.5'>
-                <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" /></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" /></svg>
                 </div>
                 <h2 className='text-base font-semibold md:truncate m1-1'>Best in Religion</h2>
               </div>
@@ -1161,17 +902,17 @@ const browse_podcast = () => {
                 </div>
               </a>
             </div>
-            </div>
-            </div>
-            </div>
+          </div>
+        </div>
+      </div>
 
-            <div>
+      <div>
         <div className='px-5'>
           <Link href='/show/horror'>
             <header className='flex justify-between md:justify-start items-center py-3'>
               <div className='flex'>
                 <div className='block md:hidden mt-0.5'>
-                <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" /></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" /></svg>
                 </div>
                 <h2 className='text-base font-semibold md:truncate m1-1'>Best in Horror</h2>
               </div>
@@ -1215,11 +956,11 @@ const browse_podcast = () => {
                 </div>
               </a>
             </div>
-            </div>
-            </div>
-            </div>
+          </div>
+        </div>
+      </div>
 
-           
+
 
       {/* <Swiper
         spaceBetween={30}

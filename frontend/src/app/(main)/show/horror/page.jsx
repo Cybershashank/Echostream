@@ -22,8 +22,8 @@ const horror = () => {
         <div className='container'>
           <h1 className='p-4 text-lg font-semisolid'>Best in Motivation</h1>
 
-          <div className=' flex flex-wrap md:justify-start mx-auto w-full md:overflow md:space-x-4 space-y-3 md:space-y-0'>
-            <div className='mx-auto flex md:block space-x-3 md:space-x-0 md:mt-0 md:mr-0 '>
+          <div className=' flex flex-wrap md:justify-center  w-full md:overflow md:space-x-4 space-y-3 md:space-y-0'>
+            <div className=' flex md:block space-x-3 md:space-x-0 md:mt-0 md:mr-0 '>
               <div className='relative'>
                 <a href=''>
                   <div className='h-28 w-28 md:h-48 md:w-48 inline-block relative flex-shrink-0 rounded-lg'>

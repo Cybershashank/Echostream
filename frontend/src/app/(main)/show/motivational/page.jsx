@@ -21,12 +21,12 @@ const motivational = () => {
       <div className='flex sm:justify-center'>
         <div className='container'>
           <h1 className='p-4 text-lg font-semisolid'>Best in Motivation</h1>
-          <div className='flex flex-wrap md:justify-center mx-4 md:mx-0 space-y-3 md:space-y-0'>
+          <div className='flex flex-wrap md:justify-start mx-4 md:mx-0 space-y-3 md:space-y-0 gap-6'>
 
             <div className='flex md:block space-x-3 md:space-x-0'>
               <div className='relative'>
                 <a href=''>
-                  <div className='h-28 w-28 md:h-28 md:w-28 inline-block relative flex-shrink-0 rounded-lg'>
+                  <div className='h-28 w-28 md:h-48 md:w-48 inline-block relative flex-shrink-0 rounded-lg'>
                     <img
                       alt='motivational |'
                       loading='lazy'
@@ -35,7 +35,7 @@ const motivational = () => {
                       className='rounded-lg contain'
                       sizes='100vw'
                       
-                      srcSet='https://images.cdn.kukufm.com/w:1920/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/5d9c076977f54068ba0f6b786af18828.png'
+                      srcSet='https://images.cdn.kukufm.com/w:1920/f:webp/q:75/https://images.cdn.kukufm.com/https://s3.ap-south-1.amazonaws.com/kukufm/cu_icons/3a4cd3d180a4435794ef467428e3f848.png'
                       style={{ width: '100%', height: '100%', inset: '0px', position: 'absolute', color: 'transparent' }}
                     />
                   </div>
@@ -65,7 +65,7 @@ const motivational = () => {
             <div className='flex md:block space-x-3 md:space-x-0'>
               <div className='relative'>
                 <a href=''>
-                  <div className='h-28 w-28 md:h-28 md:w-28 inline-block relative flex-shrink-0 rounded-lg'>
+                  <div className='h-28 w-28 md:h-48 md:w-48 inline-block relative flex-shrink-0 rounded-lg'>
                     <img
                       alt='motivational |'
                       loading='lazy'

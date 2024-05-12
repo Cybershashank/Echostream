@@ -28,6 +28,16 @@ router.get("/getall", (req, res) => {
     });
 });
 
+router.get("/get-trending", (req, res) => {
+  Model.find({ type: 'trending' }).populate("artist")
+    .then((result) => {
+      res.json(result)
+    }).catch((err) => {
+      console.error(err)
+      res.status(500).json(err)
+    });
+});
+
 router.get("/getbyid/:id", (req, res) => {
   Model.findById(req.params.id) //param is for parameter
     .then((result) => {

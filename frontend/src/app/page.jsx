@@ -751,17 +751,6 @@ const Home = () => {
                   <div className='text-white lg:text-x1 font-bold'>"Amit"</div>
                 </div>
               </div>
-              <img
-                loading='lazy'
-                width="48"
-                height="48"
-                decoding="async"
-                data-nimg="1"
-                className="h-12 w-12 h-6 w-6 absolute top-6 right-6"
-                backgroundColor="transparent"
-                src="https://pagedone.io/asset/uploads/1701928910.jpg"
-              />
-
 
 
               {/* 2 */}
@@ -783,17 +772,6 @@ const Home = () => {
                   <div className='text-white lg:text-x1 font-bold'>"Durga"</div>
                 </div>
               </div>
-              <img
-                loading='lazy'
-                width="48"
-                height="48"
-                decoding="async"
-                data-nimg="1"
-                className="h-12 w-12 h-6 w-6 absolute top-6 right-6"
-                backgroundColor="transparent"
-                src="https://pagedone.io/asset/uploads/1701928898.jpg"
-              />
-
 
 
               {/* 3 */}
@@ -816,16 +794,6 @@ const Home = () => {
 
                 </div>
               </div>
-              <img
-                loading='lazy'
-                width="48"
-                height="48"
-                decoding="async"
-                data-nimg="1"
-                className="h-12 w-12 h-6 w-6 absolute top-6 right-6"
-                backgroundColor="transparent"
-                src="https://pagedone.io/asset/uploads/1703590007.png"
-              />
 
 
 
@@ -848,18 +816,6 @@ const Home = () => {
                   <div className='text-white lg:text-x1 font-bold'>"Amita"</div>
                 </div>
               </div>
-              <img
-                loading='lazy'
-                width="48"
-                height="48"
-                decoding="async"
-                data-nimg="1"
-                className="h-12 w-12 h-6 w-6 absolute top-6 right-6"
-                backgroundColor="transparent"
-                src="https://pagedone.io/asset/uploads/1696229969.png"
-              />
-
-
               {/* 5 */}
               <div className='p-3 space-x-4 md:space-x-0 flex md:block md:text-center relative flex-shrink-0 items-stretch w-full md:w-1/2 lg:w-1/3 rounded-lg border border-[#3E434C]'>
                 <img
@@ -880,17 +836,6 @@ const Home = () => {
                   <div className='text-white lg:text-x1 font-bold'>"Rajesh"</div>
                 </div>
               </div>
-              <img
-                loading='lazy'
-                width="48"
-                height="48"
-                decoding="async"
-                data-nimg="1"
-                className="h-12 w-12 h-6 w-6 absolute top-6 right-6"
-                backgroundColor="transparent"
-
-                src="https://pagedone.io/asset/uploads/1696230027.png"
-              />
             </div>
           </div>
 
