@@ -9,8 +9,6 @@ import toast from 'react-hot-toast';
 
 const feedback = () => {
 
-
-
   const feedbackValidationSchema = Yup.object().shape({
     email: Yup.string().email('Email is invalid').required('Email is required'),
     message: Yup.string().required('Message is required')
@@ -46,7 +44,6 @@ const feedback = () => {
     },
     validationSchema: feedbackValidationSchema
   });
-
 
   return (
 
