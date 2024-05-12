@@ -44,7 +44,7 @@ const artistLogin = () => {
                 setArtistLoggedIn(true);
                 setCurrentArtist(data);
                 sessionStorage.setItem('artist', JSON.stringify(data));
-                router.push('/artist/dashboard');
+                router.push('/artist/profile');
               })
           }
         }).catch((err) => {
