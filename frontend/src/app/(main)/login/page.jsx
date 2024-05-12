@@ -58,7 +58,7 @@ const Login = () => {
           if (response.status === 200) {
 
             toast.success('User Login Successfully');
-            router.push('/browse_series')
+            router.push('/browse_podcast')
             response.json()
               .then((data) => {
                 setLoggedIn(true);
