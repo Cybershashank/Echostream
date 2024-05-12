@@ -10,7 +10,7 @@ const UserProfile = () => {
 );
 
  const useForm = useFormik({
-  initialValues: currentUser,
+  initialValues: currentUser, 
   onSubmit : async (data) => {
     console.log(data);
   const res = await fetch(url + '/user/update/'+currentUser._id, {
