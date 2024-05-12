@@ -15,7 +15,7 @@ const artistLogin = () => {
 
   const loginValidationSchema = Yup.object().shape({
     email: Yup.string().required('Email is Required').email('Email is invalid'),
-    password: Yup.string().required('Password is Required')
+    password: Yup.string().required('Password is Required'),
   });
 
   // initialize formik

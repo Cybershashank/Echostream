@@ -37,6 +37,43 @@ router.get("/get-trending", (req, res) => {
       res.status(500).json(err)
     });
 });
+router.get("/get-religion", (req, res) => {
+  Model.find({ type: 'religion' }).populate("artist")
+    .then((result) => {
+      res.json(result)
+    }).catch((err) => {
+      console.error(err)
+      res.status(500).json(err)
+    });
+});
+router.get("/get-Romance", (req, res) => {
+  Model.find({ type: 'Romance' }).populate("artist")
+    .then((result) => {
+      res.json(result)
+    }).catch((err) => {
+      console.error(err)
+      res.status(500).json(err)
+    });
+});
+router.get("/get-motivational", (req, res) => {
+  Model.find({ type: 'motivational' }).populate("artist")
+    .then((result) => {
+      res.json(result)
+    }).catch((err) => {
+      console.error(err)
+      res.status(500).json(err)
+    });
+});
+router.get("/get-horror", (req, res) => {
+  Model.find({ type: 'horror' }).populate("artist")
+    .then((result) => {
+      res.json(result)
+    }).catch((err) => {
+      console.error(err)
+      res.status(500).json(err)
+    });
+});
+
 
 router.get("/getbyid/:id", (req, res) => {
   Model.findById(req.params.id) //param is for parameter

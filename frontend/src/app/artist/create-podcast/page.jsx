@@ -142,10 +142,11 @@ const PublishPage = () => {
                   
                   <option value="Solo">Solo</option>
                   <option value="Educational">Educational</option>
-                  <option value="Fictional">Fictional</option>
-                  <option value="Interview">Interview</option>
+                  <option value="Horror">Horror</option>
+                  <option value="Romance">Romance</option>
                   <option value="Motivational">Motivational</option>
-                  <option value="Emotional">Emotional</option>
+                  <option value="Religion">Religion</option>
+                  <option value="Trending">Trending</option>
                 </select>
               </div>
 
