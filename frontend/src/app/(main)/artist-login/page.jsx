@@ -15,7 +15,7 @@ const artistLogin = () => {
 
   const loginValidationSchema = Yup.object().shape({
     email: Yup.string().required('Email is Required').email('Email is invalid'),
-    password: Yup.string().required('Password is Required')
+    password: Yup.string().required('Password is Required'),
   });
 
   // initialize formik
@@ -44,7 +44,7 @@ const artistLogin = () => {
                 setArtistLoggedIn(true);
                 setCurrentArtist(data);
                 sessionStorage.setItem('artist', JSON.stringify(data));
-                router.push('/artist/dashboard');
+                router.push('/artist/profile');
               })
           }
         }).catch((err) => {
@@ -57,7 +57,7 @@ const artistLogin = () => {
 
   return (
     <>
-   
+      <div style={{ backgroundImage: "url('https://www.creativefabrica.com/wp-content/uploads/2022/03/12/Colorful-Abstract-Fluid-Background-Graphics-27058033-1.jpg')" }} className="bg-cover bg-center h-screen flex items-center justify-center">
       <section className="h-screen flex flex-col md:flex-row justify-center space-y-10 md:space-y-0 md:space-x-16 items-center my-2 mx-5 md:mx-0 md:my-0">
         <div className="md:w-1/2 max-w-sm">
           <img
@@ -143,7 +143,7 @@ const artistLogin = () => {
                   </div>
 
                   <Link
-                    href="/resetPassword"
+                    href="/artistresetpassword"
                     className="text-sm font-medium text-blue-600 hover:text-blue-700 hover:underline hover:underline-offset-4">
                     Forgot password?
                   </Link>
@@ -374,7 +374,7 @@ const artistLogin = () => {
 
 
 
-
+</div>
     </>
   )
 }

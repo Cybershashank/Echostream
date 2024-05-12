@@ -12,7 +12,7 @@ const Avatar = ({user, logout}) => {
             <div
                 className="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 w-56 hidden z-10 mt-2 min-w-60 bg-white shadow-md rounded-lg p-2 dark:bg-neutral-800 dark:border dark:border-neutral-700 dark:divide-neutral-700"
                 aria-labelledby="hs-dropdown-example"
-            >
+             >
                 <button
                     className="w-full flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700"
                     onClick={logout}
@@ -60,6 +60,7 @@ const Navbar = () => {
 
     return (
         <>
+        
             <nav className="bg-white border-gray-200 shadow dark:bg-gray-900">
                 <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto ">
                     <Link
@@ -104,14 +105,6 @@ const Navbar = () => {
                                     className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                                 >
                                     About
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    href="/browse_podcast"
-                                    className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                                >
-                                    Podcasts
                                 </Link>
                             </li>
                             <li>

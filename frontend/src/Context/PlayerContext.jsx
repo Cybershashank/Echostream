@@ -1,3 +1,4 @@
+import { IconPlayerPause, IconPlayerPlayFilled } from '@tabler/icons-react';
 import React, { createContext, useContext, useRef, useState } from 'react'
 
 const PlayerContext = createContext();
@@ -14,24 +15,30 @@ export const PlayerProvider = ({ children }) => {
         if (action === 'play') {
             if (songPlaying === song) {
                 audioRef.current.play();
+                setSongStatus('playing');
             } else {
                 setSongPlaying(song);
                 audioRef.current.src = `${process.env.NEXT_PUBLIC_API_URL}/${song.record}`;
                 audioRef.current.play();
+                setSongStatus('playing');
             }
         } else if (action === 'pause') {
             audioRef.current.pause();
+            setSongStatus('paused');
         } else if (action === 'stop') {
             audioRef.current.pause();
             audioRef.current.currentTime = 0;
+            setSongStatus('stopped');
         }
     }
 
     const togglePause = () => {
         if (audioRef.current.paused) {
             audioRef.current.play();
+            setSongStatus('playing');
         } else {
             audioRef.current.pause();
+            setSongStatus('paused');
         }
     }
 
@@ -39,8 +46,12 @@ export const PlayerProvider = ({ children }) => {
         return songPlaying === song;
     }
 
+    const getSongDuration = () => {
+        return audioRef.current.duration;
+    }
+
     return (
-        <PlayerContext.Provider value={{ songPlaying, playerAction, isSongPlaying, togglePause }}>
+        <PlayerContext.Provider value={{ songPlaying, playerAction, isSongPlaying, togglePause, songStatus }}>
             {children}
             <audio className="hidden" ref={audioRef} />
             {
@@ -104,24 +115,12 @@ export const PlayerProvider = ({ children }) => {
                                         <path d="M4 5h3v10H4V5zm12 0v10l-9-5 9-5z" />
                                     </svg>
                                 </button>
-                                <button className="w-8 h-8 border border-gray-300 rounded-full flex text-gray-100 mr-6">
+                                <button className="w-8 h-8 rounded-full flex text-gray-100 mr-6">
                                     {
-                                        audioRef.current && audioRef.current.paused ? (
-                                            <svg
-                                                className="fill-current"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 20 20"
-                                            >
-                                                <path d="M5 4v12l10-6z" />
-                                            </svg>
+                                        audioRef.current && songStatus === 'paused' ? (
+                                            <IconPlayerPlayFilled size={30} onClick={togglePause} />
                                         ) : (
-                                            <svg
-                                                className="fill-current"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 20 20"
-                                            >
-                                                <path d="M4 5v10l9-5-9-5zm10 0h2v10h-2V5z" />
-                                            </svg>
+                                            <IconPlayerPause onClick={togglePause} size={30} />
                                         )
                                     }
                                 </button>

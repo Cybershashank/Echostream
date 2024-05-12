@@ -46,7 +46,7 @@ const privacyPolicy = () => {
                     </p>
                     <h2 className="text-xl font-bold mb-2">Contact Us</h2>
                     <p className="mb-4">
-                        If you have any questions about this Privacy Policy, please contact us at [contact email].
+                        If you have any questions about this Privacy Policy, please contact us at [echostream.podcast@gmail.com].
                     </p>
                 </div>
             </section>

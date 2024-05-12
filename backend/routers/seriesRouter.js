@@ -28,6 +28,53 @@ router.get("/getall", (req, res) => {
     });
 });
 
+router.get("/get-trending", (req, res) => {
+  Model.find({ type: 'trending' }).populate("artist")
+    .then((result) => {
+      res.json(result)
+    }).catch((err) => {
+      console.error(err)
+      res.status(500).json(err)
+    });
+});
+router.get("/get-religion", (req, res) => {
+  Model.find({ type: 'religion' }).populate("artist")
+    .then((result) => {
+      res.json(result)
+    }).catch((err) => {
+      console.error(err)
+      res.status(500).json(err)
+    });
+});
+router.get("/get-Romance", (req, res) => {
+  Model.find({ type: 'Romance' }).populate("artist")
+    .then((result) => {
+      res.json(result)
+    }).catch((err) => {
+      console.error(err)
+      res.status(500).json(err)
+    });
+});
+router.get("/get-motivational", (req, res) => {
+  Model.find({ type: 'motivational' }).populate("artist")
+    .then((result) => {
+      res.json(result)
+    }).catch((err) => {
+      console.error(err)
+      res.status(500).json(err)
+    });
+});
+router.get("/get-horror", (req, res) => {
+  Model.find({ type: 'horror' }).populate("artist")
+    .then((result) => {
+      res.json(result)
+    }).catch((err) => {
+      console.error(err)
+      res.status(500).json(err)
+    });
+});
+
+
 router.get("/getbyid/:id", (req, res) => {
   Model.findById(req.params.id) //param is for parameter
     .then((result) => {
@@ -85,6 +132,15 @@ router.get("/getbyartist", verifyToken, (req, res) => {
     });
 });
 
+router.get("/getbyseries/:id", (req, res) => {
+  Model.find({ series: req.params.id }).populate('artist') //to get the data of the user who is logged in
+    .then((result) => {
+      res.json(result)
+    }).catch((err) => {
+      console.error(err)
+      res.status(500).json(err)
+    });
+});
 
 
 

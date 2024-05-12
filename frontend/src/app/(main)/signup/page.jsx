@@ -7,14 +7,34 @@ import Link from 'next/link';
 import * as Yup from "yup";
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
+import useAppContext from '@/Context/userContext';
+import useVoiceContext from '@/Context/voiceContext';
 
 
 
 const Signup = () => {
 const router = useRouter();
+// 
+// const btnRef = useRef();
+// 
+// const { setLoggedIn, setCurrentUser } = useAppContext();
+// const { performActionUsingVoice, finalTranscript, fillInputUsingVoice } = useVoiceContext();
+// console.log(transcript);
+// 
+// useEffect(() => {
+  // console.log(finalTranscript);
+  // performActionUsingVoice('submit', 'signup form', () => {
+    // btnRef.current.submit();
+    // trigger form submit
+    // btnRef.current.click();
+  // });
+// 
+  // fillInputUsingVoice(() => {
+      // signupForm.setFieldValue(finalTranscript.split(' ').at(-1), finalTranscript.split(' ')[1]);
+  // });
+// }, [finalTranscript]);
 
-//const { setLoggedIn, setCurrentUser } = useAppContext();
-//const { performActionUsingVoice, finalTranscript, fillInputUsingVoice } = useVoiceContext();
+
 
   const signupValidationSchema = Yup.object().shape({
     email: Yup.string().email('Email is invalid').required('Email is required'),
@@ -69,7 +89,7 @@ const router = useRouter();
 
     <>
 
-
+     <div style={{backgroundImage: "url('https://i.pinimg.com/originals/3a/29/9a/3a299a13f5aa7dfa33c70776e7f7e1d6.jpg')"}} className="bg-cover bg-center bg-no-repeat h-screen">
       <section className="h-screen flex flex-col md:flex-row justify-center space-y-10 md:space-y-0 md:space-x-16 items-center my-2 mx-5 md:mx-0 md:my-0">
         <div className="md:w-1/3 max-w-sm">
           <img src="https://cdni.iconscout.com/illustration/premium/thumb/sign-up-6333618-5230178.png?f=webp" alt="" />
@@ -140,7 +160,7 @@ const router = useRouter();
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <path d="M12 2a5 5 0 0 1 5 5v3a3 3 0 0 1 3 3v6a3 3 0 0 1 -3 3h-10a3 3 0 0 1 -3 -3v-6a3 3 0 0 1 3 -3v-3a5 5 0 0 1 5 -5m0 12a2 2 0 0 0 -1.995 1.85l-.005 .15a2 2 0 1 0 2 -2m0 -10a3 3 0 0 0 -3 3v3h6v-3a3 3 0 0 0 -3 -3" /></svg>
                   <input
-                    type="text"
+                    type="password"
                     id="password"
                     onChange={signupForm.handleChange}
                     value={signupForm.values.password}
@@ -192,11 +212,11 @@ const router = useRouter();
                         htmlFor="terms"
                         className="font-light text-gray-500 dark:text-gray-300" >
                         I accept the{" "}
-                        <a
+                        <Link
                           className="font-medium text-primary-600 hover:underline dark:text-primary-500"
-                          href="#">
+                          href="/terms&conditions">
                           Terms and Conditions
-                        </a>
+                        </Link>
                       </label>
                     </div>
 
@@ -207,6 +227,7 @@ const router = useRouter();
 
                 <button disabled={signupForm.isSubmitting}
                   type="submit"
+                  //ref={btnRef}
                   className="w-full text-white bg-purple-600 hover:bg-purple-700 focus:ring-2 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                   Create an account
                 </button>
@@ -214,12 +235,12 @@ const router = useRouter();
 
                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                   Already have an account?{" "}
-                  <a
+                  <Link
                     href="/login"
                     className="font-medium text-blue-600 hover:underline hover:underline-offset-4"
                   >
                     Login Here
-                  </a>
+                  </Link>
                 </p>
 
               </form>
@@ -229,7 +250,7 @@ const router = useRouter();
       </section>
 
 
-
+</div>
     </>
 
   )

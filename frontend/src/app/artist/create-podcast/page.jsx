@@ -140,11 +140,13 @@ const PublishPage = () => {
                   <option value="">Select Category</option>
                   
                   
-                  <option value="">Solo</option>
-                  <option value="">Educational</option>
-                  <option value="">Fictional</option>
-                  <option value="">Interview</option>
-                  <option value="">Motivational</option>
+                  <option value="Solo">Solo</option>
+                  <option value="Educational">Educational</option>
+                  <option value="Horror">Horror</option>
+                  <option value="Romance">Romance</option>
+                  <option value="Motivational">Motivational</option>
+                  <option value="Religion">Religion</option>
+                  <option value="Trending">Trending</option>
                 </select>
               </div>
 
@@ -171,23 +173,20 @@ const PublishPage = () => {
                   placeholder="Genre"
                   >
                   <option value="">Select Genre</option>
-                  
-                  <option value="">Busniess</option>
-                  <option value="">Career</option>
-                  <option value="">Comedy</option>
-                  <option value="">Crime</option>
-                  <option value="">Entertainment</option>
-                  <option value="">Health</option>
-                  <option value="">History</option>
-                  <option value="">Horror</option>
-                  <option value="">Information</option>
-                  <option value="">Kids</option>
-                  <option value="">Mythology</option>
-                  <option value="">Sci-Fi</option>
-                  <option value="">Sports</option>
-                  <option value="">Thriller</option>
-                  <option value="">True Crime</option>
-                  <option value="">TV & Film</option>
+                  <option value="Business">Busniess</option>
+                  <option value="Career">Career</option>
+                  <option value="Comedy">Comedy</option>
+                  <option value="Education">Education</option>
+                  <option value="Health">Health</option>
+                  <option value="History">History</option>
+                  <option value="Moral">Moral</option>
+                  <option value="News">News</option>
+                  <option value="Religion">Religion</option>
+                  <option value="Science">Science</option>
+                  <option value="Society">Society</option>
+                  <option value="Sports">Sports</option>
+                  <option value="Technology">Technology</option>
+                  <option value="True Crime">True Crime</option>
                 </select>
               </div>
               
@@ -213,16 +212,16 @@ const PublishPage = () => {
                   >
                   <option value="">Select Language</option>
                 
-                  <option value="">English</option>
-                  <option value="">Hindi</option>
-                  <option value="">Marathi</option>
-                  <option value="">Bangla</option>
-                  <option value="">Telugu</option>
-                  <option value="">Health</option>
-                  <option value="">Tamil</option>
-                  <option value="">Malayalam</option>
-                  <option value="">Gujrati</option>
-                  <option value="">Punjabi</option>
+                  <option value="English">English</option>
+                  <option value="Hindi">Hindi</option>
+                  <option value="Marathi">Marathi</option>
+                  <option value="Bangla">Bangla</option>
+                  <option value="Telugu">Telugu</option>
+                  <option value="Health">Health</option>
+                  <option value="Tamil">Tamil</option>
+                  <option value="Malayalam">Malayalam</option>
+                  <option value="Gujrati">Gujrati</option>
+                  <option value="Punjabi">Punjabi</option>
                 </select>
               </div>
               <div className="mb-2">

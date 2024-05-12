@@ -46,7 +46,7 @@ const seriesForm = () => {
 
       if (res.status === 200) {
         toast.success("Series added Successfully");
-        router.push('/artist/publish_podcast');
+        router.push('/artist/create-podcast');
       } else if (res.status === 400) {
         toast.error("Something went wrong");
       } else {
@@ -146,7 +146,7 @@ const seriesForm = () => {
                         id="name"
                         onChange={seriesForm.handleChange}
                         value={seriesForm.values.name}
-                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-slate-800 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                         placeholder="Name" />
                     </div>
                   </div>

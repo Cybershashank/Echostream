@@ -59,7 +59,7 @@ const Login = () => {
           if (response.status === 200) {
 
             toast.success('User Login Successfully');
-            router.push('/browse_podcast')
+            router.push('/browse_series')
             response.json()
               .then((data) => {
                 setLoggedIn(true);
@@ -84,7 +84,7 @@ const Login = () => {
   });
 
   return (
-    <div className={`h-screen ${classes.bg}`}>
+    <div style={{backgroundImage: "url('https://i.pinimg.com/originals/ad/0b/73/ad0b734dfabb9e4ec210914fa620b90d.jpg')"}} className="bg-cover bg-center bg-no-repeat h-screen">
       <section className="h-screen flex flex-col md:flex-row justify-center space-y-10 md:space-y-0 md:space-x-16 items-center my-2 mx-5 md:mx-0 md:my-0">
         <div className="md:w-1/2 max-w-sm">
           <img
