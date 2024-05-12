@@ -56,6 +56,7 @@ const manage_series = () => {
           
         </td>
       </tr>
+
     ))
   }
   return (
