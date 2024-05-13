@@ -17,7 +17,7 @@ const mySchema = new Schema({
     likes : {type : Number, default : 0},
     type : {type : String, default: 'trending'},
     type : {type : String, default: 'religion'},
-    type : {type : String, default: 'Romance'},
+    type : {type : String, default: 'romance'},
     type : {type : String, default: 'motivational'},
     type : {type : String, default: 'horror'},
     createdAt: { type: Date, default: Date.now }
