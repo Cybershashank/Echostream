@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "preline": "^2.1.0",
-    "react-mic": "^12.4.6"
+    "react-mic": "^12.4.6",
+    "react-rating-stars-component": "^2.2.0"
   }
 }
