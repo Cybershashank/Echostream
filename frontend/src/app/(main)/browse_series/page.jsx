@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react'
 const browse_series = () => {
 
 
-  
+  const [filterList, setfilterList] = useState([])
   const [podcastList, setPodcastList] = useState([]);
 
   const fetchPodcastData = async () => {
@@ -14,12 +14,20 @@ const browse_series = () => {
 
     const data = await res.json();
     console.log(data);
-
+setfilterList(data)
     setPodcastList(data);
   }
   useEffect(() => {
     fetchPodcastData();
   }, [])
+
+  
+  const filterSeries = (e) => {
+    const value = e.target.value;
+    setPodcastList(filterList.filter((pod) => {
+      return (pod.name.toLowerCase().includes(value.toLowerCase()))
+    }))
+  }
 
 
 
@@ -60,6 +68,7 @@ const browse_series = () => {
                 className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Search Podcast Series..."
                 required=""
+                onChange={filterSeries}
               />
               <button
                 type="submit"

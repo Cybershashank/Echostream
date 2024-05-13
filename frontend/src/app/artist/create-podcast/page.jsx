@@ -140,8 +140,6 @@ const PublishPage = () => {
                   <option value="">Select Category</option>
                   
                   
-                  <option value="Solo">Solo</option>
-                  <option value="Educational">Educational</option>
                   <option value="Horror">Horror</option>
                   <option value="Romance">Romance</option>
                   <option value="Motivational">Motivational</option>
@@ -176,7 +174,7 @@ const PublishPage = () => {
                   <option value="Business">Busniess</option>
                   <option value="Career">Career</option>
                   <option value="Comedy">Comedy</option>
-                  <option value="Education">Education</option>
+                  <option value="Educational">Educational</option>
                   <option value="Health">Health</option>
                   <option value="History">History</option>
                   <option value="Moral">Moral</option>
@@ -187,6 +185,8 @@ const PublishPage = () => {
                   <option value="Sports">Sports</option>
                   <option value="Technology">Technology</option>
                   <option value="True Crime">True Crime</option>
+                  <option value="Thriller">Thriller</option>
+
                 </select>
               </div>
               

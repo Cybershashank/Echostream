@@ -12,7 +12,6 @@ import useVoiceContext from '@/Context/voiceContext';
 
 const Login = () => {
   const router = useRouter();
-
   const btnRef = useRef();
 
   const { setLoggedIn, setCurrentUser } = useAppContext();
