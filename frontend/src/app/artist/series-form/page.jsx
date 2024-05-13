@@ -20,7 +20,7 @@ const seriesForm = () => {
     }).then((res) => {
       if (res.status === 200) {
         console.log("file uploaded");
-        seriesForm.setFieldValue('cover', file.name);
+        seriesForm.setFieldValue('cover', file.name, file.category);
         toast.success('File Uploaded!!');
       }
     });
@@ -29,6 +29,7 @@ const seriesForm = () => {
   const seriesForm = useFormik({
     initialValues: {
       name: '',
+      category: '',
       cover: ''
     },
     onSubmit: async (values) => {
@@ -55,7 +56,7 @@ const seriesForm = () => {
     },
   })
 
-  
+
   const uploadeImage = async (e) => {
     const file = e.target.files[0];
     setselImage(file);
@@ -149,6 +150,28 @@ const seriesForm = () => {
                         className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                         placeholder="Name" />
                     </div>
+
+
+                    <div className="mb-2">
+                      <label htmlFor="" className='block uppercase text-blueGray-600 text-xs font-bold mb-2'>Category</label>
+                      <select
+                        id='category'
+                        value={seriesForm.values.category}
+                        onChange={seriesForm.handleChange}
+                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                        placeholder="Category"
+                      >
+                        <option value="">Select Category</option>
+
+
+                        <option value="Horror">Horror</option>
+                        <option value="Romance">Romance</option>
+                        <option value="Motivational">Motivational</option>
+                        <option value="Religion">Religion</option>
+                        <option value="Trending">Trending</option>
+                      </select>
+                    </div>
+                    
                   </div>
                 </div>
                 <button type="submit" class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Submit</button>
@@ -157,6 +180,7 @@ const seriesForm = () => {
           </div>
         </div >
       </section >
+
     </>
   )
 }
