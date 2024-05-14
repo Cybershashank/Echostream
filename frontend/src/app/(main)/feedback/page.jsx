@@ -16,7 +16,7 @@ const FeedBackForm = () => {
 
   const FeedBackForm = useFormik({
     initialValues: {
-      username: "",
+      name: "",
       email: "",
       message: "",
       rating: "",
@@ -64,56 +64,57 @@ const FeedBackForm = () => {
 
   return (
 
-    <div>
-      <div class="bg-white py-6 sm:py-8 lg:py-12">
-        <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
-          <div class="mb-10 md:mb-16">
-            <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl">
+    <div className="min-h-screen bg-gray-800 py-6 flex flex-col justify-center sm:py-12">
+      <div className="relative py-3 sm:max-w-xl sm:mx-auto">
+        <div className="absolute inset-0 bg-gradient-to-r from-indigo-700 to-purple-500 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></div>
+        <div className="text-white relative px-4 py-10 bg-indigo-400 shadow-lg sm:rounded-3xl sm:p-20">
+          <div className="mb-10 md:mb-16">
+            <h2 className="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl">
               Give Us Your Feedback
             </h2>
-            <p class="mx-auto max-w-screen-md text-center text-gray-500 md:text-lg">
-              This is a section of some simple filler text, also known as
-              placeholder text. It shares some characteristics of a real written
-              text but is random or otherwise generated.
+            <p className="mx-auto max-w-screen-md text-center text-White md:text-lg">
+              Fill up the form below to send us a message.
             </p>
           </div>
 
           <form
             onSubmit={FeedBackForm.handleSubmit}
-            class="mx-auto grid max-w-screen-md gap-4"
+            className="mx-auto grid max-w-full-md gap-4"
           >
             <div>
               <label
                 for="first-name"
-                class="mb-2 inline-block text-sm text-gray-800 sm:text-base"
+                className="mb-2 inline-block text-sm text-gray-800 sm:text-base"
               >
-                Username
+                Name
               </label>
               <input
                 type="text"
-                id="username"
-                value={FeedBackForm.values.username}
+                id="name"
+                placeholder="Name"
+                value={FeedBackForm.values.name}
                 onChange={FeedBackForm.handleChange}
-                class="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
+                className="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
               />
-              {FeedBackForm.touched.username && (
-                <span className="text-red">{FeedBackForm.errors.username}</span>
+              {FeedBackForm.touched.name && (
+                <span className="text-red">{FeedBackForm.errors.name}</span>
               )}
             </div>
 
             <div>
               <label
                 for="email"
-                class="mb-2 inline-block text-sm text-gray-800 sm:text-base"
+                className="mb-2 inline-block text-sm text-gray-800 sm:text-base"
               >
                 Email
               </label>
               <input
                 type="text"
                 id="email"
+                placeholder="Email Address"
                 value={FeedBackForm.values.email}
                 onChange={FeedBackForm.handleChange}
-                class="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
+                className="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
               />
               {FeedBackForm.touched.email && (
                 <span className="text-red">{FeedBackForm.errors.email}</span>
@@ -123,16 +124,17 @@ const FeedBackForm = () => {
             <div class="sm:col-span-2">
               <label
                 for="message"
-                class="mb-2 inline-block text-sm text-gray-800 sm:text-base"
+                className="mb-2 inline-block text-sm text-gray-800 sm:text-base"
               >
                 Message
               </label>
               <textarea
                 type="text"
                 id="message"
+                placeholder="Type your message here..."
                 value={FeedBackForm.values.message}
                 onChange={FeedBackForm.handleChange}
-                class="h-64 w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300"
+                className="h-64 w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300"
               >
                 {FeedBackForm.touched.message && (
                   <span className="text-red">
@@ -154,54 +156,55 @@ const FeedBackForm = () => {
             <div class="flex items-center justify-between sm:col-span-2">
               <button
                 type="submit"
-                class="inline-block rounded-lg bg-indigo-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base"
+                className="inline-block rounded-lg bg-indigo-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base"
               >
                 Submit
               </button>
             </div>
           </form>
+
+
         </div>
       </div>
 
-      <div className="bg-white py-6 sm:py-8">
-        <div className="mx-auto max-w-screen-md px-4 md:px-8">
-          <h2 className="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl xl:mb-12">
-            User's Review
-          </h2>
-          <div className="divide-y">
-            {/* review - start */}
 
-            {
-              feedback.map((feed) => {
-                return (
-                  <div className="flex flex-col gap-3 py-4 md:py-8">
-                    <div>
-                      <span className="block text-sm font-bold">{feed.username}</span>
-                      <span className="block text-sm text-gray-500">
-                        {feed.createdAt}
-                      </span>
+            
+            <div>
+              {/* review - start */}
+              {
+                feedback.map((feed) => {
+                  return (
+                    <div className="flex flex-col gap-3 py-4 md:py-8">
+                      <div>
+                        <span className="block text-sm font-bold">{feed.name}</span>
+                        <span className="block text-sm text-gray-500">
+                          {feed.createdAt}
+                        </span>
+                      </div>
+
+                      <div className="-ml-1 flex gap-0.5">
+
+                        <ReactStars
+                          count={feed.rating}
+                          size={30}
+                          color={'#ffd700'}
+                        />
+                      </div>
+
+                      <p className="text-gray-600">
+                        {feed.message}
+                      </p>
                     </div>
+                  )
+                })
+              }
+              {/* review - end */}
+            </div>
 
-                    <div className="-ml-1 flex gap-0.5">
-
-                      <ReactStars
-                        count={feed.rating}
-                        size={30}
-                        color={'#ffd700'}
-                      />
-                    </div>
-
-                    <p className="text-gray-600">
-                      {feed.message}
-                    </p>
-                  </div>
-                )
-              })
-            }
-          </div>
-        </div>
-      </div>
+          
     </div>
+
+
   );
 };
 
