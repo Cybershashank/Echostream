@@ -6,7 +6,7 @@ import toast from 'react-hot-toast';
 
 const UserProfile = () => {
 
-  const [currentUser, setCurrentUSer] = useState(
+  const [currentUser, setCurrentUser] = useState(
     JSON.parse(sessionStorage.getItem("user"))
   );
 
@@ -24,7 +24,7 @@ const UserProfile = () => {
       console.log(res.status);
       const userData = await res.json();
       console.log(userData);
-      setCurrentUSer(userData);
+      setCurrentUser(userData);
       sessionStorage.setItem("user", JSON.stringify(userData));
     }
   });
