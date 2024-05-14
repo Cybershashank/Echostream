@@ -65,6 +65,13 @@ const Login = () => {
                 setLoggedIn(true);
                 setCurrentUser(data);
                 sessionStorage.setItem("user", JSON.stringify(data));
+                if (data.role === 'admin') {
+                  sessionStorage.setItem('admin', JSON.stringify(data));
+                  navigate('/Admin/dashboard');
+              } else {
+                  sessionStorage.setItem('user', JSON.stringify(data));
+                  navigate('/');
+              }
               })
           } else if (response.status === 401) {
             toast.error('User Login Failed');

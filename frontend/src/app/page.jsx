@@ -1,9 +1,16 @@
 'use client';
 import React, { useEffect, useState } from 'react'
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import Navbar from './(main)/navbar'
 import Link from 'next/link';
 
+import './styles.css';
+
 import classes from './page.module.css';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 
 const Home = () => {
@@ -132,7 +139,7 @@ const Home = () => {
           </div>
 
 
-          <div style={{ backgroundImage: 'url(https://www.finding-rhythms.co.uk/wp-content/uploads/2021/03/finding-rhythms-hero-podcast-b-and-w-1600x900.jpg)' }} className='bg-cover'>
+          <div style={{ backgroundImage: 'url(mainpage.jpg)' }} className='bg-cover'>
 
             <div className="flex h-screen justify-center items-center dark:bg-slate-800">
               <div className="mx-auto mt-10 flex justify-center px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8">
@@ -182,68 +189,68 @@ const Home = () => {
 
           <div className="w-full lg:px-24 pointer-events-none">
             <div className="bg-[#272A30] rounded-xl w-full lg:p-12 py-5">
-              
-                <h1 className='text-base text-sm '>
-                  <div className='text-center mb-5 lg:mb-12 text-white'>
-                    <div className='text-4xl font-normal'>
-                      "Listen to Audiobooks in"
-                    </div>
-                    <div className='text-4xl font-bold mt-2'>
-                      Multiple Languages
-                    </div>
+
+              <h1 className='text-base text-sm '>
+                <div className='text-center mb-5 lg:mb-12 text-white'>
+                  <div className='text-4xl font-normal'>
+                    "Listen to Audiobooks in"
                   </div>
-                </h1>
-                <div className='flex justify-center flex-wrap gap-6'>
-                  <Link className=' group p-2 lg:p-5 text-center w-[130px] md:w-[120px] bg-[#3e434c] rounded-xl flex justify-center items-center hover:bg-[#22C55E]' href='/browse_series'>
-                    <div>
-                      <div className='text-white text-x1 md:text-5xl group-hover:scale-125 transition ease-in-out duration-300 font-normal'>हि</div>
-                      <div className='text-white text-base md:text-xl font-normal md:mt-4 mt-2'>Hindi</div>
-                    </div>
-                  </Link>
-                  <Link className=' group p-2 lg:p-5 text-center w-[130px] md:w-[120px] bg-[#3e434c] rounded-lg flex justify-center items-center hover:bg-[#22C55E]' href='/browse_series'>
-                    <div>
-                      <div className='text-white text-x1 md:text-5xl group-hover:scale-125 transition ease-in-out duration-300 font-bold'>Aa</div>
-                      <div className='text-white text-base md:text-xl font-normal md:mt-4 mt-2'>English</div>
-                    </div>
-                  </Link>
-                  <Link className=' group p-2 lg:p-5 text-center w-[130px] md:w-[120px] bg-[#3e434c] rounded-lg flex justify-center items-center hover:bg-[#22C55E]' href='/browse_series'>
-                    <div>
-                      <div className='text-white text-x1 md:text-5xl group-hover:scale-125 transition ease-in-out duration-300 font-bold'>த</div>
-                      <div className='text-white text-base md:text-xl font-normal md:mt-4 mt-2'>Tamil</div>
-                    </div>
-                  </Link>
-                  <Link className=' group p-2 lg:p-5 text-center w-[130px] md:w-[120px] bg-[#3e434c] rounded-lg flex justify-center items-center hover:bg-[#22C55E]' href='/browse_series'>
-                    <div>
-                      <div className='text-white text-x1 md:text-5xl group-hover:scale-125 transition ease-in-out duration-300 font-bold'>తె</div>
-                      <div className='text-white text-base md:text-xl font-normal md:mt-4 mt-2'>Telugu</div>
-                    </div>
-                  </Link>
-                  <Link className=' group p-2 lg:p-5 text-center w-[130px] md:w-[120px] bg-[#3e434c] rounded-lg flex justify-center items-center hover:bg-[#22C55E]' href='/browse_series'>
-                    <div>
-                      <div className='text-white text-x1 md:text-5xl group-hover:scale-125 transition ease-in-out duration-300 font-bold'>മ</div>
-                      <div className='text-white text-base md:text-xl font-normal md:mt-4 mt-2'>Malayalam</div>
-                    </div>
-                  </Link>
-                  <Link className=' group p-2 lg:p-5 text-center w-[130px] md:w-[120px] bg-[#3e434c] rounded-lg flex justify-center items-center hover:bg-[#22C55E]' href='/browse_series'>
-                    <div>
-                      <div className='text-white text-x1 md:text-5xl group-hover:scale-125 transition ease-in-out duration-300 font-bold'>ಕನ್</div>
-                      <div className='text-white text-base md:text-xl font-normal md:mt-4 mt-2'>Kannada</div>
-                    </div>
-                  </Link>
-                  <Link className=' group p-2 lg:p-5 text-center w-[130px] md:w-[120px] bg-[#3e434c] rounded-lg flex justify-center items-center hover:bg-[#22C55E]' href='/browse_series'>
-                    <div>
-                      <div className='text-white text-x1 md:text-5xl group-hover:scale-125 transition ease-in-out duration-300 font-bold'>বে</div>
-                      <div className='text-white text-base md:text-xl font-normal md:mt-4 mt-2'>Bangla</div>
-                    </div>
-                  </Link>
-                  <Link className=' group p-2 lg:p-5 text-center w-[130px] md:w-[120px] bg-[#3e434c] rounded-lg flex justify-center items-center hover:bg-[#22C55E]' href='/browse_series'>
-                    <div>
-                      <div className='text-white text-x1 md:text-5xl group-hover:scale-125 transition ease-in-out duration-300 font-bold'>मै</div>
-                      <div className='text-white text-base md:text-xl font-normal md:mt-4 mt-2'>Marathi</div>
-                    </div>
-                  </Link>
+                  <div className='text-4xl font-bold mt-2'>
+                    Multiple Languages
+                  </div>
                 </div>
-              
+              </h1>
+              <div className='flex justify-center flex-wrap gap-6'>
+                <Link className=' group p-2 lg:p-5 text-center w-[130px] md:w-[120px] bg-[#3e434c] rounded-xl flex justify-center items-center hover:bg-[#22C55E]' href='/browse_series'>
+                  <div>
+                    <div className='text-white text-x1 md:text-5xl group-hover:scale-125 transition ease-in-out duration-300 font-normal'>हि</div>
+                    <div className='text-white text-base md:text-xl font-normal md:mt-4 mt-2'>Hindi</div>
+                  </div>
+                </Link>
+                <Link className=' group p-2 lg:p-5 text-center w-[130px] md:w-[120px] bg-[#3e434c] rounded-lg flex justify-center items-center hover:bg-[#22C55E]' href='/browse_series'>
+                  <div>
+                    <div className='text-white text-x1 md:text-5xl group-hover:scale-125 transition ease-in-out duration-300 font-bold'>Aa</div>
+                    <div className='text-white text-base md:text-xl font-normal md:mt-4 mt-2'>English</div>
+                  </div>
+                </Link>
+                <Link className=' group p-2 lg:p-5 text-center w-[130px] md:w-[120px] bg-[#3e434c] rounded-lg flex justify-center items-center hover:bg-[#22C55E]' href='/browse_series'>
+                  <div>
+                    <div className='text-white text-x1 md:text-5xl group-hover:scale-125 transition ease-in-out duration-300 font-bold'>த</div>
+                    <div className='text-white text-base md:text-xl font-normal md:mt-4 mt-2'>Tamil</div>
+                  </div>
+                </Link>
+                <Link className=' group p-2 lg:p-5 text-center w-[130px] md:w-[120px] bg-[#3e434c] rounded-lg flex justify-center items-center hover:bg-[#22C55E]' href='/browse_series'>
+                  <div>
+                    <div className='text-white text-x1 md:text-5xl group-hover:scale-125 transition ease-in-out duration-300 font-bold'>తె</div>
+                    <div className='text-white text-base md:text-xl font-normal md:mt-4 mt-2'>Telugu</div>
+                  </div>
+                </Link>
+                <Link className=' group p-2 lg:p-5 text-center w-[130px] md:w-[120px] bg-[#3e434c] rounded-lg flex justify-center items-center hover:bg-[#22C55E]' href='/browse_series'>
+                  <div>
+                    <div className='text-white text-x1 md:text-5xl group-hover:scale-125 transition ease-in-out duration-300 font-bold'>മ</div>
+                    <div className='text-white text-base md:text-xl font-normal md:mt-4 mt-2'>Malayalam</div>
+                  </div>
+                </Link>
+                <Link className=' group p-2 lg:p-5 text-center w-[130px] md:w-[120px] bg-[#3e434c] rounded-lg flex justify-center items-center hover:bg-[#22C55E]' href='/browse_series'>
+                  <div>
+                    <div className='text-white text-x1 md:text-5xl group-hover:scale-125 transition ease-in-out duration-300 font-bold'>ಕನ್</div>
+                    <div className='text-white text-base md:text-xl font-normal md:mt-4 mt-2'>Kannada</div>
+                  </div>
+                </Link>
+                <Link className=' group p-2 lg:p-5 text-center w-[130px] md:w-[120px] bg-[#3e434c] rounded-lg flex justify-center items-center hover:bg-[#22C55E]' href='/browse_series'>
+                  <div>
+                    <div className='text-white text-x1 md:text-5xl group-hover:scale-125 transition ease-in-out duration-300 font-bold'>বে</div>
+                    <div className='text-white text-base md:text-xl font-normal md:mt-4 mt-2'>Bangla</div>
+                  </div>
+                </Link>
+                <Link className=' group p-2 lg:p-5 text-center w-[130px] md:w-[120px] bg-[#3e434c] rounded-lg flex justify-center items-center hover:bg-[#22C55E]' href='/browse_series'>
+                  <div>
+                    <div className='text-white text-x1 md:text-5xl group-hover:scale-125 transition ease-in-out duration-300 font-bold'>मै</div>
+                    <div className='text-white text-base md:text-xl font-normal md:mt-4 mt-2'>Marathi</div>
+                  </div>
+                </Link>
+              </div>
+
             </div>
           </div>
 
@@ -638,76 +645,166 @@ const Home = () => {
             </div>
           </div>
 
-
-
-          <div className='lg:pt-[150px] pt-[50px]'>
-            <div className='bg-[#272A30] rounded-lg md:flex justify-between lg:mx-24 mx-5'>
-              <div className='text-white flex items-center justify-center w-full'>
-                <h1 className='text-base text-sm md:text-4x1'>
-                  <div className='caption relative text-white p-5'>
-                    <span>Make Every Moment Count</span>
-                    <div className='relative'>
-                      "Listen While"
-                      <div className='text-box absolute inline-block ml-1 md:ml-2'>
-                        <div className='left-0 absolute font-bold inline-block text-brand-500'>Cooking</div>
-                        <div className='left-0 absolute font-bold inline-block text-brand-500'>Commuting</div>
-                        <div className='left-0 absolute font-bold inline-block text-brand-500'>Exrcising</div>
-                        <div className='left-0 absolute font-bold inline-block text-brand-500'>Relaxing</div>
+          <Swiper
+            spaceBetween={30}
+            centeredSlides={true}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
+            pagination={{
+              clickable: true,
+            }}
+            navigation={true}
+            modules={[Autoplay, Pagination, Navigation]}
+            className="mySwiper"
+          >
+            <SwiperSlide>
+              <div className='lg:pt-[150px] pt-[50px]'>
+                <div className='bg-[#272A30] rounded-lg md:flex justify-between lg:mx-24 mx-5'>
+                  <div className='text-white flex items-center justify-center w-full'>
+                    <h1 className='text-base text-sm md:text-4x1'>
+                      <div className='caption relative text-white p-5'>
+                        <span>Make Every Moment Count</span>
+                        <div className='relative'>
+                          "Listen While"
+                          <div className='text-box absolute inline-block ml-1 md:ml-2'>
+                            <div className='left-0 absolute font-bold inline-block text-brand-500'>Commuting</div>
+                          </div>
+                        </div>
+                      </div>
+                    </h1>
+                  </div>
+                  <div className='md:w-[500px] w-full md:h-[300px] h-[178px] flex-shrink-0'>
+                    <div className='image-wrapper h-full w-full z-40'>
+                      <div className='h-full w-full relative'>
+                        <img alt='Echostream | Driving'
+                          loading='lazy'
+                          decoding='async'
+                          data-nimg='fill'
+                          className='h-full w-full false rounded-lg'
+                          sizes='100vw'
+                          style={{ objectFit: 'cover', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', bottom: 0, right: 0, color: 'transparent' }}
+                          src='https://images.cdn.kukufm.com/w:1920/f:webp/q:75/https://d1l07mcd18xic4.cloudfront.net/static/d_commute.png'
+                        />
                       </div>
                     </div>
                   </div>
-                </h1>
+                </div>
               </div>
-              <div className='md:w-[500px] w-full md:h-[300px] h-[178px] flex-shrink-0'>
-                <div className='image-wrapper h-full w-full z-40'>
-                  <div className='h-full w-full relative'>
-                    <img alt='Echostream | Driving'
-                      loading='lazy'
-                      decoding='async'
-                      data-nimg='fill'
-                      className='h-full w-full false rounded-lg'
-                      sizes='100vw'
-                      style={{ objectFit: 'cover', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', bottom: 0, right: 0, color: 'transparent' }}
-                      src='https://images.cdn.kukufm.com/w:1920/f:webp/q:75/https://d1l07mcd18xic4.cloudfront.net/static/landing_exersice.png'
-                    />
+
+            </SwiperSlide>
+
+            <SwiperSlide>
+              <div className='lg:pt-[150px] pt-[50px]'>
+                <div className='bg-[#272A30] rounded-lg md:flex justify-between lg:mx-24 mx-5'>
+                  <div className='text-white flex items-center justify-center w-full'>
+                    <h1 className='text-base text-sm md:text-4x1'>
+                      <div className='caption relative text-white p-5'>
+                        <span>Make Every Moment Count</span>
+                        <div className='relative'>
+                          "Listen While"
+                          <div className='text-box absolute inline-block ml-1 md:ml-2'>
+                            <div className='left-0 absolute font-bold inline-block text-brand-500'>Exercising</div>
+                          </div>
+                        </div>
+                      </div>
+                    </h1>
                   </div>
-                  {/* <div className='h-full w-full relative'>
-                  <img alt='Echostream | Driving'
-                    loading='lazy'
-                    decoding='async'
-                    data-nimg='fill'
-                    className='h-full w-full false rounded-lg'
-                    sizes='100vw'
-                    style={{ objectFit: 'cover', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', bottom: 0, right: 0, color: 'transparent' }}
-                    src='https://images.cdn.kukufm.com/w:1920/f:webp/q:75/https://d1l07mcd18xic4.cloudfront.net/static/landing_cook.png'
-                  />
-                </div>
-                <div className='h-full w-full relative'>
-                  <img alt='Echostream | Driving'
-                    loading='lazy'
-                    decoding='async'
-                    data-nimg='fill'
-                    className='h-full w-full false rounded-lg'
-                    sizes='100vw'
-                    style={{ objectFit: 'cover', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', bottom: 0, right: 0, color: 'transparent' }}
-                    src='https://images.cdn.kukufm.com/w:1920/f:webp/q:75/https://d1l07mcd18xic4.cloudfront.net/static/d_relax.png'
-                  />
-                </div>
-                <div className='h-full w-full relative'>
-                  <img alt='Echostream | Driving'
-                    loading='lazy'
-                    decoding='async'
-                    data-nimg='fill'
-                    className='h-full w-full false rounded-lg'
-                    sizes='100vw'
-                    style={{ objectFit: 'cover', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', bottom: 0, right: 0, color: 'transparent' }}
-                    src='https://images.cdn.kukufm.com/w:1920/f:webp/q:75/https://d1l07mcd18xic4.cloudfront.net/static/d_commute.png'
-                  />
-                </div> */}
+                  <div className='md:w-[500px] w-full md:h-[300px] h-[178px] flex-shrink-0'>
+                    <div className='image-wrapper h-full w-full z-40'>
+                      <div className='h-full w-full relative'>
+                        <img alt='Echostream | Driving'
+                          loading='lazy'
+                          decoding='async'
+                          data-nimg='fill'
+                          className='h-full w-full false rounded-lg'
+                          sizes='100vw'
+                          style={{ objectFit: 'cover', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', bottom: 0, right: 0, color: 'transparent' }}
+                          src='https://images.cdn.kukufm.com/w:1920/f:webp/q:75/https://d1l07mcd18xic4.cloudfront.net/static/landing_exersice.png'
+                        />
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
+            </SwiperSlide>
+
+            <SwiperSlide>
+              <div className='lg:pt-[150px] pt-[50px]'>
+                <div className='bg-[#272A30] rounded-lg md:flex justify-between lg:mx-24 mx-5'>
+                  <div className='text-white flex items-center justify-center w-full'>
+                    <h1 className='text-base text-sm md:text-4x1'>
+                      <div className='caption relative text-white p-5'>
+                        <span>Make Every Moment Count</span>
+                        <div className='relative'>
+                          "Listen While"
+                          <div className='text-box absolute inline-block ml-1 md:ml-2'>
+                            <div className='left-0 absolute font-bold inline-block text-brand-500'>Cooking</div>
+                          </div>
+                        </div>
+                      </div>
+                    </h1>
+                  </div>
+                  <div className='md:w-[500px] w-full md:h-[300px] h-[178px] flex-shrink-0'>
+                    <div className='image-wrapper h-full w-full z-40'>
+                      <div className='h-full w-full relative'>
+                        <img alt='Echostream | Driving'
+                          loading='lazy'
+                          decoding='async'
+                          data-nimg='fill'
+                          className='h-full w-full false rounded-lg'
+                          sizes='100vw'
+                          style={{ objectFit: 'cover', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', bottom: 0, right: 0, color: 'transparent' }}
+                          src='https://images.cdn.kukufm.com/w:1920/f:webp/q:75/https://d1l07mcd18xic4.cloudfront.net/static/landing_cook.png'
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </SwiperSlide>
+
+            <SwiperSlide>
+              <div className='lg:pt-[150px] pt-[50px]'>
+                <div className='bg-[#272A30] rounded-lg md:flex justify-between lg:mx-24 mx-5'>
+                  <div className='text-white flex items-center justify-center w-full'>
+                    <h1 className='text-base text-sm md:text-4x1'>
+                      <div className='caption relative text-white p-5'>
+                        <span>Make Every Moment Count</span>
+                        <div className='relative'>
+                          "Listen While"
+                          <div className='text-box absolute inline-block ml-1 md:ml-2'>
+                            <div className='left-0 absolute font-bold inline-block text-brand-500'>Relaxing</div>
+                          </div>
+                        </div>
+                      </div>
+                    </h1>
+                  </div>
+                  <div className='md:w-[500px] w-full md:h-[300px] h-[178px] flex-shrink-0'>
+                    <div className='image-wrapper h-full w-full z-40'>
+                      <div className='h-full w-full relative'>
+                        <img alt='Echostream | Driving'
+                          loading='lazy'
+                          decoding='async'
+                          data-nimg='fill'
+                          className='h-full w-full false rounded-lg'
+                          sizes='100vw'
+                          style={{ objectFit: 'cover', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', bottom: 0, right: 0, color: 'transparent' }}
+                          src='https://images.cdn.kukufm.com/w:1920/f:webp/q:75/https://d1l07mcd18xic4.cloudfront.net/static/d_relax.png'
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </SwiperSlide>
+            ...
+          </Swiper>
+
+
+
+
 
 
 
