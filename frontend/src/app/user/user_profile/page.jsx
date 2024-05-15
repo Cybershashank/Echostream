@@ -1,14 +1,14 @@
-
-import { useFormik } from "formik";
+'use client'
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+
 
 const Profile = () => {
   const [currentUser, setCurrentUser] = useState(
     JSON.parse(sessionStorage.getItem("user"))
   );
 
-  const [profileData, setProfileData] = useState({});
+
 
   const getUserInfo = () => {
     fetch(`http://localhost:5000/user/getbyid`, {
@@ -20,7 +20,6 @@ const Profile = () => {
       })
       .then((data) => {
         console.log(data);
-        setProfileData(data);
       })
       .catch((err) => {
         console.log(err);

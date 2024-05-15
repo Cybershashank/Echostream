@@ -31,7 +31,6 @@ export const PlayerProvider = ({ children }) => {
             setSongStatus('stopped');
         }
     }
-
     const togglePause = () => {
         if (audioRef.current.paused) {
             audioRef.current.play();
@@ -39,13 +38,11 @@ export const PlayerProvider = ({ children }) => {
         } else {
             audioRef.current.pause();
             setSongStatus('paused');
-        }
+        }       
     }
-
     const isSongPlaying = (song) => {
         return songPlaying === song;
     }
-
     const getSongDuration = () => {
         return audioRef.current.duration;
     }
