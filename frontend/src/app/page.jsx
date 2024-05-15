@@ -124,7 +124,7 @@ const Home = () => {
               </div>
               <div className='flex items-center space-x-6 flex-1 justify-end'>
                 <Link className='w-[156px] h-[50px] flex justify-center items-center text-white text-base font-bold rounded-[10px] border border-white' target='_blank' href='/login' rel='noreferrer'>Login</Link>
-                <Link className='inline-flex justify-center items-center bg-purple-500 rounded-md text-white text-base font-bold px-5 py-3' href='/browse_podcast'>
+                <Link className='inline-flex justify-center items-center bg-purple-500 rounded-md text-white text-base font-bold px-5 py-3' href='/browse_series'>
                   <div className='font-bold text-xs md:text-lg'>Explore</div>
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-right">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -168,7 +168,7 @@ const Home = () => {
                     <div className="rounded-md shadow">
                       <Link
                         className="inline-flex justify-center items-center bg-purple-500 rounded-md text-white text-base font-bold px-5 py-3"
-                        href="/browse_podcast"
+                        href="/browse_series "
                       >
                         Explore
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-right">

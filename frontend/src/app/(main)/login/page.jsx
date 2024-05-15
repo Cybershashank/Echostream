@@ -79,7 +79,7 @@ const Login = () => {
                   sessionStorage.setItem('user', JSON.stringify(data));
                   toast.success("User Login Successfully")
                  
-            router.push('/browse_podcast')
+            router.push('/browse_series')
               }
               })
           } else if (response.status === 401) {
