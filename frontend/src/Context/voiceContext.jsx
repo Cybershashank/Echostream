@@ -58,13 +58,22 @@ const InstructionModal = ({ setShowModal }) => {
 }
 
 const pageDetails = [
+  // main pages
   {
-    pageName: 'home',
-    pagePath: '/'
+    pageName: 'home page',
+    pagePath: 'http://localhost:3000/'
   },
   {
-    pageName: 'signup',
+    pageName: 'sign up',
     pagePath: '/signup'
+  },
+  {
+    pageName: 'artistsignup',
+    pagePath: '/artist-signup'
+  },
+  {
+    pageName: 'artistlogin',
+    pagePath: '/artist-login'
   },
   {
     pageName: 'login',
@@ -79,53 +88,119 @@ const pageDetails = [
     pagePath: '/about'
   },
   {
-    pageName: 'resetPassword',
+    pageName: 'feedback',
+    pagePath: '/feedback'
+  },
+  {
+    pageName: 'terms&conditions',
+    pagePath: '/terms&conditions'
+  },
+  {
+    pageName: 'privacyPolicy',
+    pagePath: '/privacyPolicy'
+  },
+  {
+    pageName: 'reset password',
     pagePath: '/resetPassword'
   },
   {
-    pageName: 'productView',
-    pagePath: '/productView'
+    pageName: 'artist detail',
+    pagePath: '/artist_detail'
   },
   {
-    pageName: 'sellerdashboard',
-    pagePath: '/seller/sellerdashboard'
+    pageName: 'browse podcast',
+    pagePath: '/browse_podcast'
   },
   {
-    pageName: 'addProduct',
-    pagePath: '/seller/addProduct'
+    pageName: 'browse artist',
+    pagePath: '/browse_artist'
   },
   {
-    pageName: 'manageProduct',
-    pagePath: '/seller/manageProduct'
+    pageName: 'play podcast',
+    pagePath: '/play_podcast'
   },
   {
-    pageName: 'sellersignup',
-    pagePath: '/seller/sellersignup'
+    pageName: 'podcast series',
+    pagePath: '/podcast_series'
+  },
+
+
+
+
+  // user pages
+  {
+    pageName: 'user profile',
+    pagePath: '/user/user_profile'
   },
   {
-    pageName: 'admindashboard',
-    pagePath: '/admin/admindashboard'
+    pageName: 'playlist',
+    pagePath: '/user/playlist'
+  },
+  {
+    pageName: 'edit profile',
+    pagePath: '/user/editprofile'
+  },
+
+
+
+
+
+  // artist pages
+  {
+    pageName: 'create podcast',
+    pagePath: '/artist/create-podcast'
+  },
+  {
+    pageName: 'manage podcast',
+    pagePath: '/artist/manage_podcast'
+  },
+  {
+    pageName: 'artistdashboard',
+    pagePath: '/artist/dashboard'
+  },
+  {
+    pageName: 'profile',
+    pagePath: '/artist/profile'
+  },
+  {
+    pageName: 'profile',
+    pagePath: '/artist/editartistprofile'
+  },
+  {
+    pageName: 'publish podcast',
+    pagePath: '/artist/publish_podcast'
+  },
+  {
+    pageName: 'series form',
+    pagePath: '/artist/series-form'
+  },
+
+
+
+
+
+  // admin pages
+  {
+    pageName: 'dashboard',
+    pagePath: '/admin/dashboard'
+  },
+  {
+    pageName: 'manage feedback',
+    pagePath: '/admin/manage_feedback'
+  },
+  {
+    pageName: 'manageartist',
+    pagePath: '/admin/manageartist'
   },
   {
     pageName: 'manageuser',
     pagePath: '/admin/manageuser'
   },
   {
-    pageName: 'adminprofile',
-    pagePath: '/admin/adminprofile'
+    pageName: 'adminProfile',
+    pagePath: '/admin/adminProfile'
   },
-  {
-    pageName: 'profile',
-    pagePath: '/user/profile'
-  },
-  {
-    pageName: 'MyCart',
-    pagePath: '/admin/adminprofile'
-  },
-  {
-    pageName: 'cheakout',
-    pagePath: '/user/cheakout'
-  },
+
 ]
 
 const speech = new SpeechSynthesisUtterance();
@@ -166,145 +241,245 @@ export const VoiceProvider = ({ children }) => {
         voicePageNavigator(pageName)
       }
     },
+
+
+    // main page
     {
-      command: 'I want to create an account',
+      command: ['home page open karo', 'home page open', 'open home page', 'home page'],
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('home page')
+      }
+    },
+    {
+      command: ['create an account', 'signup page open karo', 'signup open karo', 'signup page open', 'signup page'],
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('signup')
       }
     },
     {
-      command: 'I want to login',
+      command: ['create an artist account', 'artist sign up open karo', 'artist sign up page open karo', 'artist sign up page open', 'artist sign up page', 'artist sign up'],
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('artist-signup')
+      }
+    },
+    {
+      command: ['I want to login', 'open login page', 'login page open karo', 'login page open', 'login page'],
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('login')
       }
     },
     {
-      command: 'I want to buy something',
+      command: ['artist login open karo', 'artist login page open karo', 'open artist login page'],
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
-        voicePageNavigator('productView')
+        voicePageNavigator('artistLogin')
       }
     },
     {
-      command: 'I want to contact you',
+      command: ['open about page', 'about page open karo', 'about page open', 'about page'],
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
-        voicePageNavigator('contact')
+        voicePageNavigator('about')
       }
     },
     {
-      command: 'open manage product page',
-      callback: (pageName) => {
-        console.log('Opening page: ', pageName);
-        voicePageNavigator('manageProduct')
-      }
-    },
-    {
-      command: 'open login page',
-      callback: (pageName) => {
-        console.log('Opening page: ', pageName);
-        voicePageNavigator('login')
-      }
-    },
-    {
-      command: 'open cheak out page',
-      callback: (pageName) => {
-        console.log('Opening page: ', pageName);
-        voicePageNavigator('cheakout')
-      }
-    },
-    
-    {
-      command: 'open contact page',
+      command: ['open contact page', 'contact page open karo', 'contact page open', 'contact page'],
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('contact')
       }
     },
     {
-      command: 'open reset password page',
+      command: ['open feedback page', 'feedback page open karo', 'feedback page open', 'feedback page'],
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
-        voicePageNavigator('resetPassword')
+        voicePageNavigator('feedback')
       }
     },
     {
-      command: 'open signup page',
+      command: ['open terms and conditions page', 'terms and conditions page open karo', 'terms and conditions page open', 'terms and conditions page', 'terms and conditions'],
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
-        voicePageNavigator('signup')
+        voicePageNavigator('terms&conditions')
       }
     },
     {
-      command: 'open admin dashboard',
+      command: ['open privacy policy page', 'privacy policy page open karo', 'privacy policy page open', 'privacy policy page', 'privacy policy'],
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
-        voicePageNavigator('admindashboard')
+        voicePageNavigator('privacyPolicy')
       }
     },
     {
-      command: 'open manage user',
+      command: ['reset password', 'forgot password', 'password reset', 'reset password page open karo', 'reset password page open', 'reset password page'],
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
-        voicePageNavigator('manageuser')
+        voicePageNavigator('reset password')
       }
     },
     {
-      command: 'open admin profile',
+      command: ['browse podcast', 'open browse podcast page', 'browse podcast page open karo', 'search podcast', 'search podcast page', 'open search podcast page'],
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
-        voicePageNavigator('adminprofile')
+        voicePageNavigator('browse podcast')
       }
     },
     {
-      command: 'open add product',
+      command: ['browse artist', 'open browse artist page', 'browse artist page open karo', 'search artist', 'search artist page', 'open search artist page'],
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
-        voicePageNavigator('addProduct')
+        voicePageNavigator('browse artist')
       }
     },
     {
-      command: 'open manage product',
+      command: ['open artist detail page', 'artist detail page open karo', 'artist detail page open', 'artist detail page', 'artist detail'],
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
-        voicePageNavigator('manageProduct')
+        voicePageNavigator('artist detail')
       }
     },
     {
-      command: 'open seller dashboard',
+      command: ['open podcast play page', 'open play podcast', 'podcast play page open karo', 'play podcast page open karo', 'play podcast page open', 'play podcast page', 'play podcast'],
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
-        voicePageNavigator('sellerdashboard')
+        voicePageNavigator('play podcast')
       }
     },
     {
-      command: 'open seller sign up',
+      command: ['open podcast series', 'open podcast series page', 'podcast series page open', 'podcast series page open karo', 'podcast series page', 'podcast series'],
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
-        voicePageNavigator('sellersignup')
+        voicePageNavigator('podcast series')
+      }
+    },
+
+
+
+
+
+
+
+    // user pages
+    {
+      command: ['open user profile', 'user profile page open karo', 'user profile open karo', 'user profile page open', 'user profile page', 'user profile', 'open user profile page'],
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('user profile')
       }
     },
     {
-      command: 'open user profile',
+      command: ['open playlist', 'playlist page open karo', 'playlist open karo', 'playlist page open', 'playlist page', 'playlist', 'open playlist page'],
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('playlist')
+      }
+    },
+    {
+      command: ['edit user profile', 'edit profile page open karo', 'edit profile open karo', 'edit profile page open', 'edit profile page', 'edit profile', 'open edit profile page', 'open edit profile', 'user profile edit karo', 'user profile edit'],
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('edit profile')
+      }
+    },
+
+
+
+
+
+
+
+    // artist pages
+    {
+      command: ['open artist dashboard', 'artist dashboard page open karo', 'artist dashboard open karo', 'artist dashboard page open', 'artist dashboard page', 'artist dashboard'],
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('artistdashboard')
+      }
+    },
+    {
+      command: ['open create podcast', 'create podcast page open karo', 'create podcast open karo', 'create podcast page open', 'create podcast page', 'create podcast', 'open create podcast page'],
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('create podcast')
+      }
+    },
+    {
+      command: ['open artist profile', 'artist profile page open karo', 'artist profile open karo', 'artist profile page open', 'artist profile page', 'artist profile', 'open artist profile page'],
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('profile')
       }
     },
     {
-      command: 'open cart page',
+      command: ['open publish podcast page', 'publish podcast page open karo', 'publish podcast open karo', 'publish podcast page open', 'publish podcast page', 'publish podcast', 'open publish podcast page'],
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
-        voicePageNavigator('MyCart')
+        voicePageNavigator('publish podcast')
       }
     },
     {
-      command: 'show me products',
+      command: ['open series form', 'series form page open karo', 'series form open karo', 'series form page open', 'series form page', 'series form', 'open series form page'],
       callback: (pageName) => {
-        router.push('/productView');
-        voiceResponse('Showing all products');
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('series form')
+      }
+    },
+
+
+
+
+
+
+
+    // admin pages
+    {
+      command: ['open admin dashboard', 'admin dashboard page open karo', 'admin dashboard open karo', 'admin dashboard page open', 'admin dashboard page', 'admin dashboard'],
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('dashboard')
+      }
+    },
+    {
+      command: ['manage user', 'manage user page open karo', 'manage user open karo', 'manage user page open', 'manage user page', 'manage user'],
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('manage user')
+      }
+    },
+    {
+      command: ['manage artist', 'manage artist page open karo', 'manage artist open karo', 'manage artist page open', 'manage artist page', 'manage artist'],
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('manage artist')
+      }
+    },
+    {
+      command: ['manage feedback', 'manage feedback page open karo', 'manage feedback open karo', 'manage feedback page open', 'manage feedback page', 'manage feedback'],
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('manage feedback')
+      }
+    },
+    {
+      command: ['open admin profile', 'admin profile page open karo', 'admin profile open karo', 'admin profile page open', 'admin profile page', 'admin profile', 'open admin profile page'],
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('adminProfile')
+      }
+    },
+
+
+
+
+    {
+      command: 'show me series',
+      callback: (pageName) => {
+        router.push('/browse_series');
+        voiceResponse('Showing all series');
       }
     },
     {
@@ -389,17 +564,17 @@ export const VoiceProvider = ({ children }) => {
       SpeechRecognition.startListening({ continuous: true });
       triggerModal('Voice Assistant', 'I am listening');
     }
-    if (finalTranscript.includes('top listening')) {
+    if (finalTranscript.includes('stop listening')) {
       voiceResponse('Okay, I will stop listening now');
       SpeechRecognition.stopListening();
       triggerModal('Voice Assistant', 'Good Bye! Have a nice day!', false, <IconMicrophoneOff size={50} />);
     }
-    if (finalTranscript.includes('hello box')) {
+    if (finalTranscript.includes('hello echo')) {
       resetTranscript();
       voiceResponse('Hello! How can I help you today?');
       SpeechRecognition.startListening({ continuous: true });
     }
-    if (finalTranscript.includes('goodbye box')) {
+    if (finalTranscript.includes('goodbye echo')) {
       voiceResponse('Goodbye! Have a nice day!');
       SpeechRecognition.stopListening();
       triggerModal('Voice Assistant', 'Good bye! have a nice Day', false, <IconMicrophoneOff size={50} />);
@@ -432,13 +607,13 @@ export const VoiceProvider = ({ children }) => {
       resetTranscript();
       triggerModal('Moving to Top', '', true, <IconArrowUpBar size={50} />);
     }
-    if (finalTranscript.includes('browse products') || finalTranscript.includes('view all products')) {
+    if (finalTranscript.includes('browse series') || finalTranscript.includes('view all series')) {
       resetTranscript();
-      voiceResponse('Showing all products');
-      router.push('/productView');
+      voiceResponse('Showing all series');
+      router.push('/browse_series');
     }
   }, [finalTranscript])
-  
+
   const voiceResponse = (text) => {
     speech.text = text;
     window.speechSynthesis.speak(speech);
