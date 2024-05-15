@@ -15,7 +15,7 @@ const Login = () => {
   const router = useRouter();
   const btnRef = useRef();
 
-  const { setLoggedIn, setCurrentUser } = useAppContext();
+  const { setLoggedIn, setCurrentUser,setLoggedin, setCurrentuser } = useAppContext();
   const { performActionUsingVoice, finalTranscript, fillInputUsingVoice } = useVoiceContext();
   // console.log(transcript);
 
@@ -63,14 +63,17 @@ const Login = () => {
             response.json()
               .then((data) => {
                 setLoggedIn(true);
+                setLoggedin(true);
+                setCurrentuser(data);
                 setCurrentUser(data);
                 sessionStorage.setItem("user", JSON.stringify(data));
                 if (data.role === 'admin') {
                   sessionStorage.setItem('admin', JSON.stringify(data));
-                  navigate('/Admin/dashboard');
+                  router.push('/admin/dashboard');
+                  toast.success('admin Login successfully');
               } else {
                   sessionStorage.setItem('user', JSON.stringify(data));
-                  navigate('/');
+                  router.push('/');
               }
               })
           } else if (response.status === 401) {

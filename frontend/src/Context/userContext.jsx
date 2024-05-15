@@ -10,7 +10,12 @@ export const AppProvider = ({ children  }) => {
         JSON.parse(sessionStorage.getItem('user'))
       );
 
+    const [ currentuser, setCurrentuser ] = useState(
+        JSON.parse(sessionStorage.getItem('admin'))
+      );
+
     const [loggedIn, setLoggedIn] = useState(currentUser !== null);
+    const [loggedin, setLoggedin] = useState(currentuser !== null);
     const router=useRouter();
 
     const logout = () => {
@@ -19,9 +24,15 @@ export const AppProvider = ({ children  }) => {
         setCurrentUser(null);
         router.push('/login');
     }
+    const adminlogout = () => {
+        sessionStorage.removeItem('admin');
+        setLoggedin(false);
+        setCurrentuser(null);
+        router.push('/login');
+    }
 
     return (
-        <AppContext.Provider value={{ loggedIn, setLoggedIn, logout, currentUser, setCurrentUser }} >
+        <AppContext.Provider value={{ loggedIn, setLoggedIn,loggedin, setLoggedin, logout,adminlogout, currentUser, setCurrentUser, currentuser, setCurrentuser }} >
             {children}
         </AppContext.Provider>
     )
