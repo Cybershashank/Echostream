@@ -35,6 +35,21 @@ const editProfile = () => {
       });
   }
 
+  const uploadProfileImage = (e) => {
+    const file = e.target.files[0];
+    const fd = new FormData();
+    fd.append('myfile', file);
+    fetch(`http://localhost:3000/util/uploadfile`, {
+      method: 'POST',
+      body: fd,
+    }).then(res => {
+      if (res.status === 200) {
+        toast.success('Profile Image Updated');
+        updateProfile({ avatar: file.name });
+      }
+    });
+  }
+
   return (
     <div>
       <>
@@ -53,6 +68,34 @@ const editProfile = () => {
                   </h2>
 
                 </div>
+
+                <div className="flex flex-col items-center space-y-5 sm:flex-row sm:space-y-0">
+                    <img
+                      className="object-cover w-40 h-40 p-1 rounded-full ring-2 ring-indigo-300 dark:ring-indigo-500"
+                      src={
+                        currentUser.avatar &&
+                        `http://localhost:3000/${currentUser.avatar}`}
+                      alt="Bordered avatar"
+                    />
+                    <div className="flex flex-col space-y-5 sm:ml-8">
+                      <div className="text-center my-2">
+                        <label
+                          className="py-3 px-7 text-base font-medium text-indigo-900 focus:outline-none bg-white rounded-lg border border-indigo-200 hover:bg-indigo-100 hover:text-[#202142] focus:z-10 focus:ring-4 focus:ring-indigo-200"
+                          htmlFor="upload-image"
+                        >
+                          {" "}
+                          <i className="fas fa-pen"></i>&nbsp;Edit{" "}
+                        </label>
+                        <input
+                          type="file"
+                          hidden
+                          onChange={uploadProfileImage}
+                          id="upload-image"
+                        />
+                      </div>
+
+                    </div>
+                  </div>
                 {/* text - end */}
                 {/* form - start */}
                 {
