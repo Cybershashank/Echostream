@@ -40,6 +40,10 @@ router.get('/getbymail/:email', (req, res) => {
     console.log(req.body);
 });
 
+router.get('/getuser', verifyToken, (req, res) => {
+    res.status(200).json(req.user);
+});
+
 
 router.get('/delete', (req, res) => {
     Model.findByIdAndDelete(req.params.id)
@@ -51,8 +55,8 @@ router.get('/delete', (req, res) => {
         });
 });
 
-router.put('/update/:id',  (req, res) => {
-    Model.findByIdAndUpdate(req.params.id, req.body, { new: true })
+router.put('/update', verifyToken , (req, res) => {
+    Model.findByIdAndUpdate(req.user._id, req.body, { new: true })
         .then((result) => {
             console.log(result);
             res.json(result);

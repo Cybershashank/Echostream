@@ -1,4 +1,5 @@
-import { useFormik } from 'formik';
+'use client'
+import { Formik, useFormik } from 'formik';
 import React, { useState } from 'react'
 import toast from 'react-hot-toast'
 
@@ -8,30 +9,11 @@ const Editprofile = () => {
     JSON.parse(sessionStorage.getItem("user"))
   );
 
-  const useForm = useFormik({
-    initialValues: currentUser,
-    onSubmit: async (data) => {
-      console.log(data);
-      const res = await fetch(url + '/user/update/' + currentUser._id, {
-        method: 'PUT',
-        body: JSON.stringify(data),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
-      console.log(res.status);
-      const userData = await res.json();
-      console.log(userData);
-      setCurrentUser(userData);
-      sessionStorage.setItem("user", JSON.stringify(userData));
-    }
-  })
-
   const uploadProfileImage = (e) => {
     const file = e.target.files[0];
     const fd = new FormData();
     fd.append('myfile', file);
-    fetch(`http://localhost:3000/util/uploadfile`, {
+    fetch(`http://localhost:5000/util/uploadfile`, {
       method: 'POST',
       body: fd,
     }).then(res => {
@@ -42,11 +24,12 @@ const Editprofile = () => {
     });
   }
   const updateProfile = (data) => {
-    fetch(`http://localhost:3000/user/update/${currentUser._id}`, {
+    fetch(`http://localhost:5000/user/update`, {
       method: 'PUT',
       body: JSON.stringify(data),
       headers: {
         'Content-Type': 'application/json',
+        'x-auth-token': currentUser.token,
       },
     })
       .then(res => {
@@ -60,16 +43,7 @@ const Editprofile = () => {
       .catch(err => console.log(err));
   }
 
-  const deleteAccount = async (id) => {
-    console.log(id);
 
-    const res = await fetch('http://localhost:3000/user/delete/' + id, { method: 'DELETE' });
-    console.log(res.status);
-    if (res.status === 200) {
-
-
-    }
-  }
 
   return (
     <>
@@ -87,7 +61,7 @@ const Editprofile = () => {
           }}
         />
         <div className="bg-white w-full flex flex-col gap-5 px-3 md:px-16 lg:px-28 md:flex-row text-[#161931]">
-        
+
           <main className="w-full min-h-screen py-1 md:w-2/3 lg:w-3/4">
             <div className="p-2 md:p-4">
               <div className="w-full px-6 pb-8 mt-8 sm:max-w-xl sm:rounded-lg">
@@ -98,7 +72,7 @@ const Editprofile = () => {
                       className="object-cover w-40 h-40 p-1 rounded-full ring-2 ring-indigo-300 dark:ring-indigo-500"
                       src={
                         currentUser.avatar &&
-                        `http://localhost:3000/${currentUser.avatar}`}
+                        `${process.env.NEXT_PUBLIC_API_URL}/${currentUser.avatar}`}
                       alt="Bordered avatar"
                     />
                     <div className="flex flex-col space-y-5 sm:ml-8">
@@ -120,79 +94,97 @@ const Editprofile = () => {
 
                     </div>
                   </div>
-                  <div className="items-center mt-8 sm:mt-14 text-[#202142]">
-                    <div className="flex flex-col items-center w-full mb-2 space-x-0 space-y-2 sm:flex-row sm:space-x-4 sm:space-y-0 sm:mb-6">
-                      <div className="w-full">
-                        <label
-                          htmlFor="first_name"
-                          className="block mb-2 text-sm font-medium text-indigo-900 dark:text-white"
-                        >
-                          Your name
-                        </label>
-                        <input
-                          type="text"
-                          id="name"
-                          onChange={useForm.handleChange}
-                          value={useForm.values.name}
-                          className="bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 "
-                          placeholder="Your first name"
-                          defaultValue=""
-                          required=""
-                        />
-                      </div>
+                  {
+                    <Formik initialValues={currentUser} onSubmit={updateProfile}>
+                      {(updateProfile) => (
 
-                    </div>
-                    <div className="mb-2 sm:mb-6">
-                      <label
-                        htmlFor="email"
-                        className="block mb-2 text-sm font-medium text-indigo-900 dark:text-white"
-                      >
-                        Your email
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        onChange={useForm.handleChange}
-                        value={useForm.values.email}
-                        className="bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 "
-                        placeholder="your.email@mail.com"
-                        required=""
-                      />
-                    </div>
 
-                    <div className="mb-6">
-                      <label
-                        htmlFor="message"
-                        className="block mb-2 text-sm font-medium text-indigo-900 dark:text-white"
-                      >
-                        Bio
-                      </label>
-                      <textarea
-                        id="message"
-                        onChange={useForm.handleChange}
-                        value={useForm.values.bio}
-                        rows={4}
-                        className="block p-2.5 w-full text-sm text-indigo-900 bg-indigo-50 rounded-lg border border-indigo-300 focus:ring-indigo-500 focus:border-indigo-500 "
-                        placeholder="Write your bio here..."
-                        defaultValue={""}
-                      />
-                    </div>
-                    <div className="flex justify-end">
-                      <button
-                        type="button"
-                        className="py-2 px-4 bg-red-500 text-white rounded mx-3 "
-                        onClick={deleteAccount()}
-                      >
-                        Delete
-                      </button>
-                      <button
-                        type="submit"
-                        className="text-white bg-indigo-700  hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800"
-                      >
-                        Save
-                      </button>
-                    </div>
-                  </div>
+                        <form onSubmit={updateProfile.handleSubmit} className="mx-auto grid max-w-screen-md gap-4 sm:grid-cols-2">
+                          <div>
+                            <label
+                              htmlFor="first-name"
+                              className="mb-2 inline-block text-sm text-gray-800 sm:text-base"
+                            >
+                              Name*
+                            </label>
+                            <input
+                              type='text'
+                              id="name"
+                              value={updateProfile.values.name}
+                              onChange={updateProfile.handleChange}
+                              className="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
+                            />
+                          </div>
+                          <div>
+                            <label
+                              htmlFor="last-name"
+                              className="mb-2 inline-block text-sm text-gray-800 sm:text-base"
+                            >
+                              Address*
+                            </label>
+                            <input
+                              type="text"
+                              id="address"
+                              className="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
+                              onChange={updateProfile.handleChange}
+                              value={updateProfile.values.address}
+                            />
+                          </div>
+                          <div>
+                            <label
+                              htmlFor="first-name"
+                              className="mb-2 inline-block text-sm text-gray-800 sm:text-base"
+                            >
+                              Email*
+                            </label>
+                            <input
+                              type='text'
+                              id="email"
+                              value={updateProfile.values.email}
+                              onChange={updateProfile.handleChange}
+                              className="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
+                            />
+                          </div>
+                          <div>
+                            <label
+                              htmlFor="last-name"
+                              className="mb-2 inline-block text-sm text-gray-800 sm:text-base"
+                            >
+                              Phone No.*
+                            </label>
+                            <input
+                              type='text'
+                              id="phone"
+                              value={updateProfile.values.phone}
+                              onChange={updateProfile.handleChange}
+                              className="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
+                            />
+                          </div>
+
+                          <div className="sm:col-span-2">
+                            <label
+                              htmlFor="message"
+                              className="mb-2 inline-block text-sm text-gray-800 sm:text-base"
+                            >
+                              Bio*
+                            </label>
+                            <textarea
+                              name="message"
+                              className="h-64 w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
+                              defaultValue={""}
+                            />
+                          </div>
+                          <div className="flex items-center justify-between sm:col-span-2">
+                            <button type="submit" className="inline-block rounded-lg bg-indigo-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base">
+                              Update
+                            </button>
+
+                          </div>
+
+                        </form>
+                      )}
+                    </Formik>
+                  }
                 </div>
               </div>
             </div>
