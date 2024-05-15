@@ -15,11 +15,19 @@ const Login = () => {
   const router = useRouter();
   const btnRef = useRef();
 
+  const googleBtnRef = useRef();
+
   const { setLoggedIn, setCurrentUser,setLoggedin, setCurrentuser } = useAppContext();
-  const { performActionUsingVoice, finalTranscript, fillInputUsingVoice } = useVoiceContext();
+  const { performActionUsingVoice, finalTranscript, fillInputUsingVoice, resetTranscript } = useVoiceContext();
   // console.log(transcript);
 
   useEffect(() => {
+
+    if(finalTranscript.toLowerCase().includes('login with google')){
+      googleBtnRef.current.click();
+      resetTranscript();
+    }
+
     console.log(finalTranscript);
     performActionUsingVoice('submit', 'login form', () => {
       // btnRef.current.submit();
@@ -58,14 +66,10 @@ const Login = () => {
           console.log(response.status);
           if (response.status === 200) {
 
-            toast.success('User Login Successfully');
-            router.push('/browse_podcast')
             response.json()
               .then((data) => {
                 setLoggedIn(true);
-                setLoggedin(true);
                 setCurrentuser(data);
-                setCurrentUser(data);
                 sessionStorage.setItem("user", JSON.stringify(data));
                 if (data.role === 'admin') {
                   sessionStorage.setItem('admin', JSON.stringify(data));
@@ -73,7 +77,9 @@ const Login = () => {
                   toast.success('admin Login successfully');
               } else {
                   sessionStorage.setItem('user', JSON.stringify(data));
-                  router.push('/');
+                  toast.success("User Login Successfully")
+                 
+            router.push('/browse_podcast')
               }
               })
           } else if (response.status === 401) {
@@ -216,6 +222,7 @@ const Login = () => {
              
 
               <GoogleLogin
+              ref={googleBtnRef}
                   onSuccess={credentialResponse => {
                     console.log(credentialResponse);
                   }}

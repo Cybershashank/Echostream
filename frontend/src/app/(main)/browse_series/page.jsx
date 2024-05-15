@@ -1,4 +1,5 @@
 'use client';
+import useVoiceContext from '@/Context/voiceContext';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 
@@ -7,6 +8,32 @@ const browse_series = () => {
 
   const [filterList, setfilterList] = useState([])
   const [podcastList, setPodcastList] = useState([]);
+
+  const { performActionUsingVoice, finalTranscript, fillInputUsingVoice, resetTranscript } = useVoiceContext();
+
+  useEffect(() => {
+
+    if(finalTranscript.toLowerCase().includes('search series ')){
+      const searchTerm = finalTranscript.split('search series ').at(-1);
+      console.log(searchTerm);
+      setPodcastList(filterList.filter((pod) => {
+        return (pod.name.toLowerCase().includes(searchTerm.toLowerCase()))
+      }))
+      resetTranscript();
+    }
+
+    else if(finalTranscript.toLowerCase().includes('show all series')){
+      fetchPodcastData();
+      resetTranscript();
+    }
+
+    else if(finalTranscript.toLowerCase().includes('open podcast ')){
+      const view = finalTranscript.split('open podcast ').at(-1);
+      window.location.href = `/viewPodcast/${podcastList[view]._id}`
+     
+      resetTranscript();
+    }
+  }, [finalTranscript]);
 
   const fetchPodcastData = async () => {
     const res = await fetch("http://localhost:5000/series/getall");
@@ -81,8 +108,9 @@ setfilterList(data)
 
 
           <div className="grid grid-cols-4 gap-6  flex-warp md:flex-nowrap md:overflow-x-scroll w-full md:space-x-4 space-y-3 md:space-y-0 scrollbar-style">
-            {podcastList.map(episode => (
+            {podcastList.map((episode, index) => (
               <Link href={`/viewPodcast/${episode._id}`}>
+                <p>{index+1}</p>
                 <div key={episode.id} className="border-2 flex md:block">
                   <div className="relative ">
                     <img src={"http://localhost:5000/" + episode.cover}
