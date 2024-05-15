@@ -139,7 +139,7 @@ const Home = () => {
           </div>
 
 
-          <div style={{ backgroundImage: 'url(mainpage.jpg)' }} className='bg-cover'>
+          <div style={{ backgroundImage: 'url(projectpicture.png)' }} className='bg-cover'>
 
             <div className="flex h-screen justify-center items-center dark:bg-slate-800">
               <div className="mx-auto mt-10 flex justify-center px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8">
@@ -149,9 +149,9 @@ const Home = () => {
 
                     <div className='text-center lg:space-x-4 space-x-2 my-12'>
                       <span className='text-white font bold'>Create</span>
-                      <span className='text-purple-500 font-bold'>amazing</span>
+                      <span className='text-purple-700 font-bold'>amazing</span>
                       <div className='lg:my-5 my'></div>
-                      <span className='text-purple-500 font-bold'>podcast</span>
+                      <span className='text-purple-700 font-bold'>podcast</span>
                       <span className='text-white font bold'>show</span>
 
                     </div>
