@@ -8,6 +8,7 @@ export const PlayerProvider = ({ children }) => {
 
     const { performActionUsingVoice, finalTranscript, fillInputUsingVoice, resetTranscript } = useVoiceContext();
     const [currentTime, setCurrentTime] = useState(0);
+    const [progress, setProgress] = useState(0);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -15,29 +16,41 @@ export const PlayerProvider = ({ children }) => {
                 setCurrentTime(audioRef.current.currentTime);
             }
         }, 1000);
-    
+
         return () => clearInterval(interval);
     }, []);
 
     useEffect(() => {
-  
-  
-      if(finalTranscript.toLowerCase().includes('search series ')){
-        const searchTerm = finalTranscript.split('search series ').at(-1);
-        console.log(searchTerm);
-        setPodcastList(filterList.filter((pod) => {
-          return (pod.name.toLowerCase().includes(searchTerm.toLowerCase()))
-        }))
-        resetTranscript();
-      }
-      else if(finalTranscript.toLowerCase().includes('pause')){
-        audioRef.current.pause();
+        const interval = setInterval(() => {
+            if (audioRef.current) {
+                setCurrentTime(audioRef.current.currentTime);
+                const progress = (audioRef.current.currentTime / audioRef.current.duration) * 100;
+                setProgress(progress);
+            }
+        }, 1000);
 
-       setSongStatus('paused');
-        resetTranscript();
-      }
-  
-    
+        return () => clearInterval(interval);
+    }, []);
+
+    useEffect(() => {
+
+
+        if (finalTranscript.toLowerCase().includes('search series ')) {
+            const searchTerm = finalTranscript.split('search series ').at(-1);
+            console.log(searchTerm);
+            setPodcastList(filterList.filter((pod) => {
+                return (pod.name.toLowerCase().includes(searchTerm.toLowerCase()))
+            }))
+            resetTranscript();
+        }
+        else if (finalTranscript.toLowerCase().includes('pause')) {
+            audioRef.current.pause();
+
+            setSongStatus('paused');
+            resetTranscript();
+        }
+
+
     }, [finalTranscript]);
 
     const [songPlaying, setSongPlaying] = useState(null);
@@ -73,7 +86,7 @@ export const PlayerProvider = ({ children }) => {
         } else {
             audioRef.current.pause();
             setSongStatus('paused');
-        }       
+        }
     }
     const isSongPlaying = (song) => {
         return songPlaying === song;
@@ -83,10 +96,10 @@ export const PlayerProvider = ({ children }) => {
     }
 
     function formatDuration(duration) {
-    const minutes = Math.floor(duration / 60);
-    const seconds = Math.floor(duration % 60);
-    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-}
+        const minutes = Math.floor(duration / 60);
+        const seconds = Math.floor(duration % 60);
+        return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+    }
 
 
     return (
@@ -184,12 +197,22 @@ export const PlayerProvider = ({ children }) => {
                             </div>
                             <div className="flex items-center">
                                 <span className="text-xs text-gray-100 font-light">
-    {formatDuration(currentTime)}
-</span>
+                                    {formatDuration(currentTime)}
+                                </span>
+                                <div className="absolute inset-x-0 top-0 border-b-4 border-gray-100 rounded transform hover:border-green-200" style={{ width: `${progress}%` }} />
                                 <div className="overflow-hidden relative flex-1 mx-2 rounded">
                                     <div className="border-b-4 border-gray-400 rounded" />
-                                    <div className="absolute inset-x-0 top-0 -translate-x-48 border-b-4 border-gray-100 rounded transform hover:border-green-200" />
+                                    <div className={`absolute inset-x-0 top-0 -translate-x-${progress} border-b-4 border-gray-100 rounded transform hover:border-green-200`} />
                                 </div>
+
+                                <div className="mb-1 text-base font-medium dark:text-white">Small</div>
+                                <div className="w-full bg-gray-200 rounded-full h-1.5 mb-4 dark:bg-gray-700">
+                                    <div
+                                        className="bg-blue-600 h-1.5 rounded-full dark:bg-blue-500"
+                                        style={{ width: `${progress}%` }}
+                                    />
+                                </div>
+
                                 <span className="text-xs text-gray-100 font-light">
                                     {audioRef.current && formatDuration(audioRef.current.duration)}
                                 </span>
