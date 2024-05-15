@@ -5,6 +5,7 @@ import { VoiceProvider } from '../Context/voiceContext';
 import { AppProvider } from '../Context/userContext';
 import { PlayerProvider } from '@/Context/PlayerContext';
 import { ArtistProvider } from '@/Context/ArtistContext';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 const Template = ({ children }) => {
 
@@ -15,7 +16,10 @@ const Template = ({ children }) => {
                 <AppProvider>
                     <ArtistProvider>
                         <PlayerProvider>
-                            {children}
+<GoogleOAuthProvider clientId="1052902178904-88iukpsjling8avba8980jf1oo6ejuht.apps.googleusercontent.com">
+{children}
+    </GoogleOAuthProvider>;
+                          
                         </PlayerProvider>
                     </ArtistProvider>
                 </AppProvider>
