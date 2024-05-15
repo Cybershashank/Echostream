@@ -55,8 +55,8 @@ router.get('/delete', (req, res) => {
         });
 });
 
-router.put('/update/:id',  (req, res) => {
-    Model.findByIdAndUpdate(req.params.id, req.body, { new: true })
+router.put('/update', verifyToken , (req, res) => {
+    Model.findByIdAndUpdate(req.user._id, req.body, { new: true })
         .then((result) => {
             console.log(result);
             res.json(result);

@@ -9,29 +9,6 @@ const Editprofile = () => {
     JSON.parse(sessionStorage.getItem("user"))
   );
 
-  const [getDAta, setgetDAta] = useState();
-
-  const userData = () => {
-    fetch(`http://localhost:5000/user/getuser`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-auth-token': currentUser.token,
-      }
-    })
-      .then((response) => {
-        console.log(response.status);
-        return response.json();
-      })
-      .then((data) => {
-        console.log(data);
-        setgetDAta(data);
-      })
-      .catch((err) => {
-        console.log(err);
-      }); 
-  }
-
   const uploadProfileImage = (e) => {
     const file = e.target.files[0];
     const fd = new FormData();
@@ -47,7 +24,7 @@ const Editprofile = () => {
     });
   }
   const updateProfile = (data) => {
-    fetch(`${process.env.NEXT_PUBLIC_API_URL}/user/update/${currentUser._id}`, {
+    fetch(`http://localhost:5000/user/update`, {
       method: 'PUT',
       body: JSON.stringify(data),
       headers: {
