@@ -40,8 +40,6 @@ const manage_series = () => {
         <td className="py-4 w-1/4 px-6 text-left text-gray-600  border-b border-gray-200 truncate">
           {obj.category}
         </td>
-        <td className="py-4  border-b border-gray-200">{obj.genre}</td>
-        <td className="py-4  border-b border-gray-200">{obj.discription}</td>
         <td className="py-4  border-b border-gray-200">
           <span className="bg-green-500 text-white py-1 px-2 rounded-full text-xs">
             {obj.language}
