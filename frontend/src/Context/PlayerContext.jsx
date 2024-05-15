@@ -77,7 +77,7 @@ export const PlayerProvider = ({ children }) => {
             audioRef.current.pause();
             audioRef.current.currentTime = 0;
             setSongStatus('stopped');
-        }
+        } 
     }
     const togglePause = () => {
         if (audioRef.current.paused) {
