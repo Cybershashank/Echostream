@@ -31,24 +31,7 @@ const Profile = () => {
     getUserInfo();
   }, []);
 
-  const useForm = useFormik({
-    initialValues: currentUser,
-    onSubmit: async (data) => {
-      console.log(data);
-      const res = await fetch(url + "/user/update" + currentUser._id, {
-        method: "PUT",
-        body: JSON.stringify(data),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      console.log(res.status);
-      const userData = await res.json();
-      console.log(userData);
-      setCurrentUser(userData);
-      sessionStorage.setItem("user", JSON.stringify(userData));
-    },
-  });
+ 
   return (
     <>
       <section className="relative pt-40 pb-24">
