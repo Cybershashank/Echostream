@@ -9,6 +9,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import useVoiceContext from '@/Context/voiceContext';
 
 
 
@@ -21,6 +22,16 @@ const browse_podcast = () => {
   const [religionSeries, setReligionSeries] = useState([]);
   const [romanceSeries, setRomanceSeries] = useState([]);
   const [horrorSeries, setHorrorSeries] = useState([]);
+
+  const { performActionUsingVoice, finalTranscript, fillInputUsingVoice, resetTranscript } = useVoiceContext();
+
+  useEffect(() => {
+
+    if(finalTranscript.toLowerCase().includes('play podcast ')){
+      googleBtnRef.current.click();
+      resetTranscript();
+    }
+  }, [finalTranscript]);
 
 
   const fetchPodcastData = async () => {
@@ -305,6 +316,8 @@ const browse_podcast = () => {
     fetchPodcastData();
     fetchHorrorSeries();
   }, [])
+
+  
 
   const displayHorror = () => {
     return horrorSeries.map(series => (
