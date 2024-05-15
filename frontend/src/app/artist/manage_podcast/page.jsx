@@ -63,7 +63,7 @@ const ManagePodcast = () => {
 
   return (
     <>
-      <div className="shadow-lg rounded-lg h-screen overflow-hidden mx-4 md:mx-10">
+      <div className="shadow-lg rounded-lg  overflow-hidden mx-4 md:mx-10">
         <table className="w-full table-fixed">
           <thead>
             <tr className="bg-gray-100">

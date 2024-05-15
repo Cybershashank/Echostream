@@ -35,6 +35,7 @@ const editProfile = () => {
       });
   }
 
+<<<<<<< HEAD
   const uploadProfileImage = (e) => {
     const file = e.target.files[0];
     const fd = new FormData();
@@ -49,6 +50,9 @@ const editProfile = () => {
       }
     });
   }
+=======
+  
+>>>>>>> d73abad8123f75fffa43f866647552a352ffe8ff
 
   return (
     <div>

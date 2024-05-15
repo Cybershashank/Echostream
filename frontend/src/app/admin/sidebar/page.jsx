@@ -102,52 +102,8 @@ const Sidebar = () => {
                     <span className="ml-3">Feedback</span>
                   </Link>
                 </li>
-
-
-
-
-
               </ul>
               <div className="space-y-2 pt-2">
-                <Link
-                  href="#"
-                  className="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 group transition duration-75 flex items-center p-2"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-diamond">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M6 5h12l3 5l-8.5 9.5a.7 .7 0 0 1 -1 0l-8.5 -9.5l3 -5" />
-                    <path d="M10 12l-2 -2.2l.6 -1" />
-                  </svg>
-                  <span className="ml-4">Upgrade to Pro</span>
-                </Link>
-                <Link
-                  href="#"
-                  target="_blank"
-                  className="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 group transition duration-75 flex items-center p-2"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-clipboard-text">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" />
-                    <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
-                    <path d="M9 12h6" />
-                    <path d="M9 16h6" />
-                  </svg>
-                  <span className="ml-3">Documentation</span>
-                </Link>
-                <Link
-                  href="#"
-                  target="_blank"
-                  className="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 group transition duration-75 flex items-center p-2"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-components">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M3 12l3 3l3 -3l-3 -3z" />
-                    <path d="M15 12l3 3l3 -3l-3 -3z" />
-                    <path d="M9 6l3 3l3 -3l-3 -3z" />
-                    <path d="M9 18l3 3l3 -3l-3 -3z" />
-                  </svg>
-                  <span className="ml-3">Components</span>
-                </Link>
                 <Link
                   href="/contact"
                   target="_blank"

@@ -15,14 +15,6 @@ router.post('/add', (req, res) => {
         });
 });
 
-router.get('/add', (req, res) => {
-    res.send('add response from feedback router');
-});
-
-router.get('/getall', (req, res) => {
-    res.send('getall response from feedback router');
-
-});
 
 router.get('/delete', (req, res) => {
     Model.findByIdAndDelete(req.params.id)
@@ -38,12 +30,24 @@ router.get('/update', (req, res) => {
     res.send('update response from feedback router');
 });
 
+router.get('/getall', (req, res) => {
+    Model.find({})
+        .then((result) => {
+            res.json(result);
+
+        }).catch((err) => {
+            console.error(err);
+            res.state(500).json(err)
+        });
+
+});
+
 router.post("/authenticate", (req, res) => {
     Model.find(req.body)
         .then((result) => {
             if (result) {
                 const { _email, message } = result;
-                const payload = { _email, message };
+                const payload = { _email, message, rating };
 
                 jwt.sign(
                     payload,

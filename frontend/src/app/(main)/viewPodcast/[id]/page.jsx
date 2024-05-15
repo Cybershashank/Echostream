@@ -1,10 +1,33 @@
 'use client';
 import usePlayerContext from '@/Context/PlayerContext';
+import useVoiceContext from '@/Context/voiceContext';
 import { IconPlayerPause, IconPlayerPlayFilled } from '@tabler/icons-react';
 import { useParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
 
 const viewPodcast = () => {
+
+  const { performActionUsingVoice, finalTranscript, fillInputUsingVoice, resetTranscript } = useVoiceContext();
+
+  useEffect(() => {
+
+
+    if(finalTranscript.toLowerCase().includes('search series ')){
+      const searchTerm = finalTranscript.split('search series ').at(-1);
+      console.log(searchTerm);
+      setPodcastList(filterList.filter((pod) => {
+        return (pod.name.toLowerCase().includes(searchTerm.toLowerCase()))
+      }))
+      resetTranscript();
+    }
+    else if(finalTranscript.toLowerCase().includes('play episode')){
+      const view = finalTranscript.split('play episode ').at(-1);
+      playerAction(podcastList[view], 'play');
+      resetTranscript();
+    }
+
+  
+  }, [finalTranscript]);
 
   const { id } = useParams();
   const [series, setseries] = useState([]);
@@ -62,6 +85,7 @@ const viewPodcast = () => {
           </div>
           <div className='col-span-5'>
             <div className='flex items-center gap-x-5'>
+            <p className="">{index+1}</p>
               <img style={{ height: 50 }} className='h-48' src={`${process.env.NEXT_PUBLIC_API_URL}/${podcast.image}`} alt="" />
               <p>{podcast.title}</p>
             </div>

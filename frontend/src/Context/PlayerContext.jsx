@@ -1,9 +1,33 @@
 import { IconPlayerPause, IconPlayerPlayFilled } from '@tabler/icons-react';
-import React, { createContext, useContext, useRef, useState } from 'react'
+import React, { createContext, useContext, useEffect, useRef, useState } from 'react'
+import useVoiceContext from './voiceContext';
 
 const PlayerContext = createContext();
 
 export const PlayerProvider = ({ children }) => {
+
+    const { performActionUsingVoice, finalTranscript, fillInputUsingVoice, resetTranscript } = useVoiceContext();
+
+    useEffect(() => {
+  
+  
+      if(finalTranscript.toLowerCase().includes('search series ')){
+        const searchTerm = finalTranscript.split('search series ').at(-1);
+        console.log(searchTerm);
+        setPodcastList(filterList.filter((pod) => {
+          return (pod.name.toLowerCase().includes(searchTerm.toLowerCase()))
+        }))
+        resetTranscript();
+      }
+      else if(finalTranscript.toLowerCase().includes('pause')){
+        audioRef.current.pause();
+
+       setSongStatus('paused');
+        resetTranscript();
+      }
+  
+    
+    }, [finalTranscript]);
 
     const [songPlaying, setSongPlaying] = useState(null);
     const [songStatus, setSongStatus] = useState('stopped');
@@ -31,7 +55,6 @@ export const PlayerProvider = ({ children }) => {
             setSongStatus('stopped');
         }
     }
-
     const togglePause = () => {
         if (audioRef.current.paused) {
             audioRef.current.play();
@@ -39,13 +62,11 @@ export const PlayerProvider = ({ children }) => {
         } else {
             audioRef.current.pause();
             setSongStatus('paused');
-        }
+        }       
     }
-
     const isSongPlaying = (song) => {
         return songPlaying === song;
     }
-
     const getSongDuration = () => {
         return audioRef.current.duration;
     }
