@@ -40,6 +40,10 @@ router.get('/getbymail/:email', (req, res) => {
     console.log(req.body);
 });
 
+router.get('/getuser', verifyToken, (req, res) => {
+    res.status(200).json(req.user);
+});
+
 
 router.get('/delete', (req, res) => {
     Model.findByIdAndDelete(req.params.id)
