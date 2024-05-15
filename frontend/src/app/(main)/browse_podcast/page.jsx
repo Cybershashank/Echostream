@@ -363,86 +363,101 @@ const browse_podcast = () => {
 
 
       <div className='flex overflow-x-scroll m-5 justify-between scrollbar-style'>
-        <div className='relative mx-2 rounded-xl'>
-          <a href=''>
-            <div className='h-72 w-72  inline-block relative flex-shrink-0 rounded-lg'>
-              <img alt='Rich Dad Poor Dad | ' loading='lazy' decoding='async' data-nimg='fill' className='rounded-lg contain' sizes='100vw' srcSet='https://images.cdn.kukufm.com/w:350/f:webp/q:100/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/06c81664f3114a7c9020f4a17be85bd4.jpeg' />
-            </div>
-          </a>
-          <div className='my-2 text-sm flex justify-between items-end w-72'>
-            <a className='self-center' href=''>
-              <p className='px-2 font-sm font-medium'>The Kerala girl</p>
+        <Link href={'/viewPodcast/' + podcastList._id}>
+          <div className='relative mx-2 rounded-xl'>
+            <a href=''>
+              <div className='h-72 w-72  inline-block relative flex-shrink-0 rounded-lg'>
+                <img alt='Rich Dad Poor Dad | ' loading='lazy' decoding='async' data-nimg='fill' className='rounded-lg contain' sizes='100vw' srcSet='https://images.cdn.kukufm.com/w:350/f:webp/q:100/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/06c81664f3114a7c9020f4a17be85bd4.jpeg' />
+              </div>
             </a>
-            <button className='h-10 w-10 rounded-full bg-[#ab21c6] hover:bg-[#ab21c6] flex justify-center items-center flex-shrink-0' href=''>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-player-play"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 4v16l13 -8z" /></svg>
-            </button>
+            <div className='my-2 text-sm flex justify-between items-end w-72'>
+              <a className='self-center' href=''>
+                <p className='px-2 font-sm font-medium'>The Kerala girl</p>
+              </a>
+              <button className='h-10 w-10 rounded-full bg-[#ab21c6] hover:bg-[#ab21c6] flex justify-center items-center flex-shrink-0' href=''>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-player-play"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 4v16l13 -8z" /></svg>
+              </button>
+            </div>
           </div>
-        </div>
+        </Link>
 
-        <div className='relative mx-2 rounded-xl'>
-          <a href=''>
-            <div className='h-72 w-72  inline-block relative flex-shrink-0 rounded-lg'>
-              <img alt='Rich Dad Poor Dad | ' loading='lazy' decoding='async' data-nimg='fill' className='rounded-lg contain' sizes='100vw' srcSet='https://images.cdn.kukufm.com/w:350/f:webp/q:100/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/12faae0f14ed4c83bb4d67cfe4d5f09b.png' />
-            </div>
-          </a>
-          <div className='my-2 text-sm flex justify-between items-end w-72'>
-            <a className='self-center' href=''>
-              <p className='px-2 font-sm font-medium'>Shrimad Bhagwat Geeta</p>
-            </a>
-            <button className='h-10 w-10 rounded-full bg-[#ab21c6] hover:bg-[#ab21c6] flex justify-center items-center flex-shrink-0' href=''>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-player-play"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 4v16l13 -8z" /></svg>
-            </button>
-          </div>
-        </div>
+        <Link href={'/viewPodcast/' + podcastList._id}>
 
-        <div className='relative mx-2 rounded-xl'>
-          <a href=''>
-            <div className='h-72 w-72  inline-block relative flex-shrink-0 rounded-lg'>
-              <img alt='Rich Dad Poor Dad | ' loading='lazy' decoding='async' data-nimg='fill' className='rounded-lg contain' sizes='100vw' srcSet='https://images.cdn.kukufm.com/w:350/f:webp/q:100/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/bd00aeeec68b4bd48ea5e10bb8549977.jpeg' />
-            </div>
-          </a>
-          <div className='my-2 text-sm flex justify-between items-end w-72'>
-            <a className='self-center' href=''>
-              <p className='px-2 font-sm font-medium'>Child Killer</p>
+          <div className='relative mx-2 rounded-xl'>
+            <a href=''>
+              <div className='h-72 w-72  inline-block relative flex-shrink-0 rounded-lg'>
+                <img alt='Rich Dad Poor Dad | ' loading='lazy' decoding='async' data-nimg='fill' className='rounded-lg contain' sizes='100vw' srcSet='https://images.cdn.kukufm.com/w:350/f:webp/q:100/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/12faae0f14ed4c83bb4d67cfe4d5f09b.png' />
+              </div>
             </a>
-            <button className='h-10 w-10 rounded-full bg-[#ab21c6] hover:bg-[#ab21c6] flex justify-center items-center flex-shrink-0' href=''>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-player-play"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 4v16l13 -8z" /></svg>
-            </button>
+            <div className='my-2 text-sm flex justify-between items-end w-72'>
+              <a className='self-center' href=''>
+                <p className='px-2 font-sm font-medium'>Shrimad Bhagwat Geeta</p>
+              </a>
+              <button className='h-10 w-10 rounded-full bg-[#ab21c6] hover:bg-[#ab21c6] flex justify-center items-center flex-shrink-0' href=''>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-player-play"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 4v16l13 -8z" /></svg>
+              </button>
+            </div>
           </div>
-        </div>
+        </Link>
 
-        <div className='relative mx-2 rounded-xl'>
-          <a href=''>
-            <div className='h-72 w-72  inline-block relative flex-shrink-0 rounded-lg'>
-              <img alt='Rich Dad Poor Dad | ' loading='lazy' decoding='async' data-nimg='fill' className='rounded-lg contain' sizes='100vw' srcSet='https://images.cdn.kukufm.com/w:350/f:webp/q:100/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/222a258d5e0f4121ab0ceaa5026982da.png' />
-            </div>
-          </a>
-          <div className='my-2 text-sm flex justify-between items-end w-72'>
-            <a className='self-center' href=''>
-              <p className='px-2 font-sm font-medium'>Rich Dad Poor Dad</p>
-            </a>
-            <button className='h-10 w-10 rounded-full bg-[#ab21c6] hover:bg-[#ab21c6] flex justify-center items-center flex-shrink-0' href=''>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-player-play"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 4v16l13 -8z" /></svg>
-            </button>
-          </div>
-        </div>
+        <Link href={'/viewPodcast/' + podcastList._id}>
 
-        <div className='relative mx-2 rounded-xl'>
-          <a href=''>
-            <div className='h-72 w-72  inline-block relative flex-shrink-0 rounded-lg'>
-              <img alt='Rich Dad Poor Dad | ' loading='lazy' decoding='async' data-nimg='fill' className='rounded-lg contain' sizes='100vw' srcSet='https://images.cdn.kukufm.com/w:350/f:webp/q:100/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/3a918e2cbd544ded91f365406ecb6145.png' />
-            </div>
-          </a>
-          <div className='my-2 text-sm flex justify-between items-end w-72'>
-            <a className='self-center' href=''>
-              <p className='px-2 font-sm font-medium'>Secret Billionaire</p>
+          <div className='relative mx-2 rounded-xl'>
+            <a href=''>
+              <div className='h-72 w-72  inline-block relative flex-shrink-0 rounded-lg'>
+                <img alt='Rich Dad Poor Dad | ' loading='lazy' decoding='async' data-nimg='fill' className='rounded-lg contain' sizes='100vw' srcSet='https://images.cdn.kukufm.com/w:350/f:webp/q:100/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/bd00aeeec68b4bd48ea5e10bb8549977.jpeg' />
+              </div>
             </a>
-            <button className='h-10 w-10 rounded-full bg-[#ab21c6] hover:bg-[#ab21c6] flex justify-center items-center flex-shrink-0' href=''>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-player-play"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 4v16l13 -8z" /></svg>
-            </button>
+            <div className='my-2 text-sm flex justify-between items-end w-72'>
+              <a className='self-center' href=''>
+                <p className='px-2 font-sm font-medium'>Child Killer</p>
+              </a>
+              <button className='h-10 w-10 rounded-full bg-[#ab21c6] hover:bg-[#ab21c6] flex justify-center items-center flex-shrink-0' href=''>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-player-play"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 4v16l13 -8z" /></svg>
+              </button>
+            </div>
           </div>
-        </div>
+        </Link>
+
+        <Link href={'/viewPodcast/' + podcastList._id}>
+
+          <div className='relative mx-2 rounded-xl'>
+            <a href=''>
+              <div className='h-72 w-72  inline-block relative flex-shrink-0 rounded-lg'>
+                <img alt='Rich Dad Poor Dad | ' loading='lazy' decoding='async' data-nimg='fill' className='rounded-lg contain' sizes='100vw' srcSet='https://images.cdn.kukufm.com/w:350/f:webp/q:100/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/222a258d5e0f4121ab0ceaa5026982da.png' />
+              </div>
+            </a>
+            <div className='my-2 text-sm flex justify-between items-end w-72'>
+              <a className='self-center' href=''>
+                <p className='px-2 font-sm font-medium'>Rich Dad Poor Dad</p>
+              </a>
+              <button className='h-10 w-10 rounded-full bg-[#ab21c6] hover:bg-[#ab21c6] flex justify-center items-center flex-shrink-0' href=''>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-player-play"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 4v16l13 -8z" /></svg>
+              </button>
+            </div>
+          </div>
+        </Link>
+
+        <Link href={'/viewPodcast/' + podcastList._id}>
+
+          <div className='relative mx-2 rounded-xl'>
+            <a href=''>
+              <div className='h-72 w-72  inline-block relative flex-shrink-0 rounded-lg'>
+                <img alt='Rich Dad Poor Dad | ' loading='lazy' decoding='async' data-nimg='fill' className='rounded-lg contain' sizes='100vw' srcSet='https://images.cdn.kukufm.com/w:350/f:webp/q:100/https://s3.ap-south-1.amazonaws.com/kukufm/channel_icons/3a918e2cbd544ded91f365406ecb6145.png' />
+              </div>
+            </a>
+            <div className='my-2 text-sm flex justify-between items-end w-72'>
+              <a className='self-center' href=''>
+                <p className='px-2 font-sm font-medium'>Secret Billionaire</p>
+              </a>
+              <button className='h-10 w-10 rounded-full bg-[#ab21c6] hover:bg-[#ab21c6] flex justify-center items-center flex-shrink-0' href=''>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-player-play"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 4v16l13 -8z" /></svg>
+              </button>
+            </div>
+          </div>
+        </Link>
       </div>
+
 
 
 

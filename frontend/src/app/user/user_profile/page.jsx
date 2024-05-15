@@ -8,7 +8,7 @@ const Profile = () => {
     JSON.parse(sessionStorage.getItem("user"))
   );
 
-
+  
 
   const getUserInfo = () => {
     fetch(`http://localhost:5000/user/getbyid`, {
@@ -20,6 +20,8 @@ const Profile = () => {
       })
       .then((data) => {
         console.log(data);
+        
+        setCurrentUser(data)
       })
       .catch((err) => {
         console.log(err);

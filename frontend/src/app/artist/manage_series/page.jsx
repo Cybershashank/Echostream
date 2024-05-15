@@ -60,7 +60,7 @@ const manage_series = () => {
   return (
     <>
         <>
-      <div className="shadow-lg rounded-lg h-screen overflow-hidden mx-4 md:mx-10">
+      <div className="shadow-lg rounded-lg overflow-hidden mx-4 md:mx-10">
         <table className="w-full table-fixed">
           <thead>
             <tr className="bg-gray-100">
@@ -70,12 +70,7 @@ const manage_series = () => {
               <th className="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">
                Category
               </th>
-              <th className="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">
-                Genre
-              </th>
-              <th className="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">
-                Description
-              </th>
+            
               <th className="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">
                 Language
               </th>
