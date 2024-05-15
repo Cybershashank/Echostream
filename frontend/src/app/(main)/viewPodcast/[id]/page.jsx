@@ -85,7 +85,7 @@ const viewPodcast = () => {
           </div>
           <div className='col-span-5'>
             <div className='flex items-center gap-x-5'>
-            <p className="">{index+1}</p>
+            <p className="">{index}</p>
               <img style={{ height: 50 }} className='h-48' src={`${process.env.NEXT_PUBLIC_API_URL}/${podcast.image}`} alt="" />
               <p>{podcast.title}</p>
             </div>

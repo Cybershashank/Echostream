@@ -2,13 +2,10 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
-
 const Profile = () => {
   const [currentUser, setCurrentUser] = useState(
     JSON.parse(sessionStorage.getItem("user"))
   );
-
-  
 
   const getUserInfo = () => {
     fetch(`http://localhost:5000/user/getbyid`, {
@@ -60,7 +57,7 @@ const Profile = () => {
                 {currentUser.email}
               </p>
             </div>
-            <Link to="/User/editProfile">
+            <Link href="/user/editprofile">
                 <button className="py-3.5 px-5 rounded-full bg-indigo-600 text-white font-semibold text-base leading-7 shadow-sm shadow-transparent transition-all duration-500 hover:shadow-gray-100 hover:bg-indigo-700">
                   Edit Profile
                 </button>
