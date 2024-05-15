@@ -20,7 +20,7 @@ const seriesForm = () => {
     }).then((res) => {
       if (res.status === 200) {
         console.log("file uploaded");
-        seriesForm.setFieldValue('cover', file.name, file.category);
+        seriesForm.setFieldValue('cover', file.name, file.category, file.language, file.cover);
         toast.success('File Uploaded!!');
       }
     });
@@ -30,6 +30,7 @@ const seriesForm = () => {
     initialValues: {
       name: '',
       category: '',
+      language: '',
       cover: ''
     },
     onSubmit: async (values) => {
@@ -171,6 +172,31 @@ const seriesForm = () => {
                         <option value="Trending">Trending</option>
                       </select>
                     </div>
+
+
+                    <div className="mb-2">
+                <label htmlFor="" className='form-label fw-bold'>Language</label>
+                <select
+                  id='language'
+                  value={seriesForm.values.language}
+                  onChange={seriesForm.handleChange}
+                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  placeholder="Language"
+                  >
+                  <option value="">Select Language</option>
+                
+                  <option value="English">English</option>
+                  <option value="Hindi">Hindi</option>
+                  <option value="Marathi">Marathi</option>
+                  <option value="Bangla">Bangla</option>
+                  <option value="Telugu">Telugu</option>
+                  <option value="Health">Health</option>
+                  <option value="Tamil">Tamil</option>
+                  <option value="Malayalam">Malayalam</option>
+                  <option value="Gujrati">Gujrati</option>
+                  <option value="Punjabi">Punjabi</option>
+                </select>
+              </div>
                     
                   </div>
                 </div>

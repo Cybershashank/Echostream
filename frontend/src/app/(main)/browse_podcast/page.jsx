@@ -59,7 +59,7 @@ const browse_podcast = () => {
                 data-nimg='fill'
                 className='rounded-lg contain'
                 sizes='100vw'
-                src={'http://localhost:5000/'+series.cover}  />
+                src={'http://localhost:5000/' + series.cover} />
             </div>
           </Link>
         </div>
@@ -125,7 +125,7 @@ const browse_podcast = () => {
                 data-nimg='fill'
                 className='rounded-lg contain'
                 sizes='100vw'
-                src={'http://localhost:5000/'+series.cover}  />
+                src={'http://localhost:5000/' + series.cover} />
             </div>
           </Link>
         </div>
@@ -191,7 +191,7 @@ const browse_podcast = () => {
                 data-nimg='fill'
                 className='rounded-lg contain'
                 sizes='100vw'
-                src={'http://localhost:5000/'+series.cover} />
+                src={'http://localhost:5000/' + series.cover} />
             </div>
           </Link>
         </div>
@@ -255,7 +255,7 @@ const browse_podcast = () => {
                 data-nimg='fill'
                 className='rounded-lg contain'
                 sizes='100vw'
-                src={'http://localhost:5000/'+series.cover}  />
+                src={'http://localhost:5000/' + series.cover} />
             </div>
           </Link>
         </div>
@@ -319,7 +319,7 @@ const browse_podcast = () => {
                 data-nimg='fill'
                 className='rounded-lg contain'
                 sizes='100vw'
-                src={'http://localhost:5000/'+series.cover}  />
+                src={'http://localhost:5000/' + series.cover} />
             </div>
           </Link>
         </div>
@@ -449,7 +449,7 @@ const browse_podcast = () => {
       {/* Top 10 in India */}
       <div>
         <div className='px-5'>
-          
+
           <header className='flex justify-between md:justify-start items-center py-3'>
             <div className='flex'>
               <h2 className='text-base font-semibold md:truncate m1-1'>Top 10 in India</h2>
@@ -470,7 +470,6 @@ const browse_podcast = () => {
           </div>
         </div>
       </div>
-
 
 
 
@@ -508,8 +507,6 @@ const browse_podcast = () => {
 
 
 
-
-
       {/* motivational */}
       <div>
         <div className='px-5'>
@@ -544,8 +541,7 @@ const browse_podcast = () => {
 
 
 
-      {/* romance
- */}
+      {/* romance */}
       <div>
         <div className='px-5'>
           <Link href='/show/Romance'>
@@ -574,17 +570,12 @@ const browse_podcast = () => {
               displayRomance()
             }
           </div>
-          </div>
+        </div>
       </div>
 
 
 
-
-
-
-
-      {/* religion
- */}
+      {/* religion */}
       <div>
         <div className='px-5'>
           <Link href='/show/religion'>
@@ -617,7 +608,8 @@ const browse_podcast = () => {
       </div>
 
 
-{/* Horror */}
+
+      {/* Horror */}
       <div>
         <div className='px-5'>
           <Link href='/show/horror'>

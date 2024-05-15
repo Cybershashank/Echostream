@@ -1,7 +1,25 @@
+'use client'
 import React from 'react'
 import Link from 'next/link';
+import useAppContext from '@/Context/userContext';
 
 const AdminNavbar = () => {
+  const {adminLogout} = useAppContext();
+  const {loggedin} = useAppContext();
+
+  const showLoggedIn = () => {
+    if(loggedin){
+      return(
+  
+        <button
+        onClick={adminLogout}
+          className="text-white bg-red-400 hover:bg-red-600 inline-flex items-center justify-center px-3 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm "
+        >
+          Logout
+        </button>
+      )
+    }
+  }
   return (
     <>
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
@@ -20,21 +38,9 @@ const AdminNavbar = () => {
               </span>
             </Link>
             <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-
-              <div className="flex-shrink-0 flex px-2 py-3 items-center space-x-8 flex-1 justify-end justify-self-end ">
-                <Link
-                  className="text-gray-700 hover:text-lime-700 text-sm font-medium"
-                  href="/login"
-                >
-                  Login
-                </Link>
-                <Link
-                  className="text-white bg-gray-800 hover:bg-gray-900 inline-flex items-center justify-center px-3 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm "
-                  href="/signup"
-                >
-                  Sign up
-                </Link>
-              </div>
+   {
+    showLoggedIn()
+   }
 
               <button
                 data-collapse-toggle="navbar-cta"
