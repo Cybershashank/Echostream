@@ -8,8 +8,8 @@ const Profile = () => {
   );
 
   const getUserInfo = () => {
-    fetch(`http://localhost:5000/user/getbyid`, {
-     
+    fetch(`http://localhost:5000/user/getbyuser`, {
+
     })
       .then((response) => {
         console.log(response.status);
@@ -17,7 +17,7 @@ const Profile = () => {
       })
       .then((data) => {
         console.log(data);
-        
+
         setCurrentUser(data)
       })
       .catch((err) => {
@@ -29,7 +29,7 @@ const Profile = () => {
     getUserInfo();
   }, []);
 
- 
+
   return (
     <>
       <section className="relative pt-40 pb-24">
@@ -40,13 +40,13 @@ const Profile = () => {
         />
         <div className="w-full max-w-7xl mx-auto px-6 md:px-8">
           <div className="flex items-center justify-center sm:justify-start relative z-10 mb-5">
-          <img
-                      className="object-cover w-40 h-40 p-1 rounded-full ring-2 ring-indigo-300 dark:ring-indigo-500"
-                      src={
-                        currentUser.avatar &&
-                        `http://localhost:3000/${currentUser.avatar}`}
-                      alt="Bordered avatar"
-                    />
+            <img
+              className="object-cover w-40 h-40 p-1 rounded-full ring-2 ring-indigo-300 dark:ring-indigo-500"
+              src={
+                currentUser.avatar &&
+                `http://localhost:3000/${currentUser.avatar}`}
+              alt="Bordered avatar"
+            />
           </div>
           <div className="flex flex-col sm:flex-row max-sm:gap-5 items-center justify-between mb-5">
             <div className="block">
@@ -58,12 +58,12 @@ const Profile = () => {
               </p>
             </div>
             <Link href="/user/editprofile">
-                <button className="py-3.5 px-5 rounded-full bg-indigo-600 text-white font-semibold text-base leading-7 shadow-sm shadow-transparent transition-all duration-500 hover:shadow-gray-100 hover:bg-indigo-700">
-                  Edit Profile
-                </button>
-              </Link>
+              <button className="py-3.5 px-5 rounded-full bg-indigo-600 text-white font-semibold text-base leading-7 shadow-sm shadow-transparent transition-all duration-500 hover:shadow-gray-100 hover:bg-indigo-700">
+                Edit Profile
+              </button>
+            </Link>
           </div>
-         
+
         </div>
       </section>
 
