@@ -2,7 +2,7 @@ const { Schema, model } = require('../connection');
 
 const mySchema = new Schema({
     rating: String,
-    username:String,
+    name:String,
     email: String,
     message: String,
     createdAt: { type: Date, default: Date.now },
