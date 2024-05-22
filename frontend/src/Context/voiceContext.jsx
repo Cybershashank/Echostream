@@ -64,7 +64,7 @@ const pageDetails = [
     pagePath: 'http://localhost:3000/'
   },
   {
-    pageName: 'sign up',
+    pageName: 'signup',
     pagePath: '/signup'
   },
   {
@@ -252,7 +252,7 @@ export const VoiceProvider = ({ children }) => {
       }
     },
     {
-      command: ['create an account', 'signup page open karo', 'signup open karo', 'signup page open', 'signup page'],
+      command: ['create an account', 'sign up page open karo', 'sign up open karo', 'sign up page open', 'sign up page'],
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('signup')

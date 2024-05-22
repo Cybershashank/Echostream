@@ -22,7 +22,7 @@ const viewPodcast = () => {
     }
     else if(finalTranscript.toLowerCase().includes('play episode')){
       const view = finalTranscript.split('play episode ').at(-1);
-      playerAction(podcastList[view], 'play');
+      playerAction(podcastList[view-1], 'play');
       resetTranscript();
     }
 
@@ -33,7 +33,7 @@ const viewPodcast = () => {
   const [series, setseries] = useState([]);
   const [podcastList, setPodcastList] = useState([]);
 
-  const { playerAction, isSongPlaying, songStatus } = usePlayerContext();
+  const { playerAction, isSongPlaying, songStatus, setCurrentPodcastList } = usePlayerContext();
 
   const fetchSeriesData = async () => {
     const res = await fetch("http://localhost:5000/series/getbyid/" + id);
@@ -41,16 +41,17 @@ const viewPodcast = () => {
 
     const data = await res.json();
     console.log(data);
-    setseries(data)
+    setseries(data);
   }
-
+  
   const fetchPodcastData = async () => {
     const res = await fetch("http://localhost:5000/podcast/getbyseries/" + id);
     console.log(res.status);
-
+    
     const data = await res.json();
     console.log(data);
     setPodcastList(data)
+    setCurrentPodcastList(data);
   }
 
   useEffect(() => {
@@ -85,7 +86,7 @@ const viewPodcast = () => {
           </div>
           <div className='col-span-5'>
             <div className='flex items-center gap-x-5'>
-            <p className="">{index}</p>
+            <p className="">{index+1}</p>
               <img style={{ height: 50 }} className='h-48' src={`${process.env.NEXT_PUBLIC_API_URL}/${podcast.image}`} alt="" />
               <p>{podcast.title}</p>
             </div>

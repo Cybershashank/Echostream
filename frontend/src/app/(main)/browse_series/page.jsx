@@ -29,8 +29,8 @@ const browse_series = () => {
 
     else if(finalTranscript.toLowerCase().includes('open podcast ')){
       const view = finalTranscript.split('open podcast ').at(-1);
-      window.location.href = `/viewPodcast/${podcastList[view]._id}`
-     
+      console.log(parseInt(view));
+      window.location.href = `/viewPodcast/${podcastList[view-1]._id}`
       resetTranscript();
     }
   }, [finalTranscript]);

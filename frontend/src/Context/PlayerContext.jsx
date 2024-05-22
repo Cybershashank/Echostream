@@ -9,6 +9,7 @@ export const PlayerProvider = ({ children }) => {
     const { performActionUsingVoice, finalTranscript, fillInputUsingVoice, resetTranscript } = useVoiceContext();
     const [currentTime, setCurrentTime] = useState(0);
     const [progress, setProgress] = useState(0);
+    const [currentPodcastList, setCurrentPodcastList] = useState([]);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -57,6 +58,37 @@ export const PlayerProvider = ({ children }) => {
     const [songStatus, setSongStatus] = useState('stopped');
     const audioRef = useRef();
 
+    const nextItem = () => {
+        let song = null;
+        const index = currentPodcastList.indexOf(songPlaying);
+        if (index === currentPodcastList.length - 1) {
+            song = currentPodcastList[0];
+        } else {
+            song = currentPodcastList[index + 1];
+        }
+        setSongPlaying(song);
+        audioRef.current.src = `${process.env.NEXT_PUBLIC_API_URL}/${song.record}`;
+        audioRef.current.play();
+        setSongStatus('playing');
+        audioRef.current.currentTime = 0;
+
+    }
+
+    const prevItem = () => {
+        let song = null;
+        const index = currentPodcastList.indexOf(songPlaying);
+        if (index === 0) {
+            song = currentPodcastList[currentPodcastList.length - 1];
+        } else {
+            song = currentPodcastList[index - 1];
+        }
+        setSongPlaying(song);
+        audioRef.current.src = `${process.env.NEXT_PUBLIC_API_URL}/${song.record}`;
+        audioRef.current.play();
+        setSongStatus('playing');
+        audioRef.current.currentTime = 0;
+    }
+
     const playerAction = (song, action) => {
         console.log(song, action);
         console.log(songPlaying);
@@ -103,7 +135,7 @@ export const PlayerProvider = ({ children }) => {
 
 
     return (
-        <PlayerContext.Provider value={{ songPlaying, playerAction, isSongPlaying, togglePause, songStatus }}>
+        <PlayerContext.Provider value={{ songPlaying, playerAction, isSongPlaying, togglePause, songStatus, setCurrentPodcastList }}>
             {children}
             <audio className="hidden" ref={audioRef} />
             {
@@ -158,7 +190,7 @@ export const PlayerProvider = ({ children }) => {
                                         <path d="M6.59 12.83L4.4 15c-.58.58-1.59 1-2.4 1H0v-2h2c.29 0 .8-.2 1-.41l2.17-2.18 1.42 1.42zM16 4V1l4 4-4 4V6h-2c-.29 0-.8.2-1 .41l-2.17 2.18L9.4 7.17 11.6 5c.58-.58 1.59-1 2.41-1h2zm0 10v-3l4 4-4 4v-3h-2c-.82 0-1.83-.42-2.41-1l-8.6-8.59C2.8 6.21 2.3 6 2 6H0V4h2c.82 0 1.83.42 2.41 1l8.6 8.59c.2.2.7.41.99.41h2z" />
                                     </svg>
                                 </button>
-                                <button className="w-5 h-5 text-gray-100 mr-6">
+                                <button className="w-5 h-5 text-gray-100 mr-6" onClick={prevItem}>
                                     <svg
                                         className="fill-current"
                                         xmlns="http://www.w3.org/2000/svg"
@@ -176,7 +208,7 @@ export const PlayerProvider = ({ children }) => {
                                         )
                                     }
                                 </button>
-                                <button className="w-5 h-5 text-gray-100 mr-6">
+                                <button className="w-5 h-5 text-gray-100 mr-6" onClick={nextItem}>
                                     <svg
                                         className="fill-current"
                                         xmlns="http://www.w3.org/2000/svg"
