@@ -123,6 +123,10 @@ const pageDetails = [
     pageName: 'podcast series',
     pagePath: '/podcast_series'
   },
+  {
+    pageName: 'browse series',
+    pagePath: '/browse_series'
+  },
 
 
 
@@ -326,6 +330,13 @@ export const VoiceProvider = ({ children }) => {
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('browse podcast')
+      }
+    },
+    {
+      command: ['browse series', 'open browse series page', 'browse series page open karo', 'search series', 'search series page', 'open search series page'],
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('browse series')
       }
     },
     {
