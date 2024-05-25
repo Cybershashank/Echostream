@@ -8,6 +8,7 @@ const Editprofile = () => {
   const [currentUser, setCurrentUser] = useState(
     JSON.parse(sessionStorage.getItem("user"))
   );
+  console.log(currentUser);
 
   const uploadProfileImage = (e) => {
     const file = e.target.files[0];
@@ -38,7 +39,7 @@ const Editprofile = () => {
       })
       .then(data => {
         console.log(data);
-        setCurrentUser(data);
+        setCurrentUser({...currentUser, ...data});
       })
       .catch(err => console.log(err));
   }
