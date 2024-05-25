@@ -444,7 +444,7 @@ export const VoiceProvider = ({ children }) => {
       }
     },
     {
-      command: ['manage user', 'manage user page open karo', 'manage user open karo', 'manage user page open', 'manage user page', 'manage user'],
+      command: ['open manage users', 'manage user page open karo', 'manage user open karo', 'manage user page open', 'manage users page', 'manage users'],
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('manage user')
