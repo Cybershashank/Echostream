@@ -123,6 +123,10 @@ const pageDetails = [
     pageName: 'podcast series',
     pagePath: '/podcast_series'
   },
+  {
+    pageName: 'browse series',
+    pagePath: '/browse_series'
+  },
 
 
 
@@ -329,6 +333,13 @@ export const VoiceProvider = ({ children }) => {
       }
     },
     {
+      command: ['browse series', 'open browse series page', 'browse series page open karo', 'search series', 'search series page', 'open search series page'],
+      callback: (pageName) => {
+        console.log('Opening page: ', pageName);
+        voicePageNavigator('browse series')
+      }
+    },
+    {
       command: ['browse artist', 'open browse artist page', 'browse artist page open karo', 'search artist', 'search artist page', 'open search artist page'],
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
@@ -444,7 +455,7 @@ export const VoiceProvider = ({ children }) => {
       }
     },
     {
-      command: ['manage user', 'manage user page open karo', 'manage user open karo', 'manage user page open', 'manage user page', 'manage user'],
+      command: ['open manage users', 'manage user page open karo', 'manage user open karo', 'manage user page open', 'manage users page', 'manage users'],
       callback: (pageName) => {
         console.log('Opening page: ', pageName);
         voicePageNavigator('manage user')
