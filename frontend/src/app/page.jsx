@@ -1,8 +1,8 @@
 'use client';
 import React, { useEffect, useState } from 'react'
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import Navbar from './(main)/navbar'
+// import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+// import { Swiper, SwiperSlide } from 'swiper/react';
+// import Navbar from './(main)/navbar'
 import Link from 'next/link';
 
 import './styles.css';
@@ -645,7 +645,7 @@ const Home = () => {
             </div>
           </div>
 
-          <Swiper
+          {/* <Swiper
             spaceBetween={30}
             centeredSlides={true}
             autoplay={{
@@ -800,17 +800,7 @@ const Home = () => {
               </div>
             </SwiperSlide>
             ...
-          </Swiper>
-
-
-
-
-
-
-
-
-
-
+          </Swiper> */}
 
 
           <div className='lg:pt-[100px] py-[100px]'>
@@ -818,7 +808,7 @@ const Home = () => {
               <div>
                 <h1 className='text-base text-sm md:text-4x1'>
                   <div className='text-center text-dark mb-5 lg:mb-12'>
-                    <h2 className="text-4xl text-center font-bold text-gray-900 lg:text-center">
+                    <h2 className="text-4xl text-center text-white font-bold text-gray-900 lg:text-center">
                       Reviews
                     </h2>
                   </div>
