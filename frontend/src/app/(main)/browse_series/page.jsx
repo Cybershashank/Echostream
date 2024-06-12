@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react'
 
 const browse_series = () => {
 
-
+  
   const [filterList, setfilterList] = useState([])
   const [podcastList, setPodcastList] = useState([]);
 
